@@ -13,10 +13,9 @@
  *= require_tree .
  *= require_self
  */
-<<<<<<< HEAD:app/assets/stylesheets/application.scss
 @import "bootstrap-sprockets";
 @import "bootstrap";
-=======
+
 * {
     margin: 0;
     padding: 0;
@@ -30,4 +29,3 @@
   display: block;
   clear: both;
 }
->>>>>>> created cds/new view20%:app/assets/stylesheets/application.css

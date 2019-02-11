@@ -1,0 +1,2 @@
+class HistoryCd < ApplicationRecord
+end

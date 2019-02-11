@@ -53,5 +53,29 @@ p, span {
 .lower-container {
     width: 80%;
     margin: 0 auto;
-    background-color: #8A8;
+    background-color: #AAA;
+}
+.lower-cont-left {
+    width: 20%;
+    height: 400px;
+    padding: 20px;
+    float: left;
+    text-align: right;
+    background-color: #CC7;
+}
+.lower-cont-center {
+    width: 40%;
+    height: 400px;
+    padding: 20px;
+    float: left;
+    padding: 20px 30px;
+    background-color: #BB7;
+}
+.lower-cont-right {
+    width: 40%;
+    height: 400px;
+    padding: 20px;
+    float: left;
+    padding: 20px 20px;
+    background-color: #AA7;
 }

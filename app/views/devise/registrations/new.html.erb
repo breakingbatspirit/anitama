@@ -4,9 +4,43 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :namekana %><br />
+    <%= f.text_field :namekana, autofocus: true, autocomplete: "namekana" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :nickname %><br />
+    <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :postal %><br />
+    <%= f.text_field :postal, autofocus: true, autocomplete: "postsl" %>
+  </div>
+
+　<div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
+  </div>
+
+
+　<div class="field">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone, autofocus: true, autocomplete: "phone" %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
+
+
+
 
   <div class="field">
     <%= f.label :password %>

@@ -4,44 +4,44 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :名前 %><br />
     <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
   </div>
 
   <div class="field">
-    <%= f.label :namekana %><br />
+    <%= f.label :名前カタカナ %><br />
     <%= f.text_field :namekana, autofocus: true, autocomplete: "namekana" %>
   </div>
 
   <div class="field">
-    <%= f.label :nickname %><br />
+    <%= f.label :ニックネーム %><br />
     <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" %>
   </div>
 
   <div class="field">
-    <%= f.label :postal %><br />
+    <%= f.label :郵便番号 %><br />
     <%= f.text_field :postal, autofocus: true, autocomplete: "postsl" %>
   </div>
 
 　<div class="field">
-    <%= f.label :address %><br />
+    <%= f.label :住所 %><br />
     <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
   </div>
 
 
 　<div class="field">
-    <%= f.label :phone %><br />
+    <%= f.label :電話番号 %><br />
     <%= f.text_field :phone, autofocus: true, autocomplete: "phone" %>
   </div>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :メールアドレス %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
 
 　<div class="field">
-    <%= f.label :password %>
+    <%= f.label :パスワード %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
@@ -49,7 +49,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :パスワード確認 %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 

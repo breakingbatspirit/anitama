@@ -1,2 +1,23 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+
+<div class="container">
+   <div class="row">
+　　<div class="col-sm-3">
+	<div align="center"> <h1>マイページ</h1> </div>
+	<div align="center"> <%= attachment_image_tag @user, :image, :fill,200,200, 　format: 'jpeg', size: "200x200", fallback: "no-image.jpg" %></div>
+
+   <div align="center"> <%= @user.name %> 様 </div>
+
+   
+   <%= link_to "編集",edit_user_path(@user.id), class: "btn btn-default" %>
+   <%= link_to "退会",root_path(@user.id), class: "btn btn-default" %>
+
+
+
+</div>
+
+<div class="col-sm-9">
+
+</div>
+
+</div>
+</div>

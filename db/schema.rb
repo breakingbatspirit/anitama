@@ -144,13 +144,14 @@ ActiveRecord::Schema.define(version: 2019_02_11_072126) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name", null: false
-    t.string "namekana", null: false
-    t.string "nickname", null: false
-    t.string "postal", null: false
-    t.text "address", null: false
-    t.string "phone", null: false
+    t.string "namekana"
+    t.string "nickname"
+    t.string "postal"
+    t.text "address"
+    t.string "phone"
     t.text "image_id"
+    t.boolean "deleted_at"
+    t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

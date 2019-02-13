@@ -7,10 +7,19 @@
 p, span {
     font-size: 14px;
 }
+<<<<<<< HEAD
 
 
 .upper-container {
     /* width: 90%; */
+=======
+* {
+
+}
+
+.upper-container {
+    width: 80%;
+>>>>>>> e5e97f89cef0ea6d57687936a4bcccc441fe5ff3
 
     margin: 0 auto;
     background-color: #CCC;
@@ -49,7 +58,11 @@ p, span {
 
 
 .lower-container {
+<<<<<<< HEAD
     /* width: 80%; */
+=======
+    width: 80%;
+>>>>>>> e5e97f89cef0ea6d57687936a4bcccc441fe5ff3
     margin: 0 auto;
     background-color: #AAA;
 }

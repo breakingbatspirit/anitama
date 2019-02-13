@@ -7,6 +7,7 @@
 <!-- <div style="border: 1px solid green"> -->
 
 <!-- 上半分 -->
+<<<<<<< HEAD
 
 <div class="container">
 
@@ -140,11 +141,113 @@
       </div>
     </div>
 
+=======
+<div class="upper-container clearfix">
+  <h1 class="cds-new-title">商品追加</h1>
+
+  <div class="upper-cont-left">
+    <div class="a" style="border: 1px solid black; width: 80%; height: auto; margin: 10%">
+      <%= image_tag 'sample-t.png', style:"width: 100%" %>
+<!--       <p>ここにジャケット画像ここにジャケット画像ここにジャケット画像ここにジャケット画像ここにジャケット画像ここにジャケット画像ここにジャケット画像ここにジャケット画像ここにジャケット画像ここにジャケット画像ここにジャケット画像</p> -->
+    <%#= attachment_image_tag(@cds.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg") %>
+    </div>
+      <!-- ボタンに変える -->
+    <div style="border: 2px solid; width: 80%; margin: 10% auto; text-align: center">
+      <p>ジャケットの編集</p>
+    </div>
+
+  </div>
+
+  <div class="upper-cont-center">
+    <div>
+      <p>シングル/アルバム名</p>
+      <div style="background-color: #887; width: 100%; height: 30px; margin-bottom: 10px">
+        <p style="line-height: 30px">ここに入力フォームを作る</p>
+      </div>
+    </div>
+
+    <div>
+      <p>アニメ名</p>
+      <div style="background-color: #887; width: 100%; height: 30px; margin-bottom: 10px">
+        <p style="line-height: 30px">ここにドロップダウンを作る▼</p>
+      </div>
+    </div>
+
+    <div>
+      <p>レーベル名</p>
+      <div style="background-color: #887; width: 100%; height: 30px; margin-bottom: 10px">
+        <p style="line-height: 30px">ここにドロップダウンを作る▼</p>
+      </div>
+    </div>
+
+    <div>
+      <p>ジャンル</p>
+      <div style="background-color: #887; width: 100%; height: 30px; margin-bottom: 10px">
+        <p style="line-height: 30px">ここにドロップダウンを作る▼</p>
+      </div>
+    </div>
+
+    <div class="upper-cont-center-inventory">
+      <p>在庫数</p>
+      <div style="background-color: #887; width: 60%; height: 30px; margin-bottom: 10px; display: inline; padding: 7.5px 0">
+        <span style="line-height: 30px">在庫数▲▼</span>
+      </div>
+      <span style="margin-left: 10px">個</span>
+    </div>
+
+    <div class="upper-cont-center-inventory">
+      <p>値段</p>
+      <div style="background-color: #887; width: 60%; height: 30px; margin-bottom: 10px; display: inline; padding: 7.5px 0">
+        <span style="line-height: 30px">価格入力欄</span>
+      </div>
+      <span style="margin-left: 10px">円</span>
+    </div>
+
+  </div>
+
+  <div class="upper-cont-right">
+    <div>
+      <p><strong>新規項目追加欄</strong></p>
+      <p style="padding-bottom: 15px"><weak>　※未登録の項目はこちらから追加してください。</weak></p>
+    </div>
+
+    <div>
+      <p>アニメ名</p>
+      <div style="background-color: #887; width: 100%; height: 30px; margin-bottom: 10px">
+        <p style="line-height: 30px">ここに入力フォームを作る</p>
+      </div>
+    </div>
+
+    <div>
+      <p>レーベル名</p>
+      <div style="background-color: #887; width: 100%; height: 30px; margin-bottom: 10px">
+        <p style="line-height: 30px">ここに入力フォームを作る</p>
+      </div>
+    </div>
+
+    <div>
+      <p>ジャンル名</p>
+      <div style="background-color: #887; width: 100%; height: 30px; margin-bottom: 10px">
+        <p style="line-height: 30px">ここに入力フォームを作る</p>
+      </div>
+    </div>
+
+    <div>
+      <p>アーティスト名（曲入力欄に追加）</p>
+      <div style="background-color: #887; width: 100%; height: 30px; margin-bottom: 10px">
+        <p style="line-height: 30px">ここに入力フォームを作る</p>
+      </div>
+    </div>
+
+  </div>
+
+>>>>>>> e5e97f89cef0ea6d57687936a4bcccc441fe5ff3
 
 
 
 
 
+<<<<<<< HEAD
     <%= render 'cds/addsongs', cds: @cds %>
 
     <!-- divの見える化 -->
@@ -152,3 +255,35 @@
 
 
 </div>
+=======
+</div>
+<!-- 下半分 -->
+<div class="lower-container">
+  <div class="lower-cont-left">
+    <p style="line-height: 30px">曲順</p>
+    <div style="border: 1px solid black; float: right; padding: 5px 10px"><p>1</p></div>
+  </div>
+
+  <div class="lower-cont-center">
+    <p style="line-height: 30px">シングル/アルバム内の曲名</p>
+
+      <div style="background-color: #887; width: 100%; height: 30px; margin-bottom: 10px">
+        <p style="line-height: 30px">曲名入力欄</p>
+      </div>
+
+  </div>
+
+  <div class="lower-cont-right">
+
+    <p style="line-height: 30px">アーティスト名入力欄</p>
+
+      <div style="background-color: #887; width: 100%; height: 30px; margin-bottom: 10px">
+        <p style="line-height: 30px">以下から選択▼</p>
+      </div>
+
+  </div>
+</div>
+
+<!-- divの見える化 -->
+<!-- </div>
+>>>>>>> e5e97f89cef0ea6d57687936a4bcccc441fe5ff3

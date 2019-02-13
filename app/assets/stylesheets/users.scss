@@ -1,3 +1,40 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+ .edit_btn{
+ margin:10px 10px 0 60px;
+ }
+ .delete_btn{
+ margin:10px 30px 0 10px;
+ }
+ .name_display{
+ margin-top: 15px;
+ }
+
+.container{
+}
+
+.form-group{
+}
+
+.title_display{
+ margin:20px 0 20px 90px;
+}
+
+input[type="text"] {
+  width: 240px;
+}
+
+.edit_namekana_display{
+ float: right;
+}
+
+.edit_address_display{
+	float: right;
+}
+
+textarea {
+  resize: none;
+  width: 240px;
+  height:100px;
+}

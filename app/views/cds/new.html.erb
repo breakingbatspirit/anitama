@@ -43,38 +43,39 @@
           <div style="margin-bottom: 10px">
             <div class="dropdown">
               <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-                ここにど
+                以下から選択してください
                 <span class="caret"></span>
               </button>
 
               <ul class="dropdown-menu" role="menu">
                 <li role="presentation"><a href="#">名探偵コナン</a></li>
-                <li role="presentation"><a href="#">名探偵コナン</a></li>
-                <li role="presentation"><a href="#">名探偵コナン</a></li>
-              </ul>
-
-            </div>
-
-            <div class="dropdown">
-              <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-                ドロップダウン
-                <span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu" role="menu">
-                <li role="presentation"><a href="#">リンクのリスト１</a></li>
-                <li role="presentation"><a href="#">リンクのリスト２</a></li>
-                <li role="presentation"><a href="#">リンクのリスト３</a></li>
+                <li role="presentation"><a href="#">THE IDOLM@STER（アイドルマスター）</a></li>
+                <li role="presentation"><a href="#">ReLIFE</a></li>
+                <li role="presentation"><a href="#">攻殻機動隊 STAND ALONE COMPLEX</a></li>
+                <li role="presentation"><a href="#">あの日見た花の名前を僕たちはまだ知らない</a></li>
               </ul>
             </div>
-
-            <!-- <p style="line-height: 30px">ここにドロップダウンを作る▼</p> -->
           </div>
         </div>
 
         <div>
           <p>レーベル名</p>
-          <div style="background-color: #887; width: 100%; height: 30px; margin-bottom: 10px">
-            <p style="line-height: 30px">ここにドロップダウンを作る▼</p>
+          <!-- <div style="background-color: #887; width: 100%; height: 30px; margin-bottom: 10px"> -->
+          <div style="margin-bottom: 10px">
+            <div class="dropdown">
+              <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                以下から選択してください
+                <span class="caret"></span>
+              </button>
+
+              <ul class="dropdown-menu" role="menu">
+                <li role="presentation"><a href="#">エイベックス・エンタテインメント</a></li>
+                <li role="presentation"><a href="#">ソニー・ミュージックエンタテインメント</a></li>
+                <li role="presentation"><a href="#">ユニバーサルミュージック</a></li>
+                <li role="presentation"><a href="#">Being</a></li>
+                <li role="presentation"><a href="#">ワーナーミュージック・ジャパン</a></li>
+              </ul>
+            </div>
           </div>
         </div>
 
@@ -143,45 +144,7 @@
 
 
 
-    <!-- 下半分 -->
-    <div class="lower-container">
-
-      <%= form_with(model: cds, local: true) do |f| %>
-
-
-
-
-
-
-
-      <% end %>
-
-
-
-      <div class="lower-cont-left">
-        <p style="line-height: 30px">曲順</p>
-        <div style="border: 1px solid black; float: right; padding: 5px 10px"><p>1</p></div>
-      </div>
-
-      <div class="lower-cont-center">
-        <p style="line-height: 30px">シングル/アルバム内の曲名</p>
-
-          <div style="background-color: #887; width: 100%; height: 30px; margin-bottom: 10px">
-            <p style="line-height: 30px">曲名入力欄</p>
-          </div>
-
-      </div>
-
-      <div class="lower-cont-right">
-
-        <p style="line-height: 30px">アーティスト名入力欄</p>
-
-          <div style="background-color: #887; width: 100%; height: 30px; margin-bottom: 10px">
-            <p style="line-height: 30px">以下から選択▼</p>
-          </div>
-
-      </div>
-    </div>
+    <%= render 'cds/addsongs', cds: @cds %>
 
     <!-- divの見える化 -->
     <!-- </div> -->

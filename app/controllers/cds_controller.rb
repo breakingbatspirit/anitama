@@ -1,8 +1,10 @@
 class CdsController < ApplicationController
   def new
+    @disc = Disc.new
   end
 
   def index
+    @disc = Disc.new
   end
 
   def show
@@ -18,6 +20,9 @@ class CdsController < ApplicationController
   end
 
   def destroy
+    cd = Cd.find(params[:id])
+    parent.destroy
+    redirect_to '#'
   end
 
   def result

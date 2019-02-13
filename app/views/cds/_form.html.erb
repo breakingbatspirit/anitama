@@ -1,0 +1,21 @@
+<%= form_for @cd do |f| %>
+  <div class="field">
+    <%= f.label :name, "name" %>
+    <%= f.text_field :album %>
+  </div>
+  <div class="field">
+    <%= f.label :description, "description" %>
+    <%= f.text_field :price %>
+  </div>
+  <h3>Tasks</h3>
+  <div id="tasks">
+    <%= f.fields_for :discs do |disc| %>
+      <%= render 'disc_fields', f: disc %>
+    <% end %>
+    <div id="links">
+
+      <%= link_to_add_association 'add disc',f, :discs %>
+    </div>
+    <%= f.submit %>
+  </div>
+<% end %>

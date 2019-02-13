@@ -41,8 +41,9 @@ class CdsController < ApplicationController
   private
 
     def cd_params
-      params.require(:cd).permit(:cd_image_id, :album, :price, :inventory, discs_attributes: [:id, :_destroy, songs_attributes: [:id, :order, :title, :artist]])
-      # ストロングパラメーターの _destroy も入れておく必要がある（入れないと削除できない）
+      params.require(:cd).permit(:cd_image_id, :album, :price, :inventory, discs_attributes: [:id, :type, :_destroy,
+                                                                           songs_attributes: [:id, :order, :title, :artist, :_destroy]])
+      # ストロングパラメーターの _destroy も必要（入れないと削除できない）
       # 子要素は親要素のストロングパラメーターに含めて記述できる
     end
 end

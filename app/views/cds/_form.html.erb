@@ -1,0 +1,38 @@
+<%= form_for @cd do |f| %>
+  <div class="field">
+    <%= f.label :album, "シングル/アルバム名" %><br>
+    <%= f.text_field :album %>
+  </div>
+  <div class="field">
+    <%= f.label :anime, "アニメ名" %><br>
+    <%= f.text_field :anime %>
+  </div>
+  <div class="field">
+    <%= f.label :label, "レーベル名" %><br>
+    <%= f.text_field :label %>
+  </div>
+  <div class="field">
+    <%= f.label :genre, "ジャンル" %><br>
+    <%= f.text_field :genre %>
+  </div>
+  <div class="field">
+    <%= f.label :inventory, "在庫数" %><br>
+    <%= f.text_field :inventory %>
+  </div>
+  <div class="field">
+    <%= f.label :price, "値段" %><br>
+    <%= f.text_field :price %>
+  </div>
+
+  <h3>Tasks</h3>
+  <div id="tasks">
+    <%= f.fields_for :discs do |disc| %>
+      <%= render 'disc_fields', f: disc %>
+    <% end %>
+    <div id="links">
+
+      <%= link_to_add_association 'Discの追加',f, :discs %>
+    </div>
+    <%= f.submit %>
+  </div>
+<% end %>

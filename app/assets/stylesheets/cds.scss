@@ -1,3 +1,133 @@
 // Place all the styles related to the cds controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* cds.scss全体に適用。場合によってはapplication.scssと統合 */
+p, span {
+    font-size: 14px;
+}
+.center {
+    margin: 0 auto;
+    text-align: center;
+}
+/*ここまで*/
+
+
+
+/* cds#topに適用 */
+.top-container {
+    width: 100%;
+}
+.top-upper-container {
+    width: 100%;
+    height: -webkit-calc(100% - 90px);
+    /*height: calc(100% - 90px);*/
+    height: calc(100vh - 130px - (100vw / 6));
+    background-image: url("sample-m.png");
+    background-size: cover;
+    background-position: center;
+    border-bottom: 2px solid #ccc;
+}
+.top-title {
+    margin: 0;
+    padding: 60px;
+    color: #FF4500;
+}
+.top-text {
+    font-size: 40px;
+    background: repeating-linear-gradient(-45deg, #fff5df, #fff5df 4px,#ffe4b1 3px, #ffe4b1 8px);
+    border-radius: 7px;
+    opacity: 0.9;
+}
+.top-visual {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.top-lower-container {
+    width:100%;
+    height : calc(100vh / 6) ;
+    background-color: #595;
+}
+
+
+/* cds#newと#editに適用 */
+.upper-container {
+    /* width: 90%; */
+    margin: 0 auto;
+    background-color: #CCC;
+}
+.cds-new-title {
+    font-size: 40px;
+    padding: 30px 40px;
+}
+.upper-cont-left {
+    width: 20%;
+    height: auto;
+    float: left;
+    background-color: #CC7;
+}
+.upper-cont-center {
+    width: 40%;
+    float: left;
+    padding: 20px 30px;
+    background-color: #BB7;
+}
+.upper-cont-center-inventory {
+    width: 50%;
+    float: left;
+}
+.upper-cont-right {
+    width: 36%;
+    float: left;
+    margin: 0 2%;
+    padding: 20px 20px;
+    border: 3px solid #333;
+    border-radius: 3%;
+    background-color: #AA7;
+}
+
+
+
+.lower-container {
+    width: 80%;
+    margin: 0 auto;
+    /* background-color: #AAA; */
+}
+.lower-cont-left {
+    width: 20%;
+    height: 400px;
+    padding: 20px;
+    float: left;
+    text-align: right;
+    background-color: #CC7;
+}
+.lower-cont-center {
+    width: 40%;
+    height: 400px;
+    padding: 20px;
+    float: left;
+    padding: 20px 30px;
+    background-color: #BB7;
+}
+.lower-cont-right {
+    width: 40%;
+    height: 400px;
+    padding: 20px;
+    float: left;
+    padding: 20px 20px;
+    background-color: #AA7;
+}
+
+
+
+
+/*いらない*/
+.sample2 {
+    width:(100% / 6);
+    height:calc(100vw / 6);
+    background-image:url('cd.jpg');
+    background-size: cover;
+    float:left;
+    border:1px solid #CCC;
+}

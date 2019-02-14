@@ -1,2 +1,42 @@
-<h1>Cds#top</h1>
-<p>Find me in app/views/cds/top.html.erb</p>
+<!-- <h1>Cds#top</h1>
+<p>Find me in app/views/cds/top.html.erb</p> -->
+
+<div style="height:100%">
+
+  <!-- headerが出来上がるまで -->
+  <div style="background-color:black; height:90px; line-height:90px; color:white">　　　ここヘッダー</div>
+  <%#= render 'cds/#' %>
+
+
+  <div class="top-container">
+    <!-- 上半分 -->
+    <div class="top-upper-container">
+
+      <div class="top-title">
+        <span class="top-text"><strong>やめられない☆とまらない♪</strong></span>
+        <%= image_tag 'anisonpng.png', class: "top-visual" %>
+      </div>
+
+        <div class="" style="width:100%; height:100px"></div>
+
+      <!-- 検索バーの代わり。導入したら削除 -->
+        <div class="" style="background-color:#CCC; height:60px; width:80%; max-width:1000px; margin:0 auto; position:relative"></div>
+
+    </div>
+
+    <!-- 下半分 -->
+    <div class="top-lower-container">
+      <div class="sample2"></div>
+      <div class="sample2"></div>
+      <div class="sample2"></div>
+      <div class="sample2"></div>
+      <div class="sample2"></div>
+      <div class="sample2"></div>
+    </div>
+  </div>
+
+  <!-- footerが出来上がるまで -->
+  <div style="background-color:black; height:48px; line-height:40px; color:white; font-size:12px">　　　ここフッター（現状おかしい）</div>
+  <%#= render 'cds/#' %>
+
+</div>

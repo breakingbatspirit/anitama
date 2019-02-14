@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
   def index
-    
     @search = User.ransack(params[:q])
     @users = @search.result
-    @users = User.page(params[:page]).reverse_order
+    @users_page = User.page(params[:page]).reverse_order
   end
+
 
   def show
     @user = User.find(params[:id])

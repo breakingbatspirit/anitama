@@ -1,23 +1,32 @@
 
 
 <div class="container">
-   <div class="row">
-<h2>ユーザー 一覧</h2>
-<table class="table table-bordered">
-	<%= search_form_for @search do |f| %>
-	<div class="form-group">
-	<%= f.label :name_cont, "Name" %>
-	<% f.text_field :name_cont, class: "form-control" %>
-    </div>
-    <div class="actions"><%= f.submit "Search" , class: "btn btn-danger" %></div>
-    <% end %>
+		 <div class="row" style="padding: 20px;">
+   		<div class="col-sm-4">
+		   <h2>ユーザー 一覧</h2>
+		</div>
+		<div class="col-sm-4 form-group kensaku">
+	   			<%= search_form_for @search do |f| %>
+				<div align="center"><%= f.text_field :name_cont, class: "form-control" %>
+				<%= f.submit "検索" , class: "btn btn-default btn-sm" %>
+	    	<% end %>
+		</div>
+		<div class="col-sm-4">
 
-	<% @users.each do |user| %>
+		</div>
+
+	</div>
+	
+
+
+<table class="table table-bordered">
+
 	<thead>
 		<tr>
 			<th class="image_index_display">ユーザー画像</th>
 			<th class="name_index_display">名前</th>
 			<th class="namekana_index_display">カナ</th>
+			<th class="nickname_index_display">ニックネーム</th>
 			<th class="postal_index_display">〒</th>
 			<th class="address_index_display">住所</th>
 			<th class="phone_index_display">TEL</th>
@@ -26,12 +35,14 @@
 			<th class="delet_index_display">削除</th>
 		</tr>
 	</thead>
+	<% @users.each do |user| %>
 	<tbody>
 		<tr>
 			<td class="image_index_display"><%= attachment_image_tag user, :image, :fill,50,50, format: 'jpeg', size: "50x50", fallback: "no-image.jpg" %>
 			</td>
 			<td class="name_index_display"><%= user.name %></td>
 			<td class="namekana_index_display"><%= user.namekana %></td>
+			<td class="nickname_index_display"><%= user.nickname %></td>
 			<td class="postal_index_display"><%= user.postal %></td>
 			<td class="address_index_display"><%= user.address %></td>
 			<td class="phone_index_display"><%= user.phone %></td>
@@ -43,5 +54,6 @@
 	<% end %>
 </table>
 </div>
-<%= paginate @users, class: "paginate" %>
+<div align="center"><%= paginate @users_page, class: "paginate" %></div>
+</div>
 </div>

@@ -5,11 +5,11 @@
 <h2>ユーザー 一覧</h2>
 <table class="table table-bordered">
 	<%= search_form_for @search do |f| %>
-	<div class="form-group">
-	<%= f.label :name_cont, "Name" %>
-	<% f.text_field :name_cont, class: "form-control" %>
-    </div>
-    <div class="actions"><%= f.submit "Search" , class: "btn btn-danger" %></div>
+		<div class="form-group">
+			<%= f.label :name_cont, "Name" %>
+			<%= f.text_field :name_cont, class: "form-control" %>
+    	</div>
+    	<div class="actions"><%= f.submit "Search" , class: "btn btn-danger" %></div>
     <% end %>
 
 	<% @users.each do |user| %>

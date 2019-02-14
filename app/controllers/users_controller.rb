@@ -49,10 +49,10 @@ class UsersController < ApplicationController
       end
     end
 
-    def admin_validate!
-      admin = User.find(16)
-      if current_user != admin
-        redirect_to user_path(current_user)
-      end
-    end
+   def admin_validate!
+     admin = User.find(17)
+     if current_user != admin
+       redirect_to user_path(current_user)
+     end
+   end
 end

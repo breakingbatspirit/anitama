@@ -13,8 +13,7 @@ class CdsController < ApplicationController
   end
 
   def index
-    @cd = Cd.all
-    # @animes = Anime.all
+    @cds = Cd.all
   end
 
   def show

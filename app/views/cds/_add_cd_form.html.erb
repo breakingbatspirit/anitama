@@ -3,6 +3,7 @@
     <%= f.label :album, "シングル/アルバム名" %><br>
     <%= f.text_field :album %>
   </div>
+<% end %>
 
   <div>
     <p>アニメ名</p>
@@ -20,11 +21,6 @@
               <%= anime.anime_title %><br>
             <% end %>
           </li>
-<!--           <li role="presentation"><a href="#">名探偵コナン</a></li>
-          <li role="presentation"><a href="#">THE IDOLM@STER（アイドルマスター）</a></li>
-          <li role="presentation"><a href="#">ReLIFE</a></li>
-          <li role="presentation"><a href="#">攻殻機動隊 STAND ALONE COMPLEX</a></li>
-          <li role="presentation"><a href="#">あの日見た花の名前を僕たちはまだ知らない</a></li> -->
         </ul>
       </div>
     </div>
@@ -32,7 +28,6 @@
 
   <div>
     <p>レーベル名</p>
-    <!-- <div style="background-color: #887; width: 100%; height: 30px; margin-bottom: 10px"> -->
     <div style="margin-bottom: 10px">
       <div class="dropdown">
         <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
@@ -41,11 +36,11 @@
         </button>
 
         <ul class="dropdown-menu" role="menu">
-          <li role="presentation"><a href="#">エイベックス・エンタテインメント</a></li>
-          <li role="presentation"><a href="#">ソニー・ミュージックエンタテインメント</a></li>
-          <li role="presentation"><a href="#">ユニバーサルミュージック</a></li>
-          <li role="presentation"><a href="#">Being</a></li>
-          <li role="presentation"><a href="#">ワーナーミュージック・ジャパン</a></li>
+          <li role="presentation">
+            <% @labels.each do |label| %>
+              <%= label.company %><br>
+            <% end %>
+          </li>
         </ul>
       </div>
     </div>
@@ -72,14 +67,18 @@
     </div>
   </div>
 
-  <div class="field">
-    <%= f.label :inventory, "在庫数" %><br>
-    <%= f.number_field :inventory %>
-          <span style="margin-left: 10px">個</span>
-  </div>
-  <div class="field">
-    <%= f.label :price, "値段" %><br>
-    <%= f.number_field :price %>
-          <span style="margin-left: 10px">円</span>
-  </div>
-<% end %>
+  <%= form_for @cd do |f| %>
+    <div class="field">
+      <%= f.label :inventory, "在庫数" %><br>
+      <%= f.number_field :inventory %>
+      <span style="margin-left: 10px">個</span>
+    </div>
+  <% end %>
+
+  <%= form_for @cd do |f| %>
+    <div class="field">
+      <%= f.label :price, "値段" %><br>
+      <%= f.number_field :price %>
+      <span style="margin-left: 10px">円</span>
+    </div>
+  <% end %>

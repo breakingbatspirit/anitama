@@ -1,0 +1,14 @@
+<header>
+ <div class="head">アニソン★魂</div>
+  <div class="icon">
+   <%= link_to root_path ,class: "glyphicon glyphicon-user" do %>
+   <% end %>
+    <%= link_to destroy_user_session_path ,class: "glyphicon glyphicon-cog" do %>
+    <% end %>
+     <%= link_to root_path ,class: "glyphicon glyphicon-shopping-cart" do %>
+    <% end %>
+  </div>
+    <% if current_user %>
+    <div class="user">おかえりなさいませ！<%= current_user.name%></div>
+    <% end %>
+</header>

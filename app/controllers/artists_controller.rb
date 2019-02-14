@@ -1,4 +1,5 @@
 class ArtistsController < ApplicationController
+	layout "sub"
 
 	def create
 	end

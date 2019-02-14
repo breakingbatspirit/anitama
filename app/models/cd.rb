@@ -10,4 +10,11 @@ class Cd < ApplicationRecord
         # accepts_nested_attributes_forを使うと、親のformに子のフィールドを追加するだけで一気にcreate, updateできるようになる。
         # allow_destroy: trueをつけると子項目の削除ができるようになる。
 	has_many :chats,dependent: :destroy
+
+    attachment :image
+
+    validates :album, presence: true
+    validates :title, presence: true
+    # validates :price, presense: true
+    # validates :inventory, presense: true
 end

@@ -1,7 +1,27 @@
 <div class="nested-fields form-inline">
+
   <div class="form-group">
-    <%= f.label :order %>
-    <%= f.number_field :order %>
-    <%= link_to_remove_association "曲を削除", f %>
+
+      <table>
+
+        <tbody>
+          <tr>
+            <td><%= f.number_field :order %></td>
+            <td><%= f.text_field :title %></td>
+            <td><%= f.text_field :artist %></td>
+
+          </tr>
+        </tbody>
+      </table>
+
+    <!-- <br> -->
+    <%#= link_to_add_association "曲を追加 (_song_fields内記述)", f, :songs, class:"btn btn-sm btn-info" %>
+
+    <%= link_to_remove_association "曲を削除 (_song_fields内記述)", f %>
+
   </div>
+
 </div>
+
+
+

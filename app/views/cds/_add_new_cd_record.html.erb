@@ -1,7 +1,7 @@
 <p><strong>新規項目追加欄</strong></p>
 <p style="padding-bottom: 15px; font-size: 0.9em"><weak>　※未登録の項目はこちらから追加してください。</weak></p>
 
-<% @anime = Anime.new unless @anime %>
+<%# @anime = Anime.new unless @anime %>
 <%= form_for @anime do |f| %>
   <div class="field">
     <%= f.label :anime_title, "アニメ名" %><br>
@@ -10,7 +10,7 @@
   </div>
 <% end %>
 
-<% @label = Label.new unless @label %>
+<%# @label = Label.new unless @label %>
 <%= form_for @label do |f| %>
   <div class="field">
     <%= f.label :company, "レーベル名" %><br>
@@ -19,14 +19,11 @@
   </div>
 <% end %>
 
-<% @artist = Artist.new unless @artist %>
+<%# @artist = Artist.new unless @artist %>
 <%= form_for @artist do |f| %>
   <div class="field">
     <%= f.label :artist_name, "アーティスト名(曲入力欄に追加)" %><br>
-      <!-- ここだけ違うモデルのため別形式で書く -->
-    <%= fields_for(@other_object) do |artist_name| %>
-      <%= artist_name.text_field :artist_name %>
-    <% end %>
+    <%= f.text_field :artist_name %>
     <%= f.submit '追加', class:"btn btn-sm btn-default" %>
   </div>
 <% end %>

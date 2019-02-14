@@ -3,6 +3,13 @@ class CdsController < ApplicationController
     @cd = Cd.new
     @disc = @cd.discs.build
     @song = @disc.songs.build
+    @anime = Anime.new
+    @label = Label.new
+    @artist = Artist.new
+
+    @animes = Anime.all
+    @labels = Label.all
+    @artists = Artist.all
   end
 
   def index
@@ -39,6 +46,7 @@ class CdsController < ApplicationController
   end
 
   def top
+    @cds = Cd.all
   end
 
   private

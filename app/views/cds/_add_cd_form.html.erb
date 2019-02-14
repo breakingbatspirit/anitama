@@ -8,18 +8,6 @@
     <p>アニメ名</p>
     <div style="margin-bottom: 10px">
 
-
-
-          <%# @animes.each do |anime| %>
-
-                <%= link_to cd.anime, cd %>
-
-                <%= cd.anime %>
-
-          <%# end %>
-
-
-
       <div class="dropdown">
         <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
           以下から選択してください
@@ -27,11 +15,16 @@
         </button>
 
         <ul class="dropdown-menu" role="menu">
-          <li role="presentation"><a href="#">名探偵コナン</a></li>
+          <li role="presentation">
+            <% @animes.each do |anime| %>
+              <%= anime.anime_title %><br>
+            <% end %>
+          </li>
+<!--           <li role="presentation"><a href="#">名探偵コナン</a></li>
           <li role="presentation"><a href="#">THE IDOLM@STER（アイドルマスター）</a></li>
           <li role="presentation"><a href="#">ReLIFE</a></li>
           <li role="presentation"><a href="#">攻殻機動隊 STAND ALONE COMPLEX</a></li>
-          <li role="presentation"><a href="#">あの日見た花の名前を僕たちはまだ知らない</a></li>
+          <li role="presentation"><a href="#">あの日見た花の名前を僕たちはまだ知らない</a></li> -->
         </ul>
       </div>
     </div>

@@ -22,7 +22,7 @@ p, span {
     width: 100%;
     height: -webkit-calc(100% - 90px);
     /*height: calc(100% - 90px);*/
-    height: calc(100vh - 130px - (100vw / 6));
+    height: calc(100vh - 90px - (100vw / 6));
     background-image: url("sample-m.png");
     background-size: cover;
     background-position: center;
@@ -51,11 +51,13 @@ p, span {
 }
 
 
+
 /* cds#newと#editに適用 */
 .upper-container {
     /* width: 90%; */
     margin: 0 auto;
-    background-color: #CCC;
+    /*background-color: #CCC;*/
+    /*border: 1px dashed #AAA;*/
 }
 .cds-new-title {
     font-size: 40px;
@@ -65,15 +67,25 @@ p, span {
     width: 20%;
     height: auto;
     float: left;
-    background-color: #CC7;
+    padding: 20px
+    /*background-color: #CC7;*/
+}
+.cd-image {
+    width: 100%;
+    box-shadow: 2px 2px 4px #999;
+    margin-bottom: 20px
+}
+.cd-image-select {
+    width: 80%;
 }
 .upper-cont-center {
     width: 40%;
     float: left;
     padding: 20px 30px;
-    background-color: #BB7;
+    /*background-color: #BB7;*/
+    border: 1px dashed #AAA;
 }
-.upper-cont-center-inventory {
+.upper-cont-center-items {
     width: 50%;
     float: left;
 }
@@ -84,13 +96,10 @@ p, span {
     padding: 20px 20px;
     border: 3px solid #333;
     border-radius: 3%;
-    background-color: #AA7;
 }
 
-
-
 .lower-container {
-    width: 80%;
+    /* width: 80%; */
     margin: 0 auto;
     /* background-color: #AAA; */
 }
@@ -118,6 +127,15 @@ p, span {
     padding: 20px 20px;
     background-color: #AA7;
 }
+
+
+
+/*
+input[type="text"] {
+        width: 300px;
+        height: 40px;
+    }
+*/
 
 
 

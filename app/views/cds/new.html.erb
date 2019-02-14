@@ -14,42 +14,51 @@
 <!-- 上半分 -->
 <div class="container">
 
-    <div class="upper-container clearfix">
-      <h1 class="cds-new-title">商品追加</h1>
+  <div class="upper-container clearfix">
+    <h1 class="cds-new-title">商品追加</h1>
 
-      <div class="upper-cont-left">
-        <div class="" style="border: 1px solid black; width: 80%; height: auto; margin: 10%">
-          <%= image_tag 'sample-t.png', style:"width: 100%" %>
-        <%#= attachment_image_tag(@cds.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg") %>
-          <div align="center">
-            <%= attachment_image_tag @user, :image, :fill,200,200, format: 'jpeg', size: "200x200", fallback: "sample-t.png" %>
-          </div>
+    <div class="upper-cont-left">
+
+      <%= form_for(@cd, url: cds_path) do |f| %>
+
+        <div>
+        <!-- <div class="" style="border: 1px solid black; width: 80%; height: auto; margin: 10%"> -->
+          <%= image_tag 'cd.jpg', class:"cd-image" %>
+            <%#= attachment_image_tag(@cds.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg") %>
+          <!-- <div align="center"> -->
+            <%#= attachment_image_tag @user, :image, :fill,200,200, format: 'jpeg', size: "180x180", fallback: "sample-t.png" %>
+          <!-- </div> -->
         </div>
-          <!-- ボタンに変える -->
-        <div class="center">
-          <div class="btn btn-info">
-            <p>ジャケットの編集</p>
-          </div>
+
+        <div class="cd-image-select">
+          <%= f.file_field :cd_image_id %>
         </div>
-      </div>
+      <% end %>
 
-      <div class="upper-cont-center">
-        <%= render 'cds/add_cd_form', cd: @cd %>
-      </div>
 
-      <div class="upper-cont-right">
-        <%= render 'cds/add_new_cd_record', cd: @cd %>
-      </div>
+
+
     </div>
-</div>
+
+
+
+    <div class="upper-cont-center">
+      <%= render 'cds/add_cd_form', cd: @cd %>
+    </div>
+
+    <div class="upper-cont-right">
+      <%= render 'cds/add_new_cd_record', cd: @cd %>
+    </div>
+  </div>
 
 
 <!-- 下半分 -->
-<div class="lower-container">
-    <%#= render 'cds/addsongs', cds: @cds %>
+<div class="lower-container" style="border:1px dashed #AAA">
     <%= render 'form', cd: @cd %>
-    <%= link_to 'Back', root_path %>
+    <%#= link_to 'Back', root_path %>
 </div>
 
 <!-- divの見える化・閉じタグ -->
-<!-- </div>
+<!-- </div> -->
+
+</div>

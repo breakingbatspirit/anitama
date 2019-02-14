@@ -1,38 +1,45 @@
 <%= form_for @cd do |f| %>
-  <div class="field">
-    <%= f.label :album, "シングル/アルバム名" %><br>
-    <%= f.text_field :album %>
-  </div>
-  <div class="field">
-    <%= f.label :anime, "アニメ名" %><br>
-    <%= f.text_field :anime %>
-  </div>
-  <div class="field">
-    <%= f.label :label, "レーベル名" %><br>
-    <%= f.text_field :label %>
-  </div>
-  <div class="field">
-    <%= f.label :genre, "ジャンル" %><br>
-    <%= f.text_field :genre %>
-  </div>
-  <div class="field">
-    <%= f.label :inventory, "在庫数" %><br>
-    <%= f.text_field :inventory %>
-  </div>
-  <div class="field">
-    <%= f.label :price, "値段" %><br>
-    <%= f.text_field :price %>
-  </div>
 
-  <h3>Tasks</h3>
+  <h3>曲情報の追加（完成後この文は消去）</h3>
+
+<!-- 
+      <table class="table table-hover table-inverse">
+        <thead>
+          <tr>
+            <th width="10%">曲順</th>
+            <th width="40%">シングル/アルバム内の曲名</th>
+            <th width="40%">アーティスト名</th>
+            <th width="10%"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <%#= f.fields_for :discs do |disc| %>
+            <tr>
+              <td>
+                <%#= render 'disc_fields', f: disc %>
+              </td>
+              <td>
+                <%#= render 'disc_fields', f: disc %>
+              </td>
+              <td>
+                <%#= render 'disc_fields', f: disc %>
+              </td>
+            </tr>
+          <%# end %>
+        </tbody>
+      </table>
+ -->
+
   <div id="tasks">
     <%= f.fields_for :discs do |disc| %>
       <%= render 'disc_fields', f: disc %>
     <% end %>
-    <div id="links">
-
-      <%= link_to_add_association 'Discの追加',f, :discs %>
+    <div class="btn btn-sm btn-default">
+      <%= link_to_add_association 'Discの追加 (_form内記述)',f, :discs, class:"btn btn-sm btn-primary" %>
     </div>
-    <%= f.submit %>
+    <div>
+      <%= f.submit "商品の追加", class:"btn btn-lg btn-success" %>
+    </div>
   </div>
 <% end %>

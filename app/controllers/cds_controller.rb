@@ -7,6 +7,7 @@ class CdsController < ApplicationController
 
   def index
     @cd = Cd.all
+    # @animes = Anime.all
   end
 
   def show
@@ -19,8 +20,10 @@ class CdsController < ApplicationController
     @cd = Cd.new(cd_params)
     if @cd.save
       flash[:notice] = "Success message: 新しいCDが商品情報に追加されました！"
-      redirect_to cds_path
+      render 'new'
     end
+      flash[:notice] = "Error message: エラー発生！"
+      render 'new_cd'
   end
 
   def update

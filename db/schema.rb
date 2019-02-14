@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2019_02_11_072126) do
   end
 
   create_table "animes", force: :cascade do |t|
-    t.text "anime_title", null: false
+    t.text "anime_title"
     t.integer "cd_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

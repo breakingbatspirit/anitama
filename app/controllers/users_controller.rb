@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def index
     @search = User.ransack(params[:q])
-    @users = @search.result
+    @users = @search.result.with_deleted
     @users_page = User.page(params[:page]).reverse_order
   end
 

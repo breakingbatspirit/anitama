@@ -16,7 +16,9 @@
 		</div>
 
 	</div>
-	
+	</div>
+	</div>
+
 
 
 <table class="table table-bordered">
@@ -36,7 +38,8 @@
 		</tr>
 	</thead>
 	<% @users.each do |user| %>
-	<tbody>
+	<% if user.deleted_at == true %>
+		<tbody class="taikai">
 		<tr>
 			<td class="image_index_display"><%= attachment_image_tag user, :image, :fill,50,50, format: 'jpeg', size: "50x50", fallback: "no-image.jpg" %>
 			</td>
@@ -51,9 +54,24 @@
 			<td class="delet_index_display"></td>
 		</tr>
 	</tbody>
+	<% else %>
+	<tbody>
+		<tr>
+			<td class="image_index_display"><%= attachment_image_tag user, :image, :fill,50,50, format: 'jpeg', size: "50x50", fallback: "no-image.jpg" %>
+			</td>
+			<td class="name_index_display"><%= user.name %></td>
+			<td class="namekana_index_display"><%= user.namekana %></td>
+			<td class="nickname_index_display"><%= user.nickname %></td>
+			<td class="postal_index_display"><%= user.postal %></td>
+			<td class="address_index_display"><%= user.address %></td>
+			<td class="phone_index_display"><%= user.phone %></td>
+			<td class="email_index_diespla"><%= user.email %></td>
+			<td class="edit_index_display">aaa</td>
+			<td class="delet_index_display">bbb</td>
+		</tr>
+	</tbody>
+		<% end %>
 	<% end %>
 </table>
 </div>
 <div align="center"><%= paginate @users_page, class: "paginate" %></div>
-</div>
-</div>

@@ -36,5 +36,58 @@ input[type="text"] {
 textarea {
   resize: none;
   width: 240px;
-  height:100px;
+  height:95px;
+  border: 1px solid #DDDDDD;
+
+}
+
+.title_new_display{
+	margin-top: 50px;
+}
+
+.form_new_display{
+	margin-top: 100px;
+}
+
+.image_index_display{
+width: 100px
+
+}
+
+.name_index_display{
+width: 110px;
+text-align: center;
+line-height: 30;
+}
+.namekana_index_display{
+width: 110px;
+text-align: center;
+}
+.postal_index_display{
+width: 110px;
+text-align: center;
+}
+.address_index_display{
+width: 220px;
+text-align: center;
+}
+
+.phone_index_display{
+width: 150px;
+text-align: center;
+}
+
+.email_index_diesplay{
+width: 180px;
+text-align: center;
+}
+
+.edit_index_display{
+width: 50px;
+text-align: center;
+}
+
+.delet_index_display{
+width: 50px;
+text-align: center;
 }

@@ -62,11 +62,11 @@
 
 <div class="container">
    <div class="row">
-       <h2 class="title_display">会員登録</h2>
-　　  <div class="col-sm-4">
+     <div class="col-sm-3">
            <%=form_for(@user) do |f| %>
       </div>
      <div class="col-sm-6">
+      <h2 class="title_signup_display">会員登録</h2>
       <div class="edit_namekana_display">
               <div class="form-group hoge">
              <div class="field">
@@ -109,7 +109,7 @@
 
 
 
-            　<div class="form-group">
+             <div class="form-group">
               <div class="field">
                 <%= f.label :電話番号 %><br />
                 <%= f.text_field :phone, autofocus: true, autocomplete: "phone" %>
@@ -124,7 +124,7 @@
             </div>
 
 
-            　<div class="form-group">
+            <div class="form-group">
               <div class="field">
                 <%= f.label :パスワード %>
                 <% if @minimum_password_length %>
@@ -146,7 +146,7 @@
               </div>
             <% end %>
           </div>
-           <div class="col-sm-2"></div>
+           <div class="col-sm-3"></div>
       </div>
     </div>
 </div>

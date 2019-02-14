@@ -3,16 +3,15 @@
 <div class="container">
    <div class="row">
        <h2 class="title_display">ユーザー情報の編集</h2>
-　　  <div class="col-sm-4">
-          <div align="center"> <%= attachment_image_tag @user, :image, :fill,200,200, 　format: 'jpeg', size: "200x200", fallback: "no-image.jpg" %>
+      <div class="col-sm-4">
+          <div align="center"> <%= attachment_image_tag @user, :image, :fill,200,200, format: 'jpeg', size: "200x200", fallback: "no-image.jpg" %>
           </div>
            <%=form_for(@user) do |f| %>
               <div class="field">
                 	<div align="center"><%= f.attachment_field :image %></div>
               </div>
       </div>
-     
-     <div class="col-sm-6">
+      <div class="col-sm-6">
       <div class="edit_namekana_display">
               <div class="form-group hoge">
              <div class="field">
@@ -57,7 +56,7 @@
 
 
 
-            　<div class="form-group">
+            <div class="form-group">
               <div class="field">
                 <%= f.label :電話番号 %><br />
                 <%= f.text_field :phone, autofocus: true, autocomplete: "phone" %>
@@ -72,7 +71,7 @@
             </div>
 
 
-            　<div class="form-group">
+            <div class="form-group">
               <div class="field">
                 <%= f.label :パスワード %>
                 <% if @minimum_password_length %>

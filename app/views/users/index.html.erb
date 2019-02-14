@@ -1,2 +1,45 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+
+<div class="container">
+   <div class="row">
+<h2>ユーザー 一覧</h2>
+<table class="table table-bordered">
+	<%= search_form_for @search do |f| %>
+	<div class="form-group">
+	<%= f.label :name_cont, "Name" %>
+	<% f.text_field :name_cont, class: "form-control" %>
+    </div>
+    <div class="actions"><%= f.submit "Search" , class: "btn btn-danger" %></div>
+    <% end %>
+
+	<% @users.each do |user| %>
+	<thead>
+		<tr>
+			<th class="image_index_display">ユーザー画像</th>
+			<th class="name_index_display">名前</th>
+			<th class="namekana_index_display">カナ</th>
+			<th class="postal_index_display">〒</th>
+			<th class="address_index_display">住所</th>
+			<th class="phone_index_display">TEL</th>
+			<th class="email_index_diesplay">メール</th>
+			<th class="edit_index_display">編集</th>
+			<th class="delet_index_display">削除</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td class="image_index_display"><%= attachment_image_tag user, :image, :fill,50,50, format: 'jpeg', size: "50x50", fallback: "no-image.jpg" %>
+			</td>
+			<td class="name_index_display"><%= user.name %></td>
+			<td class="namekana_index_display"><%= user.namekana %></td>
+			<td class="postal_index_display"><%= user.postal %></td>
+			<td class="address_index_display"><%= user.address %></td>
+			<td class="phone_index_display"><%= user.phone %></td>
+			<td class="email_index_diespla"><%= user.email %></td>
+			<td class="edit_index_display"></td>
+			<td class="delet_index_display"></td>
+		</tr>
+	</tbody>
+	<% end %>
+</table>
+</div>
+</div>

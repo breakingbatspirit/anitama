@@ -1,9 +1,9 @@
 
 <div class="container">
    <div class="row">
-　　	<div class="col-sm-3">
+<div class="col-sm-3">
 		<div align="center"> <h1>マイページ</h1> </div>
-		<div align="center"> <%= attachment_image_tag @user, :image, :fill,200,200, 　format: 'jpeg', size: "200x200", fallback: "no-image.jpg" %></div>
+		<div align="center"> <%= attachment_image_tag @user, :image, :fill,200,200, format: 'jpeg', size: "200x200", fallback: "no-image.jpg" %></div>
         <div class="name_display">
    		   <div align="center"> <%= @user.name %></div>
    	    </div>
@@ -11,6 +11,8 @@
 
 		 <%= link_to "編集",edit_user_path(@user.id), class: "btn btn-default edit_btn" %>
 	     <%= link_to "退会",root_path(@user.id), class: "btn btn-default delete_btn" %>
+	     <%=link_to "ログアウト", destroy_user_session_path, method: :delete %>
+
 	</div>
 
 

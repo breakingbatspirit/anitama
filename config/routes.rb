@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users,except:[:new] do
+    put :delete, on: :member
     resources :addresses,only:[:create,:destroy]
   end
 

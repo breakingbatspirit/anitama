@@ -8,9 +8,6 @@
     </div>
 </header>
 
-<!-- divの見える化 -->
-<!-- <div style="border: 1px solid green"> -->
-
 <!-- 上半分 -->
 <div class="container">
 
@@ -37,10 +34,7 @@
 
 
 
-
     </div>
-
-
 
     <div class="upper-cont-center">
       <%= render 'cds/form_newcd', cd: @cd %>
@@ -52,13 +46,12 @@
   </div>
 
 
-<!-- 下半分 -->
-<div class="lower-container" style="border:1px dashed #AAA">
-    <%= render 'form', cd: @cd %>
-    <%#= link_to 'Back', root_path %>
-</div>
+  <hr>
 
-<!-- divの見える化・閉じタグ -->
-<!-- </div> -->
+<!-- 下半分 -->
+  <div class="lower-container">
+      <%= render 'form', cd: @cd %>
+      <%#= link_to 'Back', root_path %>
+  </div>
 
 </div>

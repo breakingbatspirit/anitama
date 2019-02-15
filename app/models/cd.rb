@@ -14,7 +14,6 @@ class Cd < ApplicationRecord
     attachment :image
 
     validates :album, presence: true
-    validates :title, presence: true
-    # validates :price, presense: true
-    # validates :inventory, presense: true
+    validates :price, presence: true
+    validates :inventory, presence: true
 end

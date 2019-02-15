@@ -7,9 +7,9 @@ class CdsController < ApplicationController
     @label = Label.new
     @artist = Artist.new
 
-    @animes = Anime.all
-    @labels = Label.all
-    @artists = Artist.all
+    @animes = Anime.all.order("anime_title")
+    @labels = Label.all.order("company")
+    @artists = Artist.all.order("artist_name")
   end
 
   def index
@@ -26,10 +26,11 @@ class CdsController < ApplicationController
     @cd = Cd.new(cd_params)
     if @cd.save
       flash[:notice] = "Success message: 新しいCDが商品情報に追加されました！"
-      render 'new'
-    end
+      redirect_to new_cd_path
+    else
       flash[:notice] = "Error message: エラー発生！"
-      render 'new_cd'
+      redirect_to new_cd_path
+    end
   end
 
   def update
@@ -56,4 +57,5 @@ class CdsController < ApplicationController
       # ストロングパラメーターの _destroy も必要（入れないと削除できない）
       # 子要素は親要素のストロングパラメーターに含めて記述できる
     end
+
 end

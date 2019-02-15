@@ -17,8 +17,10 @@
 
         <ul class="dropdown-menu" role="menu">
           <li role="presentation">
-            <% @animes.each do |anime| %>
-              <%= anime.anime_title %><br>
+            <% if @animes.present? %>
+              <% @animes.each do |anime| %>
+                <%= anime.anime_title %><br>
+              <% end %>
             <% end %>
           </li>
         </ul>
@@ -37,8 +39,10 @@
 
         <ul class="dropdown-menu" role="menu">
           <li role="presentation">
-            <% @labels.each do |label| %>
-              <%= label.company %><br>
+            <% if @animes.present? %>
+              <% @labels.each do |label| %>
+                <%= label.company %><br>
+              <% end %>
             <% end %>
           </li>
         </ul>

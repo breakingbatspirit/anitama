@@ -46,11 +46,11 @@ ActiveRecord::Schema.define(version: 2019_02_11_072126) do
   end
 
   create_table "cds", force: :cascade do |t|
-    t.text "cd_image_id", null: false
+    t.text "cd_image_id"
     t.text "album", null: false
     t.integer "price", null: false
     t.integer "inventory", null: false
-    t.integer "user_id", null: false
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

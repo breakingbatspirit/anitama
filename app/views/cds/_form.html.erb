@@ -1,0 +1,45 @@
+<%= form_for @cd do |f| %>
+
+  <h3>曲情報の追加（完成後この文は消去）</h3>
+
+<!-- 
+      <table class="table table-hover table-inverse">
+        <thead>
+          <tr>
+            <th width="10%">曲順</th>
+            <th width="40%">シングル/アルバム内の曲名</th>
+            <th width="40%">アーティスト名</th>
+            <th width="10%"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <%#= f.fields_for :discs do |disc| %>
+            <tr>
+              <td>
+                <%#= render 'disc_fields', f: disc %>
+              </td>
+              <td>
+                <%#= render 'disc_fields', f: disc %>
+              </td>
+              <td>
+                <%#= render 'disc_fields', f: disc %>
+              </td>
+            </tr>
+          <%# end %>
+        </tbody>
+      </table>
+ -->
+
+  <div id="tasks">
+    <%= f.fields_for :discs do |disc| %>
+      <%= render 'disc_fields', f: disc %>
+    <% end %>
+    <div class="btn btn-sm btn-default">
+      <%= link_to_add_association 'Discの追加 (_form内記述)',f, :discs, class:"btn btn-sm btn-primary" %>
+    </div>
+    <div>
+      <%= f.submit "商品の追加", class:"btn btn-lg btn-success" %>
+    </div>
+  </div>
+<% end %>

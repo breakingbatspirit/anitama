@@ -1,7 +1,7 @@
 <footer>
   <div class="text">©️2019 Breaking Bat Spirit, Inc</div>
    <div class="link">
-     <% if current_user %>
+     <% if current_user.id == 1 %>
      <%=link_to "管理者ページ" ,histories_path %>
     </div>
      <% end %>

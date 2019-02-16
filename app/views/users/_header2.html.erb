@@ -1,19 +1,12 @@
 <header>
-    <div class="nav">
-      <span style="margin-right:15%; margin-left:8%;">
-      <%=link_to "商品一覧", cds_path %>
-      </span>
-      <span style= "margin-right:15%;">
-      <%=link_to "商品追加", new_cd_path%>
-      </span>
-      <span style= "margin-right:15%;">
-      <%=link_to "購入履歴", histories_path%>
-      </span>
-      <span style= "margin-right:15%;">
-      <%=link_to "ユーザー一覧", users_path%>
-      </span>
-      <span style= "margin-right: 15%;">
-      <%=link_to "ログアウト", root_path %>
-      </span>
+  <div class="head">アニソン★魂</div>
+    <div class="link">
+      <%=link_to "ログイン", new_user_session_path %>　　<%=link_to "会員登録", new_user_registration_path%></div>
+          <%= search_form_for @search do |f| %>
+    <div class="form-group">
+    <input type="text" name="q[name_cont]" style="
+    width: 254px; height: 40px;">
+    <%= f.submit "検索",class: "btn btn-banger"  %>
+    <% end %>
     </div>
 </header>

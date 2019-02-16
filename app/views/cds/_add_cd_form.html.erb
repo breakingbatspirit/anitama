@@ -1,0 +1,92 @@
+<%= form_for @cd do |f| %>
+  <div class="field">
+    <%= f.label :album, "シングル/アルバム名" %><br>
+    <%= f.text_field :album %>
+  </div>
+
+  <div>
+    <p>アニメ名</p>
+    <div style="margin-bottom: 10px">
+
+
+
+          <%# @animes.each do |anime| %>
+
+                <%= link_to cd.anime, cd %>
+
+                <%= cd.anime %>
+
+          <%# end %>
+
+
+
+      <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+          以下から選択してください
+          <span class="caret"></span>
+        </button>
+
+        <ul class="dropdown-menu" role="menu">
+          <li role="presentation"><a href="#">名探偵コナン</a></li>
+          <li role="presentation"><a href="#">THE IDOLM@STER（アイドルマスター）</a></li>
+          <li role="presentation"><a href="#">ReLIFE</a></li>
+          <li role="presentation"><a href="#">攻殻機動隊 STAND ALONE COMPLEX</a></li>
+          <li role="presentation"><a href="#">あの日見た花の名前を僕たちはまだ知らない</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <p>レーベル名</p>
+    <!-- <div style="background-color: #887; width: 100%; height: 30px; margin-bottom: 10px"> -->
+    <div style="margin-bottom: 10px">
+      <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+          以下から選択してください
+          <span class="caret"></span>
+        </button>
+
+        <ul class="dropdown-menu" role="menu">
+          <li role="presentation"><a href="#">エイベックス・エンタテインメント</a></li>
+          <li role="presentation"><a href="#">ソニー・ミュージックエンタテインメント</a></li>
+          <li role="presentation"><a href="#">ユニバーサルミュージック</a></li>
+          <li role="presentation"><a href="#">Being</a></li>
+          <li role="presentation"><a href="#">ワーナーミュージック・ジャパン</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <p>ジャンル</p>
+    <!-- <div style="background-color: #887; width: 100%; height: 30px; margin-bottom: 10px"> -->
+    <div style="margin-bottom: 10px">
+      <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+          以下から選択してください
+          <span class="caret"></span>
+        </button>
+
+        <ul class="dropdown-menu" role="menu">
+          <li role="presentation">〜1970年代</li>
+          <li role="presentation">1980年代</li>
+          <li role="presentation">1990年代</li>
+          <li role="presentation">2000年代</li>
+          <li role="presentation">2010年代〜</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :inventory, "在庫数" %><br>
+    <%= f.number_field :inventory %>
+          <span style="margin-left: 10px">個</span>
+  </div>
+  <div class="field">
+    <%= f.label :price, "値段" %><br>
+    <%= f.number_field :price %>
+          <span style="margin-left: 10px">円</span>
+  </div>
+<% end %>

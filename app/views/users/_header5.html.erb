@@ -1,0 +1,17 @@
+<header>
+ <div class="head">アニソン★魂</div>
+  <div class="icon">
+   <%= link_to root_path ,class: "glyphicon glyphicon-user" do %>
+   <% end %>
+    <%= link_to destroy_user_session_path ,class: "glyphicon glyphicon-cog" do %>
+    <% end %>
+     <%= link_to cart_items_path ,class: "glyphicon glyphicon-shopping-cart" do %>
+     <% end %>
+  </div>
+       <%= search_form_for @search do |f| %>
+    <div class="form-group">
+    <input type="text" name="q[name_cont]" style="
+    width: 254px; height: 40px;">
+    <%= f.submit "検索",class: "btn btn-banger"  %>
+    <% end %>
+</header>

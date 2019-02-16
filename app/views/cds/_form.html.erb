@@ -1,6 +1,6 @@
-<%= form_for @cd do |f| %>
+<div style="border:5px solid #333">
 
-  <h3>曲情報の追加（完成後この文は消去）</h3>
+<%= form_for @cd do |f| %>
 
 <!-- 
       <table class="table table-hover table-inverse">
@@ -35,11 +35,16 @@
     <%= f.fields_for :discs do |disc| %>
       <%= render 'disc_fields', f: disc %>
     <% end %>
-    <div class="btn btn-sm btn-default">
-      <%= link_to_add_association 'Discの追加 (_form内記述)',f, :discs, class:"btn btn-sm btn-primary" %>
+
+    <div style="margin:20px">
+      <%= link_to_add_association 'Discの追加',f, :discs, class:"btn btn-primary" %>
     </div>
+
     <div>
-      <%= f.submit "商品の追加", class:"btn btn-lg btn-success" %>
+      <%= f.submit "商品の作成", class:"btn btn-lg btn-success" %>
     </div>
   </div>
+
 <% end %>
+
+</div>

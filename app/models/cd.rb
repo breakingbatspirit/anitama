@@ -13,8 +13,9 @@ class Cd < ApplicationRecord
 
     attachment :image
 
-    validates :album, presence: true
-    validates :title, presence: true
-    # validates :price, presense: true
-    # validates :inventory, presense: true
+    # validates :album, presence: true
+    # validates :price, presence: true
+    # validates :inventory, presence: true
+
+    validates :disc, presence: true, numericality: {greater_than: 0, less_than: 100}
 end

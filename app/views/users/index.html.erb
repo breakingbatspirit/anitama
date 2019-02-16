@@ -1,41 +1,32 @@
-<header>
-    <div class="nav">
-      <span style="margin-right:15%; margin-left:8%;">
-      <%=link_to "商品一覧", cds_path %>
-      </span>
-      <span style= "margin-right:15%;">
-      <%=link_to "商品追加", new_cd_path%>
-      </span>
-      <span style= "margin-right:15%;">
-      <%=link_to "購入履歴", histories_path%>
-      </span>
-      <span style= "margin-right:15%;">
-      <%=link_to "ユーザー一覧", users_path%>
-      </span>
-      <span style= "margin-right: 15%;">
-      <%=link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      </span>
-    </div>
-</header>
-
 <div class="container">
-   <div class="row">
-<h2>ユーザー 一覧</h2>
-<table class="table table-bordered">
-	<%= search_form_for @search do |f| %>
-		<div class="form-group">
-			<%= f.label :name_cont, "Name" %>
-			<%= f.text_field :name_cont, class: "form-control" %>
-    	</div>
-    	<div class="actions"><%= f.submit "Search" , class: "btn btn-danger" %></div>
-    <% end %>
+		 <div class="row" style="padding: 20px;">
+   		<div class="col-sm-4">
+		   <h2>ユーザー 一覧</h2>
+		</div>
+		<div class="col-sm-4 form-group kensaku">
+	   			<%= search_form_for @search do |f| %>
+				<div align="center"><%= f.text_field :name_cont, class: "form-control" %>
+				<%= f.submit "検索" , class: "btn btn-default btn-sm" %>
+	    	<% end %>
+		</div>
+		<div class="col-sm-4">
 
-	<% @users.each do |user| %>
+		</div>
+
+	</div>
+	</div>
+	</div>
+
+
+
+<table class="table table-bordered">
+
 	<thead>
 		<tr>
 			<th class="image_index_display">ユーザー画像</th>
 			<th class="name_index_display">名前</th>
 			<th class="namekana_index_display">カナ</th>
+			<th class="nickname_index_display">ニックネーム</th>
 			<th class="postal_index_display">〒</th>
 			<th class="address_index_display">住所</th>
 			<th class="phone_index_display">TEL</th>
@@ -44,12 +35,15 @@
 			<th class="delet_index_display">削除</th>
 		</tr>
 	</thead>
-	<tbody>
+	<% @users_page.each do |user| %>
+	<% if user.deleted_at == true %>
+		<tbody class="taikai">
 		<tr>
 			<td class="image_index_display"><%= attachment_image_tag user, :image, :fill,50,50, format: 'jpeg', size: "50x50", fallback: "no-image.jpg" %>
 			</td>
 			<td class="name_index_display"><%= user.name %></td>
 			<td class="namekana_index_display"><%= user.namekana %></td>
+			<td class="nickname_index_display"><%= user.nickname %></td>
 			<td class="postal_index_display"><%= user.postal %></td>
 			<td class="address_index_display"><%= user.address %></td>
 			<td class="phone_index_display"><%= user.phone %></td>
@@ -58,15 +52,26 @@
 			<td class="delet_index_display"></td>
 		</tr>
 	</tbody>
+	<% else %>
+	<tbody>
+		<tr>
+			<td class="image_index_display"><%= attachment_image_tag user, :image, :fill,50,50, format: 'jpeg', size: "50x50", fallback: "no-image.jpg" %>
+			</td>
+			<td class="name_index_display"><%= user.name %></td>
+			<td class="namekana_index_display"><%= user.namekana %></td>
+			<td class="nickname_index_display"><%= user.nickname %></td>
+			<td class="postal_index_display"><%= user.postal %></td>
+			<td class="address_index_display"><%= user.address %></td>
+			<td class="phone_index_display"><%= user.phone %></td>
+			<td class="email_index_diespla"><%= user.email %></td>
+			<td class="edit_index_display"><%= link_to "編集",edit_user_path(user.id), class: "btn btn-default  btn-xs" %></td>
+			<td class="delet_index_display"><%= link_to "削除", delete_user_path(user, params:  {user: {deleted_at: true} }),method: :put, class: "btn btn-default btn-xs" %></td>
+		</tr>
+	</tbody>
+		<% end %>
 	<% end %>
 </table>
 </div>
 </div>
-<footer>
-  <div class="text">©️2019 Breaking Bat Spirit, Inc</div>
-   <div class="link">
-     <% if current_user.id == 1 %>
-     <%=link_to "管理者ページ" ,histories_path %>
-    </div>
-     <% end %>
-</footer>
+<div align="center"><%= paginate @users_page, class: "paginate" %></div>
+

@@ -1,6 +1,8 @@
+<div style="border:3px dashed #777">
+
 <div class="nested-fields well well-compact">
   <div class="form-group">
-    <%= f.label :"Disc number:" %>
+    <%= f.label :"Disc number" %>
     <%= f.number_field :type %><br>
   </div>
 
@@ -41,17 +43,17 @@
 
 
     <div style="margin:10px">
-      <%= link_to_add_association "曲を追加 (_disc_fields内記述)", f, :songs, class:"btn btn-sm btn-info" %>
+      <%= link_to_add_association "＋", f, :songs, class:"btn btn-sm btn-default" %>
     </div>
 
     <div style="margin:10px">
-      <%= link_to_remove_association "曲を削除 (_disc_fields内記述)", f, class:"btn btn-sm btn-warning" %>
+      <%#= link_to_remove_association "曲を削除 (_disc_fields内記述)", f, class:"btn btn-sm btn-warning" %>
     </div>
 
 
   </div>
     <div>
-      <%= link_to_remove_association "Discの削除 (_disc_fields内記述)", f, class:"btn btn-sm btn-danger" %>
+      <%= link_to_remove_association "Discの削除", f, class:"btn btn-danger" %>
     </div>
 
 </div>

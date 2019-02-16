@@ -1,9 +1,3 @@
-
-<header>
- <div class="head">アニソン★魂</div>
-  <%= link_to user_path(users.id),class:"btn btn-default_user_#{users.id}" do %>
-
-
 <div class="container">
    <div class="row">
 <div class="col-sm-3">
@@ -16,6 +10,7 @@
 
 		 <%= link_to "編集",edit_user_path(@user.id), class: "btn btn-default edit_btn" %>
 	     <%= link_to "退会",root_path(@user.id), class: "btn btn-default delete_btn" %>
+	     <%=link_to "ログアウト", destroy_user_session_path, method: :delete %>
 
 	</div>
 
@@ -25,4 +20,3 @@
 	</div>
   </div>
 </div>
-

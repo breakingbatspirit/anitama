@@ -1,0 +1,31 @@
+<h4>新規項目追加欄</h4>
+<p>　※未登録の項目はこちらから追加してください。</p>
+
+<div class="form-inline">
+  <% @anime = Anime.new unless @anime %>
+  <%= form_for @anime do |f| %>
+    <div class="field">
+      <%= f.label :anime_title, "アニメ名", class:"label-bold" %><br>
+      <%= f.text_field :anime_title, class:"form-control form-ucr", placeholder:"←左に反映", style:"width:70%" %>
+      <%= f.submit '新規追加', class:"btn btn-default btn-right" %>
+    </div>
+  <% end %>
+
+  <% @label = Label.new unless @label %>
+  <%= form_for @label do |f| %>
+    <div class="field">
+      <%= f.label :company, "レーベル名", class:"label-bold" %><br>
+      <%= f.text_field :company, class:"form-control form-ucr", placeholder:"←左に反映", style:"width:70%" %>
+      <%= f.submit '新規追加', class:"btn btn-default btn-right" %>
+    </div>
+  <% end %>
+
+  <% @artist = Artist.new unless @artist %>
+  <%= form_for @artist do |f| %>
+    <div class="field">
+      <%= f.label :artist_name, "アーティスト名(曲入力欄に追加)", class:"label-bold" %><br>
+      <%= f.text_field :artist_name, class:"form-control form-ucr", placeholder:"↓下に反映", style:"width:70%" %>
+      <%= f.submit '新規追加', class:"btn btn-default btn-right" %>
+    </div>
+  <% end %>
+</div>

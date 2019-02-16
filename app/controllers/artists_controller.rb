@@ -2,7 +2,7 @@ class ArtistsController < ApplicationController
 
 
 	def create
-        @artist = Artist.new(artist_params)
+        @artist = Artist.new(artist_params) unless @artist
         @artist.save
         redirect_to new_cd_path
 	end
@@ -14,6 +14,6 @@ class ArtistsController < ApplicationController
 	end
 
     def artist_params
-      params.require(:artist).permit(:artist_name)
+        params.require(:artist).permit(:artist_name)
     end
 end

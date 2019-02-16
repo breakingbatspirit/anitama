@@ -6,11 +6,16 @@
 p, span {
     font-size: 14px;
 }
+.label-bold {
+    font-weight: bold;
+    line-height: 20px;
+    padding-top: 10px;
+}
 .center {
     margin: 0 auto;
     text-align: center;
 }
-/*ここまで*/
+/* ここまで */
 
 
 
@@ -22,34 +27,44 @@ p, span {
     width: 100%;
     height: -webkit-calc(100% - 90px);
     /*height: calc(100% - 90px);*/
-    height: calc(100vh - 90px - (100vw / 6));
-    background-image: url("sample-m.png");
+    height: calc(100vh - 90px - (100vw / 6) - 40px);
+    background-image: url("cute-but-no-deploy2.jpeg");
     background-size: cover;
     background-position: center;
     border-bottom: 2px solid #ccc;
 }
 .top-title {
-    margin: 0;
-    padding: 60px;
-    color: #FF4500;
+    margin: 0 auto;
+    padding: 50px 60px 0;
 }
-.top-text {
-    font-size: 40px;
+.top-title-text {
+    font-size: 45px;
+    color: #FF4500;
     background: repeating-linear-gradient(-45deg, #fff5df, #fff5df 4px,#ffe4b1 3px, #ffe4b1 8px);
     border-radius: 7px;
     opacity: 0.9;
+    padding: 5px;
 }
-.top-visual {
-    width: 100%;
-    margin: 0 auto;
+.top-title-visual {
+    width: 95%;
+    align: center;
+    margin-top: -10px;
 }
+
 
 .top-lower-container {
-    width:100%;
-    height : calc(100vh / 6) ;
-    background-color: #595;
+    height : calc(100% / 6) ;
 }
-
+.top-cd-images {
+    width: calc(100% / 6);
+    height: calc(100vw / 6);
+    float: left;
+    padding: 5px;
+    box-shadow: 0 0 4px rgba(0,0,0,1);
+}
+.top-cd-images:hover {
+    box-shadow: 0 0 25px rgba(0,0,0,1);
+}
 
 
 /* cds#newと#editに適用 */
@@ -64,10 +79,10 @@ p, span {
     padding: 30px 40px;
 }
 .upper-cont-left {
-    width: 20%;
+    width: 25%;
     height: auto;
     float: left;
-    padding: 20px
+    padding: 20px 40px;
     /*background-color: #CC7;*/
 }
 .cd-image {
@@ -79,28 +94,38 @@ p, span {
     width: 80%;
 }
 .upper-cont-center {
-    width: 40%;
+    width: 35%;
     float: left;
     padding: 20px 30px;
     /*background-color: #BB7;*/
-    border: 1px dashed #AAA;
 }
 .upper-cont-center-items {
     width: 50%;
     float: left;
 }
+.unit {
+    margin-left: 10px;
+}
 .upper-cont-right {
     width: 36%;
     float: left;
     margin: 0 2%;
-    padding: 20px 20px;
+    padding: 20px;
     border: 3px solid #333;
     border-radius: 3%;
+}
+.form-ucr {
+    width: 70%;
+    margin-right: 10px;
+}
+.btn-right {
+    float:right;
 }
 
 .lower-container {
     /* width: 80%; */
     margin: 0 auto;
+    padding: 20px 20px;
     /* background-color: #AAA; */
 }
 .lower-cont-left {
@@ -130,22 +155,6 @@ p, span {
 
 
 
-/*
-input[type="text"] {
-        width: 300px;
-        height: 40px;
-    }
-*/
 
 
 
-
-/*いらない*/
-.sample2 {
-    width:(100% / 6);
-    height:calc(100vw / 6);
-    background-image:url('cd.jpg');
-    background-size: cover;
-    float:left;
-    border:1px solid #CCC;
-}

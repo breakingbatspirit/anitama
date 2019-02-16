@@ -1,59 +1,57 @@
+<!-- divの見える化 -->
 <div style="border:3px dashed #777">
+<!-- divの見える化ここまで -->
+
+
 
 <div class="nested-fields well well-compact">
   <div class="form-group">
-    <%= f.label :"Disc number" %>
-    <%= f.number_field :type %><br>
+    <%= f.label :"Disc" %>
+    <%= f.number_field :type, class:"form-control", placeholder:"1", style:"width:60px" %><br>
   </div>
 
   <div class="songs">
 
-
 <!-- ここから -->
 
-<div class="nested-fields form-inline">
+    <div class="nested-fields form-inline">
 
-  <div class="form-group">
+      <div class="form-group">
 
+          <table class="row table table-hover table-inverse" style="margin-left:15px; width:100%;">
+            <thead>
+              <tr>
+                <th class="col-xs-1">曲順</th>
+                <th class="col-xs-5">シングル/アルバム内の曲名</th>
+                <th class="col-xs-5">アーティスト名</th>
+                <th class="col-xs-1">追加と削除</th>
+              </tr>
+            </thead>
 
-      <table class="table">
-        <thead>
-          <tr>
-            <th>曲順</th>
-            <th>シングル/アルバム内の曲名</th>
-            <th>アーティスト名</th>
-            <th></th>
-          </tr>
-        </thead>
+          </table>
 
-      </table>
+      </div>
 
-  </div>
-
-</div>
+    </div>
 
 <!-- ここまで -->
-
-
 
     <%= f.fields_for :songs do |song| %>
       <%= render 'song_fields', f: song %>
     <%end%>
 
-
-
-    <div style="margin:10px">
-      <%= link_to_add_association "＋", f, :songs, class:"btn btn-sm btn-default" %>
+    <div style="margin:10px; float:right">
+      <%= link_to_add_association "追加", f, :songs, class:"btn btn-default", style:"margin-right:5px" %>
     </div>
-
-    <div style="margin:10px">
-      <%#= link_to_remove_association "曲を削除 (_disc_fields内記述)", f, class:"btn btn-sm btn-warning" %>
-    </div>
-
 
   </div>
+
     <div>
-      <%= link_to_remove_association "Discの削除", f, class:"btn btn-danger" %>
+      <%= link_to_remove_association "Discの削除", f, class:"btn btn-danger", style:"margin-top:15px;" %>
     </div>
 
+
+
+<!-- divの見える化 -->
 </div>
+<!-- divの見える化ここまで -->

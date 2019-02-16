@@ -10,7 +10,7 @@
 
 
 		 <%= link_to "編集",edit_user_path(@user.id), class: "btn btn-default edit_btn" %>
-	     <%= link_to "退会", user_path(@user, params:  {user: {deleted_at: true} }),method: :put, class: "btn btn-default delete_btn" %></td>
+	     <%= link_to "退会", delete_user_path(@user, params:  {user: {deleted_at: true} }),method: :put, class: "btn btn-default delete_btn" %></td>
 	     <%=link_to "ログアウト", destroy_user_session_path, method: :delete %>
 
 	</div>

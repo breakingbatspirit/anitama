@@ -34,6 +34,7 @@ class CdsController < ApplicationController
       flash[:notice] = "Success message: 新しいCDが商品情報に追加されました！"
       redirect_to new_cd_path
     else
+      p @cd.errors.full_messages
       flash[:notice] = "Error message: エラー発生！"
       redirect_to new_cd_path
     end

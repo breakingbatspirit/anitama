@@ -3,6 +3,7 @@ class DiscsController < ApplicationController
     def create
         @disc = Disc.new(disc_params)
         @disc.save
+        redirect_to new_cd_path
     end
 
     def destroy
@@ -15,6 +16,6 @@ class DiscsController < ApplicationController
 
     private
         def disc_params
-            params.require(:disc).permit(:type)
+            params.require(:disc).permit(:disc_number)
         end
 end

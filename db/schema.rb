@@ -25,13 +25,11 @@ ActiveRecord::Schema.define(version: 2019_02_11_072126) do
 
   create_table "animes", force: :cascade do |t|
     t.text "anime_title", null: false
-    t.integer "cd_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "artists", force: :cascade do |t|
-    t.integer "songs_id", null: false
     t.string "artist_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -46,11 +44,14 @@ ActiveRecord::Schema.define(version: 2019_02_11_072126) do
   end
 
   create_table "cds", force: :cascade do |t|
-    t.text "cd_image_id", null: false
+    t.text "cd_image_id"
     t.text "album", null: false
     t.integer "price", null: false
     t.integer "inventory", null: false
-    t.integer "user_id", null: false
+    t.integer "user_id"
+    t.integer "anime_id"
+    t.integer "label_id"
+    t.integer "genre_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -64,7 +65,7 @@ ActiveRecord::Schema.define(version: 2019_02_11_072126) do
   end
 
   create_table "discs", force: :cascade do |t|
-    t.integer "type", null: false
+    t.integer "disc_number", null: false
     t.integer "cd_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -79,7 +80,6 @@ ActiveRecord::Schema.define(version: 2019_02_11_072126) do
 
   create_table "genres", force: :cascade do |t|
     t.integer "generation", limit: 1, default: 0, null: false
-    t.integer "cd_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -96,16 +96,6 @@ ActiveRecord::Schema.define(version: 2019_02_11_072126) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "histories_cds", force: :cascade do |t|
-    t.integer "history_id", null: false
-    t.integer "cd_id", null: false
-    t.integer "history_cd_quantity", null: false
-    t.integer "history_cd_price", null: false
-    t.string "history_cd_album", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "history_cds", force: :cascade do |t|
     t.integer "history_id", null: false
     t.integer "cd_id", null: false
@@ -117,16 +107,16 @@ ActiveRecord::Schema.define(version: 2019_02_11_072126) do
   end
 
   create_table "labels", force: :cascade do |t|
-    t.text "company", null: false
-    t.integer "cd_id", null: false
+    t.text "label_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "songs", force: :cascade do |t|
+    t.integer "disc_id", null: false
     t.integer "order", null: false
     t.string "title", null: false
-    t.integer "disc_id", null: false
+    t.integer "artist_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -144,14 +134,13 @@ ActiveRecord::Schema.define(version: 2019_02_11_072126) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "namekana"
-    t.string "nickname"
-    t.string "postal"
-    t.text "address"
-    t.string "phone"
+    t.string "name", null: false
+    t.string "namekana", null: false
+    t.string "nickname", null: false
+    t.string "postal", null: false
+    t.text "address", null: false
+    t.string "phone", null: false
     t.text "image_id"
-    t.boolean "deleted_at"
-    t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

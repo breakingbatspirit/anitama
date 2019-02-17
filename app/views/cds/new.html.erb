@@ -1,55 +1,84 @@
 <!-- headerイメージ(古い版) -->
 <header style="width:100%; height:90px; background-color:black">
-  <div style="color:white; float:left; padding-left:40px; font-size:20px; line-height: 90px">アニソン★魂</div>
+  <div style="color:white; float:left; padding-left:40px; font-size:20px; line-height: 90px">管理者用のヘッダー</div>
     <div style="color:white; padding:40px; float:right; font-size:25px; line-height: 0">
-      <span class="glyphicon glyphicon-user"></span>
-      <span class="glyphicon glyphicon-cog"></span>
-      <span class="glyphicon glyphicon-shopping-cart"></span>
+
     </div>
 </header>
-
-<!-- divの見える化 -->
-<!-- <div style="border: 1px solid green"> -->
 
 <!-- 上半分 -->
 <div class="container">
 
-    <div class="upper-container clearfix">
-      <h1 class="cds-new-title">商品追加</h1>
+  <div class="upper-container clearfix">
+    <h1 class="cds-new-title">商品追加</h1>
 
-      <div class="upper-cont-left">
-        <div class="" style="border: 1px solid black; width: 80%; height: auto; margin: 10%">
-          <%= image_tag 'sample-t.png', style:"width: 100%" %>
-        <%#= attachment_image_tag(@cds.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg") %>
-          <div align="center">
-            <%= attachment_image_tag @user, :image, :fill,200,200, format: 'jpeg', size: "200x200", fallback: "sample-t.png" %>
-          </div>
+    <div class="upper-cont-left">
+
+      <%= form_for(@cd, url: cds_path) do |f| %>
+
+        <div>
+        <!-- <div class="" style="border: 1px solid black; width: 80%; height: auto; margin: 10%"> -->
+          <%= image_tag 'cd.jpg', class:"cd-image" %>
+            <%#= attachment_image_tag(@cds.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg") %>
+          <!-- <div align="center"> -->
+            <%#= attachment_image_tag @user, :image, :fill,200,200, format: 'jpeg', size: "180x180", fallback: "sample-t.png" %>
+          <!-- </div> -->
         </div>
-          <!-- ボタンに変える -->
-        <div class="center">
-          <div class="btn btn-info">
-            <p>ジャケットの編集</p>
-          </div>
+
+        <div class="cd-image-select">
+          <%= f.file_field :cd_image_id %>
         </div>
-      </div>
+      <% end %>
 
-      <div class="upper-cont-center">
-        <%= render 'cds/add_cd_form', cd: @cd %>
-      </div>
 
-      <div class="upper-cont-right">
-        <%= render 'cds/add_new_cd_record', cd: @cd %>
-      </div>
+
     </div>
-</div>
 
+    <div class="upper-cont-center">
+      <%= render 'cds/form_newcd', cd: @cd %>
+    </div>
+
+    <div class="upper-cont-right">
+      <%= render 'cds/form_newrecord', cd: @cd %>
+    </div>
+
+
+                <!-- (仮)要素が新規追加されたか確認のためのフォーム -->
+                <div style="margin-left:40px">
+                  <p>↓新規追加を確認するための仮ドロップダウン（アニメ名）</p>
+
+                  <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                      以下から選択してください
+                      <span class="caret"></span>
+                    </button>
+
+                    <ul class="dropdown-menu" role="menu">
+                      <li role="presentation">
+                        <% if @animes.present? %>
+                          <% @animes.each do |anime| %>
+                            <p><%= anime.anime_title %></p>
+                          <% end %>
+                        <% end %>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <!-- ここまで -->
+
+
+
+  </div>
 
 <!-- 下半分 -->
-<div class="lower-container">
-    <%#= render 'cds/addsongs', cds: @cds %>
-    <%= render 'form', cd: @cd %>
-    <%= link_to 'Back', root_path %>
-</div>
+  <div class="lower-container clearfix">
+    <div class="lower-container-left">
+    </div>
+    <div class="lower-container-right">
+      <hr>
+      <%= render 'form', cd: @cd %>
+      <%#= link_to 'Back', root_path %>
+    </div>
+  </div>
 
-<!-- divの見える化・閉じタグ -->
-<!-- </div>
+</div>

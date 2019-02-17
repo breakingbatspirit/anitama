@@ -107,7 +107,7 @@ ActiveRecord::Schema.define(version: 2019_02_11_072126) do
   end
 
   create_table "labels", force: :cascade do |t|
-    t.text "company", null: false
+    t.text "label_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

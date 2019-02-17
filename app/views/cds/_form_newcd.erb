@@ -58,7 +58,7 @@
       <li role="presentation">
         <%# if @animes.present? %>
           <%# @labels.each do |label| %>
-            <%#= label.company %><br>
+            <%#= label.label_name %><br>
           <%# end %>
         <%# end %>
       </li>
@@ -69,8 +69,8 @@
 <!-- とりあえずベタ打ちで入力してください。 -->
 <%= form_for @label do |f| %>
   <div class="field">
-    <%= f.label :company, "＊レーベル名（とりあえずベタ打ちで）", class:"label-bold" %><br>
-    <%= f.text_field :company, class:"form-control", placeholder:"", style:"width:90%" %>
+    <%= f.label :label_name, "＊レーベル名（とりあえずベタ打ちで）", class:"label-bold" %><br>
+    <%= f.text_field :label_name, class:"form-control", placeholder:"", style:"width:90%" %>
   </div>
 <% end %>
 

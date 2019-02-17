@@ -18,9 +18,14 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = current_user
-     @search = User.ransack(params[:q])
-    @users = @search.result
+    @search = User.ransack(params[:q])
+
+    admin = User.find(1)
+    if current_user.id != admin.id
+      @user = current_user
+    else
+      @user = User.all.with_deleted.find(params[:id])
+    end
   end
 
   def create

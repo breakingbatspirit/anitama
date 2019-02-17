@@ -2,7 +2,10 @@ class UsersController < ApplicationController
   before_action :admin_validate!, only: [:index]
    PER = 8
   def index
+
     @search = User.ransack(params[:q])
+    @users = @search.result
+
     @users = @search.result.with_deleted
     @users_page = @users.page(params[:page]).per(PER).reverse_order
     # binding.pry
@@ -19,6 +22,10 @@ class UsersController < ApplicationController
   end
 
   def edit
+#   Ransack用
+    @search = User.ransack(params[:q])
+#   Ransack用ここまで
+
     admin = User.find(1)
     if current_user.id != admin.id
       @user = current_user
@@ -60,10 +67,11 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :namekana, :nickname, :image, :postal, :address, :phone, :email, :deleted_at)
     end
 
-   def admin_validate!
-     admin = User.find(1)
-     if current_user != admin
-       redirect_to user_path(current_user)
-     end
-   end
+    def admin_validate!
+      admin = User.find(1)
+      if current_user != admin
+        redirect_to user_path(current_user)
+      end
+    end
+
 end

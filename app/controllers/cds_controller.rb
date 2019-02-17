@@ -8,7 +8,7 @@ class CdsController < ApplicationController
     @artist = Artist.new
 
     @animes = Anime.all.order("anime_title")
-    @labels = Label.all.order("company")
+    @labels = Label.all.order("label_name")
     @artists = Artist.all.order("artist_name")
   end
 
@@ -17,16 +17,20 @@ class CdsController < ApplicationController
   end
 
   def show
+    @search = User.ransack(params[:q])
+    @users = @search.result
+    @user = current_user
   end
 
   def edit
   end
 
   def create
-    @cd = Cd.new(cd_params)
     binding.pry
+    @cd = Cd.new(cd_params)
+    # @anime = anime.find(5)
     if @cd.save
-        d.song.id
+        # d.song.id
       flash[:notice] = "Success message: 新しいCDが商品情報に追加されました！"
       redirect_to new_cd_path
     else
@@ -50,13 +54,14 @@ class CdsController < ApplicationController
 
   def top
     @cds = Cd.all
+    @user = current_user
   end
 
   private
 
     def cd_params
-      params.require(:cd).permit(:cd_image_id, :album, :price, :inventory, discs_attributes: [:id, :disc_number, :_destroy,
-                                                                           songs_attributes: [:id, :order, :title, :_destroy]])
+      params.require(:cd).permit(:id, :cd_image_id, :album, :inventory, :price, :anime_id, :label_id, :genre_id, discs_attributes: [:id, :disc_number, :_destroy,
+                                                                                                                 songs_attributes: [:id, :order, :title, :artist_id, :_destroy]])
       # ストロングパラメーターの _destroy も必要（入れないと削除できない）
       # 子要素は親要素のストロングパラメーターに含めて記述できる
     end

@@ -1,16 +1,10 @@
-<!-- headerイメージ(古い版) -->
-<header style="width:100%; height:90px; background-color:black">
-  <div style="color:white; float:left; padding-left:40px; font-size:20px; line-height: 90px">管理者用のヘッダー</div>
-    <div style="color:white; padding:40px; float:right; font-size:25px; line-height: 0">
-
-    </div>
-</header>
-
+<%= render 'users/header1' ,user:@user %>
 <!-- 上半分 -->
 <div class="container">
 
   <div class="upper-container clearfix">
     <h1 class="cds-new-title">商品追加</h1>
+    <%= @animes %>
 
     <div class="upper-cont-left">
 
@@ -24,61 +18,91 @@
             <%#= attachment_image_tag @user, :image, :fill,200,200, format: 'jpeg', size: "180x180", fallback: "sample-t.png" %>
           <!-- </div> -->
         </div>
-
-        <div class="cd-image-select">
-          <%= f.file_field :cd_image_id %>
-        </div>
-      <% end %>
+      
 
 
+<div class="container">
 
-    </div>
+    <h1 class="cds-new-title">商品追加</h1>
 
-    <div class="upper-cont-center">
-      <%= render 'cds/form_newcd', cd: @cd %>
-    </div>
-
+    <!-- Cdモデル以外に送る右上の部分 -->
     <div class="upper-cont-right">
-      <%= render 'cds/form_newrecord', cd: @cd %>
+      <%= render 'add_record', cd: @cd %>
     </div>
 
-
-                <!-- (仮)要素が新規追加されたか確認のためのフォーム -->
-                <div style="margin-left:40px">
-                  <p>↓新規追加を確認するための仮ドロップダウン（アニメ名）</p>
-
-                  <div class="dropdown">
-                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-                      以下から選択してください
-                      <span class="caret"></span>
-                    </button>
-
-                    <ul class="dropdown-menu" role="menu">
-                      <li role="presentation">
-                        <% if @animes.present? %>
-                          <% @animes.each do |anime| %>
-                            <p><%= anime.anime_title %></p>
-                          <% end %>
-                        <% end %>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <!-- ここまで -->
-
-
-
-  </div>
-
-<!-- 下半分 -->
-  <div class="lower-container clearfix">
-    <div class="lower-container-left">
-    </div>
-    <div class="lower-container-right">
-      <hr>
+    <!-- Cdモデルに送るほか全部 -->
       <%= render 'form', cd: @cd %>
       <%#= link_to 'Back', root_path %>
-    </div>
-  </div>
 
+</div>
+
+
+
+
+
+<div style="margin: 200px 0; border-top:10px dotted grey">
+<!-- (仮)要素が新規追加されたか確認のためのフォーム -->
+<div style="margin:20px 20px 0">
+  <p>↓（仮）新規追加確認用</p>
+
+  <div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+      アニメ名を選択
+      <span class="caret"></span>
+    </button>
+
+    <ul class="dropdown-menu" role="menu">
+      <li role="presentation">
+        <% if @animes.present? %>
+          <% @animes.each do |anime| %>
+            <p><%= anime.anime_title %></p>
+          <% end %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- ここまで -->
+<!-- (仮)要素が新規追加されたか確認のためのフォーム -->
+<div style="margin:20px 20px 0">
+
+  <div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+      レーベル名を選択
+      <span class="caret"></span>
+    </button>
+
+    <ul class="dropdown-menu" role="menu">
+      <li role="presentation">
+        <% if @labels.present? %>
+          <% @labels.each do |label| %>
+            <p><%= label.label_name %></p>
+          <% end %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- ここまで -->
+<!-- (仮)要素が新規追加されたか確認のためのフォーム -->
+<div style="margin:20px 20px 0">
+
+  <div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+      アーティスト名を選択
+      <span class="caret"></span>
+    </button>
+
+    <ul class="dropdown-menu" role="menu">
+      <li role="presentation">
+        <% if @artists.present? %>
+          <% @artists.each do |artist| %>
+            <p><%= artist.artist_name %></p>
+          <% end %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- ここまで -->
 </div>

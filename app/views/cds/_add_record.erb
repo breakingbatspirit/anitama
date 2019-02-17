@@ -14,8 +14,8 @@
   <% @label = Label.new unless @label %>
   <%= form_for @label do |f| %>
     <div class="field">
-      <%= f.label :company, "レーベル名", class:"label-bold" %><br>
-      <%= f.text_field :company, class:"form-control form-ucr", placeholder:"←左に反映", style:"width:70%" %>
+      <%= f.label :label_name, "レーベル名", class:"label-bold" %><br>
+      <%= f.text_field :label_name, class:"form-control form-ucr", placeholder:"←左に反映", style:"width:70%" %>
       <%= f.submit '新規追加', class:"btn btn-default btn-right" %>
     </div>
   <% end %>

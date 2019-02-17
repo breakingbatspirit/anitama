@@ -2,24 +2,16 @@
 
   <div class="form-group">
 
-      <table style="margin-bottom:5px">
-
-        <tbody>
-          <tr>
-            <td class="col-xs-2"><%= f.number_field :order, placeholder:1, class:"form-control", style:"width:60%" %></td>
-<!-- 
-            <td>
-              <%# 1.step(4, 1) do |x| %>
-                <%#= f.number_field :order, value:x %>
-              <%# end %>
-            </td>
- -->
-            <td class="col-xs-5"><%= f.text_field :title, class:"form-control", style:"width:100%" %></td>
-            <td class="col-xs-4"><%= f.text_field :artist, class:"form-control", style:"width:100%", placeholder:"とりあえずベタ打ちでm(_ _)m" %></td>
-            <td class="col-xs-1"><%= link_to_remove_association "削除", f, class:"btn btn-default", style:"width:100%" %></td>
-          </tr>
-        </tbody>
-      </table>
+    <table style="margin-bottom:5px">
+      <tbody>
+        <tr>
+          <td class="col-xs-2"><%= f.number_field :order, placeholder:1, class:"form-control", style:"width:60%" %></td>
+          <td class="col-xs-5"><%= f.text_field :title, class:"form-control", style:"width:100%" %></td>
+          <td class="col-xs-4"><%= f.text_field :artist, class:"form-control", style:"width:100%" %></td>
+          <td class="col-xs-1"><%= link_to_remove_association "削除", f, class:"btn btn-default", style:"width:100%" %></td>
+        </tr>
+      </tbody>
+    </table>
 
   </div>
 

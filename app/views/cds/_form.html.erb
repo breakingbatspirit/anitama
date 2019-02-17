@@ -2,110 +2,87 @@
 
 
 
-
-
-
-
-
-
-
-<!-- 上半分 -->
-<div class="container">
-
-  <div class="upper-container clearfix">
-    <h1 class="cds-new-title">商品追加</h1>
-
-    <div class="upper-cont-left">
-
-      <%= form_for(@cd, url: cds_path) do |f| %>
-
-        <div>
-        <!-- <div class="" style="border: 1px solid black; width: 80%; height: auto; margin: 10%"> -->
-          <%= image_tag 'cd.jpg', class:"cd-image" %>
-            <%#= attachment_image_tag(@cds.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg") %>
-          <!-- <div align="center"> -->
-            <%#= attachment_image_tag @user, :image, :fill,200,200, format: 'jpeg', size: "180x180", fallback: "sample-t.png" %>
-          <!-- </div> -->
-        </div>
-
-        <div class="cd-image-select">
-          <%= f.file_field :cd_image_id %>
-        </div>
-      <% end %>
-
-
-
-    </div>
-
-    <div class="upper-cont-center">
-      <%= render 'cds/form_newcd', cd: @cd %>
-    </div>
-
-    <div class="upper-cont-right">
-      <%= render 'cds/form_newrecord', cd: @cd %>
-    </div>
-
-
-                <!-- (仮)要素が新規追加されたか確認のためのフォーム -->
-                <div style="margin-left:40px">
-                  <p>↓新規追加を確認するための仮ドロップダウン（アニメ名）</p>
-
-                  <div class="dropdown">
-                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-                      以下から選択してください
-                      <span class="caret"></span>
-                    </button>
-
-                    <ul class="dropdown-menu" role="menu">
-                      <li role="presentation">
-                        <% if @animes.present? %>
-                          <% @animes.each do |anime| %>
-                            <p><%= anime.anime_title %></p>
-                          <% end %>
-                        <% end %>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <!-- ここまで -->
-
-
-
-  </div>
-
-<!-- 下半分 -->
-  <div class="lower-container clearfix">
-    <div class="lower-container-left">
-    </div>
-    <div class="lower-container-right">
-      <hr>
-
-
-
-
-
-
-
-
-
-
-  <div id="tasks">
-    <%= f.fields_for :discs do |disc| %>
-      <%= render 'disc_fields', f: disc %>
-    <% end %>
-
-    <div style="margin:20px">
-      <%= link_to_add_association 'Discの追加',f, :discs, class:"btn btn-primary" %>
-    </div>
+<!-- 画像投稿フォーム -->
+  <div class="upper-cont-left">
 
     <div>
-      <%= f.submit "商品の作成", class:"btn btn-lg btn-success" %>
+      <%= image_tag 'cd.jpg', class:"cd-image" %>
+        <%#= attachment_image_tag(@cds.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg") %>
+      <!-- <div align="center"> -->
+        <%#= attachment_image_tag @user, :image, :fill,200,200, format: 'jpeg', size: "180x180", fallback: "sample-t.png" %>
+      <!-- </div> -->
+    </div>
+
+    <div class="cd-image-select">
+      <%= f.file_field :cd_image_id %>
+    </div>
+
+  </div>
+
+
+
+  <!-- CD情報フォーム -->
+  <div class="upper-cont-center">
+
+    <div class="field">
+      <%= f.label :album, "シングル/アルバム名" %>
+      <%= f.text_field :album, class:"form-control", placeholder:"アニソン★魂", style:"width:90%" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :anime_id, "＊アニメ名（とりあえずベタ打ちで）", class:"label-bold" %><br>
+      <%= f.text_field :anime_id, class:"form-control", placeholder:"", style:"width:90%" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :label_id, "＊レーベル名（とりあえずベタ打ちで）", class:"label-bold" %><br>
+      <%= f.text_field :label_id, class:"form-control", placeholder:"", style:"width:90%" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :genre_id, "＊ジャンル（とりあえずベタ打ちで）", class:"label-bold" %><br>
+      <%= f.text_field :genre_id, class:"form-control", value:"2000年代", style:"width:90%" %>
+    </div>
+
+    <div class="upper-cont-center-items form-inline">
+      <div class="field">
+        <%= f.label :inventory, "在庫数", class:"label-bold" %><br>
+        <%= f.number_field :inventory, class:"form-control", placeholder:"", style:"width:50%" %>
+        <span class="unit">枚</span>
+      </div>
+    </div>
+
+    <div class="upper-cont-center-items form-inline">
+      <div class="field">
+        <%= f.label :price, "値段(税込み)", class:"label-bold" %><br>
+        <%= f.number_field :price, class:"form-control", placeholder:"", style:"width:60%" %>
+        <span class="unit">円</span>
+      </div>
+    </div>
+
+  </div>
+
+
+
+  <!-- 曲情報入力フォーム -->
+  <div class="lower-container clearfix">
+    <div class="lower-container-right">
+      <div id="tasks">
+        <%= f.fields_for :discs do |disc| %>
+          <%= render 'disc_fields', f: disc %>
+        <% end %>
+
+        <div style="margin:20px">
+          <%= link_to_add_association 'Discの追加',f, :discs, class:"btn btn-primary", style:"float:left" %>
+        </div>
+
+        <div>
+          <%= f.submit "商品の作成", class:"btn btn-lg btn-success", style:"float:right" %>
+        </div>
+      </div>
     </div>
   </div>
+
+
 
 <% end %>
-
-    </div>
-  </div>
-
-</div>

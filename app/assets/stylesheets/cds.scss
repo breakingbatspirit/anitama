@@ -68,47 +68,14 @@ p, span {
 
 
 /* cds#newと#editに適用 */
-.upper-container {
-    /* width: 90%; */
-    margin: 0 auto;
-    /*background-color: #CCC;*/
-    /*border: 1px dashed #AAA;*/
-}
 .cds-new-title {
     font-size: 40px;
-    padding: 30px 40px;
+    padding: 30px 60px;
 }
-.upper-cont-left {
-    width: 25%;
-    height: auto;
-    float: left;
-    padding: 20px 40px;
-    /*background-color: #CC7;*/
-}
-.cd-image {
-    width: 100%;
-    box-shadow: 2px 2px 4px #999;
-    margin-bottom: 20px
-}
-.cd-image-select {
-    width: 80%;
-}
-.upper-cont-center {
-    width: 35%;
-    float: left;
-    padding: 20px 30px;
-    /*background-color: #BB7;*/
-}
-.upper-cont-center-items {
-    width: 50%;
-    float: left;
-}
-.unit {
-    margin-left: 10px;
-}
+
 .upper-cont-right {
     width: 36%;
-    float: left;
+    float: right;
     margin: 0 2%;
     padding: 20px;
     border: 3px solid #333;
@@ -122,23 +89,44 @@ p, span {
     float:right;
 }
 
+.upper-cont-left {
+    width: 25%;
+    height: auto;
+    float: left;
+    padding: 20px 40px;
+}
+.cd-image {
+    width: 100%;
+    box-shadow: 2px 2px 4px #999;
+    margin-bottom: 20px
+}
+.cd-image-select {
+    width: 80%;
+}
+
+.upper-cont-center {
+    width: 35%;
+    float: left;
+    padding: 20px 30px;
+}
+.upper-cont-center-items {
+    width: 50%;
+    float: left;
+}
+.unit {
+    margin-left: 10px;
+}
+
 .lower-container {
     /* width: 80%; */
     margin: 0 auto;
     padding: 20px 20px;
-    /* background-color: #AAA; */
-}
-.lower-container-left {
-    width: 25%;
-    height: 400px;
-    padding: 20px;
-    float: left;
-    text-align: right;
 }
 .lower-container-right {
     width: 75%;
-    float: left;
+    float: right;
     padding: 15px 5px 0 15px;
+    margin: 20px 0;
 }
 .table-width-order {
     width: 10%;
@@ -149,13 +137,4 @@ p, span {
 .table-width-removebutton {
     width: 10%;
 }
-
-
-
-/* 後で消す */
-
-
-
-
-
 

@@ -12,6 +12,10 @@ class SongsController < ApplicationController
 	end
 
 	def update
+        @song = Song.find(params[:id])
+        if @song.update(song_params)
+            flash[:notice] = "Song has successfully been updated."
+        end
 	end
 
     private

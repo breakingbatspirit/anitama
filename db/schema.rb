@@ -25,13 +25,11 @@ ActiveRecord::Schema.define(version: 2019_02_11_072126) do
 
   create_table "animes", force: :cascade do |t|
     t.text "anime_title", null: false
-    t.integer "cd_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "artists", force: :cascade do |t|
-    t.integer "songs_id", null: false
     t.string "artist_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -51,6 +49,9 @@ ActiveRecord::Schema.define(version: 2019_02_11_072126) do
     t.integer "price", null: false
     t.integer "inventory", null: false
     t.integer "user_id"
+    t.integer "anime_id"
+    t.integer "label_id"
+    t.integer "genre_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -79,7 +80,6 @@ ActiveRecord::Schema.define(version: 2019_02_11_072126) do
 
   create_table "genres", force: :cascade do |t|
     t.integer "generation", limit: 1, default: 0, null: false
-    t.integer "cd_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -96,16 +96,6 @@ ActiveRecord::Schema.define(version: 2019_02_11_072126) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "histories_cds", force: :cascade do |t|
-    t.integer "history_id", null: false
-    t.integer "cd_id", null: false
-    t.integer "history_cd_quantity", null: false
-    t.integer "history_cd_price", null: false
-    t.string "history_cd_album", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "history_cds", force: :cascade do |t|
     t.integer "history_id", null: false
     t.integer "cd_id", null: false
@@ -118,15 +108,15 @@ ActiveRecord::Schema.define(version: 2019_02_11_072126) do
 
   create_table "labels", force: :cascade do |t|
     t.text "company", null: false
-    t.integer "cd_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "songs", force: :cascade do |t|
+    t.integer "disc_id", null: false
     t.integer "order", null: false
     t.string "title", null: false
-    t.integer "disc_id", null: false
+    t.integer "artist_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

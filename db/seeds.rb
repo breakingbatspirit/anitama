@@ -5,10 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Cd.create(album:"コナンコレクション", price:"10000", inventory:"0")
+Anime.create(anime_title:"コナン1")
+Anime.create(anime_title:"コナン2")
+Cd.create(album:"コナンコレクション", price:"10000", inventory:"0"anime.id)
 Cd.create(album:"コナンくーーーーん", price:"20000", inventory:"1")
-Anime.create(anime_title:"コナン")
-Anime.create(anime_title:"コナン")
 
 
 

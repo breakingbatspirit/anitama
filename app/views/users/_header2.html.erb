@@ -1,14 +1,42 @@
 <header>
-  <div class="head">アニソン★魂</div>
-    <div class="link">
-      <%=link_to "ログイン", new_user_session_path %>　　<%=link_to "会員登録", new_user_registration_path%></div>
-          <%= search_form_for @search do |f| %>
+  <% if user.id == 1 %>
+    <div class="nav">
+      <span style="margin-right:15%; margin-left:8%;">
+      <%=link_to "商品一覧", cds_path %>
+      </span>
+      <span style= "margin-right:15%;">
+      <%=link_to "商品追加", new_cd_path%>
+      </span>
+      <span style= "margin-right:15%;">
+      <%=link_to "購入履歴", histories_path%>
+      </span>
+      <span style= "margin-right:15%;">
+      <%=link_to "ユーザー一覧", users_path%>
+      </span>
+      <span style= "margin-right: 15%;">
+      <%=link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      </span>
+    </div>
+<% else %>
+ <div class="head">アニソン★魂</div>
+  <div class="icon">
+    <%= link_to user_path(user.id) ,media:"_blank" do %>
+    <%= image_tag "user.jpeg", :size=> "30x30" %>
+    <% end %>
+      <%= link_to destroy_user_session_path,method: :delete , media:"_blank" do %>
+      <%= image_tag "logout.jpeg", method: :delete ,:size=> "30x30" %>
+      <% end %>
+    <%= link_to cart_items_path ,media:"_blank" do %>
+    <%= image_tag "cart.jpeg", :size=> "30x30"%>
+    <% end %>
+    </div>
+    <%= search_form_for @search do |f| %>
     <div class = "header2">
     <div class="form-group">
     <input type="text" name="q[name_cont]" style="
     width: 254px; height: 40px;">
     <%= f.submit "検索",class: "btn btn-banger"  %>
     <% end %>
-    </div>
-  </div>
+ </div>
+ <% end %>
 </header>

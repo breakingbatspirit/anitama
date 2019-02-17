@@ -19,6 +19,8 @@ class UsersController < ApplicationController
 
   def edit
     @user = current_user
+     @search = User.ransack(params[:q])
+    @users = @search.result
   end
 
   def create
@@ -53,7 +55,7 @@ class UsersController < ApplicationController
     end
 
     def admin_validate!
-      admin = User.find(2)
+      admin = User.find(1)
       if current_user != admin
         redirect_to user_path(current_user)
       end

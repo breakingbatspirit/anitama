@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 
 
   def show
-    admin = User.find(28)
+    admin = User.find(1)
     if current_user.id != admin.id
       @user = current_user
     else
@@ -47,15 +47,15 @@ class UsersController < ApplicationController
   def delete
     user = User.find(params[:id])
     user.update(user_params)
-    admin = User.find(28)
+    admin = User.find(1)
     puts admin
     puts user.id != admin.id
     if current_user.nil?
       redirect_to root_path
-      # 退会ユーザーがnilならトップページ
+      # ログインユーザーがnilならトップページ
     else
       redirect_to users_path
-      # 退会ユーザーがnilじゃなければユーザー一覧
+      # ログインユーザーがnilじゃなければユーザー一覧
     end
   end
 

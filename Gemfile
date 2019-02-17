@@ -74,5 +74,6 @@ gem 'ransack'
 gem 'kaminari','~> 1.1.1'
 gem 'cocoon'
 gem 'paranoia'
+gem 'pry-rails'
 #test
 #test

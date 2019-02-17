@@ -16,6 +16,6 @@ class DiscsController < ApplicationController
 
     private
         def disc_params
-            params.require(:disc).permit(:type)
+            params.require(:disc).permit(:disc_number)
         end
 end

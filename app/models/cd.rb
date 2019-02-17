@@ -17,5 +17,5 @@ class Cd < ApplicationRecord
     # validates :price, presence: true
     # validates :inventory, presence: true
 
-    validates :disc, presence: true, numericality: {greater_than: 0, less_than: 100}
+    # validates :disc, presence: true, numericality: {greater_than: 0, less_than: 100}
 end

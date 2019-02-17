@@ -34,10 +34,10 @@
  -->
 
 <!-- とりあえずベタ打ちで入力してください。 -->
-<%= form_for @anime do |f| %>
+<%= form_for @cd do |f| %>
   <div class="field">
-    <%= f.label :anime_title, "＊アニメ名（とりあえずベタ打ちで）", class:"label-bold" %><br>
-    <%= f.text_field :anime_title, class:"form-control", placeholder:"", style:"width:90%" %>
+    <%= f.label :anime, "＊アニメ名（とりあえずベタ打ちで）", class:"label-bold" %><br>
+    <%= f.text_field :anime, class:"form-control", placeholder:"", style:"width:90%" %>
   </div>
 <% end %>
 

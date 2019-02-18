@@ -68,6 +68,7 @@ class CdsController < ApplicationController
                                                                                                                  songs_attributes: [:id, :order, :title, :artist_id, :_destroy]])
       # ストロングパラメーターの _destroy も必要（入れないと削除できない）
       # 子要素は親要素のストロングパラメーターに含めて記述できる
+      # ストロングパラメーターのcd_imageには_id不要
     end
 
 end

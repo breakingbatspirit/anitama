@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   end
   get 'cds/result'
 
+  get 'cds/result'
+
   resources :cds do
     resources :chats,only:[:create,:destroy]
     resource :favorites,only:[:create,:destroy]

@@ -20,10 +20,14 @@ class CdsController < ApplicationController
   end
 
   def edit
+    @cd = Cd.find(params[:id])
+    @disc = Disc.find(params[:id])
+    @song = Song.find(params[:id])
+
   end
 
   def create
-    # binding.pry
+    binding.pry
     @cd = Cd.new(cd_params)
     # @anime = anime.find(5)
     if @cd.save

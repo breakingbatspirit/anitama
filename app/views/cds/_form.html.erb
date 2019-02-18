@@ -6,16 +6,20 @@
   <div class="upper-cont-left">
 
     <div>
-      <%= image_tag 'cd.jpg', class:"cd-image" %>
+      <div>
+          <%= attachment_image_tag @cd, :cd_image, :fill, 50, 50, class: "cd-image", fallback: "no-image.jpeg"%>
+      </div>
+      <%#= image_tag 'cd.jpg', class:"cd-image" %>
         <%#= attachment_image_tag(@cds.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg") %>
       <!-- <div align="center"> -->
         <%#= attachment_image_tag @user, :image, :fill,200,200, format: 'jpeg', size: "180x180", fallback: "sample-t.png" %>
       <!-- </div> -->
+      <div class="cd-image-select">
+        <%= f.attachment_field :cd_image, direct: true %>
+      </div>
     </div>
 
-    <div class="cd-image-select">
-      <%= f.file_field :cd_image_id %>
-    </div>
+      <%#= f.file_field :cd_image %>
 
   </div>
 

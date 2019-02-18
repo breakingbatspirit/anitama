@@ -11,7 +11,7 @@ class Cd < ApplicationRecord
         # allow_destroy: trueをつけると子項目の削除ができるようになる。
 	has_many :chats,dependent: :destroy
 
-    attachment :image
+    attachment :cd_image
 
     # validates :album, presence: true
     # validates :price, presence: true

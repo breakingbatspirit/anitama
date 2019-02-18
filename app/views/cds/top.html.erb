@@ -1,4 +1,6 @@
+<!-- header -->
  <%= render 'users/header3',user: @user %>
+
 
 
 
@@ -22,21 +24,26 @@
 
     <!-- 下半分 -->
     <div class="top-lower-container clearfix">
-      <% if @cds.present? %>
-        <% @cds.each do |cd| %>
-          <%= attachment_image_tag(cd, :cd_image_id, fallback: "no_image.jpg", size: '50x50') %>
-        <% end %>
-      <% end %>
 
-      <%= image_tag 'nC1.jpeg', class: "top-cd-images" %>
-      <%= image_tag 'cd.jpg', class: "top-cd-images" %>
-      <%= image_tag 'no-image.jpeg', class: "top-cd-images" %>
-      <%= image_tag 'cute-but-no-deploy2.jpeg', class: "top-cd-images" %>
-      <%= image_tag 'sample-t.png', class: "top-cd-images" %>
-      <%= image_tag 'sample-m.png', class: "top-cd-images" %>
+      <!-- CDジャケット挿入 -->
+      <% if @cds.present? %>
+        <% @cds.order('updated_at DESC').limit(6).each do |image| %>
+          <%= attachment_image_tag image, :cd_image, :fill, 200, 200, fallback: "cd.jpg", class: "top-cd-images" %>
+          <%#= attachment_image_tag Cd.find(7), :cd_image, :fill, 200, 200, fallback: "no-image.jpeg" %>
+        <% end %>
+      <% else %>
+        <%= image_tag 'nC1.jpeg', class: "top-cd-images" %>
+        <%= image_tag 'cd.jpg', class: "top-cd-images" %>
+        <%= image_tag 'no-image.jpeg', class: "top-cd-images" %>
+        <%= image_tag 'cute-but-no-deploy2.jpeg', class: "top-cd-images" %>
+        <%= image_tag 'sample-t.png', class: "top-cd-images" %>
+        <%= image_tag 'sample-m.png', class: "top-cd-images" %>
+      <% end %>
 
     </div>
   </div>
+
+
 
 
     <!-- footer -->

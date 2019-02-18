@@ -1,26 +1,10 @@
+<!-- ヘッダー -->
 <%= render 'users/header1' ,user:@user %>
+
+
+
+
 <!-- 上半分 -->
-<div class="container">
-
-  <div class="upper-container clearfix">
-    <h1 class="cds-new-title">商品追加</h1>
-    <%= @animes %>
-
-    <div class="upper-cont-left">
-
-      <%= form_for(@cd, url: cds_path) do |f| %>
-
-        <div>
-        <!-- <div class="" style="border: 1px solid black; width: 80%; height: auto; margin: 10%"> -->
-          <%= image_tag 'cd.jpg', class:"cd-image" %>
-            <%#= attachment_image_tag(@cds.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg") %>
-          <!-- <div align="center"> -->
-            <%#= attachment_image_tag @user, :image, :fill,200,200, format: 'jpeg', size: "180x180", fallback: "sample-t.png" %>
-          <!-- </div> -->
-        </div>
-      
-
-
 <div class="container">
 
     <h1 class="cds-new-title">商品追加</h1>

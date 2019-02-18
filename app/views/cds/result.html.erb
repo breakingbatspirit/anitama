@@ -1,1 +1,36 @@
+
+<div class="container">
+
+<div class="row">
+<div class="col-sm-2"></div>
+
+<div class="col-sm-8">
 <h1>検索結果一覧</h1>
+<table class="table">
+	<thead>
+		<tr>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+	</thead>
+		<tbody>
+	<% @cds.each do |cd| %>
+		<tr>
+			<td><%= attachment_image_tag(cd, :cd_image_id, fallback: "no_image.jpg", size: '50x50') %></td>
+			<td><%= cd.album %></td>
+			<td><%= cd.anime.anime_title %></td>
+			<td><%= cd.price %></td>
+			<td></td>
+		</tr>
+	<% end %>
+		</tbody>
+</table>
+</div>
+<div class="col-sm-2"></div>
+
+</div>
+</div>
+

@@ -46,6 +46,8 @@ class CdsController < ApplicationController
   end
 
   def result
+    @cds = Cd.all
+    @anime = Anime.all
   end
 
   def top

@@ -1,0 +1,62 @@
+  // const cdid = document.getElementById('chat-input').value
+  // console.log(cdid)
+App.chat = App.cable.subscriptions.create({channel:"ChatChannel",cd_id:document.getElementById('chat-input').value},{
+  // ①-1
+  //cd_idごとにchannelを分けるため、ここで定義している。htmlのinput内に記載しているvalueの値を取得している。
+  //定義の部分は{}でまとめて第一引数にするのが大事！
+  // ↓バックエンド側と繋がったかどうかを確認できる
+  connected: function() {
+    // ②
+    console.log('connected')
+    // Called when the subscription is ready for use on the server
+  },
+
+  disconnected: function() {
+    // Called when the subscription has been terminated by the server
+  },
+
+  received: function(chat) {
+    //??このmessageは、room_channelで定義されているmessage？→多分そう
+    // ⑤
+    const chats = document.getElementById('chats')
+    //showViewのmessageにFormで入力された値を追加する表記
+    chats.innerHTML += chat
+    //each文じゃない。積み重なる。
+    // innerHTMLは要素の中身を変更できる書き方
+    //右側のmessageがおそらくview側のmessage
+    //messageのinnnerHTMLにmessageのデータを渡す
+    // Called when there's incoming data on the websocket for this channel
+  },
+
+  speak: function(body,c_id,u_id) {
+    // ③
+    //フロントエンドからバックエンドにデータを渡す
+    //下で定義されているApp.chat.speak()の中身がfunction()の中身。
+    //(第一引数,第二引数,第三紀数)の順にApp.chat.speakの中からfunctionの中へ代入している。
+    return this.perform('speak', {chat: body, cd_id: c_id,user_id: u_id });
+    // rooms_channelのspeakが実行されるようになるコマンド
+    //上記の引数たちをまたchannelのspeakに渡すために代入している
+  }
+});
+//↓フォームに入力したものをフロントエンドで取得する。
+//⑥
+document.addEventListener('DOMContentLoaded', function(){
+  //HTMLの読み込みが全て終了してから実行するという記述。
+  const input = document.getElementById('chat-input')
+  console.log(input)
+  const cd_id = document.getElementById('chat-input').value
+  const user_id = document.getElementById('chat-input2').value
+  console.log('u_id: ' + user_id)
+  //Formの値を取得する。viewのchat-inputのid
+  const button = document.getElementById('button')
+  //ボタンを押したらinputの値が取れる。viewnobuttonIDに紐づいている。
+  button.addEventListener('click', function(){
+  //ボタンがクリックされた時に
+    const body = input.value
+    //contentはinputで取得した値だよという意味？？
+    App.chat.speak(body, cd_id, user_id)
+    //サーバー側に送る表記
+    input.value = ''
+    //inputの値を残さずにフォーム内から消す表記
+  })
+})

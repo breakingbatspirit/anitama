@@ -6,7 +6,9 @@ Rails.application.routes.draw do
     put :delete, on: :member
     resources :addresses,only:[:create,:destroy]
   end
-
+  
+  get 'cds/result'
+  
   resources :cds do
     resources :chats,only:[:create,:destroy]
     resource :favorites,only:[:create,:destroy]
@@ -19,7 +21,8 @@ Rails.application.routes.draw do
   resources :animes,only:[:create]
   resources :labels,only:[:create]
 
-  get 'cds/result'
   root 'cds#top'
+
+  mount ActionCable.server => '/cable'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

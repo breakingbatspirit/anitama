@@ -17,13 +17,15 @@ class CdsController < ApplicationController
   end
 
   def show
+    @chats = Chat.all
+    @user = current_user
+    @cd = Cd.find(params[:id])
   end
 
   def edit
   end
 
   def create
-    binding.pry
     @cd = Cd.new(cd_params)
     # @anime = anime.find(5)
     if @cd.save

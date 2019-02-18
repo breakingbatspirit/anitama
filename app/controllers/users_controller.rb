@@ -2,7 +2,10 @@ class UsersController < ApplicationController
   # before_action :admin_validate!, only: [:index]
    # PER = 8
   def index
+
     @search = User.ransack(params[:q])
+    @users = @search.result
+
     @users = @search.result.with_deleted
     @users_page = @users.page(params[:page]).per(PER).reverse_order
     # binding.pry
@@ -10,7 +13,7 @@ class UsersController < ApplicationController
 
 
   def show
-    admin = User.find(28)
+    admin = User.find(1)
     if current_user.id != admin.id
       @user = current_user
     else
@@ -19,7 +22,11 @@ class UsersController < ApplicationController
   end
 
   def edit
-    admin = User.find(28)
+#   Ransack用
+    @search = User.ransack(params[:q])
+#   Ransack用ここまで
+
+    admin = User.find(1)
     if current_user.id != admin.id
       @user = current_user
     else
@@ -40,15 +47,15 @@ class UsersController < ApplicationController
   def delete
     user = User.find(params[:id])
     user.update(user_params)
-    admin = User.find(28)
+    admin = User.find(1)
     puts admin
     puts user.id != admin.id
     if current_user.nil?
       redirect_to root_path
-      # 退会ユーザーがnilならトップページ
+      # ログインユーザーがnilならトップページ
     else
       redirect_to users_path
-      # 退会ユーザーがnilじゃなければユーザー一覧
+      # ログインユーザーがnilじゃなければユーザー一覧
     end
   end
 
@@ -60,10 +67,11 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :namekana, :nickname, :image, :postal, :address, :phone, :email, :deleted_at)
     end
 
-   def admin_validate!
-     admin = User.find(28)
-     if current_user != admin
-       redirect_to user_path(current_user)
-     end
-   end
+    def admin_validate!
+      admin = User.find(1)
+      if current_user != admin
+        redirect_to user_path(current_user)
+      end
+    end
+
 end

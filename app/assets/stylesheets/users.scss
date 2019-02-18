@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 * {
-    margin: 0;
+	margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
@@ -12,14 +12,13 @@
 header {
     width: 100%;
     height:100px;
-    background-color:black
 }
 
 .head {
-    color: white;
-    float: left;
-    font-size:25px;
-    padding: 30px;
+	color: white;
+	float: left;
+	font-size:25px;
+	padding: 30px;
 }
 
 .btn {
@@ -27,22 +26,24 @@ margin-left:7px;
 }
 
 .header2{
-    float:center;
-    padding:30px;
+	float:center;
+	padding:30px;
     text-align: center;
     text-sizu:10px;
 }
 
 .welcomeuser {
-    float:centre;
-    padding: 40px;
-    margin-left:35%;
-    font-size: 20px;
-    color:#e925c2;
+	float:centre;
+	padding: 40px;
+	margin-left:35%;
+	font-size: 20px;
+	color:#e925c2;
 }
 
 .nav {
-    padding: 40px;
+	padding: 40px;
+    font-size:25px;
+    float:right
 }
 
 .icon {
@@ -55,6 +56,7 @@ margin-left:7px;
 .link{
     margin-bottom :75px;
     align: right
+    padding: 40px;
 }
 
 footer {
@@ -65,12 +67,6 @@ footer {
 .text {
     color: white;
     float:left;
-    padding: 40px;
-}
-
-
-.link {
-    float: right;
     padding: 40px;
 }
  .edit_btn{

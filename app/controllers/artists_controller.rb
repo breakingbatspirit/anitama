@@ -1,5 +1,6 @@
 class ArtistsController < ApplicationController
 
+
 	def create
         @artist = Artist.new(artist_params) unless @artist
         @artist.save

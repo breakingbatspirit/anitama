@@ -1,0 +1,29 @@
+<header>
+   <div>
+      <%if current_user %>
+          <div class="head">アニソン★魂</div>
+          <div class="icon">
+            <%= link_to user_path(user.id) ,media:"_blank" do %>
+            <%= image_tag "user.jpeg", :size=> "30x30" %>
+      <% end %>
+    <%=link_to destroy_user_session_path ,method: :delete, media:"_blank" do%>
+    <%= image_tag "logout.jpeg",:size=> "30x30" %>
+      <% end %>
+    <%= link_to cart_items_path ,media:"_blank" do %>
+    <%= image_tag "cart.jpeg", :size=> "30x30"%>
+      <% end %>
+   </div>
+      <div class= "welcomeuser">
+      <div class="user">おかえりなさいませ！<%= current_user.name %>様！</div>
+   </div>
+ <% else %>
+       <div class="head">アニソン★魂</div>
+         <div class="link">
+         <%=link_to "ログイン", new_user_session_path %>　　<%=link_to "会員登録", new_user_registration_path%>
+       </div>
+<% end %>
+</header>
+
+
+
+

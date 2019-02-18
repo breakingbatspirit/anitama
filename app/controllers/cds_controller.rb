@@ -17,13 +17,15 @@ class CdsController < ApplicationController
   end
 
   def show
+    @search = User.ransack(params[:q])
+
   end
 
   def edit
   end
 
   def create
-    binding.pry
+    # binding.pry
     @cd = Cd.new(cd_params)
     # @anime = anime.find(5)
     if @cd.save
@@ -52,6 +54,7 @@ class CdsController < ApplicationController
 
   def top
     @cds = Cd.all
+    @user = current_user
   end
 
   private

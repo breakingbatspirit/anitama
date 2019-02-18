@@ -1,5 +1,7 @@
 class CartItemsController < ApplicationController
   def index
+  	@search = User.ransack(params[:q])
+   
   end
 
   def show

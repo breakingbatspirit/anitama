@@ -25,7 +25,7 @@ class CdsController < ApplicationController
   end
 
   def create
-    binding.pry
+    # binding.pry
     @cd = Cd.new(cd_params)
     # @anime = anime.find(5)
     if @cd.save

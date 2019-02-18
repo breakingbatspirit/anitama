@@ -25,9 +25,9 @@ p, span {
 }
 .top-upper-container {
     width: 100%;
-    height: -webkit-calc(100% - 90px);
-    /*height: calc(100% - 90px);*/
-    height: calc(100vh - 90px - (100vw / 6) - 40px);
+    height: -webkit-calc(100% - 100px);
+    /*height: calc(100% - 100px);*/
+    height: calc(100vh - 100px - (100vw / 6) - 60px);
     background-image: url("cute-but-no-deploy2.jpeg");
     background-size: cover;
     background-position: center;

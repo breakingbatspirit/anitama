@@ -76,4 +76,6 @@ gem 'cocoon'
 gem 'paranoia'
 gem 'pry-rails'
 #test
-#test
+
+# rails オートコンプリート(rails5でも使える)
+gem 'rails4-autocomplete'

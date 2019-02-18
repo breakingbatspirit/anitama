@@ -17,7 +17,7 @@ class CdsController < ApplicationController
   end
 
   def show
-    @search = User.ransack(params[:q])
+    # @search = User.ransack(params[:q])
 
   end
 

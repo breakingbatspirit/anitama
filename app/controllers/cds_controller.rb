@@ -1,4 +1,5 @@
 class CdsController < ApplicationController
+  PER = 3
   def new
     @cd = Cd.new
     @disc = @cd.discs.build
@@ -21,8 +22,7 @@ class CdsController < ApplicationController
     @chats = Chat.all
     @user = current_user
     @cd = Cd.find(params[:id])
-
-    # @search = User.ransack(params[:q])
+    @search = Cd.ransack(params[:q])
 
 
   end
@@ -59,6 +59,11 @@ class CdsController < ApplicationController
   end
 
   def result
+    @anime = Anime.all
+    @user = current_user
+    @search = Cd.ransack(params[:q])
+    @cds = @search.result
+    @cds_page = Cd.page(params[:page]).per(PER).reverse_order
   end
 
   def top

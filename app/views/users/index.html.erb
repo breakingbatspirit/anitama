@@ -33,7 +33,7 @@
 			<th class="phone_index_display">TEL</th>
 			<th class="email_index_diesplay">メール</th>
 			<th class="edit_index_display">編集</th>
-			<th class="delet_index_display">削除</th>
+			<th class="delete_index_display">削除</th>
 		</tr>
 	</thead>
 	<% @users_page.each do |user| %>
@@ -50,7 +50,7 @@
 			<td class="phone_index_display"><%= user.phone %></td>
 			<td class="email_index_diespla"><%= user.email %></td>
 			<td class="edit_index_display"></td>
-			<td class="delet_index_display"></td>
+			<td class="delete_index_display"></td>
 		</tr>
 	</tbody>
 	<% else %>
@@ -66,7 +66,7 @@
 			<td class="phone_index_display"><%= user.phone %></td>
 			<td class="email_index_diespla"><%= user.email %></td>
 			<td class="edit_index_display"><%= link_to "編集",edit_user_path(user.id), class: "btn btn-default  btn-xs" %></td>
-			<td class="delet_index_display"><%= link_to "削除", delete_user_path(user, params:  {user: {deleted_at: true} }),method: :put, class: "btn btn-default btn-xs" %></td>
+			<td class="delete_index_display"><%= link_to "削除", delete_user_path(user, params:  {user: {deleted_at: true} }),method: :put, class: "btn btn-default btn-xs" %></td>
 		</tr>
 	</tbody>
 		<% end %>

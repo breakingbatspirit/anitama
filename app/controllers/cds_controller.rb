@@ -17,7 +17,12 @@ class CdsController < ApplicationController
   end
 
   def show
-    # @search = User.ransack(params[:q])
+
+    @chats = Chat.all
+    @user = current_user
+    @cd = Cd.find(params[:id])
+    @search = Cd.ransack(params[:q])
+
 
   end
 
@@ -32,7 +37,6 @@ class CdsController < ApplicationController
   end
 
   def create
-    binding.pry
     @cd = Cd.new(cd_params)
     # @anime = anime.find(5)
     if @cd.save
@@ -67,11 +71,18 @@ class CdsController < ApplicationController
   end
 
   def result
+    @anime = Anime.all
+    @user = current_user
+    @search = Cd.ransack(params[:q])
+
+    @cds =@search.result
+    # @cds_page = Cd.page(params[:page]).per(PER).revese_order
+
   end
 
   def top
     @cds = Cd.all
-    @user = current_user
+    @search = User.ransack(params[:q])
   end
 
   private

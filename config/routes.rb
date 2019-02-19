@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     put :delete, on: :member
     resources :addresses,only:[:create,:destroy]
   end
+  get 'cds/result'
 
   get 'cds/result'
 
@@ -31,5 +32,7 @@ Rails.application.routes.draw do
   end
 
   root 'cds#top'
+
+  mount ActionCable.server => '/cable'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

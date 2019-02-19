@@ -13,10 +13,15 @@
 		<tr>
 			<th class="image_result_display"><%= attachment_image_tag @user, :image, :fill,120,120, format: 'jpeg', size: "120x120", fallback: "no-image.jpg" %></th>
 			<th class="album_result_display"><%= cd.album %></th>
-			<th class="anime_title_result_display">コナン</th>
-			<!-- # <%= cd.anime.anime_title %> -->
+			<th class="anime_title_result_display"><%= cd.anime.anime_title %></th>
 			<th class="price_result_display"><%= cd.price %></th>
-			<th class="inventory_result_display">在庫状況</th>
+			<th class="inventory_result_display">
+				<% if cd.inventory == 0 %>
+					"在庫なし"
+				<% else %>
+				　　"在庫あり"
+		     </th>
+		     <% end %>
 		</tr>
 	</thead>
 		<tbody>

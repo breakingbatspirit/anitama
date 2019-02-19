@@ -65,7 +65,6 @@ class CdsController < ApplicationController
     @cds = @search.result
     @cds_page = Cd.page(params[:page]).per(PER).reverse_order
 
-
   end
 
   def top

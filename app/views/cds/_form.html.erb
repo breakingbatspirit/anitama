@@ -19,27 +19,25 @@
   <!-- CD情報フォーム -->
   <div class="upper-cont-center">
 
-    <div class="field">
+    <div class="field upper-cont-center-box">
       <%= f.label :album, "シングル/アルバム名" %>
-      <%= f.text_field :album, class:"form-control", placeholder:"アニソン★魂", style:"width:90%" %>
+      <%= f.text_field :album, class:"form-control", placeholder:"アニソン★魂", style:"width:100%" %>
     </div>
 
-    <div class="field">
-      <%= f.label :anime_id, "＊アニメ名（とりあえずベタ打ちで）", class:"label-bold" %><br>
+    <div class="field upper-cont-center-box">
+      <%= f.label :anime_id, "アニメ名", class:"label-bold" %><br>
+    <!-- もともとの入力フォーム -->
+      <%#= f.text_field :anime_id, class:"form-control", placeholder:"", style:"width:90%" %>
+    <!-- ドロップダウン式フォーム -->
+      <%= f.collection_select :anime_id, @animes, :id, :anime_title, { include_blank: true }, { class: 'form-control' } %>
+    </div>
+
+    <div class="field upper-cont-center-box">
+      <%= f.label :label_id, "レーベル名", class:"label-bold" %><br>
       <!-- もともとの入力フォーム -->
-        <%#= f.text_field :anime_id, class:"form-control", placeholder:"", style:"width:90%" %>
-
-      <!-- ここからautocomplete実装 -->
-        <%#= autocomplete_field_tag 'cd[anime_id]', nil, autocomplete_anime_anime_title_animes_path, class:"form-control", placeholder:"", style:"width:90%" %>
-        <%#= autocomplete_field_tag 'cd[anime_id]', nil,  autocomplete_anime_anime_title_animes_path %>
-
-        <%= f.collection_select :anime_id, @animes, :id, :anime_title %>
-
-    </div>
-
-    <div class="field">
-      <%= f.label :label_id, "＊レーベル名（とりあえずベタ打ちで）", class:"label-bold" %><br>
-      <%= f.text_field :label_id, class:"form-control", placeholder:"", style:"width:90%" %>
+      <%#= f.text_field :label_id, class:"form-control", placeholder:"", style:"width:90%" %>
+      <!-- ドロップダウン式フォーム -->
+      <%= f.collection_select :label_id, @labels, :id, :label_name, { include_blank: true }, { class: 'form-control' } %>
     </div>
 
     <div class="field">

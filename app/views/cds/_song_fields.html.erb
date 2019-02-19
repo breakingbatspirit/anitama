@@ -2,13 +2,24 @@
 
   <div class="form-group">
 
-    <table style="margin-bottom:5px">
+    <table class="row table table-hover table-inverse" style="margin-bottom:5px">
       <tbody>
         <tr>
-          <td class="col-xs-2"><%= f.number_field :order, placeholder:"", class:"form-control", style:"width:60%" %></td>
-          <td class="col-xs-5"><%= f.text_field :title, class:"form-control", style:"width:100%" %></td>
-          <td class="col-xs-4"><%= f.number_field :artist_id, class:"form-control", style:"width:100%" %></td>
-          <td class="col-xs-1"><%= link_to_remove_association "削除", f, class:"btn btn-default", style:"width:100%" %></td>
+          <td class="col-xs-2">
+            <%= f.number_field :order, placeholder:"", class:"form-control", style:"width:60%" %>
+          </td>
+          <td class="col-xs-5">
+            <%= f.number_field :title, class:"form-control", style:"width:100%" %>
+          </td>
+          <!-- <td class="col-xs-4"><%#= f.collection_select :artist_id, @artists, :id, :artist_name, { include_blank: true }, { class: 'form-control' } %></td> -->
+          <td class="col-xs-4">
+            <%= f.collection_select :artist_id, @artists, :id, :artist_name, { include_blank: true }, { class: 'form-control' } %>
+            <%#= f.collection_select :artist_id, Artist.all , :id, :artist_name, { include_blank: true }, { class: 'form-control' } %>
+            <%#= f.collection_select(:artist_id, Artist.all, :id, :artist_name [:size => 3], include_blank: true) %>
+          </td>
+          <td class="col-xs-0">
+            <%= link_to_remove_association "削除", f, class:"btn btn-default", style:"width:100%" %>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -16,3 +27,9 @@
   </div>
 
 </div>
+
+
+<!--           <td width="25%"><%#= f.number_field :order, placeholder:"", class:"form-control", style:"width:60%" %></td>
+          <td width="25%"><%#= f.number_field :artist_id, class:"form-control", style:"width:100%" %></td>
+          <td width="25%"><%#= f.collection_select :artist_id, @artists, :id, :artist_name, { include_blank: true }, { class: 'form-control' } %></td>
+          <td width="25%"><%#= link_to_remove_association "削除", f, class:"btn btn-default", style:"width:100%" %></td> -->

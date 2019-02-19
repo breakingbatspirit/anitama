@@ -140,14 +140,31 @@ p, span {
 
 
 .image_result_display{
-    width: 240px;
-    height: 160px;
+    width: 200px;
+    height: 150px;
 }
 
 .album_result_display{
     height: 80px;
+    width: 450px;
+    font-size: 25px;
 }
 
-.anime_title_result_display{
+.price_result_display{
     height: 80px;
+    font-size: 25px;
+}
+.zaikonashi{
+    font-size: 20px;
+    background-color: #FF4F50;
+    display:inline-block;
+    padding:3px 10px;
+    border-radius: 10px 10px 10px 10px;
+}
+.zaikoari{
+    font-size: 20px;
+    background-color: #87CEFA;
+    display:inline-block;
+    padding:3px 10px;
+    border-radius: 10px 10px 10px 10px;
 }

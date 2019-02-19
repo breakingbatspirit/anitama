@@ -11,16 +11,17 @@
 	<thead>
 		<% @cds.each do |cd| %>
 		<tr>
-			<th class="image_result_display"><%= attachment_image_tag @user, :image, :fill,120,120, format: 'jpeg', size: "120x120", fallback: "no-image.jpg" %></th>
-			<th class="album_result_display"><%= cd.album %></th>
-			<th class="anime_title_result_display"><%= cd.anime.anime_title %></th>
-			<th class="price_result_display"><%= cd.price %></th>
-			<th class="inventory_result_display">
+			<td class="image_result_display"><%= link_to cd_path(cd) do %>
+				<%= attachment_image_tag cd, :cd_image, :fill,150,150, format: 'jpeg', size: "120x120", fallback: "no-image.jpg" %>
+				<% end %></td>
+			<td class="album_result_display"><%= cd.album %></br>
+				<%= cd.anime.anime_title %></td>
+			<td class="price_result_display"><%= cd.price %>円</br>
 				<% if cd.inventory == 0 %>
-					"在庫なし"
+					<dev class="zaikonashi"><span class="zaikonashi">在庫なし</span></dev>
 				<% else %>
-				　　"在庫あり"
-		     </th>
+				<dev class="zaikoari"><span class="zaikoari">在庫あり</span></dev>
+			</td>
 		     <% end %>
 		</tr>
 	</thead>

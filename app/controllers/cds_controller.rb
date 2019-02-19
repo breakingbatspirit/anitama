@@ -70,6 +70,7 @@ class CdsController < ApplicationController
   def top
     @cds = Cd.all
     @search = User.ransack(params[:q])
+    @user = current_user
   end
 
   private

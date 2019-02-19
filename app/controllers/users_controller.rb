@@ -3,9 +3,9 @@ class UsersController < ApplicationController
    PER = 8
   def index
 
-    @search = User.ransack(params[:q])
-    # @users = @search.result
 
+
+    @search = User.ransack(params[:q])
     @users = @search.result.with_deleted
     @users_page = @users.page(params[:page]).per(PER).reverse_order
     # binding.pry

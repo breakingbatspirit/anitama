@@ -1,4 +1,5 @@
 class CdsController < ApplicationController
+  PER = 3
   def new
     @cd = Cd.new
     @disc = @cd.discs.build
@@ -62,7 +63,7 @@ class CdsController < ApplicationController
     @user = current_user
     @search = Cd.ransack(params[:q])
     @cds = @search.result
-
+    @cds_page = Cd.page(params[:page]).per(PER).reverse_order
   end
 
   def top

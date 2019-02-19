@@ -59,11 +59,16 @@ class CdsController < ApplicationController
   end
 
   def result
+    @anime = Anime.all
+    @user = current_user
+    @search = Cd.ransack(params[:q])
+    @cds =@search.result
+    # @cds_page = Cd.page(params[:page]).per(PER).revese_order
   end
 
   def top
     @cds = Cd.all
-    @user = current_user
+    @search = User.ransack(params[:q])
   end
 
   private

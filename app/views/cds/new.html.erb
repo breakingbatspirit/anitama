@@ -59,6 +59,17 @@
     <ul class="dropdown-menu" role="menu">
       <li role="presentation">
         <% if @labels.present? %>
+  def new
+    @cd = Cd.new
+    @disc = @cd.discs.build
+    @song = @disc.songs.build
+    @anime = Anime.new
+    @label = Label.new
+    @artist = Artist.new
+
+    @animes = Anime.all.order("anime_title")
+    @labels = Label.all.order("label_name")
+    @artists = Artist.all.order("artist_name")
           <% @labels.each do |label| %>
             <p><%= label.label_name %></p>
           <% end %>

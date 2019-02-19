@@ -7,15 +7,15 @@
   <div class="songs">
 
     <!-- nested-fields -->
-    <div class="nested-fields form-inline">
-      <div class="form-group">
-        <table class="row table table-hover table-inverse" style="margin-left:0">
+    <div class="nested-fields">
+      <div class="">
+        <table class="row table table-hover table-inverse" style="margin-left:15px; width:98%">
           <thead>
             <tr>
               <th class="col-xs-2">曲順</th>
-              <th class="col-xs-5">シングル/アルバム内の曲名</th>
-              <th class="col-xs-5">アーティスト名</th>
-              <th class="col-xs-0"></th>
+              <th class="col-xs-4">曲名</th>
+              <th class="col-xs-4">　アーティスト名</th>
+              <th class="col-xs-1">　 </th>
             </tr>
           </thead>
         </table>
@@ -27,7 +27,7 @@
     <%end%>
 
     <div style="margin:10px; float:right">
-      <%= link_to_add_association "追加", f, :songs, class:"btn btn-default", style:"margin-right:5px" %>
+      <%= link_to_add_association "追加", f, :songs, class:"btn btn-default", style:"margin-right:5px width:100%" %>
     </div>
   </div>
 

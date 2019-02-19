@@ -48,6 +48,7 @@ class CdsController < ApplicationController
   end
 
   def update
+    binding.pry
     @cd = Cd.find(params[:id])
     if @cd.update(cd_params)
       flash[:notice] = "Success message: CDの商品情報が更新されました！"

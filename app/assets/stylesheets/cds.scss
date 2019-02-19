@@ -119,7 +119,6 @@ p, span {
 .unit {
     margin-left: 10px;
 }
-
 .lower-container {
     /* width: 80%; */
     margin: 0 auto;
@@ -132,11 +131,15 @@ p, span {
     margin: 20px 0;
 }
 .table-width-order {
-    width: 10%;
+    min-width:60px;
+    max-width:100px;
 }
-.table-width-song .table-width-artist {
-    width: 40%;
+.table-width-song {
+    min-width:200px;
+    max-width:400px;
+}
+.table-width-artist {
+    max-width:200px;
 }
 .table-width-removebutton {
-    width: 10%;
 }

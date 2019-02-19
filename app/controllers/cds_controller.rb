@@ -20,6 +20,7 @@ class CdsController < ApplicationController
     @chats = Chat.all
     @user = current_user
     @cd = Cd.find(params[:id])
+    @cds = Cd.all
   end
 
   def edit

@@ -2,10 +2,32 @@
 <div class="container">
 	<h2>商品詳細</h2>
 	<div class="row">
-		<div class="col-lg-4" style="background-color: orange; height:1000px;">
+		<!-- ３分割の左側 -->
+		<div class="col-lg-4">
+			<%= attachment_image_tag @cd, :cd_image,　format: 'jpeg', fallback: "cd.jpg", size: "300x300" %>
+			<h3>最新情報</h3>
+			<div class="new-list">
+					<% @cds.each do |cd| %>
+						<%= attachment_image_tag cd, :cd_image,　format: 'jpeg', fallback: "cd.jpg", size: "200x200" %>
+					<% end %>
+			</div>
 		</div>
-		<div class="col-lg-4" style="background-color: green; height:1000px;">
+		<!-- ３分割の中央 -->
+		<div class="col-lg-4" >
+			<h4><%= @cd.anime.anime_title %></h4>
+			<h4><%= @cd.album %></h4>
+			<h4><%= @cd.label.label_name %></h4>
+			<h4><%= @cd.genre.generation %></h4>
+			<div class ="song-list">
+				<% @cd.discs.each do |disc| %>
+					<h5><%= disc.disc_number %></h5>
+					<% disc.songs.each do |song| %>
+						<%= song.title %>
+					<% end %>
+				<% end %>
+			</div>
 		</div>
+		<!-- ３分割の右側 -->
 		<div class="col-lg-4">
 			<h3>チャット</h3>
 			<div class ="chat-container">

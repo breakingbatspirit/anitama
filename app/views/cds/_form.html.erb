@@ -6,20 +6,11 @@
   <div class="upper-cont-left">
 
     <div>
-      <div>
-          <%= attachment_image_tag @cd, :cd_image, :fill, 50, 50, class: "cd-image", fallback: "no-image.jpeg"%>
-      </div>
-      <%#= image_tag 'cd.jpg', class:"cd-image" %>
-        <%#= attachment_image_tag(@cds.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg") %>
-      <!-- <div align="center"> -->
-        <%#= attachment_image_tag @user, :image, :fill,200,200, format: 'jpeg', size: "180x180", fallback: "sample-t.png" %>
-      <!-- </div> -->
-      <div class="cd-image-select">
-        <%= f.attachment_field :cd_image, direct: true %>
-      </div>
+        <%= attachment_image_tag @cd, :cd_image, :fill, 50, 50, class: "cd-image", fallback: "no-image.jpeg"%>
     </div>
-
-      <%#= f.file_field :cd_image %>
+    <div class="cd-image-select">
+      <%= f.attachment_field :cd_image, direct: true %>
+    </div>
 
   </div>
 
@@ -28,24 +19,33 @@
   <!-- CD情報フォーム -->
   <div class="upper-cont-center">
 
-    <div class="field">
+    <div class="field upper-cont-center-box">
       <%= f.label :album, "シングル/アルバム名" %>
-      <%= f.text_field :album, class:"form-control", placeholder:"アニソン★魂", style:"width:90%" %>
+      <%= f.text_field :album, class:"form-control", placeholder:"", style:"width:100%" %>
     </div>
 
-    <div class="field">
-      <%= f.label :anime_id, "＊アニメ名（とりあえずベタ打ちで）", class:"label-bold" %><br>
-      <%= f.text_field :anime_id, class:"form-control", placeholder:"", style:"width:90%" %>
+    <div class="field upper-cont-center-box">
+      <%= f.label :anime_id, "アニメ名", class:"label-bold" %>
+    <!-- もともとの入力フォーム -->
+      <%#= f.text_field :anime_id, class:"form-control", placeholder:"", style:"width:90%" %>
+    <!-- ドロップダウン式フォーム -->
+      <%= f.collection_select :anime_id, @animes, :id, :anime_title, { prompt: '選択してください' }, { class: 'form-control btn-default' } %>
     </div>
 
-    <div class="field">
-      <%= f.label :label_id, "＊レーベル名（とりあえずベタ打ちで）", class:"label-bold" %><br>
-      <%= f.text_field :label_id, class:"form-control", placeholder:"", style:"width:90%" %>
+    <div class="field upper-cont-center-box">
+      <%= f.label :label_id, "レーベル名", class:"label-bold" %>
+      <!-- もともとの入力フォーム -->
+      <%#= f.text_field :label_id, class:"form-control", placeholder:"", style:"width:90%" %>
+      <!-- ドロップダウン式フォーム -->
+      <%= f.collection_select :label_id, @labels, :id, :label_name, { prompt: '選択してください' }, { class: 'form-control btn-default' } %>
     </div>
 
-    <div class="field">
-      <%= f.label :genre_id, "＊ジャンル（とりあえずベタ打ちで）", class:"label-bold" %><br>
-      <%= f.text_field :genre_id, class:"form-control", value:"2000年代", style:"width:90%" %>
+    <div class="field upper-cont-center-box">
+      <%#= f.label :genre_id, "＊ジャンル（とりあえずベタ打ちで）", class:"label-bold" %>
+      <%#= f.text_field :genre_id, class:"form-control", placeholder:"", style:"width:90%" %>
+
+      <%= f.label :genre_id, "ジャンル", class:"label-bold" %>
+      <%= f.select :genre_id, Cd.genre_ids.keys, { prompt: '選択してください' }, class: 'form-control btn-default' %>
     </div>
 
     <div class="upper-cont-center-items form-inline">
@@ -81,7 +81,11 @@
         </div>
 
         <div>
-          <%= f.submit "商品の作成", class:"btn btn-lg btn-success", style:"float:right" %>
+          <% if action_name == "new" %>
+            <%= f.submit "商品の作成", class:"btn btn-lg btn-success", style:"float:right" %>
+          <% else %>
+            <%= f.submit "商品の更新", class:"btn btn-lg btn-success", style:"float:right" %>
+          <% end %>
         </div>
       </div>
     </div>

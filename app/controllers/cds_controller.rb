@@ -31,6 +31,9 @@ class CdsController < ApplicationController
     @disc = Disc.find(params[:id])
     @song = Song.find(params[:id])
 
+    @animes = Anime.all.order("anime_title")
+    @labels = Label.all.order("label_name")
+    @artists = Artist.all.order("artist_name")
   end
 
   def create
@@ -49,6 +52,16 @@ class CdsController < ApplicationController
   end
 
   def update
+    binding.pry
+    @cd = Cd.find(params[:id])
+    if @cd.update(cd_params)
+      flash[:notice] = "Success message: CDの商品情報が更新されました！"
+      redirect_to cds_path
+    else
+      p @cd.errors.full_messages
+      flash[:notice] = "Error message: エラー発生！"
+      render 'edit'
+    end
   end
 
   def destroy

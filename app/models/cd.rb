@@ -1,5 +1,5 @@
 class Cd < ApplicationRecord
-	belongs_to :genre
+	# belongs_to :genre
 	belongs_to :label
 	belongs_to :anime
 	has_many :cart_items,dependent: :destroy
@@ -12,6 +12,15 @@ class Cd < ApplicationRecord
 	has_many :chats,dependent: :destroy
 
     attachment :cd_image
+
+    # enum
+    enum genre_id: {
+        '〜1970年代':1,
+        '1980年代':2,
+        '1990年代':3,
+        '2000年代':4,
+        '2010年代':5
+    }
 
     # validates :album, presence: true
     # validates :price, presence: true

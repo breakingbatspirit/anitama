@@ -10,10 +10,19 @@ class CdsController < ApplicationController
     @animes = Anime.all.order("anime_title")
     @labels = Label.all.order("label_name")
     @artists = Artist.all.order("artist_name")
+
+    if params[:anime] && params[:anime][:anime_title]
+      anime_anime_title = params[:anime][:anime_title]
+      @animes = Anime.where("name LIKE '%#{anime_anime_title}%'")
+    else
+      @animes = Anime.all
+    end
   end
+
 
   def index
     @cds = Cd.all
+
   end
 
   def show

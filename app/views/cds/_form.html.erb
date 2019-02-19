@@ -26,7 +26,15 @@
 
     <div class="field">
       <%= f.label :anime_id, "＊アニメ名（とりあえずベタ打ちで）", class:"label-bold" %><br>
-      <%= f.text_field :anime_id, class:"form-control", placeholder:"", style:"width:90%" %>
+      <!-- もともとの入力フォーム -->
+        <%#= f.text_field :anime_id, class:"form-control", placeholder:"", style:"width:90%" %>
+
+      <!-- ここからautocomplete実装 -->
+        <%#= autocomplete_field_tag 'cd[anime_id]', nil, autocomplete_anime_anime_title_animes_path, class:"form-control", placeholder:"", style:"width:90%" %>
+        <%#= autocomplete_field_tag 'cd[anime_id]', nil,  autocomplete_anime_anime_title_animes_path %>
+
+        <%= f.collection_select :anime_id, @animes, :id, :anime_title %>
+
     </div>
 
     <div class="field">

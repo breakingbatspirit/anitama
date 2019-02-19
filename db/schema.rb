@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_17_101513) do
+ActiveRecord::Schema.define(version: 2019_02_17_091352) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "address_name"
@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 2019_02_17_101513) do
 
   create_table "animes", force: :cascade do |t|
     t.text "anime_title", null: false
-    t.integer "cd_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -51,9 +50,9 @@ ActiveRecord::Schema.define(version: 2019_02_17_101513) do
     t.integer "price", null: false
     t.integer "inventory", null: false
     t.integer "user_id"
-    t.integer "anime_id", null: false
-    t.integer "label_id", null: false
-    t.integer "genre_id", null: false
+    t.integer "anime_id"
+    t.integer "label_id"
+    t.integer "genre_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

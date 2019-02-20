@@ -9,8 +9,9 @@
 <h1>検索結果一覧</h1>
 <table class="table">
 	<thead>
+
 		<% @cds.each do |cd| %>
-		<tr>
+	<tr>
 			<td class="image_result_display"><%= link_to cd_path(cd) do %>
 				<%= attachment_image_tag cd, :cd_image, :fill,150,150, format: 'jpeg', size: "120x120", fallback: "no-image.jpg" %>
 				<% end %></td>
@@ -21,8 +22,8 @@
 					<dev class="zaikonashi"><span class="zaikonashi">在庫なし</span></dev>
 				<% else %>
 				<dev class="zaikoari"><span class="zaikoari">在庫あり</span></dev>
+				<% end %>
 			</td>
-		     <% end %>
 		</tr>
 	</thead>
 		<tbody>
@@ -44,5 +45,6 @@
 
 
 
+<div align="center"><%= paginate @cds_page, class: "paginate" %></div>
 
 <%= render 'users/footer' ,user: @user %>

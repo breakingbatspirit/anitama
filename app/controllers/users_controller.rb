@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
-   before_action :admin_validate!, only: [:index]
-    PER = 8
+  before_action :admin_validate!, only: [:index]
+   PER = 8
   def index
+
+
 
     @search = User.ransack(params[:q])
     @users = @search.result.with_deleted

@@ -1,5 +1,5 @@
 current directory: /vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/ffi-1.10.0/ext/ffi_c
-/usr/bin/ruby2.5 -r ./siteconf20190218-7953-26mmig.rb extconf.rb
+/usr/bin/ruby2.5 -r ./siteconf20190220-30005-jsagzt.rb extconf.rb
 checking for ffi.h... no
 checking for ffi.h in /usr/local/include,/usr/include/ffi... no
 checking for shlwapi.h... no
@@ -12,39 +12,27 @@ creating Makefile
 
 current directory: /vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/ffi-1.10.0/ext/ffi_c
 make "DESTDIR=" clean
-make: Warning: File 'libffi.gnu.mk' has modification time 712 s in the future
-make: warning:  Clock skew detected.  Your build may be incomplete.
 
 current directory: /vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/ffi-1.10.0/ext/ffi_c
 make "DESTDIR="
-make: Warning: File 'libffi.gnu.mk' has modification time 712 s in the future
 Configuring libffi
 make -C "/vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/ffi-1.10.0/ext/ffi_c/libffi-x86_64-linux-gnu"
 make[1]: Entering directory '/vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/ffi-1.10.0/ext/ffi_c/libffi-x86_64-linux-gnu'
-make[1]: Warning: File 'Makefile' has modification time 733 s in the future
 make 'AR_FLAGS=' 'CC_FOR_BUILD=' 'CFLAGS=-Wall -fexceptions' 'CXXFLAGS=-g -O2' 'CFLAGS_FOR_BUILD=' 'CFLAGS_FOR_TARGET=' 'INSTALL=/usr/bin/install -c' 'INSTALL_DATA=/usr/bin/install -c -m 644' 'INSTALL_PROGRAM=/usr/bin/install -c' 'INSTALL_SCRIPT=/usr/bin/install -c' 'JC1FLAGS=' 'LDFLAGS=' 'LIBCFLAGS=' 'LIBCFLAGS_FOR_TARGET=' 'MAKE=make' 'MAKEINFO=/bin/bash /vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/ffi-1.10.0/ext/ffi_c/libffi/missing makeinfo ' 'PICFLAG=' 'PICFLAG_FOR_TARGET=' 'RUNTESTFLAGS=' 'SHELL=/bin/bash' 'exec_prefix=/usr/local' 'infodir=/usr/local/share/info' 'libdir=/usr/local/lib' 'mandir=/usr/local/share/man' 'prefix=/usr/local' 'AR=ar' 'AS=as' 'CC=gcc' 'CXX=g++' 'LD=/usr/bin/ld' 'NM=/usr/bin/nm -B' 'RANLIB=ranlib' 'DESTDIR=' all-recursive
 make[2]: Entering directory '/vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/ffi-1.10.0/ext/ffi_c/libffi-x86_64-linux-gnu'
-make[2]: Warning: File 'Makefile' has modification time 733 s in the future
 Making all in include
 make[3]: Entering directory '/vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/ffi-1.10.0/ext/ffi_c/libffi-x86_64-linux-gnu/include'
-make[3]: Warning: File 'Makefile' has modification time 733 s in the future
 make[3]: Nothing to be done for 'all'.
-make[3]: warning:  Clock skew detected.  Your build may be incomplete.
 make[3]: Leaving directory '/vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/ffi-1.10.0/ext/ffi_c/libffi-x86_64-linux-gnu/include'
 Making all in testsuite
 make[3]: Entering directory '/vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/ffi-1.10.0/ext/ffi_c/libffi-x86_64-linux-gnu/testsuite'
-make[3]: Warning: File 'Makefile' has modification time 733 s in the future
 make[3]: Nothing to be done for 'all'.
-make[3]: warning:  Clock skew detected.  Your build may be incomplete.
 make[3]: Leaving directory '/vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/ffi-1.10.0/ext/ffi_c/libffi-x86_64-linux-gnu/testsuite'
 Making all in man
 make[3]: Entering directory '/vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/ffi-1.10.0/ext/ffi_c/libffi-x86_64-linux-gnu/man'
-make[3]: Warning: File 'Makefile' has modification time 733 s in the future
 make[3]: Nothing to be done for 'all'.
-make[3]: warning:  Clock skew detected.  Your build may be incomplete.
 make[3]: Leaving directory '/vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/ffi-1.10.0/ext/ffi_c/libffi-x86_64-linux-gnu/man'
 make[3]: Entering directory '/vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/ffi-1.10.0/ext/ffi_c/libffi-x86_64-linux-gnu'
-make[3]: Warning: File 'Makefile' has modification time 733 s in the future
 /bin/bash ./libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I/vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/ffi-1.10.0/ext/ffi_c/libffi  -I. -I/vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/ffi-1.10.0/ext/ffi_c/libffi/include -Iinclude -I/vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/ffi-1.10.0/ext/ffi_c/libffi/src   -Wall -fexceptions -c -o src/prep_cif.lo /vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/ffi-1.10.0/ext/ffi_c/libffi/src/prep_cif.c
 libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I/vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/ffi-1.10.0/ext/ffi_c/libffi -I. -I/vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/ffi-1.10.0/ext/ffi_c/libffi/include -Iinclude -I/vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/ffi-1.10.0/ext/ffi_c/libffi/src -Wall -fexceptions -c /vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/ffi-1.10.0/ext/ffi_c/libffi/src/prep_cif.c  -fPIC -DPIC -o src/.libs/prep_cif.o
 /bin/bash ./libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I/vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/ffi-1.10.0/ext/ffi_c/libffi  -I. -I/vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/ffi-1.10.0/ext/ffi_c/libffi/include -Iinclude -I/vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/ffi-1.10.0/ext/ffi_c/libffi/src   -Wall -fexceptions -c -o src/types.lo /vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/ffi-1.10.0/ext/ffi_c/libffi/src/types.c
@@ -75,11 +63,8 @@ libtool: link: gcc -shared  -fPIC -DPIC  src/.libs/prep_cif.o src/.libs/types.o 
 libtool: link: (cd ".libs" && rm -f "libffi.so.7" && ln -s "libffi.so.7.1.0" "libffi.so.7")
 libtool: link: (cd ".libs" && rm -f "libffi.so" && ln -s "libffi.so.7.1.0" "libffi.so")
 libtool: link: ( cd ".libs" && rm -f "libffi.la" && ln -s "../libffi.la" "libffi.la" )
-make[3]: warning:  Clock skew detected.  Your build may be incomplete.
 make[3]: Leaving directory '/vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/ffi-1.10.0/ext/ffi_c/libffi-x86_64-linux-gnu'
-make[2]: warning:  Clock skew detected.  Your build may be incomplete.
 make[2]: Leaving directory '/vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/ffi-1.10.0/ext/ffi_c/libffi-x86_64-linux-gnu'
-make[1]: warning:  Clock skew detected.  Your build may be incomplete.
 make[1]: Leaving directory '/vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/ffi-1.10.0/ext/ffi_c/libffi-x86_64-linux-gnu'
 compiling AbstractMemory.c
 compiling ArrayType.c
@@ -115,43 +100,29 @@ compiling Types.c
 compiling Variadic.c
 compiling ffi.c
 linking shared-object ffi_c.so
-make: warning:  Clock skew detected.  Your build may be incomplete.
 
 current directory: /vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/ffi-1.10.0/ext/ffi_c
 make "DESTDIR=" install
-make: Warning: File 'libffi.gnu.mk' has modification time 696 s in the future
 make -C "/vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/ffi-1.10.0/ext/ffi_c/libffi-x86_64-linux-gnu"
 make[1]: Entering directory '/vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/ffi-1.10.0/ext/ffi_c/libffi-x86_64-linux-gnu'
-make[1]: Warning: File 'Makefile' has modification time 723 s in the future
 make 'AR_FLAGS=' 'CC_FOR_BUILD=' 'CFLAGS=-Wall -fexceptions' 'CXXFLAGS=-g -O2' 'CFLAGS_FOR_BUILD=' 'CFLAGS_FOR_TARGET=' 'INSTALL=/usr/bin/install -c' 'INSTALL_DATA=/usr/bin/install -c -m 644' 'INSTALL_PROGRAM=/usr/bin/install -c' 'INSTALL_SCRIPT=/usr/bin/install -c' 'JC1FLAGS=' 'LDFLAGS=' 'LIBCFLAGS=' 'LIBCFLAGS_FOR_TARGET=' 'MAKE=make' 'MAKEINFO=/bin/bash /vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/ffi-1.10.0/ext/ffi_c/libffi/missing makeinfo ' 'PICFLAG=' 'PICFLAG_FOR_TARGET=' 'RUNTESTFLAGS=' 'SHELL=/bin/bash' 'exec_prefix=/usr/local' 'infodir=/usr/local/share/info' 'libdir=/usr/local/lib' 'mandir=/usr/local/share/man' 'prefix=/usr/local' 'AR=ar' 'AS=as' 'CC=gcc' 'CXX=g++' 'LD=/usr/bin/ld' 'NM=/usr/bin/nm -B' 'RANLIB=ranlib' 'DESTDIR=' all-recursive
 make[2]: Entering directory '/vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/ffi-1.10.0/ext/ffi_c/libffi-x86_64-linux-gnu'
-make[2]: Warning: File 'Makefile' has modification time 723 s in the future
 Making all in include
 make[3]: Entering directory '/vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/ffi-1.10.0/ext/ffi_c/libffi-x86_64-linux-gnu/include'
-make[3]: Warning: File 'Makefile' has modification time 723 s in the future
 make[3]: Nothing to be done for 'all'.
-make[3]: warning:  Clock skew detected.  Your build may be incomplete.
 make[3]: Leaving directory '/vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/ffi-1.10.0/ext/ffi_c/libffi-x86_64-linux-gnu/include'
 Making all in testsuite
 make[3]: Entering directory '/vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/ffi-1.10.0/ext/ffi_c/libffi-x86_64-linux-gnu/testsuite'
-make[3]: Warning: File 'Makefile' has modification time 723 s in the future
 make[3]: Nothing to be done for 'all'.
-make[3]: warning:  Clock skew detected.  Your build may be incomplete.
 make[3]: Leaving directory '/vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/ffi-1.10.0/ext/ffi_c/libffi-x86_64-linux-gnu/testsuite'
 Making all in man
 make[3]: Entering directory '/vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/ffi-1.10.0/ext/ffi_c/libffi-x86_64-linux-gnu/man'
-make[3]: Warning: File 'Makefile' has modification time 723 s in the future
 make[3]: Nothing to be done for 'all'.
-make[3]: warning:  Clock skew detected.  Your build may be incomplete.
 make[3]: Leaving directory '/vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/ffi-1.10.0/ext/ffi_c/libffi-x86_64-linux-gnu/man'
 make[3]: Entering directory '/vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/ffi-1.10.0/ext/ffi_c/libffi-x86_64-linux-gnu'
-make[3]: Warning: File 'Makefile' has modification time 723 s in the future
 make[3]: Nothing to be done for 'all-am'.
-make[3]: warning:  Clock skew detected.  Your build may be incomplete.
 make[3]: Leaving directory '/vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/ffi-1.10.0/ext/ffi_c/libffi-x86_64-linux-gnu'
-make[2]: warning:  Clock skew detected.  Your build may be incomplete.
 make[2]: Leaving directory '/vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/ffi-1.10.0/ext/ffi_c/libffi-x86_64-linux-gnu'
-make[1]: warning:  Clock skew detected.  Your build may be incomplete.
 make[1]: Leaving directory '/vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/ffi-1.10.0/ext/ffi_c/libffi-x86_64-linux-gnu'
 compiling AbstractMemory.c
 compiling ArrayType.c
@@ -187,5 +158,4 @@ compiling Types.c
 compiling Variadic.c
 compiling ffi.c
 linking shared-object ffi_c.so
-/usr/bin/install -c -m 0755 ffi_c.so ./.gem.20190218-7953-1p5rvlh
-make: warning:  Clock skew detected.  Your build may be incomplete.
+/usr/bin/install -c -m 0755 ffi_c.so ./.gem.20190220-30005-1x5c1fj

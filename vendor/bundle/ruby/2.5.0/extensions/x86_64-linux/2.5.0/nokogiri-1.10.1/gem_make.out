@@ -1,5 +1,5 @@
 current directory: /vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.1/ext/nokogiri
-/usr/bin/ruby2.5 -r ./siteconf20190218-7953-8iqclx.rb extconf.rb
+/usr/bin/ruby2.5 -r ./siteconf20190220-30005-1czge45.rb extconf.rb
 checking if the C compiler accepts ... yes
 Building nokogiri using packaged libraries.
 Using mini_portile version 2.4.0
@@ -74,12 +74,9 @@ creating Makefile
 
 current directory: /vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.1/ext/nokogiri
 make "DESTDIR=" clean
-make: Warning: File 'Makefile' has modification time 734 s in the future
-make: warning:  Clock skew detected.  Your build may be incomplete.
 
 current directory: /vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.1/ext/nokogiri
 make "DESTDIR="
-make: Warning: File 'Makefile' has modification time 734 s in the future
 compiling html_document.c
 compiling html_element_description.c
 compiling html_entity_lookup.c
@@ -126,10 +123,7 @@ linking shared-object nokogiri/nokogiri.so
 Cleaning files only used during build.
 rm -rf /vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.1/ext/nokogiri/tmp/x86_64-pc-linux-gnu/ports
 rm -rf /vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.1/ports
-make: warning:  Clock skew detected.  Your build may be incomplete.
 
 current directory: /vagrant/anitama/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.10.1/ext/nokogiri
 make "DESTDIR=" install
-make: Warning: File 'Makefile' has modification time 676 s in the future
-/usr/bin/install -c -m 0755 nokogiri.so ./.gem.20190218-7953-1lj8ori/nokogiri
-make: warning:  Clock skew detected.  Your build may be incomplete.
+/usr/bin/install -c -m 0755 nokogiri.so ./.gem.20190220-30005-aqnc01/nokogiri

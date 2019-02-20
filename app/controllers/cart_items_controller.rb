@@ -9,18 +9,19 @@ class CartItemsController < ApplicationController
   end
 
   def show
-  	@search = User.ransack(params[:q])
-  	@user = current_user
+    @user = current_user
+    @cd = Cd.find(params[:id])
+    @search = Cd.ransack(params[:q])
   end
 
   def create
+    binding.pry
   	cart = CartItem.new(cart_item_params)
   	user = current_user
   	cart.user_id = user.id
   	cart.save
   	redirect_to carts_path
     @cart_item = CartItem.new(cart_item_params)
-
   end
 
   def destroy

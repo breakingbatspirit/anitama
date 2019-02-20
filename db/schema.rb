@@ -50,9 +50,9 @@ ActiveRecord::Schema.define(version: 2019_02_17_091352) do
     t.integer "price", null: false
     t.integer "inventory", null: false
     t.integer "user_id"
-    t.integer "anime_id"
-    t.integer "label_id"
-    t.integer "genre_id"
+    t.integer "anime_id", null: false
+    t.integer "label_id", null: false
+    t.integer "genre_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

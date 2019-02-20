@@ -1,0 +1,19 @@
+<header>
+    <div class="nav">
+      <span style="margin-right:15%; margin-left:8%;">
+      <%=link_to "商品一覧", cds_path %>
+      </span>
+      <span style= "margin-right:15%;">
+      <%=link_to "商品追加", new_cd_path%>
+      </span>
+      <span style= "margin-right:15%;">
+      <%=link_to "購入履歴", histories_path%>
+      </span>
+      <span style= "margin-right:15%;">
+      <%=link_to "ユーザー一覧", users_path%>
+      </span>
+      <span style= "margin-right: 15%;">
+      <%=link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      </span>
+    </div>
+</header>

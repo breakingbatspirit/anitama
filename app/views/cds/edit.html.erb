@@ -1,2 +1,92 @@
-<h1>Cds#edit</h1>
-<p>Find me in app/views/cds/edit.html.erb</p>
+<!-- ヘッダー -->
+<%= render 'users/header1' ,user:@user %>
+
+
+
+
+<!-- 上半分 -->
+<div class="container">
+
+    <h1 class="cds-new-title">商品追加</h1>
+
+    <!-- Cdモデル以外に送る右上の部分 -->
+    <div class="upper-cont-right">
+      <%= render 'add_record', cd: @cd %>
+    </div>
+
+    <!-- Cdモデルに送るほか全部 -->
+      <%= render 'form', cd: @cd %>
+      <%#= link_to 'Back', root_path %>
+
+</div>
+
+
+
+
+
+<div style="margin: 200px 0; border-top:10px dotted grey">
+<!-- (仮)要素が新規追加されたか確認のためのフォーム -->
+<div style="margin:20px 20px 0">
+  <p>↓（仮）新規追加確認用</p>
+
+  <div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+      アニメ名を選択
+      <span class="caret"></span>
+    </button>
+
+    <ul class="dropdown-menu" role="menu">
+      <li role="presentation">
+        <% if @animes.present? %>
+          <% @animes.each do |anime| %>
+            <p><%= anime.anime_title %></p>
+          <% end %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- ここまで -->
+<!-- (仮)要素が新規追加されたか確認のためのフォーム -->
+<div style="margin:20px 20px 0">
+
+  <div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+      レーベル名を選択
+      <span class="caret"></span>
+    </button>
+
+    <ul class="dropdown-menu" role="menu">
+      <li role="presentation">
+        <% if @labels.present? %>
+          <% @labels.each do |label| %>
+            <p><%= label.label_name %></p>
+          <% end %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- ここまで -->
+<!-- (仮)要素が新規追加されたか確認のためのフォーム -->
+<div style="margin:20px 20px 0">
+
+  <div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+      アーティスト名を選択
+      <span class="caret"></span>
+    </button>
+
+    <ul class="dropdown-menu" role="menu">
+      <li role="presentation">
+        <% if @artists.present? %>
+          <% @artists.each do |artist| %>
+            <p><%= artist.artist_name %></p>
+          <% end %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- ここまで -->
+</div>

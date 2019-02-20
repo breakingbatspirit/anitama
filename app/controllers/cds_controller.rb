@@ -17,13 +17,20 @@ class CdsController < ApplicationController
   end
 
   def show
-    @chats = Chat.all
     @user = current_user
+    @chats = Chat.all
     @cd = Cd.find(params[:id])
     @cds = Cd.all
+    @search = User.ransack(params[:q])
+    @cart = CartItem.new
+
   end
 
   def edit
+    @cd = Cd.find(params[:id])
+    @disc = Disc.find(params[:id])
+    @song = Song.find(params[:id])
+
   end
 
   def create
@@ -34,6 +41,7 @@ class CdsController < ApplicationController
       flash[:notice] = "Success message: 新しいCDが商品情報に追加されました！"
       redirect_to new_cd_path
     else
+      p @cd.errors.full_messages
       flash[:notice] = "Error message: エラー発生！"
       redirect_to new_cd_path
     end
@@ -54,15 +62,17 @@ class CdsController < ApplicationController
 
   def top
     @cds = Cd.all
+    @user = current_user
   end
 
   private
 
     def cd_params
-      params.require(:cd).permit(:id, :cd_image_id, :album, :inventory, :price, :anime_id, :label_id, :genre_id, discs_attributes: [:id, :disc_number, :_destroy,
+      params.require(:cd).permit(:id, :cd_image, :album, :inventory, :price, :anime_id, :label_id, :genre_id, discs_attributes: [:id, :disc_number, :_destroy,
                                                                                                                  songs_attributes: [:id, :order, :title, :artist_id, :_destroy]])
       # ストロングパラメーターの _destroy も必要（入れないと削除できない）
       # 子要素は親要素のストロングパラメーターに含めて記述できる
+      # ストロングパラメーターのcd_imageには_id不要
     end
 
 end

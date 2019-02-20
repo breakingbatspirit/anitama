@@ -1,5 +1,5 @@
 class Cd < ApplicationRecord
-	belongs_to :genre
+	# belongs_to :genre
 	belongs_to :label
 	belongs_to :anime
 	has_many :cart_items,dependent: :destroy
@@ -18,4 +18,5 @@ class Cd < ApplicationRecord
     # validates :inventory, presence: true
 
     # validates :disc, presence: true, numericality: {greater_than: 0, less_than: 100}
+
 end

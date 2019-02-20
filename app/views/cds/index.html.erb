@@ -1,6 +1,50 @@
 <%= render 'users/header1' ,user:@user %>
-<div class="container">
+  <div class="container">
+  <div class="row">
+    <div class="col-xs-2">
+       <h2>商品一覧</h2>
+    </div>
+  <div class="col-xs-10">
+     <%= search_form_for  @search, url: cds_result_path do |f| %>
+    <input type="text" cd="q[name_cont]" style="width: 300px; height: 25px; margin-left:20%; margin-top:20px;  " name="q">
+        <%= f.submit  "検索" , class: "btn btn-default btn-sm" %>
+      <% end %>
+
+ <div class="container">
+
 <div class="row">
-<h2>商品一覧</h2>
- <table class = "table table-border">
- 
+<div class="col-sm-2"></div>
+
+<div class="col-sm-10">
+<table class="table">
+	<thead>
+		<% @cds.each do |cd| %>
+		<tr>
+			<td class="image_result_display"><%= link_to cd_path(cd) do %>
+				<%= attachment_image_tag cd, :cd_image, :fill,150,150, format: 'jpeg', size: "100x100", fallback: "no-image.jpg" %>
+				<% end %></td>
+			<td class="album_result_display"><%= cd.album %></br>
+				<%= cd.anime.anime_title %></td>
+			<td class="price_result_display"><%= cd.price %>円</br>
+            <td class="edit_index_display"><%= link_to "編集",edit_user_path(user.id), class: "btn btn-default  btn-xs" %></td>
+			<td class="delete_index_display"><%= link_to "削除", delete_cd_path(cd, params: {cd: {deleted_at: true} }),method: :put, class: "btn btn-default btn-xs" %></td>
+
+
+		</tr>
+	</thead>
+		<tbody>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	<% end %>
+		</tbody>
+</table>
+</div>
+<div class="col-sm-1"></div>
+
+</div>
+</div>

@@ -18,11 +18,13 @@ class CdsController < ApplicationController
   end
 
   def show
-
-    @chats = Chat.all
     @user = current_user
+    @chats = Chat.all
     @cd = Cd.find(params[:id])
-    @search = Cd.ransack(params[:q])
+
+    @cds = Cd.all
+    @search = User.ransack(params[:q])
+    @cart = CartItem.new
 
 
   end

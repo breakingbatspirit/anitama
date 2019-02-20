@@ -1,3 +1,30 @@
 // Place all the styles related to the cart_items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+
+
+
+
+
+.cart_items-title {
+    font-size: 40px;
+    padding: 30px 60px;
+}
+.cont-left {
+    height: 2000px;
+
+}
+
+.cont-right {
+    width: 36%;
+    float: right;
+    margin: 0 2%;
+    padding: 20px;
+    border: 3px solid #333;
+    border-radius: 3%;
+    height:500px;
+    background-color:#6BB;
+}

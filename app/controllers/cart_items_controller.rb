@@ -5,9 +5,13 @@ class CartItemsController < ApplicationController
   end
 
   def show
+    @user = current_user
+    @cd = Cd.find(params[:id])
+    @search = Cd.ransack(params[:q])
   end
 
   def create
+    binding.pry
     @cart_item = CartItem.new(cart_item_params)
   end
 

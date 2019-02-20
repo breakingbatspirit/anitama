@@ -32,9 +32,9 @@ p, span {
 }
 .top-upper-container {
     width: 100%;
-    height: -webkit-calc(100% - 90px);
-    /*height: calc(100% - 90px);*/
-    height: calc(100vh - 90px - (100vw / 6) - 40px);
+    height: -webkit-calc(100% - 100px);
+    /*height: calc(100% - 100px);*/
+    height: calc(100vh - 100px - (100vw / 6) - 60px);
     background-image: url("cute-but-no-deploy2.jpeg");
     background-size: cover;
     background-position: center;
@@ -74,8 +74,9 @@ p, span {
 }
 
 
+
 /* cds#newと#editに適用 */
-.cds-new-title {
+.cds-title {
     font-size: 40px;
     padding: 30px 60px;
 }
@@ -116,6 +117,9 @@ p, span {
     float: left;
     padding: 20px 30px;
 }
+.upper-cont-center-box {
+    width: 90%;
+}
 .upper-cont-center-items {
     width: 50%;
     float: left;
@@ -123,7 +127,6 @@ p, span {
 .unit {
     margin-left: 10px;
 }
-
 .lower-container {
     /* width: 80%; */
     margin: 0 auto;
@@ -136,15 +139,49 @@ p, span {
     margin: 20px 0;
 }
 .table-width-order {
-    width: 10%;
+    min-width:60px;
+    max-width:100px;
 }
-.table-width-song .table-width-artist {
-    width: 40%;
+.table-width-song {
+    min-width:200px;
+    max-width:400px;
+}
+.table-width-artist {
+    max-width:200px;
 }
 .table-width-removebutton {
-    width: 10%;
 }
 
+/* cds#resultに適用 */
+.image_result_display{
+    width: 200px;
+    height: 150px;
+}
+
+.album_result_display{
+    height: 80px;
+    width: 450px;
+    font-size: 25px;
+}
+
+.price_result_display{
+    height: 80px;
+    font-size: 25px;
+}
+.zaikonashi{
+    font-size: 15px;
+    background-color: #FF4F50;
+    display:inline-block;
+    padding:3px 10px;
+    border-radius: 10px 10px 10px 10px;
+}
+.zaikoari{
+    font-size: 15px;
+    background-color: #87CEFA;
+    display:inline-block;
+    padding:3px 10px;
+    border-radius: 10px 10px 10px 10px;
+  
 /* ここから商品詳細ページ */
 
 /*.cd-text-list{

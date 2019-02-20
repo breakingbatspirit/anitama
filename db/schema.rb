@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2019_02_20_053650) do
 
+
   create_table "addresses", force: :cascade do |t|
     t.string "address_name"
     t.string "address_namekana"

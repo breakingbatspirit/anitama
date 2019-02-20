@@ -13,6 +13,15 @@ class Cd < ApplicationRecord
 
     attachment :cd_image
 
+    # enum
+    enum genre_id: {
+        '〜1970年代':1,
+        '1980年代':2,
+        '1990年代':3,
+        '2000年代':4,
+        '2010年代':5
+    }
+
     # validates :album, presence: true
     # validates :price, presence: true
     # validates :inventory, presence: true

@@ -3,6 +3,7 @@ class CartItemsController < ApplicationController
   	@user = current_user
   	@carts = CartItem.all
   	@search = User.ransack(params[:q])
+
   	@cart = CartItem.new
 
   end
@@ -18,6 +19,8 @@ class CartItemsController < ApplicationController
   	cart.user_id = user.id
   	cart.save
   	redirect_to carts_path
+    @cart_item = CartItem.new(cart_item_params)
+
   end
 
   def destroy
@@ -25,6 +28,7 @@ class CartItemsController < ApplicationController
 	cart.destroy
 	redirect_to carts_path
   end
+
 
 
 
@@ -37,3 +41,4 @@ class CartItemsController < ApplicationController
 
 
 end
+

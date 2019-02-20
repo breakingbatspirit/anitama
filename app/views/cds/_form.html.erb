@@ -26,24 +26,15 @@
 
     <div class="field upper-cont-center-box">
       <%= f.label :anime_id, "アニメ名", class:"label-bold" %>
-    <!-- もともとの入力フォーム -->
-      <%#= f.text_field :anime_id, class:"form-control", placeholder:"", style:"width:90%" %>
-    <!-- ドロップダウン式フォーム -->
       <%= f.collection_select :anime_id, @animes, :id, :anime_title, { prompt: '選択してください' }, { class: 'form-control btn-default' } %>
     </div>
 
     <div class="field upper-cont-center-box">
       <%= f.label :label_id, "レーベル名", class:"label-bold" %>
-      <!-- もともとの入力フォーム -->
-      <%#= f.text_field :label_id, class:"form-control", placeholder:"", style:"width:90%" %>
-      <!-- ドロップダウン式フォーム -->
       <%= f.collection_select :label_id, @labels, :id, :label_name, { prompt: '選択してください' }, { class: 'form-control btn-default' } %>
     </div>
 
     <div class="field upper-cont-center-box">
-      <%#= f.label :genre_id, "＊ジャンル（とりあえずベタ打ちで）", class:"label-bold" %>
-      <%#= f.text_field :genre_id, class:"form-control", placeholder:"", style:"width:90%" %>
-
       <%= f.label :genre_id, "ジャンル", class:"label-bold" %>
       <%= f.select :genre_id, Cd.genre_ids.keys, { prompt: '選択してください' }, class: 'form-control btn-default' %>
     </div>

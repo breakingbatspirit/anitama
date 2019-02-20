@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.clearfix::after{
+    content:"";
+    display:block;
+    clear:both;
+}
+
+
 /* cds.scss全体に適用。場合によってはapplication.scssと統合 */
 p, span {
     font-size: 14px;
@@ -145,8 +152,6 @@ p, span {
 .table-width-removebutton {
 }
 
-
-
 /* cds#resultに適用 */
 .image_result_display{
     width: 200px;
@@ -176,4 +181,115 @@ p, span {
     display:inline-block;
     padding:3px 10px;
     border-radius: 10px 10px 10px 10px;
+  
+/* ここから商品詳細ページ */
+
+/*.cd-text-list{
+    background-color:yellow;
+}*/
+.album-title{
+    border-bottom:2px solid #DCDCDC;
+}
+.cd-content{
+    width:100%;
+    padding-left:20px;
+    padding-top:20px;
+    color:#666666;
+}
+.cd-text{
+    margin-bottom:25px;
+}
+
+.disc{
+    margin:25px 0 25px 0;
+}
+.disc p{
+    color:#DCDCDC;
+}
+.song{
+    margin-bottom:15px;
+}
+.new-list{
+    width:85%;
+    height:300px;
+    margin:0 auto;
+    overflow: scroll;
+    border: 1px solid #DCDCDC;
+    border-radius:10px;
+}
+.new-list-content{
+    width:251px;
+    margin: 20px auto;
+}
+.song h7{
+    font-size:12px;
+}
+.list-group-item{
+    margin:20px 0;
+}
+.list-group-item p{
+    font-size:10px;
+}
+.chats{
+    width: 100%;
+    height: 500px;
+    overflow: scroll;
+}
+.price{
+    padding:10px;
+    width:33%;
+    border-radius:7px;
+    text-align:center;
+    float:left;
+    border:1px solid black;
+    margin:10px 0 10px 30px;
+}
+.inventory{
+    background-color:red;
+    padding:10px;
+    width:33%;
+    border-radius:7px;
+    text-align:center;
+    float:right;
+    margin:10px 30px 10px 0;
+}
+
+.new{
+    margin-top:80px;
+}
+.cart-item{
+    padding:30px;
+}
+.cart-content{
+    float:left;
+    margin:20px;
+}
+.cart-image{
+    float:left;
+    margin:20px;
+}
+.cart-price{
+    float:left;
+    margin:30px auto;
+    padding:50px;
+}
+.cart-quantity{
+    float:left;
+    margin:30px auto;
+    padding:50px;
+}
+.cart-content h3{
+    margin:30px auto;
+}
+.table-content{
+    height:100px;
+    margin:30px auto;
+}
+
+.cart-item-total{
+    width:100%;
+    height:300px;
+    background-color:yellow;
+    border-radius:10px;
+    padding:20px;
 }

@@ -1,4 +1,25 @@
  <%= render 'users/header4',user: @user %>
-<h1>CartItems#show</h1>
-<p>Find me in app/views/cart_items/show.html.erb</p>
+
+
+<div class="container">
+
+<h1 class="cart_items-title">最終確認画面</h1>
+
+  <div class="row">
+    <div class="col-xs-3 cont-left" style="height:500px; background-color:#6DD; border-right:3px solid black">
+      <%= %>
+
+    </div>
+    <div class="col-xs-6" style="height:500px; background-color:#6CC">
+      送付先情報<br>
+      名前<br>
+      名前フリガナ<br>
+    </div>
+    <div class="col-xs-3 cont-right">
+    </div>
+  </div>
+
+</div>
+
+
 <%= render 'users/footer' ,user: @user %>

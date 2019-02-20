@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_17_091352) do
+ActiveRecord::Schema.define(version: 2019_02_20_053650) do
+
 
   create_table "addresses", force: :cascade do |t|
     t.string "address_name"
@@ -37,11 +38,11 @@ ActiveRecord::Schema.define(version: 2019_02_17_091352) do
   end
 
   create_table "cart_items", force: :cascade do |t|
-    t.integer "unit_quantity"
     t.integer "cd_id"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "unit_quantity", default: 1, null: false
   end
 
   create_table "cds", force: :cascade do |t|
@@ -50,8 +51,8 @@ ActiveRecord::Schema.define(version: 2019_02_17_091352) do
     t.integer "price", null: false
     t.integer "inventory", null: false
     t.integer "user_id"
-    t.integer "anime_id"
-    t.integer "label_id"
+    t.integer "anime_id", null: false
+    t.integer "label_id", null: false
     t.integer "genre_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -80,7 +81,7 @@ ActiveRecord::Schema.define(version: 2019_02_17_091352) do
   end
 
   create_table "genres", force: :cascade do |t|
-    t.integer "generation", limit: 1, default: 0, null: false
+    t.integer "generation", limit: 1, default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

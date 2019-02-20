@@ -1,4 +1,5 @@
 class Genre < ApplicationRecord
+
     # 親子関係をコメントアウト
 	# has_many :cds,dependent: :destroy
 

@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get 'cds/result'
 
   resources :cds do
+    get "search", on: :collection
     resources :chats,only:[:create,:destroy]
     resource :favorites,only:[:create,:destroy]
     resources :songs,only:[:create,:update,:destroy]

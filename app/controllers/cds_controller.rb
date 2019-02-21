@@ -14,8 +14,8 @@ class CdsController < ApplicationController
   end
 
   def index
+    @cds= Cd.search(params[:search])
     @cds = Cd.all
-    @search = Cd.ransack(params[:q])
     @cds = Cd.page(params[:page]).per(3)
   end
 
@@ -23,13 +23,11 @@ class CdsController < ApplicationController
     @user = current_user
     @chats = Chat.all
     @cd = Cd.find(params[:id])
-
+    # @search = Cd.ransack(params[:q])zs
+    @cds = Cd.search(params[:search])
     @cds = Cd.all
-    @search = User.ransack(params[:q])
     @cart = CartItem.new
-
-
-  end
+ end
 
   def edit
     @cd = Cd.find(params[:id])
@@ -75,24 +73,38 @@ class CdsController < ApplicationController
     redirect_to cds_path
   end
 
+   def top
+    @cds = Cd.all
+    @user = current_user
+  end
+
+  # def search
+  # end
+
+
   def result
     @anime = Anime.all
     @user = current_user
-    @search = Cd.ransack(params[:q])
+
+    # @search = Cd.ransack(params[:q])
+    # @cds = @search.result(distinct: true)
+    if params[:search]
+       @cds = Cd.search(params[:search])
+    else
+       @cds = Cd.all
+    end
+     @cds = Cd.all
+    @cds_page = @cds.page(params[:page]).per(PER).reverse_order
 
 
 
-    @cds = @search.result
-    @cds_page = Cd.page(params[:page]).per(PER).reverse_order
 
-  end
 
   def top
-    @users = User.all
     @cds = Cd.all
-    @search = Cd.ransack(params[:q])
     @user = current_user
   end
+
 
   private
 

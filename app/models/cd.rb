@@ -26,6 +26,16 @@ class Cd < ApplicationRecord
     # validates :price, presence: true
     # validates :inventory, presence: true
 
+    def self.search(search)
+     if search
+    	album_result = Cd.where("album LIKE ? ", "%#{search}%")
+    	anime_result = Cd.joins(:anime).where("anime_title LIKE ?", "%#{search}%")
+    	song_result = Cd.joins(discs: :songs).where("title LIKE ?", "%#{search}%")
+    	result = album_result | anime_result | song_result
+    	return result
+     end
+    end
+
     # validates :disc, presence: true, numericality: {greater_than: 0, less_than: 100}
 
 end

@@ -5,10 +5,18 @@
     <table style="margin-bottom:5px">
       <tbody>
         <tr>
-          <td class="col-xs-2"><%= f.number_field :order, placeholder:"", class:"form-control", style:"width:60%" %></td>
-          <td class="col-xs-5"><%= f.text_field :title, class:"form-control", style:"width:100%" %></td>
-          <td class="col-xs-4"><%= f.number_field :artist_id, class:"form-control", style:"width:100%" %></td>
-          <td class="col-xs-1"><%= link_to_remove_association "削除", f, class:"btn btn-default", style:"width:100%" %></td>
+          <td class="col-xs-2">
+            <%= f.number_field :order, placeholder:"", class:"form-control table-width-order" %>
+          </td>
+          <td class="col-xs-5">
+            <%= f.text_field :title, class:"form-control table-width-song" %>
+          </td>
+          <td class="col-xs-4">
+            <%= f.collection_select :artist_id, @artists, :id, :artist_name, { include_blank: true }, { class: 'form-control table-width-artist' } %>
+          </td>
+          <td class="col-xs-1">
+            <%= link_to_remove_association "削除", f, class:"btn btn-default", style:"width:100%" %>
+          </td>
         </tr>
       </tbody>
     </table>

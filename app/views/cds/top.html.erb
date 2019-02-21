@@ -16,12 +16,13 @@
           <%= image_tag 'anison.jpg', class: "top-title-visual" %>
         </div>
       </div>
+
       <%=form_tag cds_result_path, method: :get do %>
         <%=text_field_tag :search, params[:search],  class: "top_searh"%>
         <input type="submit" name="commit" value="検索" class="btn btn-default" data-disable-with="検索">
       <% end %>
-       <!-- 検索バーの代わり。導入したら削除 -->
 </div>
+
 
     <!-- 下半分 -->
     <div class="top-lower-container clearfix">

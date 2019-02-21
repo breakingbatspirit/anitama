@@ -16,6 +16,7 @@
 
 //= require jquery
 //= require bootstrap-sprockets
+//= require autocomplete-rails
 //= require_tree .
 //= require cocoon
 

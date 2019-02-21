@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  # deviseのcontrollerをいじる記述
+  devise_for :users, :controllers => {
+    :sessions      => "users/sessions",
+    :registrations => "users/registrations",
+    :passwords     => "users/passwords"
+  }
 
   resources :users,except:[:new] do
     put :delete, on: :member

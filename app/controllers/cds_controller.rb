@@ -15,6 +15,8 @@ class CdsController < ApplicationController
 
   def index
     @cds = Cd.all
+    @search = Cd.ransack(params[:q])
+    @cds = Cd.page(params[:page]).per(3)
   end
 
   def show
@@ -77,14 +79,18 @@ class CdsController < ApplicationController
     @anime = Anime.all
     @user = current_user
     @search = Cd.ransack(params[:q])
+
+
+
     @cds = @search.result
     @cds_page = Cd.page(params[:page]).per(PER).reverse_order
 
   end
 
   def top
+    @users = User.all
     @cds = Cd.all
-    @search = User.ransack(params[:q])
+    @search = Cd.ransack(params[:q])
     @user = current_user
   end
 

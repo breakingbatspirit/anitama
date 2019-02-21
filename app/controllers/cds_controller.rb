@@ -14,7 +14,8 @@ class CdsController < ApplicationController
   end
 
   def index
-    @cds = Cd.all
+    # @cds = Cd.all
+     @cds= Cd.search(params[:search])
   end
 
   def show
@@ -22,7 +23,8 @@ class CdsController < ApplicationController
     @chats = Chat.all
     @user = current_user
     @cd = Cd.find(params[:id])
-    @search = Cd.ransack(params[:q])
+    # @search = Cd.ransack(params[:q])zs
+    @cds = Cd.search(params[:search])
 
 
   end
@@ -58,20 +60,30 @@ class CdsController < ApplicationController
     redirect_to cds_path
   end
 
+   def top
+    @cds = Cd.all
+    @user = current_user
+  end
+
+  # def search
+  # end
+
+
   def result
     @anime = Anime.all
     @user = current_user
-    @search = Cd.ransack(params[:q])
-    @cds = @search.result
+    # @search = Cd.ransack(params[:q])
+    # @cds = @search.result(distinct: true)
+    if params[:search]
+       @cds = Cd.search(params[:search])
+    else
+       @cds = Cd.all
+    end
+
     @cds_page = Cd.page(params[:page]).per(PER).reverse_order
 
   end
 
-  def top
-    @cds = Cd.all
-    @search = User.ransack(params[:q])
-    @user = current_user
-  end
 
   private
 

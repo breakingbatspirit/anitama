@@ -2,45 +2,44 @@
 
 <div class="container">
 
-<div class="row">
-<div class="col-sm-1"></div>
+	<div class="row">
+		<div class="col-sm-1"></div>
 
-<div class="col-sm-10">
-<h1>検索結果一覧</h1>
-<table class="table">
-	<thead>
-
-		<% @cds.each do |cd| %>
-	<tr>
-			<td class="image_result_display"><%= link_to cd_path(cd) do %>
-				<%= attachment_image_tag cd, :cd_image, :fill,150,150, format: 'jpeg', size: "120x120", fallback: "no-image.jpg" %>
-				<% end %></td>
-			<td class="album_result_display"><%= cd.album %></br>
-				<%= cd.anime.anime_title %></td>
-			<td class="price_result_display"><%= cd.price %>円</br>
-				<% if cd.inventory == 0 %>
-					<dev class="zaikonashi"><span class="zaikonashi">在庫なし</span></dev>
-				<% else %>
-				<dev class="zaikoari"><span class="zaikoari">在庫あり</span></dev>
+		<div class="col-sm-10">
+		<h1>検索結果一覧</h1>
+			<table class="table">
+				<thead>
+				 <% @cds.each do |cd| %>
+				   <tr>
+						<td class="image_result_display"><%= link_to cd_path(cd) do %>
+							<%= attachment_image_tag cd, :cd_image, :fill,150,150, format: 'jpeg', size: "120x120", fallback: "no-image.jpg" %>
+							<% end %></td>
+						<td class="album_result_display"><%= cd.album %></br>
+							<%= cd.anime.anime_title %></td>
+						<td class="price_result_display"><%= cd.price %>円</br>
+							<% if cd.inventory == 0 %>
+								<dev class="zaikonashi"><span class="zaikonashi">在庫なし</span></dev>
+							<% else %>
+							    <dev class="zaikoari"><span class="zaikoari">在庫あり</span></dev>
+							<% end %>
+						</td>
+					</tr>
+				</thead>
+					<tbody>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
 				<% end %>
-			</td>
-		</tr>
-	</thead>
-		<tbody>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
-	<% end %>
-		</tbody>
-</table>
-</div>
-<div class="col-sm-1"></div>
+					</tbody>
+			</table>
+		</div>
+		<div class="col-sm-1"></div>
 
-</div>
+	</div>
 </div>
 
 

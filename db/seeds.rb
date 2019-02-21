@@ -6,11 +6,35 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Anime.create(anime_title:"コナン1")
-Anime.create(anime_title:"コナン2")
-Cd.create(album:"コナンコレクション", price:"10000", inventory:"0"anime.id)
-Cd.create(album:"コナンくーーーーん", price:"20000", inventory:"1")
 
+10.times do |no|
+Anime.create!(anime_title:"コナン#{no}")
+Label.create!(label_name: "レーベル#{no}")
+Genre.create!(generation: "ジャンル#{no}")
+
+Cd.create!(album:"コナンコレクショ#{no}ン", anime_id: 1,
+    price: 1000,
+    inventory: 40,
+	label_id: 1,
+    genre_id: 1,
+)
+
+# 5.times do |no|
+#   Title.create(:name => "タイトル #{no}")
+# end
+
+
+User.create!(
+   email: "#{no}@test.com",
+   password: '123456',
+   name: " テスト太郎#{no}",
+   namekana: "aaaa",
+   nickname: "djeie",
+   address: "deijeff",
+   phone: "080763223",
+   postal: "神奈川県"
+)
+end
 
 
 

@@ -12,7 +12,7 @@ Anime.create!(anime_title:"コナン#{no}")
 Label.create!(label_name: "レーベル#{no}")
 Genre.create!(generation: "ジャンル#{no}")
 
-Cd.create!(album:"コナンコレクショ#{no}ン", anime_id: 1,
+Cd.create!(album:"コナンコレクション#{no}", anime_id: 1,
     price: 1000,
     inventory: 40,
 	label_id: 1,

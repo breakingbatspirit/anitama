@@ -79,8 +79,9 @@ class CdsController < ApplicationController
     else
        @cds = Cd.all
     end
+     @cds = Cd.all
+    @cds_page = @cds.page(params[:page]).per(PER).reverse_order
 
-    @cds_page = Cd.page(params[:page]).per(PER).reverse_order
 
   end
 

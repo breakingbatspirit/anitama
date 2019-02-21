@@ -18,13 +18,11 @@ class Cd < ApplicationRecord
     # validates :inventory, presence: true
 
     def self.search(search)
-    	Cd.all
      if search
-    	album_result = Cd.where("album LIKE ? ", "%#{search}")
-    	anime_result = Cd.joins(:anime).where("anime_title LIKE ?", "%#{search}")
-    	song_result = Cd.joins(:song).where("title LIKE ?", "%#{search}")
-    	result = album_result | anime_result | title_result
-    	# | 和集合
+    	album_result = Cd.where("album LIKE ? ", "%#{search}%")
+    	anime_result = Cd.joins(:anime).where("anime_title LIKE ?", "%#{search}%")
+    	song_result = Cd.joins(discs: :songs).where("title LIKE ?", "%#{search}%")
+    	result = album_result | anime_result | song_result
     	return result
      end
     end

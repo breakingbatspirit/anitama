@@ -46,10 +46,9 @@
 
     <div class="cont-center">
       <h3 class="cart-subtitle">送付先情報</h3>
-        <p>名前：<%= @user.name %></p>
-              <%#= @user.addresses.last.address_name %>
-        <p>フリガナ：<%= @user.namekana %></p>
-        <p>住所：〒<%= @user.postal %>　<%= @user.address %></p>
+        <p>名前：<%= @addresses.address_name %></p>
+        <p>フリガナ：<%= @addresses.address_namekana %></p>
+        <p>住所：〒<%= @addresses.address_postal %>　<%= @user.address %></p>
         <p>電話番号：<%= @user.phone %></p>
         <p>メールアドレス：<%= @user.email %></p>
 

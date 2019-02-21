@@ -16,10 +16,13 @@ class CartItemsController < ApplicationController
     @cart_items = CartItem.all
 
     @search = Cd.ransack(params[:q])
-    @address = Address.new
-    @addresses = Address.all
 
-    # @address = @user.addresses
+    @address = Address.new
+    @addresses = @user.addresses[-1]
+
+    # user = current_user
+    # address = Address.user
+    # @addresses = Address.find(params[:id])
   end
 
   def create

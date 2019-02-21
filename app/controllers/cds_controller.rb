@@ -77,11 +77,10 @@ class CdsController < ApplicationController
     if params[:search]
        @cds = Cd.search(params[:search])
     else
-       @cds = Cd.all
+       @cds = Cd.page(params[:page]).per(PER)
     end
-     @cds = Cd.all
-    @cds_page = @cds.page(params[:page]).per(PER).reverse_order
 
+    @cds = Cd.page(params[:page]).per(PER)
 
   end
 

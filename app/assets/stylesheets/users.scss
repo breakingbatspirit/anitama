@@ -92,9 +92,9 @@ footer {
  margin:20px 0 20px 90px;
 }
 
-input[type="text"] {
-  width: 240px;
-}
+// input[type="text"] {
+//   width: 240px;
+// }
 
 .edit_namekana_display{
  float: right;
@@ -103,7 +103,10 @@ input[type="text"] {
 .edit_address_display{
     float: right;
 }
-
+.form_new{
+    width: 240px;
+    height: 30px;
+}
 textarea {
   resize: none;
   width: 240px;
@@ -123,6 +126,10 @@ textarea {
 .image_index_display{
 width: 100px;
 
+}
+.search_index{
+    width: 250px;
+    height: 40px;
 }
 
 .name_index_display{

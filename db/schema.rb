@@ -53,7 +53,9 @@ ActiveRecord::Schema.define(version: 2019_02_20_053650) do
     t.integer "user_id"
     t.integer "anime_id", null: false
     t.integer "label_id", null: false
+
     t.integer "genre_id"
+
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

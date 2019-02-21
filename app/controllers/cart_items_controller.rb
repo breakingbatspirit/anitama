@@ -10,12 +10,21 @@ class CartItemsController < ApplicationController
 
   def show
     @user = current_user
-    @cd = Cd.find(params[:id])
+    # @cd = Cd.find(params[:id])
+
+    # @cart_item = CartItem.find(params[:id])
+    @cart_items = CartItem.all
+
     @search = Cd.ransack(params[:q])
+    @address = Address.new
+    @addresses = Address.all
+
+    # @address = @user.addresses
   end
 
   def create
     binding.pry
+    p @cart_items.errors.full_messages
   	cart = CartItem.new(cart_item_params)
   	user = current_user
   	cart.user_id = user.id
@@ -26,8 +35,8 @@ class CartItemsController < ApplicationController
 
   def destroy
   	cart = CartItem.find(params[:id])
-	cart.destroy
-	redirect_to carts_path
+    cart.destroy
+    redirect_to carts_path
   end
 
 
@@ -35,9 +44,8 @@ class CartItemsController < ApplicationController
 
  private
  def cart_item_params
- 	params.require(:cart_item).permit(:unitquantity,:cd_id,:user_id)
+ 	params.require(:cart_item).permit(:user_id,:cd_id,:unit_quantity)
  end
-
 
 
 

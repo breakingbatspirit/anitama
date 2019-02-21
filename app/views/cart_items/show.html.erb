@@ -1,23 +1,67 @@
  <%= render 'users/header4',user: @user %>
 
+<div class="container clearfix">
 
-<div class="container">
+<h1 class="cart-title">最終確認画面</h1>
 
-<h1 class="cart_items-title">最終確認画面</h1>
+    <div class="cont-left">
+      <div class="cart-image-box">
+        <%= attachment_image_tag @user, :image, :fill,200,200, format: 'jpeg', fallback: "no_image.png", class:"cart-image", style:"display:border" %>
+      </div>
 
-  <div class="row">
-    <div class="col-xs-3 cont-left" style="height:500px; background-color:#6DD; border-right:3px solid black">
-      <%= %>
+      <div class="cont-left-name">
+        <h5><%= @user.name %>　様</h5>
+      </div>
+
+      <div class="cont-left-price">
+        <h5>お買い上げ金額</h5>
+        <h4 class="total-price underline">4,999円</h4>
+      </div>
+
+        <div class="cds-list">
+          <div class="inners">
+            <% if @cart_items.present? %>
+              <% @cart_items.each do |c| %>
+                <div class="row">
+                  <div class="col-xs-4">
+                    <%= attachment_image_tag c.cd, :cd_image, :fill,60,60, format: 'jpeg', fallback: "no_image.png" %>
+                  </div>
+                  <div class="col-xs-4">
+                    <p class="cd-text"><%= c.cd.album %></p>
+                  </div>
+                  <div class="col-xs-4">
+                    <p class="cd-text"><%= c.cd.anime.anime_title %></p>
+                    <p class="cd-text underline"><%= c.cd.price %> 円</p>
+                  </div>
+                </div>
+              <% end %>
+            <% else %>
+              <p>カートに商品がありません</p>
+            <% end %>
+          </div>
+        </div>
+
 
     </div>
-    <div class="col-xs-6" style="height:500px; background-color:#6CC">
-      送付先情報<br>
-      名前<br>
-      名前フリガナ<br>
+
+    <div class="cont-center">
+      <h3 class="cart-subtitle">送付先情報</h3>
+        <p>名前：<%= @user.name %></p>
+              <%#= @user.addresses.last.address_name %>
+        <p>フリガナ：<%= @user.namekana %></p>
+        <p>住所：〒<%= @user.postal %>　<%= @user.address %></p>
+        <p>電話番号：<%= @user.phone %></p>
+        <p>メールアドレス：<%= @user.email %></p>
+
+        <%= link_to 'カートへ戻る', carts_path, class:"btn btn-default" %>
+        <%= link_to 'ユーザー情報編集', edit_user_path(@user), class:"btn btn-default" %>
+        <%= link_to '注文確定(実装中)', root_path, class:"btn btn-default" %>
     </div>
-    <div class="col-xs-3 cont-right">
+
+
+    <div class="cont-right">
+      <%= render 'change_address', address: @address %>
     </div>
-  </div>
 
 </div>
 

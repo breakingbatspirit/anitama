@@ -19,4 +19,8 @@ class Cd < ApplicationRecord
 
     # validates :disc, presence: true, numericality: {greater_than: 0, less_than: 100}
 
+
+        def favorited_by?(user)
+              self.favorites.where(user_id: user.id).exists?
+        end
 end

@@ -18,11 +18,15 @@ class CdsController < ApplicationController
 
   def show
     @user = current_user
-    @chats = Chat.all
     @cd = Cd.find(params[:id])
+    @chats = @cd.chats
+    # @chats = Chat.where(cd_id: params[:id])
     @cds = Cd.all
     @search = User.ransack(params[:q])
     @cart = CartItem.new
+    if user_signed_in?
+      @favorite = current_user.favorite_cds
+    end
 
   end
 

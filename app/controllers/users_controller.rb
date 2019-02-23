@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
-  before_action :admin_validate!, only: [:index]
-   PER = 8
-  def index
+   before_action :admin_validate!, only: [:index]
+    PER = 8
 
+  def index
 
 
     @search = User.ransack(params[:q])

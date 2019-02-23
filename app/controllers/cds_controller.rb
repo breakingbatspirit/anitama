@@ -76,8 +76,7 @@ class CdsController < ApplicationController
     # @cds = @search.result(distinct: true)
     if params[:search]
        @cds = Cd.search(params[:search])
-    else
-       @cds = Cd.page(params[:page]).per(PER)
+       @cds = Kaminari.paginate_array(@cds)
     end
 
     @cds = Cd.page(params[:page]).per(PER)

@@ -21,6 +21,7 @@ class ChatChannel < ApplicationCable::Channel
     #puts params
     #puts 'data------------------------'
   	# ④
+    puts data
     chat = Chat.create!(body: data['chat'],cd_id: data['cd_id'],user_id: data['user_id'] )
     # viewのchat
     # それぞれのカラムにデータを保存

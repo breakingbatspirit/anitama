@@ -13,7 +13,7 @@ class AddressesController < ApplicationController
             redirect_to purchase_path
         else
             @address = Address.new(address_params)
-            redirect_to purchase_path
+            render 'show'
         end
     end
 

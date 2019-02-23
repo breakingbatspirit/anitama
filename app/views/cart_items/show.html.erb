@@ -46,15 +46,65 @@
 
     <div class="cont-center">
       <h3 class="cart-subtitle">送付先情報</h3>
+        <table style="display:none">
+          <tr>
+            <th>名前</th><td><%= @addresses.address_name %></td>
+          </tr>
+          <tr>
+            <th>フリガナ</th><td><%= @addresses.address_namekana %></td>
+          </tr>
+          <tr>
+            <th>住所</th><td>〒<%= @addresses.address_postal %></td>
+          </tr>
+          <tr>
+            <th></th><td><%= @addresses.address_address %></td>
+          </tr>
+          <tr>
+            <th>電話番号</th><td><%= @addresses.address_phone %></td>
+          </tr>
+        </table>
+
+
+
+
+
         <p>名前：<%= @addresses.address_name %></p>
         <p>フリガナ：<%= @addresses.address_namekana %></p>
         <p>住所：〒<%= @addresses.address_postal %>　<%= @user.address %></p>
         <p>電話番号：<%= @user.phone %></p>
         <p>メールアドレス：<%= @user.email %></p>
 
+
+
+
+
+
+
         <%= link_to 'カートへ戻る', carts_path, class:"btn btn-default" %>
         <%= link_to 'ユーザー情報編集', edit_user_path(@user), class:"btn btn-default" %>
-        <%= link_to '注文確定(実装中)', root_path, class:"btn btn-default" %>
+
+
+    <% if @history %>
+      <%= form_for @history do |h| %>
+        <%= h.hidden_field :histories_name, value: @addresses.address_name %>
+        <%= h.hidden_field :histories_namekana, value: @addresses.address_namekana %>
+        <%= h.hidden_field :histories_postal, value: @addresses.address_postal %>
+        <%= h.hidden_field :histories_address, value: @addresses.address_address %>
+        <%= h.hidden_field :histories_phone, value: @addresses.address_phone %>
+        <%= h.submit '注文確定' %>
+      <% end %>
+    <% end %>
+
+
+      <%# link_to '名前', histories_path(@history, params:     ), method: :post,  %>
+
+      <%#= link_to "名前", controller: "histories", action: "create", order: "created_at" %>
+
+
+
+
+      <%= link_to "注文確定！！！", histories_path(history: {histories_name: @addresses.address_name,histories_namekana: @addresses.address_namekana,histories_postal: @addresses.address_postal,histories_address: @addresses.address_address,histories_phone: @addresses.address_phone}), :method => :post, class:"btn btn-default", data: { confirm: "ご注文内容、送付先住所などに間違いはありませんか？"} %>
+
     </div>
 
 

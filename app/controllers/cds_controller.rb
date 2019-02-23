@@ -73,7 +73,7 @@ class CdsController < ApplicationController
     redirect_to cds_path
   end
 
-   def top
+  def top
     @cds = Cd.all
     @user = current_user
   end
@@ -89,13 +89,13 @@ class CdsController < ApplicationController
     # @search = Cd.ransack(params[:q])
     # @cds = @search.result(distinct: true)
     if params[:search]
-       @cds = Cd.search(params[:search])
+      @cds = Cd.search(params[:search])
     else
-       @cds = Cd.all
+      @cds = Cd.all
     end
-     @cds = Cd.all
-    @cds_page = @cds.page(params[:page]).per(PER).reverse_order
-
+      @cds = Cd.all
+      @cds_page = @cds.page(params[:page]).per(PER).reverse_order
+  end
 
 
 

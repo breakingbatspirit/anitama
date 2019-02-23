@@ -3,8 +3,19 @@ class CartItemsController < ApplicationController
   	@user = current_user
   	@carts = CartItem.all
   	@search = User.ransack(params[:q])
-
   	@cart = CartItem.new
+    #カート内商品合計金額表示----↓
+    # arrayで[]の中の要素を取り出す
+    array = []
+    @carts.each do |cart|
+      array.push(cart.cd.price)
+    # cartの中のcdのpriceをarrayにpushする
+    end
+    @total_price = array.sum
+    # array.sumを@total_priceに代入
+    # @total_priceをviweに記述する。
+    # -----------------------------
+    @cds =Cd.new
 
   end
 

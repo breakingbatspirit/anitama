@@ -97,7 +97,7 @@ class CdsController < ApplicationController
       @cds_page = @cds.page(params[:page]).per(PER).reverse_order
   end
 
-
+end
 
 
   def top

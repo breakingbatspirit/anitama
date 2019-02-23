@@ -3,8 +3,8 @@
 
 <div class="form-inline">
 
-  <%= form_for @address, url: {action: 'create'} do |f| %>
-  <%#= form_for(@address, url: user_addresses_path) do |f| %>
+  <%#= form_for @address, url: {action: 'create'} do |f| %>
+  <%= form_for([current_user, address]) do |f| %>
 
     <div class="field">
       <%= f.label :address_name, "お名前", class:"label-bold" %>

@@ -103,12 +103,8 @@
 
 
 
-      <%= link_to "これ！！", histories_path(history: {histories_name: @addresses.address_name,histories_namekana: @addresses.address_namekana,histories_postal: @addresses.address_postal,histories_address: @addresses.address_address,histories_phone: @addresses.address_phone}), :method => :post %>
+      <%= link_to "注文確定！！！", histories_path(history: {histories_name: @addresses.address_name,histories_namekana: @addresses.address_namekana,histories_postal: @addresses.address_postal,histories_address: @addresses.address_address,histories_phone: @addresses.address_phone}), :method => :post, class:"btn btn-default", data: { confirm: "ご注文内容、送付先住所などに間違いはありませんか？"} %>
 
-
-
-
-        <%= link_to '注文確定(実装中)', root_path, class:"btn btn-default", data: { confirm: "ご注文内容、送付先住所など間違いありませんか？"} %>
     </div>
 
 

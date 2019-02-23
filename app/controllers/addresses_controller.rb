@@ -11,7 +11,6 @@ class AddressesController < ApplicationController
         @address.user_id = current_user.id
         if @address.save
             redirect_to purchase_path
-            render 'show'
         else
             @address = Address.new(address_params)
             render 'show'

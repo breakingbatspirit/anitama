@@ -5,10 +5,10 @@
           	<h2>商品一覧</h2>
         </div>
 	    <div class="col-xs-10">
-	       <%= search_form_for  @search, url: cds_result_path do |f| %>
-		       <input type="text" cd="q[name_cont]" style="width: 300px; height: 25px; margin-left:20%; margin-top:20px;  " name="q">
-		        <%= f.submit  "検索" , class: "btn btn-default btn-sm" %>
-	      	<% end %>
+	         <%=form_tag cds_result_path, method: :get do %>
+               <%=text_field_tag :search, params[:search],  class: "top_searh"%>
+               <input type="submit" name="commit" value="検索" class="btn btn-default" data-disable-with="検索">
+               <% end %>
 
 
 

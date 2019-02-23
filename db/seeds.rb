@@ -15,7 +15,7 @@ Genre.create!(generation: "ジャンル#{no}")
 Cd.create!(album:"コナンコレクション#{no}", anime_id: 1,
     price: 1000,
     inventory: 40,
-	label_id: 1,
+    label_id: 1,
     genre_id: 1,
 )
 

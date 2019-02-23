@@ -30,7 +30,9 @@ class CartItemsController < ApplicationController
 
     @address = Address.new
     @addresses = @user.addresses[-1]
-    
+
+    @history = History.new
+
     # user = current_user
     # address = Address.user
     # @addresses = Address.find(params[:id])
@@ -38,7 +40,6 @@ class CartItemsController < ApplicationController
 
   def create
     binding.pry
-    p @cart_items.errors.full_messages
   	cart = CartItem.new(cart_item_params)
   	user = current_user
   	cart.user_id = user.id
@@ -55,13 +56,9 @@ class CartItemsController < ApplicationController
 
 
 
-
  private
  def cart_item_params
  	params.require(:cart_item).permit(:user_id,:cd_id,:unit_quantity)
  end
 
-
-
 end
-

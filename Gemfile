@@ -68,14 +68,15 @@ gem 'devise'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 
-gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+gem 'bootstrap-sass', '~> 3.3.6'
+
 gem 'ransack'
 gem 'kaminari','~> 1.1.1'
 gem 'cocoon'
 gem 'paranoia'
-gem 'pry-rails'
+# gem 'pry-rails'
 #test
 
 # rails オートコンプリート(rails5でも使える)

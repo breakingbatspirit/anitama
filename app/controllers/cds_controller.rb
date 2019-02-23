@@ -20,10 +20,10 @@ class CdsController < ApplicationController
   end
 
   def show
-    @user = current_user
+
     @chats = Chat.all
+    @user = current_user
     @cd = Cd.find(params[:id])
-    # @search = Cd.ransack(params[:q])zs
     @cds = Cd.search(params[:search])
     @cds = Cd.all
     @cart = CartItem.new
@@ -34,9 +34,6 @@ class CdsController < ApplicationController
     @disc = Disc.find(params[:id])
     @song = Song.find(params[:id])
 
-    @animes = Anime.all.order("anime_title")
-    @labels = Label.all.order("label_name")
-    @artists = Artist.all.order("artist_name")
   end
 
   def create
@@ -55,16 +52,6 @@ class CdsController < ApplicationController
   end
 
   def update
-    binding.pry
-    @cd = Cd.find(params[:id])
-    if @cd.update(cd_params)
-      flash[:notice] = "Success message: CDの商品情報が更新されました！"
-      redirect_to cds_path
-    else
-      p @cd.errors.full_messages
-      flash[:notice] = "Error message: エラー発生！"
-      render 'edit'
-    end
   end
 
   def destroy
@@ -73,7 +60,7 @@ class CdsController < ApplicationController
     redirect_to cds_path
   end
 
-   def top
+  def top
     @cds = Cd.all
     @user = current_user
   end
@@ -81,24 +68,19 @@ class CdsController < ApplicationController
   # def search
   # end
 
-
-  def result
+def result
     @anime = Anime.all
     @user = current_user
-
     # @search = Cd.ransack(params[:q])
     # @cds = @search.result(distinct: true)
     if params[:search]
        @cds = Cd.search(params[:search])
-    else
-       @cds = Cd.all
+       @cds = Kaminari.paginate_array(@cds)
     end
-     @cds = Cd.all
-    @cds_page = @cds.page(params[:page]).per(PER).reverse_order
 
+    @cds = Cd.page(params[:page]).per(PER)
 
-end
-
+  end
 
   def top
     @cds = Cd.all

@@ -3,7 +3,6 @@
 
 <div class="form-inline">
 
-  <%#= form_for @address, url: {action: 'create'} do |f| %>
   <%= form_for([current_user, address]) do |f| %>
 
     <div class="field">
@@ -15,11 +14,7 @@
       <%= f.text_field :address_namekana, class:"form-control width100" %>
     </div>
     <div class="field">
-      <%= f.label :address_phone, "郵便番号", class:"label-bold" %>
-      <%= f.text_field :address_phone, class:"form-control width100" %>
-    </div>
-    <div class="field">
-      <%= f.label :address_postal, "電話番号", class:"label-bold" %>
+      <%= f.label :address_postal, "郵便番号", class:"label-bold" %>
       <%= f.text_field :address_postal, class:"form-control width100" %>
     </div>
     <div class="field">
@@ -27,8 +22,13 @@
       <%= f.text_field :address_address, class:"form-control width100" %>
     </div>
     <div class="field">
+      <%= f.label :address_phone, "電話番号", class:"label-bold" %>
+      <%= f.text_field :address_phone, class:"form-control width100" %>
+    </div>
+    <div class="field">
       <%= f.submit '送付先情報を変更する', class:"btn btn-default btn-submit" %>
     </div>
+
   <% end %>
 
 </div>

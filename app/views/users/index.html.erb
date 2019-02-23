@@ -6,10 +6,11 @@
 		</div>
 		<div class="col-sm-4 form-group kensaku">
 	   			<%= search_form_for @search do |f| %>
-				<div align="center"><%= f.text_field :name_cont, class: "form-control" %>
+				<div align="center">
+				<%= f.text_field :name_cont, class: "search_index" %>
 				<%= f.submit "検索" , class: "btn btn-default btn-sm" %>
+				</div>
 	    	<% end %>
-		</div>
 		<div class="col-sm-4">
 
 		</div>
@@ -33,11 +34,11 @@
 			<th class="phone_index_display">TEL</th>
 			<th class="email_index_diesplay">メール</th>
 			<th class="edit_index_display">編集</th>
-			<th class="delet_index_display">削除</th>
+			<th class="delete_index_display">削除</th>
 		</tr>
 	</thead>
 	<% @users_page.each do |user| %>
-	<% if user.deleted_at == true %>
+	<% if user.deleted_at %>
 		<tbody class="taikai">
 		<tr>
 			<td class="image_index_display"><%= attachment_image_tag user, :image, :fill,50,50, format: 'jpeg', size: "50x50", fallback: "no-image.jpg" %>
@@ -50,7 +51,7 @@
 			<td class="phone_index_display"><%= user.phone %></td>
 			<td class="email_index_diespla"><%= user.email %></td>
 			<td class="edit_index_display"></td>
-			<td class="delet_index_display"></td>
+			<td class="delete_index_display"></td>
 		</tr>
 	</tbody>
 	<% else %>
@@ -66,7 +67,7 @@
 			<td class="phone_index_display"><%= user.phone %></td>
 			<td class="email_index_diespla"><%= user.email %></td>
 			<td class="edit_index_display"><%= link_to "編集",edit_user_path(user.id), class: "btn btn-default  btn-xs" %></td>
-			<td class="delet_index_display"><%= link_to "削除", delete_user_path(user, params:  {user: {deleted_at: true} }),method: :put, class: "btn btn-default btn-xs" %></td>
+			<td class="delete_index_display"><%= link_to "削除", delete_user_path(user, params:  {user: {deleted_at: Time.current} }),method: :put, class: "btn btn-default btn-xs" %></td>
 		</tr>
 	</tbody>
 		<% end %>

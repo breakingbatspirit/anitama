@@ -1,22 +1,49 @@
-<%= render 'users/header1' ,user:@user %>
+<%= render 'users/header1' ,user:current_user %>
 <div class="container">
    <div class="row">
-<div class="col-sm-3">
-		<div align="center"> <h1>マイページ</h1> </div>
-		<div align="center"> <%= attachment_image_tag @user, :image, :fill,200,200, format: 'jpeg', size: "200x200", fallback: "no-image.jpg" %></div>
-        <div class="name_display">
-   		   <div align="center"> <%= @user.name %></div>
-   	    </div>
+	<div class="col-sm-3">
+			<div align="center"> <h1>マイページ</h1> </div>
+			<div align="center"> <%= attachment_image_tag @user, :image, :fill,200,200, format: 'jpeg', size: "200x200", fallback: "no-image.jpg" %></div>
+	        <div class="name_display">
+	   		   <div align="center"> <%= @user.name %></div>
+	   	    </div>
 
 
-		 <%= link_to "編集",edit_user_path(@user.id), class: "btn btn-default edit_btn" %>
-	     <%= link_to "退会", delete_user_path(@user, params:  {user: {deleted_at: true} }),method: :put, class: "btn btn-default delete_btn" %></td>
-	     <%=link_to "ログアウト", destroy_user_session_path, method: :delete %>
+			 <%= link_to "編集",edit_user_path(@user.id), class: "btn btn-default edit_btn" %>
+		     <%= link_to "退会", delete_user_path(@user, params:  {user: {deleted_at: Time.current} }),method: :put, class: "btn btn-default delete_btn" %>
+		     <%=link_to "ログアウト", destroy_user_session_path, method: :delete %>
 
 	</div>
 
 
 	<div class="col-sm-9">
+		<h1> 購入履歴一覧</h1>
+
+
+        <!-- ここでお気に入り一覧 -->
+
+
+		<table class="table">
+				<thead>
+				   <tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</thead>
+					<tbody>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					</tbody>
+		</table>
+
 
 	</div>
   </div>

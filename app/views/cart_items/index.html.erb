@@ -39,9 +39,16 @@
 		</div>
 		<div class="col-lg-3">
 			<div class="cart-item-total">
-				<!-- たなぴょんここから下を編集しておくれ！ -->
+
+
+
 				<h4>合計点数(点)</h4>
+				 <%= @carts.count %>点
 				<h4>合計金額</h4>
+				<%= @total_price %>円
+				<br>
+                <%= link_to "お会計に進む", purchase_path, class: "btn btn-default btn-xs" %>
+
 			</div>
 
 		</div>
@@ -49,3 +56,4 @@
 </div>
 
 <%= render 'users/footer' ,user: @user %>
+ 

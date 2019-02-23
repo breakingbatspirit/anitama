@@ -1,4 +1,5 @@
 class CdsController < ApplicationController
+  PER = 3
   def new
     @cd = Cd.new
     @disc = @cd.discs.build
@@ -13,22 +14,35 @@ class CdsController < ApplicationController
   end
 
   def index
+    @cds= Cd.search(params[:search])
     @cds = Cd.all
+    @cds = Cd.page(params[:page]).per(3)
   end
 
   def show
+<<<<<<< HEAD
     @user = current_user
     @cd = Cd.find(params[:id])
     @chats = @cd.chats
     # @chats = Chat.where(cd_id: params[:id])
+=======
+
+    @chats = Chat.all
+    @user = current_user
+    @cd = Cd.find(params[:id])
+    @cds = Cd.search(params[:search])
+>>>>>>> 342b674c769a0b5dde4a21c305461a4e5b7ab9b6
     @cds = Cd.all
-    @search = User.ransack(params[:q])
     @cart = CartItem.new
+<<<<<<< HEAD
     if user_signed_in?
       @favorite = current_user.favorite_cds
     end
 
   end
+=======
+ end
+>>>>>>> 342b674c769a0b5dde4a21c305461a4e5b7ab9b6
 
   def edit
     @cd = Cd.find(params[:id])
@@ -61,13 +75,33 @@ class CdsController < ApplicationController
     redirect_to cds_path
   end
 
-  def result
+  def top
+    @cds = Cd.all
+    @user = current_user
+  end
+
+  # def search
+  # end
+
+def result
+    @anime = Anime.all
+    @user = current_user
+    # @search = Cd.ransack(params[:q])
+    # @cds = @search.result(distinct: true)
+    if params[:search]
+       @cds = Cd.search(params[:search])
+       @cds = Kaminari.paginate_array(@cds)
+    end
+
+    @cds = Cd.page(params[:page]).per(PER)
+
   end
 
   def top
     @cds = Cd.all
     @user = current_user
   end
+
 
   private
 

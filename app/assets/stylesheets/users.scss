@@ -48,29 +48,25 @@ margin-left:7px;
 .icon {
     color:white;
     padding:40px;
-    font-size:25px;
+    font-size:25 Spx;
     float:right;
-}
-
-.link{
-    align: right;
 }
 
 footer {
     width: 100%;
-    height:90px;
+    height: 60px;
     background-color:black;
 }
 .text {
     color: white;
     float:left;
-    padding: 40px;
+    padding: 20px 40px;
 }
 
 
 .link {
     float: right;
-    padding: 40px;
+    padding: 20px 40px;
 }
  .edit_btn{
  margin:10px 10px 0 60px;
@@ -92,9 +88,9 @@ footer {
  margin:20px 0 20px 90px;
 }
 
-input[type="text"] {
-  width: 240px;
-}
+// input[type="text"] {
+//   width: 240px;
+// }
 
 .edit_namekana_display{
  float: right;
@@ -103,7 +99,10 @@ input[type="text"] {
 .edit_address_display{
     float: right;
 }
-
+.form_new{
+    width: 240px;
+    height: 30px;
+}
 textarea {
   resize: none;
   width: 240px;
@@ -123,6 +122,10 @@ textarea {
 .image_index_display{
 width: 100px;
 
+}
+.search_index{
+    width: 250px;
+    height: 40px;
 }
 
 .name_index_display{
@@ -162,7 +165,7 @@ width: 50px;
 text-align: center;
 }
 
-.delet_index_display{
+.delete_index_display{
 width: 50px;
 text-align: center;
 
@@ -173,3 +176,4 @@ text-align: center;
 .taikai{
     background: gray;
 }
+

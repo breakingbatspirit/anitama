@@ -1,7 +1,7 @@
-source 'https://rubygems.org'
+# source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.3'
+# ruby '2.5.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
@@ -34,7 +34,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.1.0', require: false
+gem 'bootsnap', '>= 1.1.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -68,12 +68,16 @@ gem 'devise'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 
-gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'bootstrap-sass', '~> 3.3.6'
+
 gem 'ransack'
 gem 'kaminari','~> 1.1.1'
 gem 'cocoon'
 gem 'paranoia'
-gem 'pry-rails'
+# gem 'pry-rails'
 #test
-#test
+
+# rails オートコンプリート(rails5でも使える)
+gem 'rails4-autocomplete'

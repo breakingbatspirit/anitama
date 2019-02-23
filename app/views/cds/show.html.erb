@@ -1,6 +1,10 @@
+<<<<<<< HEAD
+<%= render 'users/header4',user: @user %>
+=======
 
  <%= render 'users/header4',user: @user %>
 
+>>>>>>> 342b674c769a0b5dde4a21c305461a4e5b7ab9b6
 
 
 <div class="container">
@@ -16,24 +20,53 @@
 			<% else %>
 				<div class="inventory">在庫あり</div>
 			<% end %>
-			<% if @user == current_user %>
-				<%= form_for(@cart) do |f| %>
-				<%= f.hidden_field :cd_id, :value => params[:id] %>
-				<%= f.submit 'カートに入れる', class: "btn btn-info glyphicon "%>
-				<% end %>
-			<else>
+			<div class="cart-in">
+				<!-- ユーザーがログイン状態の時のみの表示内容 -->
+				<% if @user == current_user && user_signed_in? %>
+					<!-- 以下カート追加 -->
+					<%= form_for(@cart) do |f| %>
+						<%= f.hidden_field :cd_id, :value => params[:id] %>
+						<%= f.submit 'カートに入れる', class: "btn btn-info glyphicon "%>
+					<% end %>
+					<!-- 以下お気に入り機能 -->
+					<% if @cd.favorited_by?(current_user) %>
+						<%= link_to cd_favorites_path(@cd),method: :delete do %>
+							<i class="glyphicon glyphicon-heart" aria-hidden="true" style="color:red;"></i>
+							<%= @cd.favorites.count %>いいね！
+						<% end %>
+					    <% else %>
+						<%= link_to cd_favorites_path(@cd),method: :post do %>
+							<i class="glyphicon glyphicon-heart-empty" aria-hidden="true"></i>
+							<%= @cd.favorites.count %>いいね！
+						<% end %>
+					<% end %>
 
-			<% end %>
+				    <% else %>
+
+			        <% end %>
+			</div>
 
 			<div class="new">
-				<h3>最新情報</h3>
-				<div class="new-list">
-						<% @cds.each do |cd| %>
-							<div class="new-list-content">
-								<%= attachment_image_tag cd, :cd_image,　format: 'jpeg', fallback: "cd.jpg", size: "250x250" %>
-							</div>
-						<% end %>
-				</div>
+				<% if @user == current_user && user_signed_in? %>
+					<h3>お気に入り一覧</h3>
+					<div class="favorite-list">
+							<% @favorite.each do |f| %>
+								<div class="new-list-content">
+									<%= attachment_image_tag f, :cd_image, format: 'jpeg', fallback: "cd.jpg", size: "150x150" %>
+								</div>
+							<% end %>
+					</div>
+				<% else %>
+					<h3>最新情報</h3>
+				<!-- 最新のCD一覧 -->
+					<div class="new-list">
+							<% @cds.each do |cd| %>
+								<div class="new-list-content">
+									<%= attachment_image_tag cd, :cd_image,format: 'jpeg', fallback: "cd.jpg", size: "150x150" %>
+								</div>
+							<% end %>
+					</div>
+				<% end %>
 			</div>
 		</div>
 		<!-- ３分割の中央 -->
@@ -43,7 +76,7 @@
 				</blockquote>
 				<div class="cd-content">
 					<div class="cd-text-list">
-						<div class="cd-text"><h5><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span>　<%= @cd.anime.anime_title %></h5></div>
+						<div class="cd-text"><h5><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span><%= @cd.anime.anime_title %></h5></div>
 						<div class="cd-text"><h5><span class="glyphicon glyphicon-home" aria-hidden="true"></span>　<%= @cd.label.label_name %></h5></div>
 						<div class="cd-text"><h5><span class="glyphicon glyphicon-tag" aria-hidden="true"></span>　ジャンル</h5></div>
 					</div>
@@ -67,11 +100,15 @@
 					      <%= render @chats %>
 					    </ul>
   				  </div>
-  				  <div class="form-group">
-      					<input type="text" class="form-control" id="chat-input" value="<% @cd.id %>" >
-      					<input type="hidden" class="form-control" id="chat-input2" value="<%= @user.id %>" >
-    				</div>
-    				<button id="button" class="btn btn-primary">送信</button>
+  				  <% if @user == current_user && user_signed_in? %>
+	  				  	<div class="form-group">
+	  				  		<textarea type="text-area" class="form-control" id="chat-input3" ></textarea>
+	      					<input type="hidden" class="form-control" id="chat-input" value="<%= @cd.id %>" >
+	      					<input type="hidden" class="form-control" id="chat-input2" value="<%= @user.id %>" >
+	    				</div>
+    				    <button id="button" class="btn btn-primary btn-block">コメントを送信する</button>
+    			  <% else %>
+    			  <% end %>
 				 </div>
 		    </div>
 		</div>

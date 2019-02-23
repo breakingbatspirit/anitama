@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_20_053650) do
+ActiveRecord::Schema.define(version: 2019_02_23_050840) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "address_name"
@@ -77,10 +77,11 @@ ActiveRecord::Schema.define(version: 2019_02_20_053650) do
   end
 
   create_table "favorites", force: :cascade do |t|
-    t.integer "cd_id　", null: false
+    t.integer "cd_id", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "favorites_count"
   end
 
   create_table "genres", force: :cascade do |t|

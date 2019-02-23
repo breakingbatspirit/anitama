@@ -224,16 +224,16 @@ p, span {
     margin-bottom:15px;
 }
 .new-list{
-    width:85%;
-    height:300px;
-    margin:0 auto;
+    width:100%;
+    height:180px;
     overflow: scroll;
     border: 1px solid #DCDCDC;
     border-radius:10px;
+    display: flex;
 }
 .new-list-content{
-    width:251px;
-    margin: 20px auto;
+    float:left;
+    margin:13px 10px;
 }
 .song h7{
     font-size:12px;
@@ -264,13 +264,22 @@ p, span {
     width:33%;
     border-radius:7px;
     text-align:center;
-    float:right;
+    float:left;
     margin:10px 30px 10px 0;
+}
+.form-group{
+    padding-top: 20px;
 }
 
 .new{
-    margin-top:80px;
+    margin:40px 0;
 }
+
+.chat-button{
+    padding-top: 10px;
+}
+
+/*ここからカート一覧ページ*/
 .cart-item{
     padding:30px;
 }

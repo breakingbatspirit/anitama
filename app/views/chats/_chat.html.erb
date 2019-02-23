@@ -1,7 +1,11 @@
-<li class="list-group-item">
-  <p><%= attachment_image_tag current_user, :image, :fill,30,30, format: 'jpeg', size: "30x30", fallback: "no-image.jpg" %>   <%= chat.user.nickname %></p>
-  <h7><%= chat.body %>
-  	<% if chat.user == current_user %>
-		<%=link_to "削除",cd_chat_path(chat.cd_id,chat.id),method: :delete,class: "btn btn-danger btn-xs" %>
-	<% end %></h7>
-</li>
+<div class="chat-list">
+	<li class="list-group-item" style="background-color:whitesmoke;">
+	  <p><%= attachment_image_tag chat.user, :image, :fill,30,30, format: 'jpeg', size: "30x30", fallback: "no-image.jpg" %>   <%= chat.user.nickname %></p>
+	  <h7><%= chat.body %>
+	  	<% if chat.user == current_user %>
+			<div class="chat-destroy">
+				<%=link_to "削除",cd_chat_path(chat.cd_id,chat.id),method: :delete,class: "btn btn-danger btn-xs" %>
+			</div>
+		<% end %></h7>
+	</li>
+</div>

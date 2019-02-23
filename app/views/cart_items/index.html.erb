@@ -46,7 +46,8 @@
 				 <%= @carts.count %>点
 				<h4>合計金額</h4>
 				<%= @total_price %>円
-                <%= link_to "お会計に進む", cds_path(cd.id), class: "btn btn-default btn-xs" %>
+				<br>
+                <%= link_to "お会計に進む", purchase_path, class: "btn btn-default btn-xs" %>
 
 			</div>
 

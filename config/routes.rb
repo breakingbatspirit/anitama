@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  # deviseのcontrollerをいじる記述
+  devise_for :users, :controllers => {
+    :sessions      => "users/sessions",
+    :registrations => "users/registrations",
+    :passwords     => "users/passwords"
+  }
 
   resources :users,except:[:new] do
     put :delete, on: :member
@@ -11,6 +16,7 @@ Rails.application.routes.draw do
   get 'cds/result'
 
   resources :cds do
+    get "search", on: :collection
     resources :chats,only:[:create,:destroy]
     resource :favorites,only:[:create,:destroy]
     resources :songs,only:[:create,:update,:destroy]

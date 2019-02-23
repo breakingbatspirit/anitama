@@ -1,17 +1,18 @@
 <!-- ヘッダー -->
 <%= render 'users/header1' ,user:@user %>
 
-<!-- 上半分 -->
+<!-- 本文 -->
 <div class="container">
 
-    <h1 class="cds-title">商品追加</h1>
+  <h1 class="cds-title">商品追加</h1>
 
-    <!-- Cdモデル以外に送る右上の部分 -->
-    <div class="upper-cont-right">
-      <%= render 'add_record', cd: @cd %>
-    </div>
+  <!-- Cdモデル以外に送る右上の部分 -->
+  <div class="upper-cont-right">
+    <%= render 'add_record', cd: @cd %>
+  </div>
 
-    <!-- Cdモデルに送るほか全部 -->
-      <%= render 'form', cd: @cd %>
+  <!-- Cdモデルに送るほか全部 -->
+    <%= render 'form', cd: @cd %>
+    <%#= link_to 'Back', root_path %>
 
 </div>

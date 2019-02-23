@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2019_02_20_053650) do
     t.integer "user_id"
     t.integer "anime_id", null: false
     t.integer "label_id", null: false
-    t.integer "genre_id"
+    t.integer "genre_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 2019_02_20_053650) do
   end
 
   create_table "genres", force: :cascade do |t|
-    t.integer "generation", limit: 1, default: 0
+    t.integer "generation", limit: 1, default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

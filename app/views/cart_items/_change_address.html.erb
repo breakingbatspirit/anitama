@@ -3,29 +3,31 @@
 
 <div class="form-inline">
 
-  <%= form_for @address, url: {action: 'show'} do |f| %>
+  <%= form_for @address, url: {action: 'create'} do |f| %>
+  <%#= form_for(@address, url: user_addresses_path) do |f| %>
+
     <div class="field">
       <%= f.label :address_name, "お名前", class:"label-bold" %>
-      <%= f.text_field :address_name, class:"form-control form-ucr", placeholder:"←左に反映", style:"width:100%" %>
+      <%= f.text_field :address_name, class:"form-control width100" %>
     </div>
     <div class="field">
       <%= f.label :address_namekana, "フリガナ", class:"label-bold" %>
-      <%= f.text_field :address_namekana, class:"form-control form-ucr", placeholder:"←左に反映", style:"width:100%" %>
+      <%= f.text_field :address_namekana, class:"form-control width100" %>
     </div>
     <div class="field">
       <%= f.label :address_phone, "郵便番号", class:"label-bold" %>
-      <%= f.text_field :address_phone, class:"form-control form-ucr", placeholder:"←左に反映", style:"width:100%" %>
+      <%= f.text_field :address_phone, class:"form-control width100" %>
     </div>
     <div class="field">
       <%= f.label :address_postal, "電話番号", class:"label-bold" %>
-      <%= f.text_field :address_postal, class:"form-control form-ucr", placeholder:"←左に反映", style:"width:100%" %>
+      <%= f.text_field :address_postal, class:"form-control width100" %>
     </div>
     <div class="field">
       <%= f.label :address_address, "住所", class:"label-bold" %>
-      <%= f.text_field :address_address, class:"form-control form-ucr", placeholder:"←左に反映", style:"width:100%" %>
+      <%= f.text_field :address_address, class:"form-control width100" %>
     </div>
     <div class="field">
-      <%= f.submit '送付先情報を変更する', class:"btn btn-default" %>
+      <%= f.submit '送付先情報を変更する', class:"btn btn-default btn-submit" %>
     </div>
   <% end %>
 

@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  # deviseのcontrollerをいじる記述
+  devise_for :users, :controllers => {
+    :sessions      => "users/sessions",
+    :registrations => "users/registrations",
+    :passwords     => "users/passwords"
+  }
 
   resources :users,except:[:new] do
     put :delete, on: :member
@@ -33,7 +38,7 @@ Rails.application.routes.draw do
   end
 
   root 'cds#top'
-  get '/cart_items/purchase', to: 'cart_items#show',as:'purchase'
+  get '/cart_items/purchase', to: 'cart_items#show',as: 'purchase'
   get '/cart_items', to: 'cart_items#index',as: 'carts'
 
   mount ActionCable.server => '/cable'

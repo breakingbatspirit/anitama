@@ -14,8 +14,9 @@ class CdsController < ApplicationController
   end
 
   def index
-    # @cds = Cd.all
-     @cds= Cd.search(params[:search])
+    @cds= Cd.search(params[:search])
+    @cds = Cd.all
+    @cds = Cd.page(params[:page]).per(3)
   end
 
   def show
@@ -23,11 +24,10 @@ class CdsController < ApplicationController
     @chats = Chat.all
     @user = current_user
     @cd = Cd.find(params[:id])
-    # @search = Cd.ransack(params[:q])zs
     @cds = Cd.search(params[:search])
-
-
-  end
+    @cds = Cd.all
+    @cart = CartItem.new
+ end
 
   def edit
     @cd = Cd.find(params[:id])
@@ -60,7 +60,7 @@ class CdsController < ApplicationController
     redirect_to cds_path
   end
 
-   def top
+  def top
     @cds = Cd.all
     @user = current_user
   end
@@ -68,8 +68,7 @@ class CdsController < ApplicationController
   # def search
   # end
 
-
-  def result
+def result
     @anime = Anime.all
     @user = current_user
     # @search = Cd.ransack(params[:q])
@@ -81,6 +80,11 @@ class CdsController < ApplicationController
 
     @cds = Cd.page(params[:page]).per(PER)
 
+  end
+
+  def top
+    @cds = Cd.all
+    @user = current_user
   end
 
 

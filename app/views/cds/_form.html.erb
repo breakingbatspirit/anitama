@@ -6,7 +6,7 @@
   <div class="upper-cont-left">
 
     <div>
-        <%= attachment_image_tag @cd, :cd_image, :fill, 50, 50, class: "cd-image", fallback: "no-image.jpeg"%>
+        <%= attachment_image_tag @cd, :cd_image, :fill, 50, 50, class: "cd-image", fallback: "no_image.png"%>
     </div>
     <div class="cd-image-select">
       <%= f.attachment_field :cd_image, direct: true %>

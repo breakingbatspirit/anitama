@@ -15,7 +15,7 @@ Genre.create!(generation: "ジャンル#{no}")
 Cd.create!(album:"コナンコレクション#{no}", anime_id: 1,
     price: 1000,
     inventory: 40,
-	label_id: 1,
+    label_id: 1,
     genre_id: 1,
 )
 
@@ -52,4 +52,5 @@ end
 # Song.create(title:"Secret of my heart", disc_id:1)
 # Song.create(title:"Time after time", disc_id:2)
 # Song.create(title:"恋はスリル、ショック、サスペンス", disc_id:2)
+
 

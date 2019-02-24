@@ -39,7 +39,6 @@ class CartItemsController < ApplicationController
   end
 
   def create
-    binding.pry
   	cart = CartItem.new(cart_item_params)
   	user = current_user
   	cart.user_id = user.id

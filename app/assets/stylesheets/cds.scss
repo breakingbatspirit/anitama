@@ -231,6 +231,9 @@ p, span {
     border-radius:10px;
     display: flex;
 }
+.new-list-title{
+    float:left;
+}
 .new-list-content{
     float:left;
     margin:13px 10px;
@@ -250,22 +253,26 @@ p, span {
     overflow: scroll;
 }
 .price{
-    padding:10px;
+    padding:6px;
     width:33%;
-    border-radius:7px;
+    border-radius:4px;
     text-align:center;
     float:left;
-    border:1px solid black;
-    margin:10px 0 10px 30px;
+    border:1px solid #DDDDDD;
+    margin:10px 20px 10px 30px;
 }
 .inventory{
     background-color:red;
-    padding:10px;
+    padding:6px;
     width:33%;
-    border-radius:7px;
+    border-radius:4px;
     text-align:center;
+    border:1px solid #DDDDDD;
     float:left;
-    margin:10px 30px 10px 0;
+    margin:10px 20px 10px 0;
+}
+.submit{
+    padding:6px;
 }
 .form-group{
     padding-top: 20px;
@@ -273,6 +280,7 @@ p, span {
 
 .new{
     margin:40px 0;
+    float: left;
 }
 
 .chat-button{

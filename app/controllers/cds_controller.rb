@@ -14,9 +14,8 @@ class CdsController < ApplicationController
   end
 
   def index
-    @cds= Cd.search(params[:search])
-    @cds = Cd.all
-    @cds = Cd.page(params[:page]).per(3)
+    @cds = Cd.search(params[:search])
+    @cd = Cd.page(params[:page]).per(PER)
   end
 
   def show

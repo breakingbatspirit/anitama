@@ -1,8 +1,7 @@
 class CartItemsController < ApplicationController
   def index
-  	@user = current_user
+    @user = current_user
   	@carts = CartItem.all
-  	@search = User.ransack(params[:q])
   	@cart = CartItem.new
     #カート内商品合計金額表示----↓
     # arrayで[]の中の要素を取り出す
@@ -16,6 +15,10 @@ class CartItemsController < ApplicationController
     # @total_priceをviweに記述する。
     # -----------------------------
     @cds =Cd.new
+    # @user = User.find(params[:id])
+    # @cart_item = @user.cart_item.page(params[:page]).reverse_order
+
+
 
   end
 

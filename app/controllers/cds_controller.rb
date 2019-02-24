@@ -20,29 +20,18 @@ class CdsController < ApplicationController
   end
 
   def show
-<<<<<<< HEAD
     @user = current_user
     @cd = Cd.find(params[:id])
-    @chats = @cd.chats
+    @chats = @cd.chats.order(id: "desc")
     # @chats = Chat.where(cd_id: params[:id])
-=======
-
-    @chats = Chat.all
-    @user = current_user
-    @cd = Cd.find(params[:id])
     @cds = Cd.search(params[:search])
->>>>>>> 342b674c769a0b5dde4a21c305461a4e5b7ab9b6
-    @cds = Cd.all
     @cart = CartItem.new
-<<<<<<< HEAD
     if user_signed_in?
-      @favorite = current_user.favorite_cds
+      @favorite = current_user.favorite_cds.order(id: "desc")
     end
 
   end
-=======
- end
->>>>>>> 342b674c769a0b5dde4a21c305461a4e5b7ab9b6
+
 
   def edit
     @cd = Cd.find(params[:id])
@@ -100,6 +89,9 @@ def result
   def top
     @cds = Cd.all
     @user = current_user
+    if user_signed_in?
+      @favorite = current_user.favorite_cds
+    end
   end
 
 

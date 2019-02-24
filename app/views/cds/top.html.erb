@@ -27,18 +27,33 @@
     <div class="top-lower-container clearfix">
 
       <!-- CDジャケット挿入 -->
-      <% if @cds.present? %>
-        <% @cds.order('updated_at DESC').limit(6).each do |image| %>
-          <%= attachment_image_tag image, :cd_image, :fill, 200, 200, fallback: "cd.jpg", class: "top-cd-images" %>
-          <%#= attachment_image_tag Cd.find(7), :cd_image, :fill, 200, 200, fallback: "no-image.jpeg" %>
+      <% if user_signed_in? %>
+      <!-- もしユーザーがサインインしていれば -->
+        <%if @favorite.count <= 6%>
+        <!-- もしお気に入りの数が６個より少なければ最新の商品一覧を表示 -->
+            <% @cds.order('updated_at DESC').limit(6).each do |f| %>
+                <%= attachment_image_tag f, :cd_image, :fill, 200, 200, fallback: "cd.jpg", class: "top-cd-images" %>
+            <% end %>
+
+        <% else %>
+        <!-- もしお気に入りの数が６個以上であればお気に入りを表示 -->
+          <% @favorite.order('updated_at DESC').limit(6).each do |f| %>
+                <%= attachment_image_tag f, :cd_image, :fill, 200, 200, fallback: "cd.jpg", class: "top-cd-images" %>
+          <% end %>
+
         <% end %>
       <% else %>
-        <%= image_tag 'nC1.jpeg', class: "top-cd-images" %>
-        <%= image_tag 'cd.jpg', class: "top-cd-images" %>
-        <%= image_tag 'no-image.jpeg', class: "top-cd-images" %>
-        <%= image_tag 'cute-but-no-deploy2.jpeg', class: "top-cd-images" %>
-        <%= image_tag 'sample-t.png', class: "top-cd-images" %>
-        <%= image_tag 'sample-m.png', class: "top-cd-images" %>
+      <!-- もしユーザーがサインインしていなければ-->
+          <% @cds.order('updated_at DESC').limit(6).each do |image| %>
+            <%= attachment_image_tag image, :cd_image, :fill, 200, 200, fallback: "cd.jpg", class: "top-cd-images" %>
+            <%#= attachment_image_tag Cd.find(7), :cd_image, :fill, 200, 200, fallback: "no-image.jpeg" %>
+          <% end %>
+          <%#= image_tag 'nC1.jpeg', class: "top-cd-images" %>
+          <%#= image_tag 'cd.jpg', class: "top-cd-images" %>
+          <%#= image_tag 'no-image.jpeg', class: "top-cd-images" %>
+          <%#= image_tag 'cute-but-no-deploy2.jpeg', class: "top-cd-images" %>
+          <%#= image_tag 'sample-t.png', class: "top-cd-images" %>
+          <%#= image_tag 'sample-m.png', class: "top-cd-images" %>
       <% end %>
 
     </div>

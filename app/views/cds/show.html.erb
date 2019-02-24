@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 <%= render 'users/header4',user: @user %>
-=======
 
- <%= render 'users/header4',user: @user %>
-
->>>>>>> 342b674c769a0b5dde4a21c305461a4e5b7ab9b6
 
 
 <div class="container">
@@ -26,7 +21,8 @@
 					<!-- 以下カート追加 -->
 					<%= form_for(@cart) do |f| %>
 						<%= f.hidden_field :cd_id, :value => params[:id] %>
-						<%= f.submit 'カートに入れる', class: "btn btn-info glyphicon "%>
+						<%= f.submit 'カートに入れる', class: "btn btn-default submit"%>
+
 					<% end %>
 					<!-- 以下お気に入り機能 -->
 					<% if @cd.favorited_by?(current_user) %>
@@ -34,16 +30,14 @@
 							<i class="glyphicon glyphicon-heart" aria-hidden="true" style="color:red;"></i>
 							<%= @cd.favorites.count %>いいね！
 						<% end %>
-					    <% else %>
+					  <% else %>
 						<%= link_to cd_favorites_path(@cd),method: :post do %>
 							<i class="glyphicon glyphicon-heart-empty" aria-hidden="true"></i>
 							<%= @cd.favorites.count %>いいね！
 						<% end %>
 					<% end %>
 
-				    <% else %>
-
-			        <% end %>
+			    <% end %>
 			</div>
 
 			<div class="new">
@@ -57,15 +51,17 @@
 							<% end %>
 					</div>
 				<% else %>
-					<h3>最新情報</h3>
 				<!-- 最新のCD一覧 -->
-					<div class="new-list">
-							<% @cds.each do |cd| %>
-								<div class="new-list-content">
-									<%= attachment_image_tag cd, :cd_image,format: 'jpeg', fallback: "cd.jpg", size: "150x150" %>
-								</div>
-							<% end %>
+					<div class="new-list-title">
+						<h3>最新情報</h3>
 					</div>
+						<div class="new-list">
+								<% @cds.each do |cd| %>
+									<div class="new-list-content">
+										<%= attachment_image_tag cd, :cd_image,format: 'jpeg', fallback: "cd.jpg", size: "150x150" %>
+									</div>
+								<% end %>
+						</div>
 				<% end %>
 			</div>
 		</div>

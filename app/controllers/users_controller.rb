@@ -19,6 +19,7 @@ class UsersController < ApplicationController
     else
       @user = User.all.with_deleted.find(params[:id])
     end
+    @favorite = current_user.favorite_cds.order(id: "desc")
   end
 
   def edit

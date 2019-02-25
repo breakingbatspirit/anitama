@@ -86,7 +86,7 @@
 .cart-subtitle {
     font-size: 32px;
     padding: 10px 30px;
-    border-bottom: 2px dashed green;
+    border-bottom: 2px dashed #5cb85c;
 }
 .table-margin {
     margin: 30px;
@@ -130,3 +130,6 @@
     margin-top: 20px;
 }
 
+.container {
+  min-height: calc(100vh - 100px - 60px);
+}

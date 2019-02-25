@@ -13,8 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
 
 * {
     margin: 0;
@@ -23,7 +25,6 @@
     font-family: 'Hiragino Sans', sans-serif;
     /* Chalkduster, "Bradley Hand", Courier, "Segoe Print", monospace, Courier, sans-serif */
 }
-
 .clearfix::after {
   content: "";
   display: block;

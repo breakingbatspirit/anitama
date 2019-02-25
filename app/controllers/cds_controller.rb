@@ -19,7 +19,7 @@ class CdsController < ApplicationController
   end
 
   def show
-    @user = current_user
+    @user= current_user
     @cd = Cd.find(params[:id])
     @chats = @cd.chats.order(id: "desc")
     @cdsnew = Cd.all

@@ -9,9 +9,11 @@
 	   	    </div>
 
 
-			 <%= link_to "編集",edit_user_path(@user.id), class: "btn btn-default edit_btn" %>
-		     <%= link_to "退会", delete_user_path(@user, params:  {user: {deleted_at: Time.current} }),method: :put, class: "btn btn-default delete_btn" %>
-		     <%=link_to "ログアウト", destroy_user_session_path, method: :delete %>
+
+			 <%= link_to "編集",edit_user_path(@user.id), class: "btn btn-success edit_btn" %>
+		     <%= link_to "退会", delete_user_path(@user, params:  {user: {deleted_at: Time.current} }),method: :put, class: "btn btn-danger delete_btn" %>
+
+
 	</div>
 
 
@@ -27,44 +29,48 @@
 			  <% else %>
 			  	  <% @favorite.each do |f| %>
 						<div class="new-list-content">
-							<%= attachment_image_tag f, :cd_image, format: 'jpeg', fallback: "cd.jpg", size: "200x200" %>
+							<%= link_to cd_path(f.id) do %>
+								<%= attachment_image_tag f, :cd_image, format: 'jpeg', fallback: "cd.jpg", size: "200x200" %>
+							<% end %>
 						</div>
 				  <% end %>
 			  <% end %>
 
            </div>
 
-       <h1> 購入履歴一覧</h1>
-		<table class="table">
+       <h2> 購入履歴一覧</h2>
 			<% @histories.each do |history| %>
-				<thead>
-				   <tr>
-						<td class="show_histories_name"><h4><%= history.histories_name %>様<h4></td>
-						<td><div class="show_histories_postal"><%= history.histories_postal %></div></td>
-						<td><%= history.histories_address %></br>
-							<% history.history_cds.each do |history_cd| %>
-							  <td><%= history_cd.cd.album %></td>
-							  <td><%= history_cd.history_cd_quantity %>点</td>
-							  <td><%= history_cd.history_cd_price %>円</td>
-						</td>
+			<div class="history_container">
+			<div class="history-box1">
+				<div class="show_time"><%= history.created_at %></div>
+						<div class="show_histories_name">
+							<h3><%= history.histories_name %>様</h3>
+						</div>
+
+
+						<div class="show_postal_address">
+							<div><%= history.histories_postal %></div>
+						    <div><%= history.histories_address %></div>
+						</div>
+
+								 <div class="show_quantity_price" >
+									<% history.history_cds.each do |history_cd| %>
+									  <div class="show_album"><%= history_cd.cd.album %>
+									  <span class="show_quantity"><%= history_cd.history_cd_quantity %>点</span>
+									  <span class="show_price"><%= history_cd.history_cd_price %>円</span>
+									  </div>
+							     </div>
 				            <% end %>
-				            <td><%= history.created_at %></td>
-					</tr>
-				</thead>
-					<tbody>
-						<td><%= @total_price %>円</td>
-					    <td><%= @total_quantity %>点</td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					</tbody>
-					<% end %>
-		</table>
-
-
+				            <div class="history_box2">
+							 <div class="show_total">
+							    <span class="show_total_quantity"><%= @total_quantity %>点</span>
+							    <span class="show_otal_price"><%= @total_price %>円</span>
+							 </div>
+						</div>
+				 </div>
+				</div>
+			<% end %>
+		</div>
 	</div>
   </div>
 </div>

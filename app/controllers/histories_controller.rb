@@ -6,7 +6,7 @@ class HistoriesController < ApplicationController
     if @history = current_user.histories.create(history_params)
       redirect_to histories_path
     else
-      binding.pry
+      # binding.pry
       render 'cart_items/show'
     end
   end

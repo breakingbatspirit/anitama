@@ -32,6 +32,7 @@ class UsersController < ApplicationController
     end
      @total_price = array_price.sum
      @total_quantity = array_quantity.sum
+
   end
 
 

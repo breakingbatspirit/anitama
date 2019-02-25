@@ -12,29 +12,48 @@
 			 <%= link_to "編集",edit_user_path(@user.id), class: "btn btn-default edit_btn" %>
 		     <%= link_to "退会", delete_user_path(@user, params:  {user: {deleted_at: Time.current} }),method: :put, class: "btn btn-default delete_btn" %>
 		     <%=link_to "ログアウト", destroy_user_session_path, method: :delete %>
-
 	</div>
 
 
 	<div class="col-sm-9">
-		<h1> 購入履歴一覧</h1>
+
 
 
         <!-- ここでお気に入り一覧 -->
+        <h2>お気に入り一覧</h2>
+           <div class="favorite-list">
+           	  <% if @favorite.count==0 %>
+	           	  <h4>現在登録がありません</h4>
+			  <% else %>
+			  	  <% @favorite.each do |f| %>
+						<div class="new-list-content">
+							<%= attachment_image_tag f, :cd_image, format: 'jpeg', fallback: "cd.jpg", size: "200x200" %>
+						</div>
+				  <% end %>
+			  <% end %>
 
+           </div>
 
+       <h1> 購入履歴一覧</h1>
 		<table class="table">
+			<% @histories.each do |history| %>
 				<thead>
 				   <tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
+						<td class="show_histories_name"><h4><%= history.histories_name %>様<h4></td>
+						<td><div class="show_histories_postal"><%= history.histories_postal %></div></td>
+						<td><%= history.histories_address %></br>
+							<% history.history_cds.each do |history_cd| %>
+							  <td><%= history_cd.cd.album %></td>
+							  <td><%= history_cd.history_cd_quantity %>点</td>
+							  <td><%= history_cd.history_cd_price %>円</td>
+						</td>
+				            <% end %>
+				            <td><%= history.created_at %></td>
 					</tr>
 				</thead>
 					<tbody>
-					<tr>
+						<td><%= @total_price %>円</td>
+					    <td><%= @total_quantity %>点</td>
 						<td></td>
 						<td></td>
 						<td></td>
@@ -42,6 +61,7 @@
 						<td></td>
 					</tr>
 					</tbody>
+					<% end %>
 		</table>
 
 

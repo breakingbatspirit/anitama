@@ -42,11 +42,12 @@ App.chat = App.cable.subscriptions.create({channel:"ChatChannel",cd_id:document.
 //⑥
 document.addEventListener('DOMContentLoaded', function(){
   //HTMLの読み込みが全て終了してから実行するという記述。
-  const input = document.getElementById('chat-input')
+  const input = document.getElementById('chat-input3')
   console.log(input)
-  const cd_id = 1
+  const cd_id = document.getElementById('chat-input').value
   console.log('c_id: ' + cd_id)
   const user_id = document.getElementById('chat-input2').value
+  console.log(document.getElementById('chat-input2'))
   console.log('u_id: ' + user_id)
   //Formの値を取得する。viewのchat-inputのid
   const button = document.getElementById('button')

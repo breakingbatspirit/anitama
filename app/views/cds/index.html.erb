@@ -2,58 +2,53 @@
   <div class="container">
     <div class="row">
         <div class="col-xs-2">
-          	<h2 class="cds-title">商品一覧</h2>
+          	<h2>商品一覧</h2>
         </div>
 	    <div class="col-xs-10">
-	       <%= search_form_for  @search, url: cds_result_path do |f| %>
-		       <input type="text" cd="q[name_cont]" style="width: 300px; height: 25px; margin-left:20%; margin-top:20px;  " name="q">
-		        <%= f.submit  "検索" , class: "btn btn-default btn-sm" %>
-	      	<% end %>
-
+	        <%=form_tag cds_result_path, method: :get do %>
+                <%=text_field_tag :search, params[:search],  class: "cds_index_searh"%>
+                <%= submit_tag "検索" , class: "btn btn-default" %>
+            <% end %>
 
 
 		    <table class="table">
 			  <thead>
-				<% @cds.each do |cd| %>
+				<% @cd.each do |cd| %>
 				<tr>
 				   <td class="image_result_display"><%= link_to cd_path(cd) do %>
 						<%= attachment_image_tag cd, :cd_image, :fill,150,150, format: 'jpeg', size: "100x100", fallback: "no-image.jpg" %>
-						<% end %>
+				   <% end %>
 				   </td>
 
 					<td class="album_result_display"><%= cd.album %></br>
 						<%= cd.anime.anime_title %></td>
 					<td class="price_result_display"><%= cd.price %>円</br>
-
-		             <td >
-						<%= number_field :inventory, style:"width:50px;" %>
-                         <span class="unit">枚</span> <br>
-                         	<%= label :inventory, "在庫数", class:"label-bold" %>
-		             </td>
-		             <td class="edit_index_display"><%= link_to "編集",edit_cd_path(cd.id), class: "btn btn-default  btn-xs" %>
-		             <div style="margin-top: 20px;">
-		             <%= link_to "削除", cd_path(cd.id), method: :delete, class: "btn btn-default btn-xs" %>
-		            </div>
-
-             
-
- <div class="upper-cont-center-items form-inline">
-      <div class="field">
-
-       
+                         <%= form_with model: cd do |f| %>
+	 		             <td>
+			                 <%= f.number_field :inventory, class:"", style:"width:50px;" %>
+	                         <span class="unit">枚</span> <br>
+	                         	<%= f.submit "数量更新", class: "btn btn-default btn-xs" %>
+                         <% end %>
+			        </td>
+			             <td class="edit_index_display"><%= link_to "編集",edit_cd_path(cd.id), class: "btn btn-default  btn-xs" %>
+			             <div style="margin-top: 20px;">
+			             <%= link_to "削除", cd_path(cd.id), method: :delete, class: "btn btn-default btn-xs" %>
+			            </div>
+                         <div class="upper-cont-center-items form-inline">
+                         <div class="field">
       </div>
     </div>
 
 		            </td>
 		            </td>
 				</tr>
-				<% end %>
+				 <% end %>
 			  </thead>
 			</table>
 	    </div>
 	 </div>
  </div>
 
-	<%= paginate(@cds) %>
+	<%= paginate(@cd) %>
 
 

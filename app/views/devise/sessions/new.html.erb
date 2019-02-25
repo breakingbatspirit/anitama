@@ -1,32 +1,35 @@
+<%= render 'users/header3',user: @user %>
 <div class="row">
   <div class="col-lg-4"></div>
       <div class="col-lg-4">
+            <h2 class="title_new_display">ログイン</h2>
 
-        <h2 class="title_new_display">ログイン</h2>
+            <div class="form_new_display">
+              <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                  <div class="field">
+                      <%= f.label :email %><br />
+                      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %><br />
+                  </div>
 
-        <div class="form_new_display">
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <div class="field">
-            <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %><br />
-          </div>
+                  <div class="field">
+                        <%= f.label :パスワード %><br />
+                        <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %><br />
+                  </div>
 
-          <div class="field">
-            <%= f.label :パスワード %><br />
-            <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %><br />
-          </div>
+                  <% if devise_mapping.rememberable? %>
+                      <div class="field">
+                        <%= f.check_box :remember_me %><br />
+                        <%= f.label :ログイン状態を保存する %><br />
+                      </div>
+                  <% end %>
 
-          <% if devise_mapping.rememberable? %>
-            <div class="field">
-              <%= f.check_box :remember_me %><br />
-              <%= f.label :ログイン状態を保存する %><br />
-            </div>
-          <% end %>
-        </div>
-
-          <div class="actions">
-            <div align="right"><%= f.submit "ログイン" %></div>
-          </div>
-        <% end %>
+                  <div class="actions">
+                      <div align="right"><%= f.submit "ログイン" %></div>
+                  </div>
+              <% end %>
+           </div>
       <div class="col-lg-4"></div>
     </div>
+</div>
+<%= render 'users/footer' %>
+

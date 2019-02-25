@@ -1,4 +1,4 @@
 class HistoryCd < ApplicationRecord
 	belongs_to :history
-	# belongs_to :cd
+	belongs_to :cd
 end

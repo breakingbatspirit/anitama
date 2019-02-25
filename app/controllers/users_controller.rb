@@ -13,13 +13,24 @@ class UsersController < ApplicationController
 
 
   def show
+    # @histories = History.(params[:id])
+    @histories = History.all
     admin = User.find(1)
     if current_user.id != admin.id
       @user = current_user
     else
       @user = User.all.with_deleted.find(params[:id])
     end
-  end
+    @history_cds = HistoryCd.all
+    array_price = []
+    array_quantity = []
+    @history_cds.each do |history|
+      array_price.push(history.history_cd_price)
+      array_quantity.push(history.history_cd_quantity)
+    end
+     @total_price = array_price.sum
+     @total_quantity = array_quantity.sum
+end
 
   def edit
 #   Ransack用

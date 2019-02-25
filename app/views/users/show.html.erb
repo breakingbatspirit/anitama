@@ -1,8 +1,8 @@
 <%= render 'users/header1' ,user:current_user %>
 <div class="container">
+	<div> <h1>マイページ</h1> </div>
    <div class="row">
 	<div class="col-sm-3">
-			<div align="center"> <h1>マイページ</h1> </div>
 			<div align="center"> <%= attachment_image_tag @user, :image, :fill,200,200, format: 'jpeg', size: "200x200", fallback: "no-image.jpg" %></div>
 	        <div class="name_display">
 	   		   <div align="center"> <%= @user.name %></div>

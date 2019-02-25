@@ -16,10 +16,27 @@
 
 
 	<div class="col-sm-9">
+<<<<<<< HEAD
 		
+=======
+		<h2> 購入履歴一覧</h2>
+>>>>>>> bec9ed3f422e309f751c326fbb4c62369172af32
 
 
         <!-- ここでお気に入り一覧 -->
+        <h2>お気に入り一覧</h2>
+           <div class="favorite-list">
+           	  <% if @favorite.count==0 %>
+	           	  <h4>現在登録がありません</h4>
+			  <% else %>
+			  	  <% @favorite.each do |f| %>
+						<div class="new-list-content">
+							<%= attachment_image_tag f, :cd_image, format: 'jpeg', fallback: "cd.jpg", size: "200x200" %>
+						</div>
+				  <% end %>
+			  <% end %>
+
+           </div>
 
        <h1> 購入履歴一覧</h1>
 		<table class="table">

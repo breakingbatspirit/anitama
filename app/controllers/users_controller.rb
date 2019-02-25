@@ -21,6 +21,7 @@ class UsersController < ApplicationController
     else
       @user = User.all.with_deleted.find(params[:id])
     end
+<<<<<<< HEAD
     @history_cds = HistoryCd.all
     array_price = []
     array_quantity = []
@@ -31,6 +32,10 @@ class UsersController < ApplicationController
      @total_price = array_price.sum
      @total_quantity = array_quantity.sum
 end
+=======
+    @favorite = current_user.favorite_cds.order(id: "desc")
+  end
+>>>>>>> bec9ed3f422e309f751c326fbb4c62369172af32
 
   def edit
 #   Ransack用

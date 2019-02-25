@@ -25,7 +25,9 @@ class ChatChannel < ApplicationCable::Channel
     chat = Chat.create!(body: data['chat'],cd_id: data['cd_id'],user_id: data['user_id'] )
     # viewのchat
     # それぞれのカラムにデータを保存
-    template = ApplicationController.renderer.render(partial: 'chats/chat', locals: {chat: chat})
+    # template = ApplicationController.renderer.render(partial: 'chats/chat', locals: {chat: chat})
+    user = User.find(data['user_id'])
+    template = ApplicationController.render_with_signed_in_user(user, partial:  'chats/chat', locals: { chat: chat })
     ActionCable.server.broadcast "chat_channel_#{params['cd_id']}", template
     # 受け取ったデータをroom.jsにmessageのデータを配信するよということ。
   	# 受け取り先はroom.js内のreceived

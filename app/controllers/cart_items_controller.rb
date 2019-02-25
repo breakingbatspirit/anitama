@@ -2,7 +2,8 @@ class CartItemsController < ApplicationController
   def index
     @user = current_user
   	@carts = CartItem.all
-
+    # where=条件に合うすべてのコードを取得する-----
+    @carts=CartItem.where(user_id:params[:id])
   # カート内商品の合計を表示----↓
   	@cart = CartItem.new
     #カート内商品合計金額表示----↓

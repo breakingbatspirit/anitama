@@ -6,11 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
+Anime.create!(anime_title:"コナン")
 10.times do |no|
-Anime.create!(anime_title:"コナン#{no}")
+# Anime.create!(anime_title:"コナン#{no}")
 Label.create!(label_name: "レーベル#{no}")
-Genre.create!(generation: "ジャンル#{no}")
 
 Cd.create!(album:"コナンコレクション#{no}", anime_id: 1,
     price: 1000,

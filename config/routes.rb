@@ -39,7 +39,7 @@ Rails.application.routes.draw do
 
   root 'cds#top'
   get '/cart_items/purchase', to: 'cart_items#show',as: 'purchase'
-  get '/cart_items', to: 'cart_items#index',as: 'carts'
+  get '/users/:id/cart_items', to: 'cart_items#index',as: 'carts'
 
   mount ActionCable.server => '/cable'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

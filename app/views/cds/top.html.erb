@@ -27,8 +27,12 @@
       <% end %>
   </div>
 
+
+
     <!-- 下半分 -->
     <div class="top-lower-container clearfix">
+
+
 
       <!-- CDジャケット挿入 -->
       <% if user_signed_in? %>
@@ -50,17 +54,16 @@
           <% end %>
 
         <% end %>
+
       <% else %>
       <!-- もしユーザーがサインインしていなければ-->
           <% @cds.order('updated_at DESC').limit(6).each do |image| %>
             <%= attachment_image_tag image, :cd_image, :fill, 200, 200, fallback: "cd.jpg", class: "top-cd-images" %>
-            <%#= attachment_image_tag Cd.find(7), :cd_image, :fill, 200, 200, fallback: "no-image.jpeg" %>
           <% end %>
        <% end %>
 
     </div>
   </div>
-
 
 
 

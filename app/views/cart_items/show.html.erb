@@ -15,34 +15,42 @@
 
     <div class="cont-left-price">
       <h5>お買い上げ金額</h5>
-      <h4 class="total-price underline">4,999円</h4>
+      <h4 class="total-price underline">
+        <%= @total_price.to_s(:delimited) %> 円
+        <!-- これつけると1000単位毎にカンマが付く -->
+        <!-- .to_s(:delimited, delimiter: ',') -->
+      </h4>
     </div>
 
-      <div class="cds-list">
-        <div class="inners">
-          <% if @cart_items.present? %>
-            <% @cart_items.each do |c| %>
-              <div class="row">
-                <div class="col-xs-4">
-                  <%= attachment_image_tag c.cd, :cd_image, :fill,60,60, format: 'jpeg', fallback: "no_image.png" %>
-                </div>
-                <div class="col-xs-4">
-                  <p class="cd-text"><%= c.cd.album %></p>
-                </div>
-                <div class="col-xs-4">
-                  <p class="cd-text"><%= c.cd.anime.anime_title %></p>
-                  <p class="cd-text underline"><%= c.cd.price %> 円</p>
-                </div>
-              </div>
-            <% end %>
-          <% else %>
-            <p>カートに商品がありません</p>
-          <% end %>
-        </div>
-      </div>
 
+
+    <!-- 購入予定CDリスト -->
+    <div class="cds-list">
+      <div class="inners">
+        <% if @cart_items.present? %>
+          <% @cart_items.each do |c| %>
+            <div class="row">
+              <div class="col-xs-4">
+                <%= attachment_image_tag c.cd, :cd_image, :fill,60,60, format: 'jpeg', fallback: "no_image.png" %>
+              </div>
+              <div class="col-xs-4">
+                <p class="cd-text"><%= c.cd.album %></p>
+              </div>
+              <div class="col-xs-4">
+                <p class="cd-text"><%= c.cd.anime.anime_title %></p>
+                <p class="cd-text underline"><%= c.cd.price.to_s(:delimited, delimiter: ',') %> 円</p>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+          <p style="margin:20px">※カートに商品がありません</p>
+        <% end %>
+      </div>
+    </div>
 
   </div>
+
+
 
   <!-- 送付先情報 -->
   <div class="cont-center">
@@ -74,7 +82,36 @@
 
       <%= link_to 'カートへ戻る', carts_path, class:"btn btn-default purchase-buttons" %>
       <%= link_to 'ユーザー情報編集', edit_user_path(@user), class:"btn btn-default purchase-buttons" %>
-      <%= link_to "注文確定", histories_path(history: {histories_name: @addresses.address_name,histories_namekana: @addresses.address_namekana,histories_postal: @addresses.address_postal,histories_address: @addresses.address_address,histories_phone: @addresses.address_phone}), :method => :post, class:"btn btn-success purchase-buttons", data: { confirm: "ご注文内容や送付先住所などに間違いがなければOKを押してください。"} %>
+
+      <%= link_to "注文確定", histories_path, :method => :post, class:"btn btn-success btn-lg purchase-buttons", data: { confirm: "ご注文内容や送付先住所などにお間違いがなければOKボタンを押してください。"} %>
+
+      <%#= link_to "注文確定", histories_path, method: :post, class:"btn btn-success btn-lg purchase-buttons", data: { confirm: "ご注文内容や送付先住所などにお間違いがなければOKボタンを押してください。"} %>
+
+      <%#= link_to "注文確定", histories_path(history: {
+        histories_name: @addresses.address_name,
+        histories_namekana: @addresses.address_namekana,
+        histories_postal: @addresses.address_postal,
+        histories_address: @addresses.address_address,
+        histories_phone: @addresses.address_phone}), :method => :post, class:"btn btn-success btn-lg purchase-buttons", data: { confirm: "ご注文内容や送付先住所などにお間違いがなければOKボタンを押してください。"} %>
+
+
+
+<%#= button_to 'カートを空にする', @carts, method: :delete, data: {confirm: 'カートを空にして本当によろしいですか？'}, class: 'fbtn' %>
+
+
+
+<div style="display:none">
+  def destroy
+
+    @cart = current_cart
+    @cart.destroy
+    session[:cart_id] = nil
+    respond_to do |format|
+      format.html { redirect_to market_url, notice: 'カートが空になりました。' }
+      format.json { head :no_content }
+    end
+  end
+</div>
 
             <!--  こういう書き方でもOK -->
             <div style="display:none">

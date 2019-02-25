@@ -1,4 +1,7 @@
 <%= render 'users/header1' ,user:@user %>
+<% if flash[:notice] %>
+<p><%= flash[:notice] %></p>
+<% end %>
   <div class="container">
     <div class="row">
         <div class="col-xs-2">
@@ -28,6 +31,7 @@
 			                 <%= f.number_field :inventory, class:"", style:"width:50px;" %>
 	                         <span class="unit">枚</span> <br>
 	                         	<%= f.submit "数量更新", class: "btn btn-default btn-xs" %>
+
                          <% end %>
 			        </td>
 			             <td class="edit_index_display"><%= link_to "編集",edit_cd_path(cd.id), class: "btn btn-default  btn-xs" %>

@@ -51,6 +51,14 @@ class CdsController < ApplicationController
   end
 
   def update
+       cd = Cd.find(params[:id])
+    if cd.update(cd_params)
+       flash[:notice] = "数量が更新されました！"
+       redirect_to cds_path
+    else
+       render :index
+    end
+
   end
 
   def destroy

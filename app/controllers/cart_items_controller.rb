@@ -2,6 +2,8 @@ class CartItemsController < ApplicationController
   def index
     @user = current_user
   	@carts = CartItem.all
+
+  # カート内商品の合計を表示----↓
   	@cart = CartItem.new
     #カート内商品合計金額表示----↓
     # arrayで[]の中の要素を取り出す

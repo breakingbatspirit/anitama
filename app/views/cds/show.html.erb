@@ -43,7 +43,7 @@
 			<div class="new">
 				<% if @user == current_user && user_signed_in? %>
 					<h3>お気に入り一覧</h3>
-					<div class="favorite-list">
+					<div class="new-list">
 							<% @favorite.each do |f| %>
 								<div class="new-list-content">
 									<%= attachment_image_tag f, :cd_image, format: 'jpeg', fallback: "cd.jpg", size: "150x150" %>

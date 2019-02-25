@@ -9,9 +9,8 @@
 	   	    </div>
 
 
-			 <%= link_to "編集",edit_user_path(@user.id), class: "btn btn-default edit_btn" %>
-		     <%= link_to "退会", delete_user_path(@user, params:  {user: {deleted_at: Time.current} }),method: :put, class: "btn btn-default delete_btn" %>
-		     <%=link_to "ログアウト", destroy_user_session_path, method: :delete %>
+			 <%= link_to "編集",edit_user_path(@user.id), class: "btn btn-success edit_btn" %>
+		     <%= link_to "退会", delete_user_path(@user, params:  {user: {deleted_at: Time.current} }),method: :put, class: "btn btn-danger delete_btn" %>
 
 	</div>
 
@@ -28,7 +27,9 @@
 			  <% else %>
 			  	  <% @favorite.each do |f| %>
 						<div class="new-list-content">
-							<%= attachment_image_tag f, :cd_image, format: 'jpeg', fallback: "cd.jpg", size: "200x200" %>
+							<%= link_to cd_path(f.id) do %>
+								<%= attachment_image_tag f, :cd_image, format: 'jpeg', fallback: "cd.jpg", size: "200x200" %>
+							<% end %>
 						</div>
 				  <% end %>
 			  <% end %>

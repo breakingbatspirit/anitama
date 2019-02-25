@@ -38,6 +38,25 @@ class CartItemsController < ApplicationController
 
     @history = History.new
 
+    @user = current_user
+    @carts = CartItem.all
+    @search = User.ransack(params[:q])
+    @cart = CartItem.new
+
+    #カート内商品合計金額表示----↓
+    # arrayで[]の中の要素を取り出す
+    array = []
+    @carts.each do |cart|
+      array.push(cart.cd.price)
+    # cartの中のcdのpriceをarrayにpushする
+    end
+    @total_price = array.sum
+    # array.sumを@total_priceに代入
+    # @total_priceをviweに記述する。
+    # -----------------------------
+
+    @cds = Cd.new
+
     # user = current_user
     # address = Address.user
     # @addresses = Address.find(params[:id])
@@ -53,9 +72,13 @@ class CartItemsController < ApplicationController
   end
 
   def destroy
-  	cart = CartItem.find(params[:id])
-    cart.destroy
-    redirect_to carts_path
+    # if controller.action_name == "index"
+      cart = CartItem.find(params[:id])
+      cart.destroy
+      redirect_to carts_path
+    # else
+      # @carts = CartItem.all.destory
+    # end
   end
 
 

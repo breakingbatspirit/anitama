@@ -21,20 +21,8 @@
 					<!-- 以下カート追加 -->
 					<%= form_for(@cart) do |f| %>
 						<%= f.hidden_field :cd_id, :value => params[:id] %>
-						<%= f.submit 'カートに入れる', class: "btn btn-default submit"%>
+						<%= f.submit 'カートへ追加', class: "btn btn-default submit"%>
 
-					<% end %>
-					<!-- 以下お気に入り機能 -->
-					<% if @cd.favorited_by?(current_user) %>
-						<%= link_to cd_favorites_path(@cd),method: :delete do %>
-							<i class="glyphicon glyphicon-heart" aria-hidden="true" style="color:red;"></i>
-							<%= @cd.favorites.count %>いいね！
-						<% end %>
-					  <% else %>
-						<%= link_to cd_favorites_path(@cd),method: :post do %>
-							<i class="glyphicon glyphicon-heart-empty" aria-hidden="true"></i>
-							<%= @cd.favorites.count %>いいね！
-						<% end %>
 					<% end %>
 
 			    <% end %>
@@ -43,10 +31,12 @@
 			<div class="new">
 				<% if @user == current_user && user_signed_in? %>
 					<h3>お気に入り一覧</h3>
-					<div class="favorite-list">
+					<div class="new-list">
 							<% @favorite.each do |f| %>
 								<div class="new-list-content">
-									<%= attachment_image_tag f, :cd_image, format: 'jpeg', fallback: "cd.jpg", size: "150x150" %>
+								　 <%= link_to cd_path(f.id) do %>
+									 <%= attachment_image_tag f, :cd_image, format: 'jpeg', fallback: "cd.jpg", size: "150x150" %>
+								  <% end %>
 								</div>
 							<% end %>
 					</div>
@@ -58,7 +48,9 @@
 						<div class="new-list">
 								<% @cds.each do |cd| %>
 									<div class="new-list-content">
-										<%= attachment_image_tag cd, :cd_image,format: 'jpeg', fallback: "cd.jpg", size: "150x150" %>
+										<%= link_to cd_path(cd.id) do %>
+											<%= attachment_image_tag cd, :cd_image,format: 'jpeg', fallback: "cd.jpg", size: "150x150" %>
+										<% end %>
 									</div>
 								<% end %>
 						</div>
@@ -68,11 +60,23 @@
 		<!-- ３分割の中央 -->
 		<div class="col-lg-4" >
 				<blockquote class="album-title" >
-					<h3><%= @cd.album %></h3>
+					<h3><%= @cd.album %>
+					<% if @cd.favorited_by?(current_user) %>
+						<%= link_to cd_favorites_path(@cd),method: :delete do %>
+							<i class="glyphicon glyphicon-heart" aria-hidden="true" style="color:red;"></i>
+						<% end %>
+					 <% else %>
+						<%= link_to cd_favorites_path(@cd),method: :post do %>
+							<i class="glyphicon glyphicon-heart-empty" aria-hidden="true"></i>
+						<% end %>
+					<% end %>
+					</h3>
 				</blockquote>
 				<div class="cd-content">
 					<div class="cd-text-list">
-						<div class="cd-text"><h5><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span><%= @cd.anime.anime_title %></h5></div>
+						<div class="cd-text">
+							<h5><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span><%= @cd.anime.anime_title %></h5>
+						</div>
 						<div class="cd-text"><h5><span class="glyphicon glyphicon-home" aria-hidden="true"></span>　<%= @cd.label.label_name %></h5></div>
 						<div class="cd-text"><h5><span class="glyphicon glyphicon-tag" aria-hidden="true"></span>　ジャンル</h5></div>
 					</div>
@@ -98,7 +102,7 @@
   				  </div>
   				  <% if @user == current_user && user_signed_in? %>
 	  				  	<div class="form-group">
-	  				  		<textarea type="text-area" class="form-control" id="chat-input3" ></textarea>
+	  				  		<textarea type="text-area" class="form-control" id="chat-input3"　 placeholder="この商品やアニメについてチャットしよう！！" ></textarea>
 	      					<input type="hidden" class="form-control" id="chat-input" value="<%= @cd.id %>" >
 	      					<input type="hidden" class="form-control" id="chat-input2" value="<%= @user.id %>" >
 	    				</div>

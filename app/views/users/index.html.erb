@@ -1,8 +1,6 @@
 <%= render 'users/header1' ,user:@user %>
-<div class="container">
-		 <div class="row" style="padding: 20px;">
    		<div class="col-sm-4">
-		   <h2>ユーザー 一覧</h2>
+		   <div class="user-index-title"><h2>ユーザー 一覧</h2></div>
 		</div>
 		<div class="col-sm-4 form-group kensaku">
 	   			<%= search_form_for @search do |f| %>
@@ -66,14 +64,12 @@
 			<td class="address_index_display"><%= user.address %></td>
 			<td class="phone_index_display"><%= user.phone %></td>
 			<td class="email_index_diespla"><%= user.email %></td>
-			<td class="edit_index_display"><%= link_to "編集",edit_user_path(user.id), class: "btn btn-default  btn-xs" %></td>
-			<td class="delete_index_display"><%= link_to "削除", delete_user_path(user, params:  {user: {deleted_at: Time.current} }),method: :put, class: "btn btn-default btn-xs" %></td>
+			<td class="edit_index_display"><%= link_to "編集",edit_user_path(user.id), class: "btn btn-success  btn-xs" %></td>
+			<td class="delete_index_display"><%= link_to "削除", delete_user_path(user, params:  {user: {deleted_at: Time.current} }),method: :put, class: "btn btn-danger btn-xs" %></td>
 		</tr>
 	</tbody>
 		<% end %>
 	<% end %>
 </table>
-</div>
-</div>
 <div align="center"><%= paginate @users_page, class: "paginate" %></div>
 

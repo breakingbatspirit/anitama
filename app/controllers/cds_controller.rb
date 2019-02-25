@@ -14,20 +14,24 @@ class CdsController < ApplicationController
   end
 
   def index
-    @cds= Cd.search(params[:search])
-    @cds = Cd.all
-    @cds = Cd.page(params[:page]).per(3)
+    @cds = Cd.search(params[:search])
+    @cd = Cd.page(params[:page]).per(PER)
   end
 
   def show
-
-    @chats = Chat.all
     @user = current_user
     @cd = Cd.find(params[:id])
+    @chats = @cd.chats.order(id: "desc")
+    @cdsnew = Cd.all
+    # @chats = Chat.where(cd_id: params[:id])
     @cds = Cd.search(params[:search])
-    @cds = Cd.all
     @cart = CartItem.new
- end
+    if user_signed_in?
+      @favorite = current_user.favorite_cds.order(id: "desc")
+    end
+
+  end
+
 
   def edit
     @cd = Cd.find(params[:id])
@@ -57,6 +61,7 @@ class CdsController < ApplicationController
   def update
     @cd = Cd.find(params[:id])
     if @cd.update(cd_params)
+      flash[:notice] = "数量が更新されました！"
       redirect_to cds_path
     else
       render 'edit'
@@ -95,6 +100,9 @@ def result
   def top
     @cds = Cd.all
     @user = current_user
+    if user_signed_in?
+      @favorite = current_user.favorite_cds
+    end
   end
 
 

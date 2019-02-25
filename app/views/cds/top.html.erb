@@ -3,24 +3,29 @@
 
 
 
-
   <div class="top-container">
     <!-- 上半分 -->
     <div class="top-upper-container">
 
-      <div class="top-title">
-        <span class="top-title-text">
-          <strong>#やめられない★とまらない♪</strong>
-        </span>
-        <div class="top-title-visual">
-          <%= image_tag 'anison.jpg', class: "top-title-visual" %>
-        </div>
+      <div class="top-upper-image">
+        <!-- <span class="top-title-text"> -->
+          <!-- <strong>#やめられない★とまらない♪</strong> -->
+        <!-- </span> -->
+        <!-- <div class="top-title-visual"> -->
+           <%#= image_tag 'anison.jpg', class: "top-title-visual" %>
+        <!-- </div> -->
+      </div>
+
+  </div>
+  <div class="center-container">
+      <div class="center-text clearfix">
+        <h4>▼最新のCD情報はこちら</h4>
       </div>
       <%=form_tag cds_result_path, method: :get do %>
-        <%=text_field_tag :search, params[:search],  class: "top_searh"%>
-        <%= submit_tag "検索" , class: "btn btn-default" %>
+            <%=text_field_tag :search, params[:search],placeholder: "　　商品の検索はこちらから！商品名・アニメ名・曲名などで検索できます。" , class: "top_searh"%>
+            <%= submit_tag "検索" , class: "btn btn-default" %>
       <% end %>
-</div>
+  </div>
 
 
 
@@ -30,19 +35,32 @@
 
 
       <!-- CDジャケット挿入 -->
-      <% if @cds.present? %>
-        <% @cds.order('updated_at DESC').limit(6).each do |image| %>
-          <%= attachment_image_tag image, :cd_image, :fill, 200, 200, fallback: "cd.jpg", class: "top-cd-images" %>
+      <% if user_signed_in? %>
+      <!-- もしユーザーがサインインしていれば -->
+        <%if @favorite.count <= 6%>
+        <!-- もしお気に入りの数が６個より少なければ最新の商品一覧を表示 -->
+            <% @cds.order('updated_at DESC').limit(6).each do |f| %>
+              <%= link_to cd_path(f.id) do %>
+                <%= attachment_image_tag f, :cd_image, :fill, 200, 200, fallback: "cd.jpg", class: "top-cd-images" %>
+              <% end %>
+            <% end %>
+
+        <% else %>
+        <!-- もしお気に入りの数が６個以上であればお気に入りを表示 -->
+          <% @favorite.order('updated_at DESC').limit(6).each do |f| %>
+              <%= link_to cd_path(f.id) do %>
+                  <%= attachment_image_tag f, :cd_image, :fill, 200, 200, favoritellback: "cd.jpg", class: "top-cd-images"%>
+              <% end %>
+          <% end %>
+
         <% end %>
 
       <% else %>
-        <%= image_tag 'nC1.jpeg', class: "top-cd-images" %>
-        <%= image_tag 'cd.jpg', class: "top-cd-images" %>
-        <%= image_tag 'no_image.png', class: "top-cd-images" %>
-        <%= image_tag 'cute-but-no-deploy2.jpeg', class: "top-cd-images" %>
-        <%= image_tag 'sample-t.png', class: "top-cd-images" %>
-        <%= image_tag 'sample-m.png', class: "top-cd-images" %>
-      <% end %>
+      <!-- もしユーザーがサインインしていなければ-->
+          <% @cds.order('updated_at DESC').limit(6).each do |image| %>
+            <%= attachment_image_tag image, :cd_image, :fill, 200, 200, fallback: "cd.jpg", class: "top-cd-images" %>
+          <% end %>
+       <% end %>
 
     </div>
   </div>

@@ -42,7 +42,7 @@ class HistoriesController < ApplicationController
         history_cd.save
       end
 
-      @cart_items.destroy
+      # @cart_items.destroy
 
     # else
     #   render 'cart_items/show'

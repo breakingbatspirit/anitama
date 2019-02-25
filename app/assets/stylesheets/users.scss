@@ -63,7 +63,17 @@ footer {
     padding: 20px 40px;
 }
 
-
+// 武蔵谷追記
+.user-login {
+  width:40%;
+  color: #fff;
+  padding-top:13px;
+  margin:0 auto;
+  text-shadow: 0 0 15px #FF6694;
+  font-size: 30px;
+  font-family: 'Hiragino Maru Gothic Pro','ヒラギノ丸ゴ Pro W4', sans-serif;
+}
+//
 .link {
     float: right;
     padding: 20px 40px;
@@ -177,3 +187,15 @@ text-align: center;
     background: gray;
 }
 
+.favorite-list{
+    width:100%;
+    height:250px;
+    overflow: scroll;
+}
+
+.user-index-title{
+    float:left;
+    display:inline-block;
+    margin-top:20px;
+    margin-bottom:50px;
+}

@@ -21,7 +21,7 @@ class CdsController < ApplicationController
   def show
     @user= current_user
     @cd = Cd.find(params[:id])
-    @chats = @cd.chats.order(id: "desc")
+    @chats = @cd.chats.order(created_at: "desc")
     @cdsnew = Cd.all
     # @chats = Chat.where(cd_id: params[:id])
     @cds = Cd.search(params[:search])

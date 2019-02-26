@@ -8,7 +8,7 @@
 		<!-- ３分割の左側 -->
 		<div class="col-lg-4">
 
-			<%= attachment_image_tag @cd, :cd_image,　format: 'jpeg', fallback: "cd.jpg", size: "360x360" %>
+			<%= attachment_image_tag @cd, :cd_image,format: 'jpeg', fallback: "cd.jpg", size: "360x360" %>
 			<div class="price">¥<%= @cd.price%></div>
 			<% if @cd.inventory == 0 %>
 				<div class="inventory0">在庫なし</div>
@@ -61,14 +61,16 @@
 		<div class="col-lg-4" >
 				<blockquote class="album-title" >
 					<h3><%= @cd.album %>
-					<%# if @cd.favorited_by?(current_user) %>
-						<%#= link_to cd_favorites_path(@cd),method: :delete do %>
+					<% if @user == current_user && user_signed_in? %>
+					<% if @cd.favorited_by?(current_user) %>
+						<%= link_to cd_favorites_path(@cd),method: :delete do %>
 							<i class="glyphicon glyphicon-heart" aria-hidden="true" style="color:red;"></i>
 						<%# end %>
 					 <%# else %>
 						<%= link_to cd_favorites_path(@cd),method: :post do %>
 							<i class="glyphicon glyphicon-heart-empty" aria-hidden="true"></i>
 						<% end %>
+					<% end %>
 					<% end %>
 					</h3>
 				</blockquote>

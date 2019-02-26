@@ -38,6 +38,7 @@ Rails.application.routes.draw do
   end
 
   root 'cds#top'
+
   get '/cart_items/purchase', to: 'cart_items#show',as: 'purchase'
   get '/cart_items', to: 'cart_items#index',as: 'carts'
 

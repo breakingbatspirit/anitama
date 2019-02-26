@@ -1,3 +1,4 @@
+
 <%= render 'users/header1' ,user:@user %>
 <h1>Histories#index</h1>
 <p>Find me in app/views/histories/index.html.erb</p>
@@ -39,6 +40,5 @@
   <%= f.select :status, History.statuses.keys, {prompt: '発送状況を選択'}, class: 'form-control btn-default' %>
   <%= f.sumbit %>
 <% end %>
-
 
 

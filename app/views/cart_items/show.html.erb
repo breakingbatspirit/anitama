@@ -111,7 +111,7 @@
 
     <div class="purchase-buttons">
 
-      <%= link_to 'カートへ戻る', carts_path, class:"btn btn-default purchase-buttons" %>
+      <%= link_to 'カートへ戻る', carts_path(@user), class:"btn btn-default purchase-buttons" %>
       <%= link_to 'ユーザー情報編集', edit_user_path(@user), class:"btn btn-default purchase-buttons" %>
       <%= link_to "注文確定", histories_path, :method => :post, class:"btn btn-success btn-lg purchase-buttons", data: { confirm: "ご注文内容や送付先住所などにお間違いがなければOKボタンを押してください。"} %>
 

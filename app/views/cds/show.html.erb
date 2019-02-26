@@ -58,7 +58,7 @@
 			</div>
 		</div>
 		<!-- ３分割の中央 -->
-		<div class="col-lg-4" >
+		<div class="col-lg-4">
 				<blockquote class="album-title" >
 					<h3><%= @cd.album %>
 					<% if @user == current_user && user_signed_in? %>
@@ -86,7 +86,8 @@
 						<% @cd.discs.each do |disc| %>
 								<div class="disc">
 									<p>--------------------------------------------------------------</p>
-									<h5>Disc:<%= disc.disc_number %></h5></div>
+									<h5>Disc:<%= disc.disc_number %></h5>
+								</div>
 								<% disc.songs.each do |song| %>
 									<div class="song"><h7><%= song.title %>/<%= song.artist.artist_name %></h7></div>
 								<%# end %>
@@ -111,7 +112,7 @@
     				    <button id="button" class="btn btn-primary btn-block">コメントを送信する</button>
     			  <% else %>
     			  <% end %>
-				 </div>
+					</div>
 		    </div>
 		</div>
 	</div>

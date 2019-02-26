@@ -1,16 +1,16 @@
 class CartItemsController < ApplicationController
   def index
     @user = current_user
-  	@carts = CartItem.all
     # where=条件に合うすべてのコードを取得する-----
-    @carts=CartItem.where(user_id:params[:id])
+    @carts= current_user.cart_items
   # カート内商品の合計を表示----↓
   	@cart = CartItem.new
     #カート内商品合計金額表示----↓
     # arrayで[]の中の要素を取り出す
     array = []
     @carts.each do |cart|
-      array.push(cart.cd.price)
+     shokei =  cart.cd.price * cart.unit_quantity
+     array << shokei
     # cartの中のcdのpriceをarrayにpushする
     end
     @total_price = array.sum
@@ -63,6 +63,12 @@ class CartItemsController < ApplicationController
     # @addresses = Address.find(params[:id])
   end
 
+   def update
+    @cart_item = CartItem.find(params[:id])
+    @cart_item.update(cart_item_params)
+    redirect_to cart_items_path
+   end
+
   def create
   	cart = CartItem.new(cart_item_params)
   	user = current_user
@@ -76,7 +82,7 @@ class CartItemsController < ApplicationController
     # if controller.action_name == "index"
       cart = CartItem.find(params[:id])
       cart.destroy
-      redirect_to carts_path(user.id)
+      redirect_to carts_path(current_user.id)
     # else
       # @carts = CartItem.all.destory
     # end

@@ -49,7 +49,7 @@
         <!-- もしお気に入りの数が６個以上であればお気に入りを表示 -->
           <% @favorite.order('updated_at DESC').limit(6).each do |f| %>
               <%= link_to cd_path(f.id) do %>
-                  <%= attachment_image_tag f, :cd_image, :fill, 200, 200, favoritellback: "cd.jpg", class: "top-cd-images"%>
+                  <%= attachment_image_tag f, :cd_image, :fill, 200, 200, fallback: "cd.jpg", class: "top-cd-images"%>
               <% end %>
           <% end %>
 

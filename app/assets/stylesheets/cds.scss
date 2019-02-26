@@ -186,7 +186,6 @@ p, span {
 }
 
 .price_result_display{
-    height: 80px;
     font-size: 25px;
 }
 .zaikonashi{
@@ -247,13 +246,15 @@ p, span {
     border: 1px solid #DCDCDC;
     border-radius:10px;
     display: flex;
+    padding:20px;
+
 }
 .new-list-title{
     float:left;
 }
 .new-list-content{
     float:left;
-    margin:7px 10px;
+    padding-right:20px;
 }
 .song h7{
     font-size:12px;
@@ -354,3 +355,22 @@ p, span {
     padding:20px;
 }
 
+.cds_index_searh {
+    width:300px;
+    height:40px;
+    margin: 0 auto;
+}
+.paginate{
+    margin:0 auto;
+}
+
+.search-index{
+    margin-bottom:30px;
+}
+
+.price-btn{
+    margin-top:80px;
+}
+.table{
+    vertical-align:center
+}

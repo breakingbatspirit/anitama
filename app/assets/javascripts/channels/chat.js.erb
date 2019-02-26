@@ -19,8 +19,9 @@ App.chat = App.cable.subscriptions.create({channel:"ChatChannel",cd_id:document.
     //??このmessageは、room_channelで定義されているmessage？→多分そう
     // ⑤
     const chats = document.getElementById('chats')
-    //showViewのmessageにFormで入力された値を追加する表記
-    chats.innerHTML += chat
+    //showViewのchatにFormで入力された値を追加する表記
+    chats.insertAdjacentHTML('afterbegin',chat)
+    //最初はinnerHTMLを使用していたけど、insertAD...を使うことにより最新順に並ぶ
     //each文じゃない。積み重なる。
     // innerHTMLは要素の中身を変更できる書き方
     //右側のmessageがおそらくview側のmessage

@@ -38,8 +38,9 @@ class HistoriesController < ApplicationController
 
       # CartItem.all で呼んでる複数レコードの情報をeachで回しますよ〜
       @cart_items.each do |cart_item|
-
+        
         history_cd = HistoryCd.new
+        puts history_cd.errors.full_messages
 
         # HistoryCd.new したカラムの history_id に Historyの[:id] を入力
         history_cd.history_id = history.id
@@ -51,7 +52,9 @@ class HistoriesController < ApplicationController
         history_cd.save
       end
 
-      # @cart_items.destroy
+      CartItem.delete_all
+
+      redirect_to root_path
 
     # else
     #   render 'cart_items/show'

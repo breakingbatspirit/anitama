@@ -22,6 +22,7 @@ class CdsController < ApplicationController
     @user = current_user
     @cd = Cd.find(params[:id])
     @chats = @cd.chats.order(id: "desc")
+    @cdsnew = Cd.all
     # @chats = Chat.where(cd_id: params[:id])
     @cds = Cd.search(params[:search])
     @cart = CartItem.new
@@ -37,6 +38,9 @@ class CdsController < ApplicationController
     @disc = Disc.find(params[:id])
     @song = Song.find(params[:id])
 
+    @animes = Anime.all
+    @labels = Label.all
+    @artists = Artist.all
   end
 
   def create
@@ -55,6 +59,13 @@ class CdsController < ApplicationController
   end
 
   def update
+    @cd = Cd.find(params[:id])
+    if @cd.update(cd_params)
+      flash[:notice] = "数量が更新されました！"
+      redirect_to cds_path
+    else
+      render 'edit'
+    end
   end
 
   def destroy
@@ -64,6 +75,7 @@ class CdsController < ApplicationController
   end
 
   def top
+    @cd = Cd.find(params[:id])
     @cds = Cd.all
     @user = current_user
   end

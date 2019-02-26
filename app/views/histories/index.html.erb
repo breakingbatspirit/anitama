@@ -1,8 +1,65 @@
 
 <%= render 'users/header1' ,user:@user %>
-<h1>Histories#index</h1>
-<p>Find me in app/views/histories/index.html.erb</p>
+<div class="container">
+	<div><h1>購入履歴一覧</h1></div>
+   <div class="row">
+	<div class="col-sm-2"></div>
+	<div class="col-sm-8">
+         <%=form_tag histories_path, method: :get do %>
+            <%=text_field_tag :search, params[:search] %>
+            <%= submit_tag "検索" , class: "btn btn-default" %>
+      <% end %>
+		    <%  @histories.each do |history| %>
+			<div class="history_container">
+			<div class="history-box1">
+				<div class="show_time"><%= history.created_at %></div>
+						<div class="show_histories_name">
+							<h3><%= history.histories_name %>様</h3>
 
+						</div>
+
+						<div class="show_postal_address">
+							<div><%= history.histories_postal %></div>
+						    <div><%= history.histories_address %></div>
+						</div>
+								 <div class="show_quantity_price" >
+								 	<% @total_price = [] %>
+									<% history.history_cds.each do |history_cd| %>
+									  <div class="show_album">
+									  	<div class="row">
+									  		<div class="col-sm-6">
+									  			  	<%= history_cd.cd.album %>
+									  		</div>
+									  		<div class="col-sm-6">
+									  			 <span class="show_quantity"><%= history_cd.history_cd_quantity %>点</span>
+									 			 <span class="show_price"><%= history_cd.history_cd_price %>円</span>
+									  		</div>
+									  	</div>
+									  <span><% @shokei = history_cd.history_cd_quantity * history_cd.history_cd_price %></span>
+									  <% @total_price << @shokei %>
+									  </div>
+				                 <% end %>
+				            </div>
+				            <div class="history_box2">
+							 <div class="show_total">
+							 	<div class="row">
+							 		<div class="col-sm-8">
+							 		</div>
+							 		<div class="col-sm-3">
+							 			  <span class="show_total_quantity"><%=  history.history_cds.sum(:history_cd_quantity) %>点</span>
+									    <span class="show_total_price"><%= @total_price.sum %>円</span>
+							 		</div>
+							 	</div>
+							 </div>
+							</div>
+				 	</div>
+				</div>
+			<% end %>
+		</div>
+	</div>
+	<div class="col-sm-3">
+	</div>
+</div>
 
 
 

@@ -1,5 +1,14 @@
 class HistoriesController < ApplicationController
+  PER = 3
   def index
+    @history_cds = HistoryCd.all
+    @histories = History.search(params[:search])
+    # @search = History.ransack(params[:q])
+    # @histories1 = @search
+
+    # @search = History.ransack(params[:q])
+    # @histories = @search.result
+    # @histories_page = @histories.page(params[:page]).per(PER).reverse_order
   end
 
   def create
@@ -50,6 +59,7 @@ class HistoriesController < ApplicationController
     # else
     #   render 'cart_items/show'
     # end
+
   end
 
   def destroy

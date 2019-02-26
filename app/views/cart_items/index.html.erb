@@ -15,13 +15,14 @@
 				</tr>
 				<% @carts.each do |cart| %>
 				<tr>
-					<td><%= attachment_image_tag cart.cd, :cd_image,　format: 'jpeg', fallback: "cd.jpg", size: "100x100" %></td>
+					<td><%= attachment_image_tag cart.cd, :cd_image, format: 'jpeg', fallback: "cd.jpg", size: "100x100" %></td>
 					<td><div class="table-content"><h4><%= cart.cd.album %></h4></div class="table-content"></td>
 					<td><div class="table-content"><%= cart.cd.anime.anime_title %></div></td>
 					<td><div class="table-content">
 							<!--以下endまでが数量変更の記述  -->
-							<%= form_for(@cart) do |f| %>
-								<%= f. select :unit_quantity, 1...10 %>
+							<%= form_for(cart) do |f| %>
+								<%= f. select :unit_quantity, 1...10, :selected => cart.unit_quantity %>
+								<%= f.submit "更新" %>
 							<% end %>
 						</div>
 					</td>
@@ -43,7 +44,7 @@
 
 
 				<h4>合計点数(点)</h4>
-				 <%= @carts.count %>点
+				 <%= @carts.sum(:unit_quantity) %>点
 				<h4>合計金額</h4>
 				<%= @total_price %>円
 				<br>

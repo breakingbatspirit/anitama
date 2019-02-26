@@ -1,9 +1,15 @@
+<!-- ヘッダー -->
 <%= render 'users/header4',user: @user %>
+
+
 
 <div class="container clearfix">
 
 <h1 class="cart-title">最終確認画面</h1>
 
+
+
+  <!-- 画面左 -->
   <div class="cont-left">
     <div class="cart-image-box">
       <%= attachment_image_tag @user, :image, :fill,200,200, format: 'jpeg', fallback: "no_image.png", class:"cart-image", style:"display:border" %>
@@ -28,18 +34,43 @@
     <div class="cds-list">
       <div class="inners">
         <% if @cart_items.present? %>
-          <% @cart_items.each do |c| %>
+          <% @cart_items.each do |cart_item| %>
             <div class="row">
-              <div class="col-xs-4">
-                <%= attachment_image_tag c.cd, :cd_image, :fill,60,60, format: 'jpeg', fallback: "no_image.png" %>
+              <div class="col-xs-3">
+                <%= attachment_image_tag cart_item.cd, :cd_image, :fill,60,60, format: 'jpeg', fallback: "no_image.png" %>
               </div>
-              <div class="col-xs-4">
-                <p class="cd-text"><%= c.cd.album %></p>
+              <!-- <div class="col-xs-4>
+                <span class="cd-text">
+                  タイトル：<br>
+                  アニメ名：<br>
+                  数　　量：<br>
+                  価　　格：
+                </span>
+              </div> -->
+              <div class="col-xs-9">
+                <span class="cd-text">
+                  ■タイトル：<%= cart_item.cd.album %><br>
+                  ■アニメ名：<%= cart_item.cd.anime.anime_title %><br>
+                  ■数　　量：<%= cart_item.unit_quantity %> 枚<br>
+                  ■価　　格：<%= cart_item.cd.price.to_s(:delimited, delimiter: ',') %> 円<br>
+                </span>
               </div>
+
+              <span style="color:#BBB">---------------------------------------------------------</span>
+
+              <!-- ここから -->
+              <div style="display:none">
               <div class="col-xs-4">
-                <p class="cd-text"><%= c.cd.anime.anime_title %></p>
-                <p class="cd-text underline"><%= c.cd.price.to_s(:delimited, delimiter: ',') %> 円</p>
+                <p class="cd-text"><%= cart_item.cd.album %></p>
+                <p class="cd-text"><%= cart_item.unit_quantity %></p>
               </div>
+              <div class="col-xs-5">
+                <p class="cd-text"><%= cart_item.cd.anime.anime_title %></p>
+                <p class="cd-text underline"><%= cart_item.cd.price.to_s(:delimited, delimiter: ',') %> 円</p>
+              </div>
+              </div>
+              <!-- ここまで -->
+
             </div>
           <% end %>
         <% else %>
@@ -82,57 +113,21 @@
 
       <%= link_to 'カートへ戻る', carts_path(@user), class:"btn btn-default purchase-buttons" %>
       <%= link_to 'ユーザー情報編集', edit_user_path(@user), class:"btn btn-default purchase-buttons" %>
-
       <%= link_to "注文確定", histories_path, :method => :post, class:"btn btn-success btn-lg purchase-buttons", data: { confirm: "ご注文内容や送付先住所などにお間違いがなければOKボタンを押してください。"} %>
-
-      <%#= link_to "注文確定", histories_path, method: :post, class:"btn btn-success btn-lg purchase-buttons", data: { confirm: "ご注文内容や送付先住所などにお間違いがなければOKボタンを押してください。"} %>
-
-      <%#= link_to "注文確定", histories_path(history: {
-        histories_name: @addresses.address_name,
-        histories_namekana: @addresses.address_namekana,
-        histories_postal: @addresses.address_postal,
-        histories_address: @addresses.address_address,
-        histories_phone: @addresses.address_phone}), :method => :post, class:"btn btn-success btn-lg purchase-buttons", data: { confirm: "ご注文内容や送付先住所などにお間違いがなければOKボタンを押してください。"} %>
-
-
-
-<%#= button_to 'カートを空にする', @carts, method: :delete, data: {confirm: 'カートを空にして本当によろしいですか？'}, class: 'fbtn' %>
-
-
-
-<div style="display:none">
-  def destroy
-
-    @cart = current_cart
-    @cart.destroy
-    session[:cart_id] = nil
-    respond_to do |format|
-      format.html { redirect_to market_url, notice: 'カートが空になりました。' }
-      format.json { head :no_content }
-    end
-  end
-</div>
-
-            <!--  こういう書き方でもOK -->
-            <div style="display:none">
-              <%= form_for @history do |h| %>
-                <%= h.hidden_field :histories_name, value: @addresses.address_name %>
-                <%= h.hidden_field :histories_namekana, value: @addresses.address_namekana %>
-                <%= h.hidden_field :histories_postal, value: @addresses.address_postal %>
-                <%= h.hidden_field :histories_address, value: @addresses.address_address %>
-                <%= h.hidden_field :histories_phone, value: @addresses.address_phone %>
-                <%= h.submit '注文確定' %>
-              <% end %>
-            </div>
-            <!-- ここまで -->
 
     </div>
   </div>
 
+
+
+  <!-- 配送先追加枠 -->
   <div class="cont-right">
     <%= render 'change_address', address: @address %>
   </div>
 
 </div>
 
+
+
+<!-- フッター -->
 <%= render 'users/footer' ,user: @user %>

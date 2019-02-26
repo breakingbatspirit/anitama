@@ -76,7 +76,7 @@ class CartItemsController < ApplicationController
     # if controller.action_name == "index"
       cart = CartItem.find(params[:id])
       cart.destroy
-      redirect_to carts_path
+      redirect_to carts_path(user.id)
     # else
       # @carts = CartItem.all.destory
     # end

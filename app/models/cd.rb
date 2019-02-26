@@ -32,7 +32,7 @@ class Cd < ApplicationRecord
     	album_result = Cd.where("album LIKE ? ", "%#{search}%")
     	anime_result = Cd.joins(:anime).where("anime_title LIKE ?", "%#{search}%")
     	song_result = Cd.joins(discs: :songs).where("title LIKE ?", "%#{search}%")
-    	result = album_result | anime_result | song_result
+    	result = album_result | anime_result | song_result | history_result
     	return result
      end
     end

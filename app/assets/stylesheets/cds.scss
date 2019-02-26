@@ -186,7 +186,6 @@ p, span {
 }
 
 .price_result_display{
-    height: 80px;
     font-size: 25px;
 }
 .zaikonashi{
@@ -355,7 +354,21 @@ p, span {
 }
 
 .cds_index_searh {
-    width:250px;
-    height:30px;
-    margin: 20px 2px 30px 220px;
+    width:300px;
+    height:40px;
+    margin: 0 auto;
+}
+.paginate{
+    margin:0 auto;
+}
+
+.search-index{
+    margin-bottom:30px;
+}
+
+.price-btn{
+    margin-top:80px;
+}
+.table{
+    vertical-align:center
 }

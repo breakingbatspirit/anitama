@@ -6,10 +6,27 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Anime.create!(anime_title:"コナン")
+Anime.create!(anime_title:"名探偵コナン")
+Anime.create!(anime_title:"ドラゴンボール")
+Anime.create!(anime_title:"スラムダンク")
+Anime.create!(anime_title:"ドラえもん")
+Anime.create!(anime_title:"烈火の炎")
+Anime.create!(anime_title:"けものフレンズ")
+Anime.create!(anime_title:"宇宙よりも遠い場所")
+Anime.create!(anime_title:"攻殻機動隊 STAND ALONE COMPLEX")
+Anime.create!(anime_title:"この素晴らしい世界に祝福を！2")
+Anime.create!(anime_title:"新世紀エヴァンゲリオン")
+
+10.times do |no|
+Label.create!(label_name: "レーベル#{no}")
+
+end
+
+
+
 10.times do |no|
 # Anime.create!(anime_title:"コナン#{no}")
-Label.create!(label_name: "レーベル#{no}")
+# Label.create!(label_name: "レーベル#{no}")
 
 Cd.create!(album:"コナンコレクション#{no}", anime_id: 1,
     price: 1000,
@@ -20,8 +37,9 @@ Cd.create!(album:"コナンコレクション#{no}", anime_id: 1,
 
 # 5.times do |no|
 #   Title.create(:name => "タイトル #{no}")
-# end
+end
 
+# 5.times do |no|
 
 User.create!(
    email: "#{no}@test.com",
@@ -33,7 +51,14 @@ User.create!(
    phone: "080763223",
    postal: "神奈川県"
 )
-end
+Address.create!(
+   address_name: " テスト太郎#{no}",
+   address_namekana: "Taroooo#{no}",
+   address_address: "deijeff#{no}",
+   address_phone: "080763223",
+   address_postal: "神奈川県"
+)
+# end
 
 
 

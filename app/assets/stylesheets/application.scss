@@ -24,6 +24,13 @@
     /* Chalkduster, "Bradley Hand", Courier, "Segoe Print", monospace, Courier, sans-serif */
 }
 
+
+.link-white a{
+    color:white;
+    text-decoration: none;
+}
+
+
 .clearfix::after {
   content: "";
   display: block;

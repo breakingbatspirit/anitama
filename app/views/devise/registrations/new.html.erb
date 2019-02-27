@@ -9,32 +9,28 @@
 
              <div class="form-group ">
               <div class="field">
-                <%= f.label :"名前 (姓、名) ※スペース不要" %><br />
-                <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form_new" %>
+                
+                <%= f.text_field :name, autofocus: true, autocomplete: "name",placeholder: "名前 (姓、名) ※スペース不要", class: "form-control" %>
               </div>
              </div>
 
-             <div class="edit_namekana_display">
               <div class="form-group hoge">
              <div class="field">
-                <%= f.label :"名前カタカナ (姓、名) ※スペース不要" %><br />
-                <%= f.text_field :namekana, autofocus: true, autocomplete: "namekana", class: "form_new" %>
+                <%= f.text_field :namekana, autofocus: true, autocomplete: "namekana",placeholder: "名前カタカナ (姓、名) ※スペース不要", class: "form-control" %>
               </div>
             </div>
-          </div>
+          
 
             <div class="form-group ">
               <div class="field">
-                <%= f.label :"ニックネーム ※最大６文字" %><br />
-                <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname", class: "form_new" %>
+                <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname",placeholder: "ニックネーム ※最大６文字", class: "form-control" %>
               </div>
             </div>
 
 
               <div class="form-group ">
                 <div class="field">
-                <%= f.label :"郵便番号 ※ハイフン不要"%><br />
-                <%= f.text_field :postal, autofocus: true, autocomplete: "postsl", class: "form_new" %>
+                <%= f.text_field :postal, autofocus: true, autocomplete: "postsl",placeholder: "便番号 ※ハイフン不要", class: "form-control"%>
               </div>
             </div>
 
@@ -43,42 +39,37 @@
 
              <div class="form-group">
               <div class="field">
-                <%= f.label :電話番号 %><br />
-                <%= f.text_field :phone, autofocus: true, autocomplete: "phone", class: "form_new" %>
+                <%= f.text_field :phone, autofocus: true, autocomplete: "phone",placeholder: "電話番号", class: "form-control" %>
               </div>
             </div>
 
             <!-- <div class="edit_address_display"> -->
             <div class="form-group">
               <div class="field">
-                <%= f.label :住所 %><br />
-                <%= f.text_field :address, autofocus: true, autocomplete: "address", class: "form-control" %>
+                <%= f.text_field :address, autofocus: true, autocomplete: "address",placeholder: "住所", class: "form-control" %>
               </div>
             </div>
 
 
               <div class="form-group">
                 <div class="field">
-                <%= f.label :メールアドレス %><br />
-                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "メールアドレス", class: "form-control" %>
               </div>
             </div>
 
 
             <div class="form-group">
               <div class="field">
-                <%= f.label :パスワード %>
                 <% if @minimum_password_length %>
                 <em>(<%= @minimum_password_length %> characters minimum)</em>
                 <% end %><br />
-                <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+                <%= f.password_field :password, autocomplete: "new-password",placeholder: "パスワード", class: "form-control" %>
               </div>
             </div>
 
               <div class="form-group">
                 <div class="field">
-                <%= f.label :パスワード確認 %><br />
-                <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+                <%= f.password_field :password_confirmation, autocomplete: "new-password",placeholder: "パスワード確認", class: "form-control" %>
               </div>
             </div>
 

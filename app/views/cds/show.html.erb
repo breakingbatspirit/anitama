@@ -3,7 +3,7 @@
 
 
 <div class="container">
-	<h1>商品詳細</h1>
+	<h1 class="title">商品詳細</h1>
 	<div class="row" style="margin-top:30px;">
 		<!-- ３分割の左側 -->
 		<div class="col-lg-4">
@@ -16,7 +16,9 @@
 				<div class="inventory">在庫あり</div>
 			<% end %>
 			<div class="cart-in">
-				ユーザーがログイン状態の時のみの表示内容
+
+				<!-- ユーザーがログイン状態の時のみの表示内容 -->
+
 				<% if @user == current_user && user_signed_in? %>
 					<!-- 以下カート追加 -->
 					<%= form_for(@cart) do |f| %>
@@ -25,11 +27,14 @@
 
 					<% end %>
 
+
 			    <% end %>
 			</div>
 
 			<div class="new">
-				<% if @user == current_user && user_signed_in? %>
+
+				<% if @user == current_user && user_signed_in? && @user.favorites.count > 0 %>
+
 					<h3>お気に入り一覧</h3>
 					<div class="new-list">
 							<% @favorite.each do |f| %>
@@ -90,7 +95,7 @@
 									<p>--------------------------------------------------------------</p>
 									<h5>Disc:<%= disc.disc_number %></h5>
 								</div>
-								<% disc.songs.each do |song| %>
+								<% disc.songs.order(order: "asc").each do |song| %>
 									<div class="song"><h7><%= song.title %>/<%= song.artist.artist_name %></h7></div>
 								<% end %>
 						<% end %>

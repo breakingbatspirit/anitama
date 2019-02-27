@@ -9,7 +9,7 @@
       <%= link_to destroy_user_session_path,method: :delete , media:"_blank" do %>
       <%= image_tag "logout.jpeg", method: :delete ,:size=> "30x30" %>
       <% end %>
-    <%= link_to carts_path(user.id) ,media:"_blank" do %>
+    <%= link_to carts_path ,media:"_blank" do %>
     <%= image_tag "cart.jpeg", :size=> "30x30"%>
     </div>
     <% end %>

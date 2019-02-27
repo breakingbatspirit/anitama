@@ -24,12 +24,11 @@
 						<%= f.submit 'カートへ追加', class: "btn btn-default submit"%>
 
 					<% end %>
-
-			   <% end %>
+			    <% end %>
 			</div>
 
 			<div class="new">
-				<% if @user == current_user && user_signed_in? %>
+				<% if @user == current_user && user_signed_in? && @user.favorites.count > 0 %>
 					<h3>お気に入り一覧</h3>
 					<div class="new-list">
 							<% @favorite.each do |f| %>
@@ -88,7 +87,7 @@
 									<p>--------------------------------------------------------------</p>
 									<h5>Disc:<%= disc.disc_number %></h5>
 								</div>
-								<% disc.songs.each do |song| %>
+								<% disc.songs.order(order: "asc").each do |song| %>
 									<div class="song"><h7><%= song.title %>/<%= song.artist.artist_name %></h7></div>
 								<% end %>
 						<% end %>

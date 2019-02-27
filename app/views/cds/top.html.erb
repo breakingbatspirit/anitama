@@ -19,7 +19,11 @@
   </div>
   <div class="center-container">
       <div class="center-text clearfix">
-        <h4>▼最新のCD情報はこちら</h4>
+        <% if user_signed_in? && @user.favorites.count > 5 %>
+          <h4>▼<%= @user.name %>さんのお気に入り一覧はこちら</h4>
+        <% else %>
+          <h4>▼最新のCD情報はこちら</h4>
+        <% end %>
       </div>
       <%=form_tag cds_result_path, method: :get do %>
             <%=text_field_tag :search, params[:search],placeholder: "　　商品の検索はこちらから！商品名・アニメ名・曲名などで検索できます。" , class: "top_searh"%>
@@ -35,35 +39,19 @@
 
 
       <!-- CDジャケット挿入 -->
-      <% if user_signed_in? %>
-      <!-- もしユーザーがサインインしていれば -->
-          <%#if @favorite.count <= 6%>
-        <!-- もしお気に入りの数が６個より少なければ最新の商品一覧を表示 -->
-            <%# @cds.order('updated_at DESC').limit(6).each do |f| %>
-              <%#= link_to cd_path(f.id) do %>
-                <%#= attachment_image_tag f, :cd_image, :fill, 200, 200, fallback: "cd.jpg", class: "top-cd-images" %>
-              <%# end %>
-            <%# end %>
-
-        <%# else %>
-        <!-- もしお気に入りの数が６個以上であればお気に入りを表示 -->
+      <% if user_signed_in? && @user.favorites.count > 5 %>
           <% @favorite.order('updated_at DESC').limit(6).each do |f| %>
               <%= link_to cd_path(f.id) do %>
                   <%= attachment_image_tag f, :cd_image, :fill, 200, 200, fallback: "cd.jpg", class: "top-cd-images"%>
               <% end %>
           <% end %>
-
-        <%# end %>
-
-      <% else %>
-      <!-- もしユーザーがサインインしていなければ-->
+        <% else %>
           <% @cds.order('updated_at DESC').limit(6).each do |image| %>
               <%= link_to cd_path(image.id) do %>
                   <%= attachment_image_tag image, :cd_image, :fill, 200, 200, fallback: "cd.jpg", class: "top-cd-images" %>
               <% end %>
           <% end %>
-       <% end %>
-
+      <% end %>
     </div>
   </div>
 

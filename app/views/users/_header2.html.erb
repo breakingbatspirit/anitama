@@ -25,13 +25,13 @@
    <div class="head">アニソン★魂</div>
   <div class="icon">
     <%= link_to user_path(user.id) ,media:"_blank" do %>
-    <%= image_tag "user.jpeg", :size=> "30x30" %>
+    <%= image_tag "user.jpeg", :size=> "50x50" %>
     <% end %>
       <%= link_to destroy_user_session_path,method: :delete , media:"_blank" do %>
-      <%= image_tag "logout.jpeg", method: :delete ,:size=> "30x30" %>
+      <%= image_tag "logout.jpeg", method: :delete ,:size=> "50x50" %>
       <% end %>
     <%= link_to cart_items_path ,media:"_blank" do %>
-    <%= image_tag "cart.jpeg", :size=> "30x30"%>
+    <%= image_tag "cart2.png", :size=> "50x50"%>
     <% end %>
     </div>
     <%= search_form_for @search do |f| %>

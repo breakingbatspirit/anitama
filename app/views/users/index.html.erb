@@ -40,7 +40,7 @@
 	<% if user.deleted_at %>
 		<tbody class="taikai">
 		<tr>
-			<td class="image_index_display"><%= attachment_image_tag user, :image, :fill,50,50, format: 'jpeg', size: "50x50", fallback: "no-image.jpg" %>
+			<td class="image_index_display"><%= attachment_image_tag user, :image, :fill,50,50, format: 'jpeg', size: "50x50", fallback: "/images/no-image.jpg" %>
 			</td>
 			<td class="name_index_display"><%= user.name %></td>
 			<td class="namekana_index_display"><%= user.namekana %></td>

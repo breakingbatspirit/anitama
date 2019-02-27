@@ -85,7 +85,7 @@ class UsersController < ApplicationController
     def admin_validate!
       admin = User.find(1)
       if current_user != admin
-        redirect_to user_path(current_user)
+         redirect_to user_path(current_user)
       end
     end
 

@@ -34,7 +34,13 @@ class HistoriesController < ApplicationController
       history_cd.save
     end
 
+    user.cart_items.each do |cart_Item|
+      cart_item.cd.inventory - cart_item.unit_quantity
+      cart_item.cd.save
+    end
+
     CartItem.delete_all
+
     redirect_to root_path
 
     # else

@@ -1,5 +1,5 @@
 class CdsController < ApplicationController
-  before_action :admin_validate!, only: [:index]
+  before_action :admin_validate!, only: [:index,:new,:edit]
   PER = 3
   def new
     @cd = Cd.new

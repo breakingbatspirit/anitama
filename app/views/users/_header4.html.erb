@@ -1,16 +1,15 @@
-
-<header>
+<header class="link-white">
  <% if current_user %>
  <div class="head"><%= link_to "アニソン★魂" ,root_path %></div>
   <div class="icon">
     <%= link_to user_path(user.id) ,media:"_blank" do %>
-    <%= image_tag "user.jpeg", :size=> "30x30" %>
+    <%= image_tag "user.png", :size=> "50x50" %>
     <% end %>
       <%= link_to destroy_user_session_path,method: :delete , media:"_blank" do %>
-      <%= image_tag "logout.jpeg", method: :delete ,:size=> "30x30" %>
+      <%= image_tag "logout.png", method: :delete ,:size=> "50x50" %>
       <% end %>
     <%= link_to carts_path ,media:"_blank" do %>
-    <%= image_tag "cart.jpeg", :size=> "30x30"%>
+    <%= image_tag "cart.jpeg", :size=> "50x50"%>
     </div>
     <% end %>
      <%=form_tag cds_path, method: :get do %>

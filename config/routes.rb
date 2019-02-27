@@ -13,8 +13,6 @@ Rails.application.routes.draw do
   end
   get 'cds/result'
 
-  get 'cds/result'
-
   resources :cds do
     get "search", on: :collection
     resources :chats,only:[:create,:destroy]
@@ -22,8 +20,11 @@ Rails.application.routes.draw do
     resources :songs,only:[:create,:update,:destroy]
   end
 
+    get '/cart_items', to: 'cart_items#index',as: 'carts'
+
+
   resources :cart_items,only:[:create,:destroy,:update]
-  resources :histories,only:[:index,:create,:destroy]
+  resources :histories,only:[:index,:create,:destroy,:update]
 
   resources :animes,only:[:create] do
     get :autocomplete_anime_anime_title, on: :collection
@@ -40,7 +41,6 @@ Rails.application.routes.draw do
   root 'cds#top'
 
   get '/cart_items/purchase', to: 'cart_items#show',as: 'purchase'
-  get '/cart_items', to: 'cart_items#index',as: 'carts'
 
   mount ActionCable.server => '/cable'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

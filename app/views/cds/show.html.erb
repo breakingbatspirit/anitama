@@ -3,12 +3,12 @@
 
 
 <div class="container">
-	<h1>商品詳細</h1>
+	<h1 class="title">商品詳細</h1>
 	<div class="row" style="margin-top:30px;">
 		<!-- ３分割の左側 -->
 		<div class="col-lg-4">
 
-			<%= attachment_image_tag @cd, :cd_image,format: 'jpeg', fallback: "cd.jpg", size: "360x360" %>
+			<%= attachment_image_tag @cd, :cd_image, format: 'jpeg', fallback: "cd.jpg", size: "360x360" %>
 			<div class="price">¥<%= @cd.price%></div>
 			<% if @cd.inventory == 0 %>
 				<div class="inventory0">在庫なし</div>
@@ -24,7 +24,6 @@
 						<%= f.submit 'カートへ追加', class: "btn btn-default submit"%>
 
 					<% end %>
-
 			    <% end %>
 			</div>
 

@@ -4,16 +4,16 @@
           <div class="head"><%= link_to "アニソン★魂" ,root_path %></div>
           <div class="icon">
             <%= link_to user_path(user.id) ,media:"_blank" do %>
-            <%= image_tag "user.jpeg", :size=> "30x30" %>
+            <%= image_tag "/images/user.jpeg", :size=> "30x30" %>
       <% end %>
     <%=link_to destroy_user_session_path ,method: :delete, media:"_blank" do%>
-    <%= image_tag "logout.jpeg",:size=> "30x30" %>
+    <%= image_tag "/images/logout.jpeg",:size=> "30x30" %>
       <% end %>
     <%= link_to carts_path(user.id) ,media:"_blank" do %>
-    <%= image_tag "cart.jpeg", :size=> "30x30"%>
+    <%= image_tag "/images/cart.jpeg", :size=> "30x30"%>
       <% end %>
    </div>
-    <div class="user-login">おかえりなさいませ！<%= current_user.name %>様！<%= image_tag "meido.png",:size=> "80x80" %></div>
+    <div class="user-login">おかえりなさいませ！<%= current_user.name %>様！<%= image_tag "/images/meido.png",:size=> "80x80" %></div>
  <% else %>
        <div class="head"><%= link_to "アニソン★魂" ,root_path %></div>
          <div class="link">

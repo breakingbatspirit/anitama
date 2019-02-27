@@ -24,7 +24,7 @@
 				<% @cd.each do |cd| %>
 				<tr>
 				   <td class="image_result_display"><%= link_to cd_path(cd) do %>
-						<%= attachment_image_tag cd, :cd_image, :fill,150,150, format: 'jpeg', size: "150x150", fallback: "no-image.jpg" %>
+						<%= attachment_image_tag cd, :cd_image, :fill,150,150, format: 'jpeg', size: "150x150", fallback: "/images/no-image.jpg" %>
 				   <% end %>
 				   </td>
 

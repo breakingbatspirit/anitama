@@ -8,7 +8,7 @@
 		<!-- ３分割の左側 -->
 		<div class="col-lg-4">
 
-			<%= attachment_image_tag @cd, :cd_image,format: 'jpeg', fallback: "cd.jpg", size: "360x360" %>
+			<%= attachment_image_tag @cd, :cd_image,format: 'jpeg', fallback: "/images/cd.jpg", size: "360x360" %>
 			<div class="price">¥<%= @cd.price%></div>
 			<% if @cd.inventory == 0 %>
 				<div class="inventory0">在庫なし</div>
@@ -35,7 +35,7 @@
 							<% @favorite.each do |f| %>
 								<div class="new-list-content">
 								   <%= link_to cd_path(f.id) do %>
-									 <%= attachment_image_tag f, :cd_image, format: 'jpeg', fallback: "cd.jpg", size: "150x150" %>
+									 <%= attachment_image_tag f, :cd_image, format: 'jpeg', fallback: "/images/cd.jpg", size: "150x150" %>
 								  <% end %>
 								</div>
 							<% end %>
@@ -49,7 +49,7 @@
 								<% @cdsnew.each do |cd| %>
 									<div class="new-list-content">
 										<%= link_to cd_path(cd.id) do %>
-											<%= attachment_image_tag cd, :cd_image,format: 'jpeg', fallback: "cd.jpg", size: "150x150" %>
+											<%= attachment_image_tag cd, :cd_image,format: 'jpeg', fallback: "/images/cd.jpg", size: "150x150" %>
 										<% end %>
 									</div>
 								<% end %>

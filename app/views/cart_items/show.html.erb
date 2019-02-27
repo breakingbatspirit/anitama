@@ -12,7 +12,7 @@
   <!-- 画面左 -->
   <div class="cont-left">
     <div class="cart-image-box">
-      <%= attachment_image_tag @user, :image, :fill,200,200, format: 'jpeg', fallback: "no_image.png", class:"cart-image", style:"display:border" %>
+      <%= attachment_image_tag @user, :image, :fill,200,200, format: 'jpeg', fallback: "/images/no_image.png", class: "cart-image", style:"display:border" %>
     </div>
 
     <div class="cont-left-name">
@@ -37,7 +37,7 @@
           <% @cart_items.each do |cart_item| %>
             <div class="row">
               <div class="col-xs-3">
-                <%= attachment_image_tag cart_item.cd, :cd_image, :fill,60,60, format: 'jpeg', fallback: "no_image.png" %>
+                <%= attachment_image_tag cart_item.cd, :cd_image, :fill,60,60, format: 'jpeg', fallback: "/images/no_image.png" %>
               </div>
               <!-- <div class="col-xs-4>
                 <span class="cd-text">

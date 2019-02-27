@@ -15,7 +15,7 @@
 				</tr>
 				<% @carts.each do |cart| %>
 				<tr>
-					<td><%= attachment_image_tag cart.cd, :cd_image, format: 'jpeg', fallback: "cd.jpg", size: "100x100" %></td>
+					<td><%= attachment_image_tag cart.cd, :cd_image, format: 'jpeg', fallback: "/images/cd.jpg", size: "100x100" %></td>
 					<td><div class="table-content"><h4><%= cart.cd.album %></h4></div class="table-content"></td>
 					<td><div class="table-content"><%= cart.cd.anime.anime_title %></div></td>
 					<td><div class="table-content">
@@ -57,4 +57,3 @@
 </div>
 
 <%= render 'users/footer' ,user: @user %>
- 

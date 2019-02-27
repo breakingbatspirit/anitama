@@ -74,7 +74,7 @@ class CartItemsController < ApplicationController
   	user = current_user
   	cart.user_id = user.id
   	cart.save
-  	redirect_to carts_path(user.id)
+  	redirect_to carts_path
     @cart_item = CartItem.new(cart_item_params)
   end
 
@@ -82,7 +82,7 @@ class CartItemsController < ApplicationController
     # if controller.action_name == "index"
       cart = CartItem.find(params[:id])
       cart.destroy
-      redirect_to carts_path(current_user.id)
+      redirect_to carts_path
     # else
       # @carts = CartItem.all.destory
     # end

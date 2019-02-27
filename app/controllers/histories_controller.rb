@@ -11,39 +11,35 @@ class HistoriesController < ApplicationController
 
   def create
     user = current_user
-    cd = Cd.all
-    addresses = Address.all
+    @cart_items = user.cart_items
     history = History.new
-    history_cd = HistoryCd.new
-    @cart_items = CartItem.all
 
-    if @history = user.histories.create(history_params)
-        history.histories_name = user.addresses[-1].address_name
-        history.histories_namekana = user.addresses[-1].address_namekana
-        history.histories_postal = user.addresses[-1].address_postal
-        history.histories_address = user.addresses[-1].address_address
-        history.histories_phone = user.addresses[-1].address_phone
-        history.user_id = user.id
-      history.save
-
+      history.histories_name = user.addresses[-1].address_name
+      history.histories_namekana = user.addresses[-1].address_namekana
+      history.histories_postal = user.addresses[-1].address_postal
+      history.histories_address = user.addresses[-1].address_address
+      history.histories_phone = user.addresses[-1].address_phone
       history.user_id = user.id
 
-      @cart_items.each do |cart_item|
+    history.save
+
+    @cart_items.each do |cart_item|
           # HistoryCd.new したカラムの history_id に Historyの[:id] を入力
-          history_cd.history_id = history.id
-          history_cd.cd_id = cart_item.cd.id
-          history_cd.history_cd_quantity = cart_item.unit_quantity
-          history_cd.history_cd_price = cart_item.cd.price
-          history_cd.history_cd_album = cart_item.cd.album
-        history_cd.save
-      end
-
-      CartItem.delete_all
-      redirect_to root_path
-
-    else
-      render 'cart_items/show'
+      history_cd = HistoryCd.new
+        history_cd.history_id = history.id
+        history_cd.cd_id = cart_item.cd.id
+        history_cd.history_cd_quantity = cart_item.unit_quantity
+        history_cd.history_cd_price = cart_item.cd.price
+        history_cd.history_cd_album = cart_item.cd.album
+      history_cd.save
     end
+
+    CartItem.delete_all
+    redirect_to root_path
+
+    # else
+      # render 'cart_items/show'
+    # end
   end
 
   def destroy

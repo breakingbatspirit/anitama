@@ -42,9 +42,20 @@
 			<% @histories.each do |history| %>
 			<div class="history_container">
 			<div class="history-box1">
+        <h4 class="history_status">
+					<%# if history.status == 1 %>
+<!-- 						<button class="label label-default label-warning">
+	          	<%#= history.status %>
+	          </button> -->
+					<%# else %>
+						<button class="label label-default label-success">
+	          	<%= history.status %>
+						</button>
+					<%# end %>
+       	</h4>
 				<div class="show_time">
 					<%= history.created_at.strftime('%Y年%m月%d日')%>購入
-					</div>
+				</div>
 						<div class="show_histories_name">
 							<h3><%= history.histories_name %>様</h3>
 

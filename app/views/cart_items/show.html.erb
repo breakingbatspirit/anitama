@@ -37,17 +37,8 @@
           <% @cart_items.each do |cart_item| %>
             <div class="row">
               <div class="col-xs-3">
-                <%#= attachment_image_tag cart_item.cd, :cd_image, :fill,60,60, format: 'jpeg', fallback: "no_image.png" %>
                 <%= attachment_image_tag cart_item.cd, :cd_image, size: '60x60', format: 'jpeg', fallback: "no_image.png" %>
               </div>
-              <!-- <div class="col-xs-4>
-                <span class="cd-text">
-                  タイトル：<br>
-                  アニメ名：<br>
-                  数　　量：<br>
-                  価　　格：
-                </span>
-              </div> -->
               <div class="col-xs-9">
                 <span class="cd-text">
                   ■タイトル：<%= cart_item.cd.album %><br>
@@ -58,19 +49,6 @@
               </div>
 
               <span style="color:#BBB">---------------------------------------------------------</span>
-
-              <!-- ここから -->
-              <div style="display:none">
-                <div class="col-xs-4">
-                  <p class="cd-text"><%= cart_item.cd.album %></p>
-                  <p class="cd-text"><%= cart_item.unit_quantity %></p>
-                </div>
-                <div class="col-xs-5">
-                  <p class="cd-text"><%= cart_item.cd.anime.anime_title %></p>
-                  <p class="cd-text underline"><%= cart_item.cd.price.to_s(:delimited, delimiter: ',') %> 円</p>
-                </div>
-              </div>
-              <!-- ここまで -->
 
             </div>
           <% end %>

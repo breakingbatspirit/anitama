@@ -1,14 +1,12 @@
 class HistoriesController < ApplicationController
   PER = 3
   def index
-    # @history_cds = HistoryCd.all
-    @histories = History.search(params[:search])
-    # @search = History.ransack(params[:q])
-    # @histories1 = @search
-
-    # @search = History.ransack(params[:q])
-    @histories = @search.result
-    # @histories_page = @histories.page(params[:page]).per(PER).reverse_order
+    if params[:search]
+       @histories  = History.search(params[:search])
+       @histories = Kaminari.paginate_array(@histories).page(params[:page]).per(PER)
+    else
+        @histories = History.page(params[:page]).per(PER)
+    end
   end
 
   def create

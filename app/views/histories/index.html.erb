@@ -1,18 +1,31 @@
 
 <%= render 'users/header1' ,user:@user %>
 <div class="container">
-	<div><h1>購入履歴一覧</h1></div>
+	<div class="row">
+	      <div class="col-sm-3">
+		　　<div><h1>購入履歴一覧</h1></div>
+	      </div>
+	    <div class="col-sm-6">
+	      <div align="center">
+	      	<div class="search--history-index">
+	         <%=form_tag histories_path, method: :get do %>
+	            <%=text_field_tag :search, params[:search] , class: "search_index"%>
+	            <%= submit_tag "検索" , class: "btn btn-default" %>
+	        </div>
+	       </div>
+	    </div>
+	     <div class="col-sm-3"></div>
+     </div>
+
+
    <div class="row">
 	<div class="col-sm-2"></div>
 	<div class="col-sm-8">
-         <%=form_tag histories_path, method: :get do %>
-            <%=text_field_tag :search, params[:search] %>
-            <%= submit_tag "検索" , class: "btn btn-default" %>
       <% end %>
 		    <%  @histories.each do |history| %>
 			<div class="history_container">
 			<div class="history-box1">
-				<div class="show_time"><%= history.created_at %></div>
+				<div class="show_time"><%= history.created_at.strftime('%Y年%m月%d日') %>購入</div>
 						<div class="show_histories_name">
 							<h3><%= history.histories_name %>様</h3>
 
@@ -60,3 +73,4 @@
 	<div class="col-sm-3">
 	</div>
 </div>
+<div align="center"><%= paginate @histories, class: "paginate" %></div>

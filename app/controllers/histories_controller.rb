@@ -38,7 +38,6 @@ class HistoriesController < ApplicationController
 
       # CartItem.all で呼んでる複数レコードの情報をeachで回しますよ〜
       @cart_items.each do |cart_item|
-        
         history_cd = HistoryCd.new
         puts history_cd.errors.full_messages
 

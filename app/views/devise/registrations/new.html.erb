@@ -6,14 +6,6 @@
       </div>
      <div class="col-sm-6">
       <h2 class="title_signup_display">会員登録</h2>
-      <div class="edit_namekana_display">
-              <div class="form-group hoge">
-             <div class="field">
-                <%= f.label :"名前カタカナ (姓、名) ※スペース不要" %><br />
-                <%= f.text_field :namekana, autofocus: true, autocomplete: "namekana", class: "form_new" %>
-              </div>
-            </div>
-          </div>
 
              <div class="form-group ">
               <div class="field">
@@ -22,6 +14,15 @@
               </div>
              </div>
 
+             <div class="edit_namekana_display">
+              <div class="form-group hoge">
+             <div class="field">
+                <%= f.label :"名前カタカナ (姓、名) ※スペース不要" %><br />
+                <%= f.text_field :namekana, autofocus: true, autocomplete: "namekana", class: "form_new" %>
+              </div>
+            </div>
+          </div>
+
             <div class="form-group ">
               <div class="field">
                 <%= f.label :"ニックネーム ※最大６文字" %><br />
@@ -29,14 +30,6 @@
               </div>
             </div>
 
-            <div class="edit_address_display">
-            <div class="form-group hoge">
-              <div class="field">
-                <%= f.label :住所 %><br />
-                <%= f.text_area :address, autofocus: true, autocomplete: "address" %>
-              </div>
-            </div>
-          </div>
 
               <div class="form-group ">
                 <div class="field">
@@ -54,6 +47,15 @@
                 <%= f.text_field :phone, autofocus: true, autocomplete: "phone", class: "form_new" %>
               </div>
             </div>
+
+            <!-- <div class="edit_address_display"> -->
+            <div class="form-group">
+              <div class="field">
+                <%= f.label :住所 %><br />
+                <%= f.text_field :address, autofocus: true, autocomplete: "address", class: "form-control" %>
+              </div>
+            </div>
+
 
               <div class="form-group">
                 <div class="field">

@@ -22,7 +22,7 @@
         <h4>▼最新のCD情報はこちら</h4>
       </div>
       <%=form_tag cds_result_path, method: :get do %>
-            <%=text_field_tag :search, params[:search],placeholder: "　　商品の検索はこちらから！商品名・アニメ名・曲名などで検索できます。" , class: "top_searh"%>
+            <%=text_field_tag :search, params[:search], class: "top_searh"%>
             <%= submit_tag "検索" , class: "btn btn-default" %>
       <% end %>
   </div>

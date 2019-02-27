@@ -73,7 +73,7 @@ footer {
   font-size: 30px;
   font-family: 'Hiragino Maru Gothic Pro','ヒラギノ丸ゴ Pro W4', sans-serif;
 }
-//
+
 .link {
     float: right;
     padding: 20px 40px;
@@ -98,12 +98,9 @@ footer {
  margin:20px 0 20px 90px;
 }
 
-// input[type="text"] {
-//   width: 240px;
-// }
 
 .edit_namekana_display{
- float: right;
+ float: left;
 }
 
 .edit_address_display{
@@ -205,8 +202,6 @@ text-align: center;
     margin: 20px 2px 30px 220px;
 }
 .history_container{
-    // width: 800px;
-    // height: 300px;
     margin-top: 20px;
     background-color: #FFFFCC;
     border-radius: 10px 10px 10px 10px;
@@ -215,15 +210,12 @@ text-align: center;
 .history_box1{
     padding-bottom: 20px;
 
-//     width: 800px;
-//     height: 200px;
+
 }
 
 .history_box2{
     padding-top: 20px;
     border-top: solid #808000;
-//     width: 800px;
-//     height: 100px;
 }
 .show_histories_name{
     padding-top: 8px;
@@ -234,8 +226,7 @@ text-align: center;
     float:right;
     padding-top: 20px;
     padding-right: 10px;
-    // display:inline-block;
-    // padding-top: 8px;
+
 }
 .show_postal_address{
     font-size: 15px;
@@ -251,18 +242,12 @@ text-align: center;
 .show_quantity{
     padding-left: 33%;
     font-size: 20px
-    // float: left;
 }
 .show_price{
     padding-left: 10%;
     font-size: 20px
-    // float: left;
-}
-.show_album{
-    // float: left;
 }
 .show_total_quantity{
-    // padding-left: 60%;
     font-size: 20px;
 }
 .show_total_price{

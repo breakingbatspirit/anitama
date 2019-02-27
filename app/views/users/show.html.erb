@@ -42,7 +42,9 @@
 			<% @histories.each do |history| %>
 			<div class="history_container">
 			<div class="history-box1">
-				<div class="show_time"><%= history.created_at %></div>
+				<div class="show_time">
+					<%= history.created_at.strftime('%Y年%m月%d日')%>購入
+					</div>
 						<div class="show_histories_name">
 							<h3><%= history.histories_name %>様</h3>
 

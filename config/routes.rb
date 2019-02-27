@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     put :delete, on: :member
     resources :addresses,only:[:create,:destroy]
   end
+
   get 'cds/result'
 
   resources :cds do

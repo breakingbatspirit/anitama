@@ -8,8 +8,6 @@
     box-sizing: border-box;
 }
 
-
-
 header {
     width: 100%;
     height:100px;
@@ -220,6 +218,7 @@ text-align: center;
 .history_status {
     padding: 10px;
     float: right;
+    display: inline;
 }
 .history_box1{
     padding-bottom: 20px;

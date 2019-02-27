@@ -16,7 +16,9 @@
 				<div class="inventory">在庫あり</div>
 			<% end %>
 			<div class="cart-in">
+
 				<!-- ユーザーがログイン状態の時のみの表示内容 -->
+
 				<% if @user == current_user && user_signed_in? %>
 					<!-- 以下カート追加 -->
 					<%= form_for(@cart) do |f| %>
@@ -31,6 +33,7 @@
 			<div class="new">
 
 				<% if @user == current_user && user_signed_in? && @user.favorites.count > 0 %>
+
 					<h3>お気に入り一覧</h3>
 					<div class="new-list">
 							<% @favorite.each do |f| %>
@@ -74,15 +77,17 @@
 						<% end %>
 					<% end %>
 					<% end %>
+		
+
 					</h3>
 				</blockquote>
 				<div class="cd-content">
 					<div class="cd-text-list">
 						<div class="cd-text">
-							<h5><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span>　<%= @cd.anime.anime_title %></h5>
+							<h5><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span><%= @cd.anime.anime_title %></h5>
 						</div>
-						<div class="cd-text"><h5><span class="glyphicon glyphicon-home" aria-hidden="true"></span>　<%= @cd.label.label_name %></h5></div>
-						<div class="cd-text"><h5><span class="glyphicon glyphicon-tag" aria-hidden="true"></span>　ジャンル</h5></div>
+						<div class="cd-text"><h5><span class="glyphicon glyphicon-home" aria-hidden="true"></span><%= @cd.label.label_name %></h5></div>
+						<div class="cd-text"><h5><span class="glyphicon glyphicon-tag" aria-hidden="true"></span>ジャンル</h5></div>
 					</div>
 					<div class ="song-list">
 						<% @cd.discs.each do |disc| %>

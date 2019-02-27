@@ -74,7 +74,7 @@ class CartItemsController < ApplicationController
   	user = current_user
   	cart.user_id = user.id
   	cart.save
-  	redirect_to carts_path(user.id)
+  	redirect_to carts_path
     @cart_item = CartItem.new(cart_item_params)
   end
 

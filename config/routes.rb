@@ -13,8 +13,6 @@ Rails.application.routes.draw do
   end
   get 'cds/result'
 
-  get 'cds/result'
-
   resources :cds do
     get "search", on: :collection
     resources :chats,only:[:create,:destroy]
@@ -26,7 +24,7 @@ Rails.application.routes.draw do
 
 
   resources :cart_items,only:[:create,:destroy,:update]
-  resources :histories,only:[:index,:create,:destroy]
+  resources :histories,only:[:index,:create,:destroy,:update]
 
   resources :animes,only:[:create] do
     get :autocomplete_anime_anime_title, on: :collection

@@ -13,7 +13,7 @@
 			<div class="col-sm-6">
 				<div class="search-index">
 					<%=form_tag cds_result_path, method: :get do %>
-		                <%=text_field_tag :search, params[:search],  class: "cds_index_searh"%>
+		                <%=text_field_tag :search, params[:search], class: "search_index"%>
 		                <%= submit_tag "検索" , class: "btn btn-default" %>
 	                <% end %>
 	            </div>
@@ -69,6 +69,7 @@
 	    </div>
 	 </div>
  </div>
+
 
 
 

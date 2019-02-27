@@ -97,8 +97,8 @@ def result
 
   def top
     @cds = Cd.all
-    @user = current_user
     if user_signed_in?
+      @user = current_user
       @favorite = current_user.favorite_cds
     end
   end

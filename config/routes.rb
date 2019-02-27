@@ -13,8 +13,6 @@ Rails.application.routes.draw do
   end
   get 'cds/result'
 
-  get 'cds/result'
-
   resources :cds do
     get "search", on: :collection
     resources :chats,only:[:create,:destroy]
@@ -36,7 +34,6 @@ Rails.application.routes.draw do
   resources :artists,only:[:create,:update,:destroy] do
     get :autocomplete_artist_artist_name, on: :collection
   end
-
 
   root 'cds#top'
 

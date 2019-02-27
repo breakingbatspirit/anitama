@@ -15,7 +15,7 @@
 
 
         <!-- status変更ボタン -->
-        <div class="history-status">
+        <div class="history_status">
           <%= form_for history do |f| %>
             <%= f.select :status, History.statuses.keys, class: 'btn btn-default btn-xs' %>
             <%= f.submit "変更", class:"btn btn-default btn-xs" %>

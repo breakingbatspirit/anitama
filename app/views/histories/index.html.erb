@@ -95,12 +95,3 @@
 
 
 
-
-
-<%= form_for @history do |f| %>
-  <%= f.label :status, "配送状況", class:"label-bold" %>
-  <%= f.select :status, History.statuses.keys, {prompt: '発送状況を選択'}, class: 'form-control btn-default' %>
-  <%= f.sumbit %>
-<% end %>
-
-

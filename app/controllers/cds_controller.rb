@@ -29,8 +29,7 @@ class CdsController < ApplicationController
     if user_signed_in?
       @favorite = current_user.favorite_cds.order(id: "desc")
     end
-
-  end
+   end
 
 
   def edit
@@ -90,17 +89,16 @@ def result
     # @cds = @search.result(distinct: true)
     if params[:search]
        @cds = Cd.search(params[:search])
-       @cds = Kaminari.paginate_array(@cds)
+       @cds = Kaminari.paginate_array(@cds).page(params[:page]).per(PER)
+    else
+       @cds = Cd.page(params[:page]).per(PER)
     end
-
-    @cds = Cd.page(params[:page]).per(PER)
-
   end
 
   def top
     @cds = Cd.all
-    @user = current_user
     if user_signed_in?
+      @user = current_user
       @favorite = current_user.favorite_cds
     end
   end

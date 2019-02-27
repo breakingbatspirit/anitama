@@ -1,10 +1,6 @@
 class History < ApplicationRecord
 	has_many :history_cds,dependent: :destroy
 	belongs_to :user
-	enum genre_id: {
-        '発送待ち':0,
-        '発送済み':1,
-    }
 
   def self.search(search)
      if search
@@ -14,6 +10,9 @@ class History < ApplicationRecord
       result = history1 | history2 | history3
   	else
   	  result = History.all
-	end
+	  end
   end
+
+  enum status: { '発送待ち': 0, '発送済み': 1 }
+
 end

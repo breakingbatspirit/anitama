@@ -11,8 +11,22 @@
       <% end %>
 		    <%  @histories.each do |history| %>
 			<div class="history_container">
-			<div class="history-box1">
+
+
+
+        <!-- status変更ボタン -->
+        <div class="history-status">
+          <%= form_for history do |f| %>
+            <%= f.select :status, History.statuses.keys, class: 'btn btn-default btn-xs' %>
+            <%= f.submit "変更", class:"btn btn-default btn-xs" %>
+          <% end %>
+        </div>
+
+
+
+			<div class="history_box1">
 				<div class="show_time"><%= history.created_at %></div>
+
 						<div class="show_histories_name">
 							<h3><%= history.histories_name %>様</h3>
 
@@ -60,38 +74,3 @@
 	<div class="col-sm-3">
 	</div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -7,8 +7,9 @@ class HistoriesController < ApplicationController
     # @histories1 = @search
 
     # @search = History.ransack(params[:q])
-    @histories = @search.result
+    # @histories = @search.result
     # @histories_page = @histories.page(params[:page]).per(PER).reverse_order
+
   end
 
   def create
@@ -63,6 +64,15 @@ class HistoriesController < ApplicationController
   end
 
   def destroy
+  end
+
+  def update
+    history = History.find(params[:id])
+    if history.update(history_params)
+      redirect_to histories_path, notice: 'History was successfully updated.'
+    else
+      render 'index'
+    end
   end
 
   private

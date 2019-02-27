@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   end
 
   resources :cart_items,only:[:create,:destroy,:update]
-  resources :histories,only:[:index,:create,:destroy]
+  resources :histories,only:[:index,:create,:destroy,:update]
 
   resources :animes,only:[:create] do
     get :autocomplete_anime_anime_title, on: :collection
@@ -36,6 +36,7 @@ Rails.application.routes.draw do
   resources :artists,only:[:create,:update,:destroy] do
     get :autocomplete_artist_artist_name, on: :collection
   end
+
 
   root 'cds#top'
 

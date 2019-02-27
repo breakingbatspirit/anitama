@@ -6,7 +6,7 @@
   <div class="upper-cont-left">
 
     <div>
-        <%= attachment_image_tag @cd, :cd_image, :fill, 50, 50, class: "cd-image", fallback: "no_image.png"%>
+        <%= attachment_image_tag @cd, :cd_image, :fill, 50, 50, class: "cd-image", fallback: "/images/no_image.png"%>
     </div>
     <div class="cd-image-select">
       <%= f.attachment_field :cd_image, direct: true %>
@@ -50,7 +50,7 @@
     <div class="upper-cont-center-items form-inline">
       <div class="field">
         <%= f.label :price, "値段(税込み)", class:"label-bold" %><br>
-        <%= f.number_field :price, class:"form-control", placeholder:"", style:"width:60%" %>
+        <%= f.number_field :price, class: "form-control", placeholder:"", style:"width:60%" %>
         <span class="unit">円</span>
       </div>
     </div>

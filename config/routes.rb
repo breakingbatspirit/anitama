@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     put :delete, on: :member
     resources :addresses,only:[:create,:destroy]
   end
+
   get 'cds/result'
 
   resources :cds do
@@ -21,7 +22,6 @@ Rails.application.routes.draw do
   end
 
     get '/cart_items', to: 'cart_items#index',as: 'carts'
-
 
   resources :cart_items,only:[:create,:destroy,:update]
   resources :histories,only:[:index,:create,:destroy,:update]

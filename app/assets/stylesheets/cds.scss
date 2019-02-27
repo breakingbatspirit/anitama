@@ -70,7 +70,6 @@ p, span {
 .top-cd-images {
     width: calc(100% / 6);
     height: calc(100vw / 6);
-    float: left;
     padding: 5px;
     box-shadow: 0 0 4px rgba(0,0,0,1);
 }
@@ -346,7 +345,7 @@ p, span {
     padding:20px;
 }
 
-.cds_index_searh {
+.cds_index_search {
     width:300px;
     height:40px;
     margin: 0 auto;

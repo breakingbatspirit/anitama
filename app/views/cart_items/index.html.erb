@@ -22,7 +22,7 @@
 							<!--以下endまでが数量変更の記述  -->
 							<%= form_for(cart) do |f| %>
 								<%= f. select :unit_quantity, 1...10, :selected => cart.unit_quantity %>
-								<%= f.submit "更新" %>
+								<%= f.submit "数量更新" %>
 							<% end %>
 						</div>
 					</td>

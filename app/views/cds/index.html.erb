@@ -5,18 +5,19 @@
   <div class="container">
     <div class="row">
 	    <div class="col-xs-12">
-	    	<h1 class="title">商品一覧</h1>
+	    
 	    	<div class="col-sm-4">
+	    			<h1 class="title">商品一覧</h1>
 			</div>
-			<div class="col-sm-6">
+			<div class="col-sm-5">
 				<div class="search-index">
 					<%=form_tag cds_result_path, method: :get do %>
-		                <%=text_field_tag :search, params[:search], class: "search_index"%>
+		                <%=text_field_tag :search, params[:search],  class: "cds_index_searh"%>
 		                <%= submit_tag "検索" , class: "btn btn-default" %>
 	                <% end %>
 	            </div>
 			</div>
-			<div class="col-sm-2">
+			<div class="col-sm-3">
 			</div>
 
 
@@ -60,14 +61,13 @@
 			<div class="col-sm-4">
 			</div>
 			<div class="col-sm-6">
-				<%= paginate(@cd) %>
+		<div aligin="center"><%= paginate@cd,class: "paginate" %></div>
 			</div>
 			<div class="col-sm-2">
 			</div>
 	    </div>
 	 </div>
  </div>
-
 
 
 

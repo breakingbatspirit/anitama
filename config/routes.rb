@@ -22,7 +22,6 @@ Rails.application.routes.draw do
 
     get '/cart_items', to: 'cart_items#index',as: 'carts'
 
-
   resources :cart_items,only:[:create,:destroy,:update]
   resources :histories,only:[:index,:create,:destroy,:update]
 

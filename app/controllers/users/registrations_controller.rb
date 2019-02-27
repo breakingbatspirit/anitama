@@ -11,8 +11,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
       @address = Address.new(address_params)
       @address.user_id = current_user.id
-      puts "aaaaaaaaaaaaaaaaaaa"
-      puts params[:user][:address]
+      # puts "aaaaaaaaaaaaaaaaaaa"
+      # puts params[:user][:address]
       @address.address_name = params[:user][:name]
       @address.address_namekana = params[:user][:namekana]
       @address.address_phone = params[:user][:phone]

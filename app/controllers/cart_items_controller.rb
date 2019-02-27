@@ -1,7 +1,7 @@
 class CartItemsController < ApplicationController
   def index
     @user = current_user
-    # where=条件に合うすべてのコードを取得する-----
+    #current_user.cart_item=
     @carts= current_user.cart_items
   # カート内商品の合計を表示----↓
   	@cart = CartItem.new
@@ -66,7 +66,7 @@ class CartItemsController < ApplicationController
    def update
     @cart_item = CartItem.find(params[:id])
     @cart_item.update(cart_item_params)
-    redirect_to cart_items_path
+    redirect_to carts_path
    end
 
   def create
@@ -74,7 +74,7 @@ class CartItemsController < ApplicationController
   	user = current_user
   	cart.user_id = user.id
   	cart.save
-  	redirect_to carts_path(user.id)
+  	redirect_to carts_path
     @cart_item = CartItem.new(cart_item_params)
   end
 
@@ -82,7 +82,7 @@ class CartItemsController < ApplicationController
     # if controller.action_name == "index"
       cart = CartItem.find(params[:id])
       cart.destroy
-      redirect_to carts_path(current_user.id)
+      redirect_to carts_path
     # else
       # @carts = CartItem.all.destory
     # end

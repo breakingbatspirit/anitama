@@ -13,14 +13,17 @@ class UsersController < ApplicationController
 
 
   def show
+    @histories = History.page(params[:page]).per(3)
+    @favorite = current_user.favorite_cds.order(id: "desc")
     admin = User.find(1)
     if current_user.id != admin.id
       @user = current_user
     else
       @user = User.all.with_deleted.find(params[:id])
     end
-    @favorite = current_user.favorite_cds.order(id: "desc")
+
   end
+
 
   def edit
 #   Ransack用
@@ -71,7 +74,7 @@ class UsersController < ApplicationController
     def admin_validate!
       admin = User.find(1)
       if current_user != admin
-        redirect_to user_path(current_user)
+         redirect_to user_path(current_user)
       end
     end
 

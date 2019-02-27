@@ -1,5 +1,14 @@
 class HistoriesController < ApplicationController
+  PER = 3
   def index
+    # @history_cds = HistoryCd.all
+     @histories = History.search(params[:search])
+    # @search = History.ransack(params[:q])
+    # @histories1 = @search
+
+    # @search = History.ransack(params[:q])
+     #@histories = @search.result
+    # @histories_page = @histories.page(params[:page]).per(PER).reverse_order
   end
 
   def create
@@ -23,7 +32,7 @@ class HistoriesController < ApplicationController
       history.save
 
       # History.newしたカラムのuser_id に current_userの[:id] を入力
-      history.user_id = user.id
+    if history.user_id = user.id
 
       cd = Cd.all
 
@@ -31,6 +40,7 @@ class HistoriesController < ApplicationController
       @cart_items.each do |cart_item|
 
         history_cd = HistoryCd.new
+        puts history_cd.errors.full_messages
 
         # HistoryCd.new したカラムの history_id に Historyの[:id] を入力
         history_cd.history_id = history.id
@@ -42,11 +52,14 @@ class HistoriesController < ApplicationController
         history_cd.save
       end
 
-      # @cart_items.destroy
+      CartItem.delete_all
 
-    # else
-    #   render 'cart_items/show'
-    # end
+      redirect_to root_path
+
+    else
+      render 'cart_items/show'
+    end
+
   end
 
   def destroy

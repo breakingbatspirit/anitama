@@ -13,8 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
 
 * {
     margin: 0;
@@ -37,8 +39,14 @@
   clear: both;
 }
 
+.title {
+    font-size: 40px;
+    padding: 20px;
+}
+
 .center {
     margin: 0 auto;
+    text-align: center;
 }
 .actions{
   margin:20px auto;
@@ -48,4 +56,7 @@
 }
 .form_new_display{
   height:520px;
+}
+.table > tbody > tr > td{
+  vertical-align: middle;
 }

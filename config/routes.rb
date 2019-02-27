@@ -41,6 +41,7 @@ Rails.application.routes.draw do
   end
 
   root 'cds#top'
+
   get '/cart_items/purchase', to: 'cart_items#show',as: 'purchase'
 
   mount ActionCable.server => '/cable'

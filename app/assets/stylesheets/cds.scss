@@ -79,14 +79,12 @@ p, span {
     // margin-top: -10px;
 // }
 
-
 .top-lower-container {
     height : calc(100% / 6) ;
 }
 .top-cd-images {
     width: calc(100% / 6);
     height: calc(100vw / 6);
-    float: left;
     padding: 5px;
     box-shadow: 0 0 4px rgba(0,0,0,1);
 }
@@ -97,11 +95,6 @@ p, span {
 
 
 /* cds#newと#editに適用 */
-.cds-title {
-    font-size: 40px;
-    padding: 30px 60px;
-}
-
 .upper-cont-right {
     width: 36%;
     float: right;
@@ -186,7 +179,6 @@ p, span {
 }
 
 .price_result_display{
-    height: 80px;
     font-size: 25px;
 }
 .zaikonashi{
@@ -247,13 +239,15 @@ p, span {
     border: 1px solid #DCDCDC;
     border-radius:10px;
     display: flex;
+    padding:20px;
+
 }
 .new-list-title{
     float:left;
 }
 .new-list-content{
     float:left;
-    margin:7px 10px;
+    padding-right:20px;
 }
 .song h7{
     font-size:12px;
@@ -279,6 +273,16 @@ p, span {
     margin:10px 5px 10px 0;
 }
 .inventory{
+    background-color:yellow;
+    padding:6px;
+    width:32%;
+    border-radius:4px;
+    text-align:center;
+    border:1px solid #DDDDDD;
+    float:left;
+    margin:10px 2px 10px 0;
+}
+.inventory0{
     background-color:red;
     padding:6px;
     width:32%;
@@ -355,7 +359,21 @@ p, span {
 }
 
 .cds_index_searh {
-    width:250px;
-    height:30px;
-    margin: 20px 2px 30px 220px;
+    width:300px;
+    height:40px;
+    margin: 0 auto;
+}
+.paginate{
+    margin:0 auto;
+}
+
+.search-index{
+    margin-bottom:30px;
+}
+
+.price-btn{
+    margin-top:80px;
+}
+.table{
+    vertical-align:center
 }

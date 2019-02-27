@@ -1,6 +1,7 @@
 <%= render 'users/header3',user: @user %>
+<div class="c">
 <div class="container">
-   <div class="row">
+   <div class="row"> 
      <div class="col-sm-3">
            <%=form_for(@user) do |f| %>
       </div>
@@ -84,5 +85,6 @@
            <div class="col-sm-3"></div>
       </div>
     </div>
+</div>
 </div>
 <%= render 'users/footer' %>

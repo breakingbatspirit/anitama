@@ -1,4 +1,5 @@
 class HistoriesController < ApplicationController
+  before_action :admin_validate!, only: [:index]
   PER = 3
   def index
     if params[:search]
@@ -66,4 +67,13 @@ class HistoriesController < ApplicationController
     params.require(:history).permit(:status,:histories_name,:histories_namekana,:histories_postal,:histories_address,:histories_phone,:user_id)
   end
 
+<<<<<<< HEAD
+  def admin_validate!
+      admin = User.find(1)
+      if current_user != admin
+        redirect_to root_path
+      end
+    end
+
 end
+

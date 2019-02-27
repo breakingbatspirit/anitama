@@ -126,6 +126,7 @@ textarea {
 
 .title_new_display{
     margin-top: 50px;
+    // color: #FFFFFF;
 }
 
 .form_new_display{
@@ -265,4 +266,31 @@ text-align: center;
 }
 .search--history-index{
     padding-top: 40px;
+}
+.edit_image{
+    padding-left: 20px;
+}
+.back_image{
+   
+  background:image-url('dare7.jpg');
+  background-size:cover;
+
+}
+
+.a{
+background:image-url('dare10.jpg');
+ background-size:cover;
+ 
+// background-size: 2000px 2000px;
+}
+
+.b{
+background:image-url('dare2.jpg');
+ 
+// background-size: 2000px 2000px;
+}
+.c{
+background:image-url('dare.jpg');
+ background-size:cover;
+// background-size: 2000px 2000px;
 }

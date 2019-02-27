@@ -1,8 +1,9 @@
 <%= render 'users/header3',user: @user %>
+<div class="b">
 <div class="row">
   <div class="col-lg-4"></div>
       <div class="col-lg-4">
-            <h2 class="title_new_display">ログイン</h2>
+            <h1 class="title_new_display">ログイン</h1>
 
             <div class="form_new_display">
               <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -28,6 +29,7 @@
            </div>
       <div class="col-lg-4"></div>
     </div>
+</div>
 </div>
 <%= render 'users/footer' %>
 

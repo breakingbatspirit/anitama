@@ -1,4 +1,5 @@
 class CdsController < ApplicationController
+  before_action :admin_validate!, only: [:index,:new,:edit]
   PER = 3
   def new
     @cd = Cd.new
@@ -112,6 +113,12 @@ def result
       # ストロングパラメーターの _destroy も必要（入れないと削除できない）
       # 子要素は親要素のストロングパラメーターに含めて記述できる
       # ストロングパラメーターのcd_imageには_id不要
+    end
+    def admin_validate!
+      admin = User.find(1)
+      if current_user != admin
+        redirect_to root_path
+      end
     end
 
 end

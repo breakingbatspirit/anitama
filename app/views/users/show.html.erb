@@ -48,14 +48,14 @@
 			<div class="history_container">
 			<div class="history-box1">
         <h4 class="history_status">
-					<%# if history.status == 1 %>
-<!-- 						<button class="label label-default label-warning">
-	          	<%#= history.status %>
-	          </button> -->
-					<%# else %>
-						<button class="label label-default label-success">
+					<%# if history.status == 0 %>
+						<button class="label label-default label-warning">
 	          	<%= history.status %>
-						</button>
+	          </button>
+					<%# else %>
+<!-- 						<button class="label label-default label-success">
+	          	<%#= history.status %>
+						</button> -->
 					<%# end %>
        	</h4>
 				<div class="show_time">

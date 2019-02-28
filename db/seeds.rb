@@ -82,7 +82,7 @@ Song.create!(
 # Label.create!(label_name: "レーベル#{no}")
 
 Cd.create!(
-    album:"コナンコレクション#{no}", anime_id: 1,
+    album:"コナンコレクション#{no+1}", anime_id: 1,
     price: 1000,
     inventory: 40,
     label_id: 1,
@@ -93,10 +93,10 @@ Disc.create!(
     cd_id: 1
 )
 Song.create!(
-    disc_id: 1,
-    order: "#{no}",
-    title: "コナンソングス#{no}",
-    artist_id: 1
+    disc_id: 3,
+    order: "#{no+1}",
+    title: "コナンソングス#{no+1}",
+    artist_id: 2
 )
 
 # 5.times do |no|

@@ -2,8 +2,8 @@
 
 
 <div class="back_image">
-<div class="container">
-	<h1 class="title">商品詳細</h1>
+<div class="container show-container">
+	<h1 class="title white-text">商品詳細</h1>
 	<div class="row" style="margin-top:30px;">
 		<!-- ３分割の左側 -->
 		<div class="col-lg-4">
@@ -33,7 +33,7 @@
 
 				<% if @user == current_user && user_signed_in? && @user.favorites.count > 0 %>
 
-					<h3>お気に入り一覧</h3>
+					<h3 class="white-text">お気に入り一覧</h3>
 					<div class="new-list">
 							<% @favorite.each do |f| %>
 								<div class="new-list-content">
@@ -46,7 +46,7 @@
 				<% else %>
 				<!-- 最新のCD一覧 -->
 					<div class="new-list-title">
-						<h3>最新情報</h3>
+						<h3 class="white-text">最新情報</h3>
 					</div>
 						<div class="new-list">
 								<% @cdsnew.each do |cd| %>
@@ -63,7 +63,7 @@
 		<!-- ３分割の中央 -->
 		<div class="col-lg-4">
 				<blockquote class="album-title" >
-					<h3><%= @cd.album %>
+					<h3 class="white-text"><%= @cd.album %>
 
 					<% if @user == current_user && user_signed_in? %>
 					<% if @cd.favorited_by?(current_user) %>
@@ -79,7 +79,7 @@
 
 					</h3>
 				</blockquote>
-				<div class="cd-content">
+				<div class="cd-content white-text">
 					<div class="cd-text-list">
 						<div class="cd-text">
 							<h5><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span><%= @cd.anime.anime_title %></h5>

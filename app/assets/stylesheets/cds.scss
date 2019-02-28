@@ -21,15 +21,14 @@ p, span {
     // height: -webkit-calc(100% - 100px);
     /*height: calc(100% - 100px);*/
     // height: calc(100vh - 100px - (100vw / 6) - 60px);
-    // background-image: url("/images/gogogo.jpeg");
-    background:image-url('dare32.jpg');
+    background-image: url("/images/gogogo.jpeg");
     background-position: center;
     border-bottom: 2px solid #ccc;
 }
 .top-upper-image {
     width: 50%;
     height: 470px;
-    background:image-url('dare33.jpg');
+    background:image-url('back02.jpg');
     // background-image:url("/images/back02.jpg");
     background-size: cover;
     margin: 0 auto;
@@ -160,11 +159,12 @@ p, span {
 .image_result_display{
     width: 200px;
     height: 150px;
+    padding-left: 15px;
 }
 
 .album_result_display{
     height: 80px;
-    width: 450px;
+    width: 430px;
     font-size: 25px;
 }
 
@@ -366,4 +366,17 @@ p, span {
 }
 .table{
     vertical-align:center
+}
+
+.d{
+background:image-url('dare24.jpg');
+ background-size:cover;
+ // background-position: 80% 0%;
+// background-position: right 10px;
+// background-size: 2000px 2000px;
+}
+.table_result{
+    background-color:rgba(0, 0, 0, 0.06);
+    border-radius: 10px 10px 10px 10px;
+    width: 790px;
 }

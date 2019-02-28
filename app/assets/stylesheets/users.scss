@@ -271,25 +271,29 @@ text-align: center;
     padding-left: 20px;
 }
 .back_image{
-  background:image-url('/images/back1.png');
-  background-size:cover;
-  padding:30px 0;
+
+  background:image-url('dare7.jpg');
+  // background-size:cover;
+
 }
 
 .a{
-background:image-url('/images/dare10.jpg');
- background-size:cover;
- 
-// background-size: 2000px 2000px;
+ background:image-url('shiro5.gif');
 }
 
+
+ 
 .b{
 background:image-url('/images/dare2.jpg');
  
-// background-size: 2000px 2000px;
 }
 .c{
-background:image-url('/images/dare.jpg');
+background:image-url('dare02.jpeg');
  background-size:cover;
-// background-size: 2000px 2000px;
+
+}
+
+.search_index{
+    width: 300px;
+    height: 40px;
 }

@@ -76,6 +76,7 @@ class CartItemsController < ApplicationController
     end
 
 
+
     # user.cart_items.each do |cart_item|
     #   cart_item.cd.inventory - cart_item.unit_quantity
     #   cart_item.cd.save
@@ -116,9 +117,10 @@ class CartItemsController < ApplicationController
 
 
 
- private
- def cart_item_params
- 	params.require(:cart_item).permit(:user_id,:cd_id,:unit_quantity)
- end
+  private
+
+  def cart_item_params
+    params.require(:cart_item).permit(:user_id,:cd_id,:unit_quantity)
+  end
 
 end

@@ -22,7 +22,7 @@
 							<!--以下endまでが数量変更の記述  -->
 							<%= form_for(cart) do |f| %>
 								<%= f. select :unit_quantity, 1...10, :selected => cart.unit_quantity %>
-								<%= f.submit "数量更新" %>
+								<%= f.submit "数量更新", class:"btn btn-xs btn-warning" %>
 							<% end %>
 						</div>
 					</td>
@@ -48,7 +48,7 @@
 				<h4>合計金額</h4>
 				<%= @total_price %>円
 				<br>
-                <%= link_to "お会計に進む", purchase_path, class: "btn btn-default btn-xs" %>
+                <%= link_to "お会計に進む", purchase_path, class: "btn btn-primary btn-sm" %>
 
 			</div>
 

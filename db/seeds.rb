@@ -24,7 +24,7 @@ Label.create!(label_name: "レーベル#{no}")
 end
 
 Artist.create!(
-    artist_name: "SEKAI NO HAJIMARI",
+    artist_name: "倉木麻衣",
     song_id: 1
 )
 
@@ -40,12 +40,42 @@ Disc.create!(
     disc_number: 1,
     cd_id: 1
 )
+Disc.create!(
+    disc_number: 2,
+    cd_id: 1
+)
 Song.create!(
     disc_id: 1,
-    order: "#{no}",
-    title: "コナンソングス#{no}",
+    order: 1,
+    title: 'Ｓｅｃｒｅｔ　ｏｆ　ｍｙ　ｈｅａｒｔ',
     artist_id: 1
 )
+Song.create!(
+    disc_id: 1,
+    order: 2,
+    title: 'Ｓｔａｒｔ　ｉｎ　ｍｙ　ｌｉｆｅ',
+    artist_id: 1
+)
+Song.create!(
+    disc_id: 1,
+    order: 3,
+    title: 'ａｌｗａｙｓ',
+    artist_id: 1
+)
+Song.create!(
+    disc_id: 2,
+    order: 1,
+    title: '渡月橋　～君　想ふ～',
+    artist_id: 1
+)
+Song.create!(
+    disc_id: 2,
+    order: 1,
+    title: 'ＹＥＳＴＥＲＤＡＹ　ＬＯＶＥ',
+    artist_id: 1
+)
+
+
 
 10.times do |no|
 # Anime.create!(anime_title:"コナン#{no}")

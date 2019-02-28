@@ -284,17 +284,20 @@ text-align: center;
 }
 
 .a{
- background:image-url('shiro5.gif');
+background:image-url('/images/dare10.jpg');
+ background-size:cover;
+
+ background:image-url('/images/shiro5.gif');
+
 }
 
 
- 
 .b{
 background:image-url('/images/dare2.jpg');
- 
+
 }
 .c{
-background:image-url('dare02.jpeg');
+background:image-url('/imagesdare02.jpeg');
  background-size:cover;
 
 }

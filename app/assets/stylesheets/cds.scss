@@ -67,6 +67,7 @@ p, span {
 
 .top-lower-container {
     height : calc(100% / 6) ;
+    width: 100%;
 }
 .top-cd-images {
     width: calc(100% / 6 - 4px);
@@ -259,6 +260,7 @@ p, span {
     float:left;
     border:1px solid #DDDDDD;
     margin:10px 5px 10px 0;
+    background-color:white;
 }
 .inventory{
     background-color:yellow;
@@ -302,9 +304,9 @@ p, span {
     padding-top: 10px;
 }
 .chats{
-    border:2px solid #DDDDDD;
+    border:5px solid #DDDDDD;
     padding-left:9px;
-    border-radius:5px;
+    border-radius:3px;
 }
 
 /*ここからカート一覧ページ*/
@@ -364,4 +366,11 @@ p, span {
 }
 .table{
     vertical-align:center
+}
+.show-container{
+    background-color:rgba(0, 0, 0, 0.6);
+    border-radius:10px;
+}
+.white-text{
+    color:white;
 }

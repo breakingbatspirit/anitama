@@ -187,8 +187,11 @@ text-align: center;
 
 .favorite-list{
     width:100%;
-    height:250px;
+    height:200px;
     overflow: scroll;
+    display: flex;
+}
+.favorite-list-content{
 }
 
 .user-index-title{

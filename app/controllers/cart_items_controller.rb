@@ -63,10 +63,37 @@ class CartItemsController < ApplicationController
   end
 
    def update
+    user = current_user
     @cart_item = CartItem.find(params[:id])
-    @cart_item.update(cart_item_params)
-    redirect_to cart_items_path
-   end
+
+    user.cart_items.each do |cart_item|
+      if cart_item.cd.inventory - cart_item.unit_quantity < 0
+        @cart_item.update(cart_item_params)
+      else
+        flash[:notice] = "在庫がありません"
+        render 'index'
+      end
+    end
+
+
+    # user.cart_items.each do |cart_item|
+    #   cart_item.cd.inventory - cart_item.unit_quantity
+    #   cart_item.cd.save
+    # end
+
+    # if @cart_item.update(cart_item_params)
+    #   redirect_to cart_items_path
+    # else
+    #   render 'index'
+    # end
+
+
+
+    # @cart_item.update(cart_item_params)
+    # redirect_to cart_items_path
+
+
+  end
 
   def create
   	cart = CartItem.new(cart_item_params)

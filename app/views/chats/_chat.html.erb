@@ -1,6 +1,6 @@
 <div class="chat-list">
 	<li class="list-group-item" style="background-color:whitesmoke;">
-	  <p><%= attachment_image_tag chat.user, :image, :fill,30,30, format: 'jpeg', size: "30x30", fallback: "/images/no-image.jpg" %>   <%= chat.user.nickname %></p>
+	  <p><%= attachment_image_tag chat.user, :image, :fill,30,30, format: 'jpeg', size: "30x30", fallback: "/images/no-image.jpeg" %>   <%= chat.user.nickname %></p>
 	  <h7><%= chat.body %>
 	  	<% if chat.user == current_user %>
 			<div class="chat-destroy">

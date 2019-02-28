@@ -17,10 +17,10 @@ p, span {
 }
 .top-upper-container {
     width: 100%;
-    height:470px;
+    height:440px;
     // height: -webkit-calc(100% - 100px);
     /*height: calc(100% - 100px);*/
-    // height: calc(100vh - 100px - (100vw / 6) - 60px);
+    // height: calc(100vh - 100px - (100vw / 6) - 60px - 55px);
     background-image: url("/images/gogogo.jpeg");
     background-position: center;
     border-bottom: 2px solid #ccc;
@@ -29,7 +29,6 @@ p, span {
     width: 50%;
     height: 470px;
     background:image-url('back02.jpg');
-    // background-image:url("/images/back02.jpg");
     background-size: cover;
     margin: 0 auto;
 }
@@ -68,6 +67,7 @@ p, span {
 
 .top-lower-container {
     height : calc(100% / 6) ;
+    width: 100%;
 }
 .top-cd-images {
     width: calc(100% / 6);
@@ -261,6 +261,7 @@ p, span {
     float:left;
     border:1px solid #DDDDDD;
     margin:10px 5px 10px 0;
+    background-color:white;
 }
 .inventory{
     background-color:yellow;
@@ -304,9 +305,9 @@ p, span {
     padding-top: 10px;
 }
 .chats{
-    border:2px solid #DDDDDD;
+    border:5px solid #DDDDDD;
     padding-left:9px;
-    border-radius:5px;
+    border-radius:3px;
 }
 
 /*ここからカート一覧ページ*/
@@ -343,9 +344,10 @@ p, span {
 .cart-item-total{
     width:100%;
     height:300px;
-    background-color:yellow;
+    background-color:#EEE;
     border-radius:10px;
     padding:20px;
+    border: 1px solid #CCC;
 }
 
 .cds_index_search {
@@ -368,6 +370,7 @@ p, span {
     vertical-align:center
 }
 
+
 .d{
 background:image-url('dare24.jpg');
  background-size:cover;
@@ -379,4 +382,10 @@ background:image-url('dare24.jpg');
     background-color:rgba(0, 0, 0, 0.06);
     border-radius: 10px 10px 10px 10px;
     width: 790px;
+.show-container{
+    background-color:rgba(0, 0, 0, 0.6);
+    border-radius:10px;
+}
+.white-text{
+    color:white;
 }

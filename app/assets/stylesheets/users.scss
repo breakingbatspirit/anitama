@@ -78,12 +78,10 @@ footer {
   text-shadow: 0 0 15px #FF6694;
   font-size: 30px;
   font-family: 'Hiragino Maru Gothic Pro','ヒラギノ丸ゴ Pro W4', sans-serif;
+  text-align: center;
 }
 
-.link {
-    float: right;
-    padding: 20px 40px;
-}
+
  .edit_btn{
  margin:10px 10px 0 60px;
  }
@@ -267,6 +265,14 @@ text-align: center;
 .search--history-index{
     padding-top: 40px;
 }
+
+
+.user-header2 {
+    float:left;
+    padding:35px 0 20px 20px;
+    font-size:25px;
+}
+
 .edit_image{
     padding-left: 20px;
 }

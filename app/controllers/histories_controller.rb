@@ -42,7 +42,6 @@ class HistoriesController < ApplicationController
     end
 
     CartItem.delete_all
-
     redirect_to user_path(user.id)
 
     # else

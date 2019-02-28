@@ -23,6 +23,7 @@ class ApplicationController < ActionController::Base
 	end
 
   def configure_permitted_parameters
+    # deviseのresourceオブジェクトの中に保存するカラムを指定
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name,:namekana,:nickname,:postal,:address,:phone,:email])
   end
   def after_sign_out_path_for(resource)

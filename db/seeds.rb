@@ -40,12 +40,12 @@ Cd.create!(
 )
 Disc.create!(
     disc_number: 1,
-    cd_id: "#{no}"
+    cd_id: 1
 )
 Song.create!(
-    disc_id: "#{no}",
+    disc_id: 1,
     order: "#{no}",
-    title: "コナンソングス#{no}"
+    title: "コナンソングス#{no}",
     artist_id: 1
 )
 
@@ -57,7 +57,7 @@ end
 
 User.create!(
    email: "1@1",
-   password: '123456',
+   password: '111111',
    name: "管理者",
    namekana: "カンリシャ",
    nickname: "アドミン★魂",
@@ -76,7 +76,7 @@ Address.create!(
 
 User.create!(
    email: "2@2",
-   password: '234567',
+   password: '222222',
    name: "田中マルクス闘莉王",
    namekana: "タナカマルクストゥーリオ",
    nickname: "トゥーリオゥ",
@@ -95,7 +95,7 @@ Address.create!(
 
 User.create!(
    email: "3@3",
-   password: '345678',
+   password: '333333',
    name: "田中マルクス闘莉王",
    namekana: "タナカマルクストゥーリオ",
    nickname: "トゥーリオゥ",

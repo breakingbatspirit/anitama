@@ -61,7 +61,7 @@
 			<td class="phone_index_display"><%= user.phone %></td>
 			<td class="email_index_diespla"><%= user.email %></td>
 			<td class="edit_index_display"><%= link_to "編集",edit_user_path(user.id), class: "btn btn-success  btn-xs" %></td>
-			<td class="delete_index_display"><%= link_to "削除", delete_user_path(user, params:  {user: {deleted_at: Time.current} }),method: :put, class: "btn btn-danger btn-xs" %></td>
+			<td class="delete_index_display"><%= link_to "削除", delete_user_path(user, params:  {user: {deleted_at: Time.current} }),method: :put, class: "btn btn-danger btn-xs","data-confirm" => "ええてええて。はよ消したれ"%></td>
 		</tr>
 	</tbody>
 		<% end %>

@@ -10,10 +10,10 @@
       <%= image_tag "logout.png", method: :delete ,:size=> "50x50" %>
       <% end %>
     <%= link_to carts_path ,media:"_blank" do %>
-    <%= image_tag "/images/cart.jpeg", :size=> "50x50"%>
+    <%= image_tag "/images/cart2.png", :size=> "50x50"%>
     </div>
     <% end %>
-     <%=form_tag cds_path, method: :get do %>
+     <%=form_tag cds_result_path, method: :get do %>
        <%=text_field_tag :search, params[:search], class: "header4_search"%>
        <%=submit_tag "検索",class: "btn btn-banger"%>
     <% end %>

@@ -1,12 +1,12 @@
 <footer>
   <% if user_signed_in? %>
     <% if current_user.id == 1 %>
-     <div class="text">©️2019 Breaking Bat Spirit, Inc</div>
+     <div class="text">2019 Breaking Bat Spirit, Inc</div>
        <div class="link">
-           <%= link_to "管理者ページ" ,histories_path %>
+           <%=link_to "管理者ページ" ,cds_path,class: "admin-login" %>
        </div>
     <% end %>
   <% else %>
-     <div class="text">©️2019 Breaking Bat Spirit, Inc</div>
+     <div class="text">2019 Breaking Bat Spirit, Inc</div>
   <% end %>
 </footer>

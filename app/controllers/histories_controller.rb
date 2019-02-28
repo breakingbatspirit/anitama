@@ -1,4 +1,5 @@
 class HistoriesController < ApplicationController
+  before_action :admin_validate!, only: [:index]
   PER = 3
   def index
     if params[:search]
@@ -34,8 +35,14 @@ class HistoriesController < ApplicationController
       history_cd.save
     end
 
+    user.cart_items.each do |cart_item|
+      cart_item.cd.inventory - cart_item.unit_quantity
+      cart_item.cd.save
+    end
+
     CartItem.delete_all
-    redirect_to root_path
+
+    redirect_to user_path
 
     # else
       # render 'cart_items/show'
@@ -59,5 +66,11 @@ class HistoriesController < ApplicationController
   def history_params
     params.require(:history).permit(:status,:histories_name,:histories_namekana,:histories_postal,:histories_address,:histories_phone,:user_id)
   end
+  def admin_validate!
+      admin = User.find(1)
+      if current_user != admin
+        redirect_to root_path
+      end
+    end
 
 end

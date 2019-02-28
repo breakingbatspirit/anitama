@@ -1,4 +1,5 @@
 <%= render 'users/header3',user: @user %>
+<div class="c">
 <div class="container">
    <div class="row">
      <div class="col-sm-3">
@@ -63,10 +64,7 @@
 
             <div class="form-group">
               <div class="field">
-                <% if @minimum_password_length %>
-                <em>(<%= @minimum_password_length %> characters minimum)</em>
-                <% end %><br />
-                <%= f.password_field :password, autocomplete: "new-password",placeholder: "パスワード", class: "form-control" %>
+                <%= f.password_field :password, autocomplete: "new-password",placeholder: "パスワード ※#{@minimum_password_length}文字以上", class: "form-control" %>
               </div>
             </div>
 
@@ -84,5 +82,6 @@
            <div class="col-sm-3"></div>
       </div>
     </div>
+</div>
 </div>
 <%= render 'users/footer' %>

@@ -9,7 +9,6 @@ class UsersController < ApplicationController
     # binding.pry
   end
 
-
   def show
     @histories = History.page(params[:page]).per(3)
     @favorite = current_user.favorite_cds.order(id: "desc")

@@ -28,7 +28,7 @@ p, span {
 .top-upper-image {
     width: 50%;
     height: 440px;
-    background:image-url('back02.jpg');
+    background:image-url('/images/back02.jpg');
     background-size: cover;
     margin: 0 auto;
 }
@@ -378,7 +378,7 @@ p, span {
 // background-size: 2000px 2000px;
 // }
 .table_result{
-    background-color:rgba(0, 0, 0, 0.06);
+    background-color:rgba(250, 250, 250, 0.3);
     border-radius: 10px 10px 10px 10px;
     width: 790px;
 }

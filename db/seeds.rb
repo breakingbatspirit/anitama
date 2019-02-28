@@ -22,17 +22,32 @@ Label.create!(label_name: "レーベル#{no}")
 
 end
 
+Artist.create!(
+    artist_name: "SEKAI NO HAJIMARI",
+    song_id: 1
+)
 
 
 10.times do |no|
 # Anime.create!(anime_title:"コナン#{no}")
 # Label.create!(label_name: "レーベル#{no}")
 
-Cd.create!(album:"コナンコレクション#{no}", anime_id: 1,
+Cd.create!(
+    album:"コナンコレクション#{no}", anime_id: 1,
     price: 1000,
     inventory: 40,
     label_id: 1,
-    genre_id: 1,
+    genre_id: 1
+)
+Disc.create!(
+    disc_number: 1,
+    cd_id: "#{no}"
+)
+Song.create!(
+    disc_id: "#{no}",
+    order: "#{no}",
+    title: "コナンソングス#{no}"
+    artist_id: 1
 )
 
 # 5.times do |no|
@@ -42,22 +57,64 @@ end
 # 5.times do |no|
 
 User.create!(
-   email: "#{no}@test.com",
+   email: "1@1",
    password: '123456',
-   name: " テスト太郎#{no}",
-   namekana: "aaaa",
-   nickname: "djeie",
-   address: "deijeff",
-   phone: "080763223",
-   postal: "神奈川県"
+   name: "管理者",
+   namekana: "カンリシャ",
+   nickname: "アドミン★魂",
+   address: "東京都渋谷区管理者1-19-11 PSビル24階",
+   phone: "09087654321",
+   postal: "0123456"
 )
 Address.create!(
-   address_name: " テスト太郎#{no}",
-   address_namekana: "Taroooo#{no}",
-   address_address: "deijeff#{no}",
-   address_phone: "080763223",
-   address_postal: "神奈川県"
+   address_name: "管理者",
+   address_namekana: "カンリシャ",
+   address_address: "東京都渋谷区管理者1-19-11 PSビル24階",
+   address_phone: "09087654321",
+   address_postal: "0123456",
+   user_id: 1
 )
+
+User.create!(
+   email: "2@2",
+   password: '234567',
+   name: "田中マルクス闘莉王",
+   namekana: "タナカマルクストゥーリオ",
+   nickname: "トゥーリオゥ",
+   address: "東京都渋谷区田中2-5-9 ザ・プラウド田中2405号室",
+   phone: "08012345678",
+   postal: "1234567"
+)
+Address.create!(
+   address_name: "田中マルクス闘莉王",
+   address_namekana: "タナカマルクストゥーリオ",
+   address_address: "東京都渋谷区田中2-5-9 ザ・プラウド田中2405号室",
+   address_phone: "08012345678",
+   address_postal: "1234567",
+   user_id: 2
+)
+
+User.create!(
+   email: "3@3",
+   password: '345678',
+   name: "田中マルクス闘莉王",
+   namekana: "タナカマルクストゥーリオ",
+   nickname: "トゥーリオゥ",
+   address: "東京都渋谷区田中2-5-9 ザ・プラウド田中2405号室",
+   phone: "08012345678",
+   postal: "1234567"
+)
+Address.create!(
+   address_name: "田中マルクス闘莉王",
+   address_namekana: "タナカマルクストゥーリオ",
+   address_address: "東京都渋谷区田中2-5-9 ザ・プラウド田中2405号室",
+   address_phone: "08012345678",
+   address_postal: "1234567",
+   user_id: 3
+)
+
+
+
 # end
 
 

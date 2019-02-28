@@ -1,12 +1,13 @@
 <%= render 'users/header4',user: @user %>
+<div class="d">
 <div class="container">
 
 	<div class="row">
-		<div class="col-sm-1"></div>
+		<div class="col-sm-0"></div>
 
-		<div class="col-sm-10">
+		<div class="col-sm-8">
 		<h1 class="title">検索結果一覧</h1>
-			<table class="table">
+			<table class="table_result">
 				<thead>
 				 <% @cds.each do |cd| %>
 				   <tr>
@@ -24,19 +25,11 @@
 						</td>
 					</tr>
 				</thead>
-					<!-- <tbody>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr> -->
 				<% end %>
-					</tbody>
 			</table>
 		</div>
-		<div class="col-sm-1"></div>
+		<div class="col-sm-4"></div>
+	</div>
 
 	</div>
 </div>
@@ -44,6 +37,8 @@
 
 
 <div align="center"><%= paginate @cds, class: "paginate" %></div>
+</div>
 
 <%= render 'users/footer' ,user: @user %>
+
 

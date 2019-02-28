@@ -66,15 +66,18 @@ class CartItemsController < ApplicationController
     user = current_user
     @cart_item = CartItem.find(params[:id])
 
-    user.cart_items.each do |cart_item|
-      if cart_item.cd.inventory - cart_item.unit_quantity >= 0
-        @cart_item.update(cart_item_params)
-        redirect_to cart_items_path
-      else
-        flash[:notice] = "在庫がありません"
-        render 'index'
-      end
-    end
+    @cart_item.update(cart_item_params)
+    redirect_to cart_items_path
+
+    # user.cart_items.each do |cart_item|
+      # if cart_item.cd.inventory - cart_item.unit_quantity >= 0
+        # @cart_item.update(cart_item_params)
+        # redirect_to cart_items_path
+      # else
+        # flash[:notice] = "在庫がありません"
+        # render 'index'
+      # end
+    # end
 
 
 

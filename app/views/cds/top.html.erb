@@ -24,7 +24,7 @@
         <% end %>
       </div>
       <%=form_tag cds_result_path, method: :get do %>
-            <%=text_field_tag :search, params[:search],placeholder: "　　商品名・曲名・アニメ名で検索できます！", class: "top_searh"%>
+            <%=text_field_tag :search, params[:search],placeholder: "　　商品名・曲名・アニメ名で検索できます！", class: "top_search"%>
             <%= submit_tag "検索" , class: "btn btn-default" %>
       <% end %>
   </div>

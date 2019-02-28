@@ -4,9 +4,9 @@ class HistoriesController < ApplicationController
   def index
     if params[:search]
       @histories  = History.search(params[:search])
-      @histories = Kaminari.paginate_array(@histories).page(params[:page]).per(PER)
+      @histories = Kaminari.paginate_array(@histories).page(params[:page]).per(PER).reverse_order
     else
-      @histories = History.page(params[:page]).per(PER)
+      @histories = History.page(params[:page]).per(PER).reverse_order
     end
   end
 

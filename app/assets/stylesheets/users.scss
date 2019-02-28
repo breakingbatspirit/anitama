@@ -249,7 +249,7 @@ text-align: center;
     padding-bottom: 10px;
 }
 .show_quantity{
-    padding-left: 33%;
+    padding-left: 19%;
     font-size: 20px
 }
 .show_price{
@@ -258,9 +258,10 @@ text-align: center;
 }
 .show_total_quantity{
     font-size: 20px;
+    text-align: right; 
 }
 .show_total_price{
-    padding-left: 20%;
+    padding-left: 17%;
     font-size: 20px;
     padding-bottom: 20px;
 }

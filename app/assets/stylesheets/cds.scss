@@ -109,7 +109,7 @@ p, span {
 .cd-image {
     width: 100%;
     box-shadow: 3px 3px 4px #999;
-    margin-bottom: 20px
+    margin-bottom: 20px;
 }
 .cd-image-select {
     width: 80%;
@@ -367,17 +367,16 @@ p, span {
     margin-top:80px;
 }
 .table{
-    vertical-align:center
+    vertical-align:center;
 }
 
 
-.d{
-background:image-url('dare24.jpg');
- background-size:cover;
- // background-position: 80% 0%;
+// .background:image-url('dare24.jpg');
+//  background-size:cover;
+//  background-position: 80% 0%;
 // background-position: right 10px;
 // background-size: 2000px 2000px;
-}
+// }
 .table_result{
     background-color:rgba(250, 250, 250, 0.3);
     border-radius: 10px 10px 10px 10px;

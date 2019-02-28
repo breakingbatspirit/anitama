@@ -16,7 +16,7 @@
 
 
 			 <%= link_to "編集",edit_user_path(@user.id), class: "btn btn-success edit_btn" %>
-		     <%= link_to "退会", delete_user_path(@user, params:  {user: {deleted_at: Time.current} }),method: :put, class: "btn btn-danger delete_btn" %>
+		     <%= link_to "退会", delete_user_path(@user, params:  {user: {deleted_at: Time.current} }),method: :put, class: "btn btn-danger delete_btn", "data-confirm" => "本当にご主人様は退会しちゃうんですか??（；＿；）" %>
 
 
 	</div>

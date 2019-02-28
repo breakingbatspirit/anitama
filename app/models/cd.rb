@@ -26,6 +26,7 @@ class Cd < ApplicationRecord
     # validates :album, presence: true
     # validates :price, presence: true
     # validates :inventory, presence: true
+    validates :inventory, presence: true, numericality: {greater_than_or_equal_to: 0, less_than: 1000}
 
     def self.search(search)
      if search

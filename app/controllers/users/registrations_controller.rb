@@ -20,6 +20,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       @address.address_address = params[:user][:address]
       binding.pry
     if @address.save
+      binding.pry
       redirect_to root_path
     else
       binding.pry

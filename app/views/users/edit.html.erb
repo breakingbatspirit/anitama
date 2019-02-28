@@ -3,7 +3,7 @@
   <h1 class="title_display">ユーザー情報の編集</h1>
    <div class="row"> 
       <div class="col-sm-4">
-          <div align="center"> <%= attachment_image_tag @user, :image, :fill,200,200, format: 'jpeg', size: "200x200", fallback: "/images/no-image.jpg" %>
+          <div align="center"> <%= attachment_image_tag @user, :image, :fill,200,200, format: 'jpeg', size: "200x200", fallback: "/images/no-image.jpeg" %>
           </div>
            <%=form_for(@user) do |f| %>
               <div class="field">

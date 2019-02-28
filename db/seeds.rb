@@ -17,6 +17,7 @@ Anime.create!(anime_title:"攻殻機動隊 STAND ALONE COMPLEX")
 Anime.create!(anime_title:"この素晴らしい世界に祝福を！2")
 Anime.create!(anime_title:"新世紀エヴァンゲリオン")
 
+Label.create!(label_name:"ノーザンミュージック")
 10.times do |no|
 Label.create!(label_name: "レーベル#{no}")
 
@@ -25,6 +26,25 @@ end
 Artist.create!(
     artist_name: "SEKAI NO HAJIMARI",
     song_id: 1
+)
+
+Cd.create!(
+  album:"倉木麻衣×名探偵コナン COLLABORATION BEST 21 -真実はいつも歌にある!- (通常盤)",
+  anime_id: 1,
+  price: 2445,
+  inventory: 20,
+  label_id: 1,
+  genre_id: 5
+)
+Disc.create!(
+    disc_number: 1,
+    cd_id: 1
+)
+Song.create!(
+    disc_id: 1,
+    order: "#{no}",
+    title: "コナンソングス#{no}",
+    artist_id: 1
 )
 
 10.times do |no|

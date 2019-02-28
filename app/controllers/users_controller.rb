@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @histories = History.page(params[:page]).per(3)
+    @histories = current_user.histories.page(params[:page]).per(3)
     @favorite = current_user.favorite_cds.order(id: "desc")
     admin = User.find(1)
     if current_user.id != admin.id

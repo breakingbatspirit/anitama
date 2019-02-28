@@ -28,10 +28,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
         @address.address_address = resource.address
 
       @address.save!
-      # redirect_to root_path
-
-    else
-      render 'new'
     end
 
   end
@@ -48,7 +44,7 @@ end
 
 
       # 別の記述（場合によってはエラー）
-      # current_userはuserが作られた同じcreate actionの中では使えない？
+      # current_userはuserが作られた同じcreate actionの中では使えない
       # current_user.id
       # @address.address_name = params[:user][:name]
       # @address.address_namekana = params[:user][:namekana]

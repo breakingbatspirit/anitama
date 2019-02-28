@@ -78,12 +78,10 @@ footer {
   text-shadow: 0 0 15px #FF6694;
   font-size: 30px;
   font-family: 'Hiragino Maru Gothic Pro','ヒラギノ丸ゴ Pro W4', sans-serif;
+  text-align: center;
 }
 
-.link {
-    float: right;
-    padding: 20px 40px;
-}
+
  .edit_btn{
  margin:10px 10px 0 60px;
  }
@@ -267,29 +265,53 @@ text-align: center;
 .search--history-index{
     padding-top: 40px;
 }
+
+
+.user-header2 {
+    float:left;
+    padding:35px 0 20px 20px;
+    font-size:25px;
+}
+
 .edit_image{
     padding-left: 20px;
 }
 .back_image{
-  background:image-url('/images/back1.png');
-  background-size:cover;
-  padding:30px 0;
+
+  background:image-url('dare7.jpg');
+  // background-size:cover;
+
 }
 
 .a{
+<<<<<<< HEAD
 background:image-url('/images/dare10.jpg');
  background-size:cover;
 
 // background-size: 2000px 2000px;
+=======
+ background:image-url('shiro5.gif');
+>>>>>>> a2b0366e79b90afe0cb249037bb3f7f11def54ad
 }
 
+
+ 
 .b{
 background:image-url('/images/dare2.jpg');
+<<<<<<< HEAD
 
 // background-size: 2000px 2000px;
+=======
+ 
+>>>>>>> a2b0366e79b90afe0cb249037bb3f7f11def54ad
 }
 .c{
-background:image-url('/images/dare.jpg');
+background:image-url('dare02.jpeg');
  background-size:cover;
-// background-size: 2000px 2000px;
+
+}
+
+.search_index{
+    width: 300px;
+    height: 40px;
 }

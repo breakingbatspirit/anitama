@@ -18,8 +18,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
       @address.address_phone = params[:user][:phone]
       @address.address_postal = params[:user][:postal]
       @address.address_address = params[:user][:address]
+      binding.pry
     if @address.save
-      # redirect_to root_path
+      redirect_to root_path
     else
       binding.pry
       p @address.errors.full_messages

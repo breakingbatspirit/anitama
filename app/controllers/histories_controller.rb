@@ -36,8 +36,9 @@ class HistoriesController < ApplicationController
     end
 
     user.cart_items.each do |cart_item|
-      cart_item.cd.inventory - cart_item.unit_quantity
-      cart_item.cd.save
+      @inventory = cart_item.cd.inventory - cart_item.unit_quantity
+      cart_item.cd.update(inventory: @inventory)
+
     end
 
     CartItem.delete_all

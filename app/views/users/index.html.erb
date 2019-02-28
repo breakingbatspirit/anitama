@@ -1,24 +1,18 @@
 <%= render 'users/header1' ,user:@user %>
-<div class="a">
+
+
    		<div class="col-sm-4">
 		   <div class="user-index-title"><h1>ユーザー 一覧</h1></div>
 		</div>
 		<div class="col-sm-4 form-group kensaku">
 	   			<%= search_form_for @search do |f| %>
 				<div align="center">
-				<%= f.text_field :name_cont, class: "search_index" %>
-				<%= f.submit "検索" , class: "btn btn-default btn-sm" %>
+				<%= f.text_field :phone_or_email_or_nickname_or_address_or_namekana_or_name_cont, class: "search_index" %>
+				<%= f.submit "検索" , class: "btn btn-default" %>
 				</div>
 	    	<% end %>
 	    </div>
-		<div class="col-sm-4">
-
-		</div>
-
-	</div>
-	</div>
-	</div>
-
+		<div class="col-sm-4"></div>
 
 
 <table class="table table-bordered">
@@ -74,5 +68,4 @@
 	<% end %>
 </table>
 <div align="center"><%= paginate @users_page, class: "paginate" %></div>
-</div>
 

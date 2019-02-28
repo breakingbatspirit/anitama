@@ -27,7 +27,6 @@ Artist.create!(
     song_id: 1
 )
 
-
 10.times do |no|
 # Anime.create!(anime_title:"コナン#{no}")
 # Label.create!(label_name: "レーベル#{no}")

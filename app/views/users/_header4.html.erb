@@ -2,7 +2,7 @@
  <% if current_user %>
  <div class="head"><%= link_to "アニソン★魂" ,root_path %></div>
   <div class="icon">
-    <%= link_to user_path(user.id) ,media:"_blank" do %>
+    <%= link_to user_path(current_user.id) ,media:"_blank" do %>
 
     <%= image_tag "/images/user.png", :size=> "50x50" %>
     <% end %>

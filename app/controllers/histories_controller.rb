@@ -61,7 +61,6 @@ class HistoriesController < ApplicationController
     params.require(:history).permit(:status,:histories_name,:histories_namekana,:histories_postal,:histories_address,:histories_phone,:user_id)
   end
 
-<<<<<<< HEAD
   def admin_validate!
       admin = User.find(1)
       if current_user != admin

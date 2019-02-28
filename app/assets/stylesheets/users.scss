@@ -271,15 +271,14 @@ text-align: center;
     padding-left: 20px;
 }
 .back_image{
-   
   background:image-url('dare7.jpg');
-  background-size:cover;
+  // background-size:cover;
 
 }
 
 .a{
-background:image-url('dare10.jpg');
- background-size:cover;
+ background:image-url('shiro5.gif');
+ // background-size:cover;
  
 // background-size: 2000px 2000px;
 }
@@ -293,4 +292,9 @@ background:image-url('dare2.jpg');
 background:image-url('dare.jpg');
  background-size:cover;
 // background-size: 2000px 2000px;
+}
+
+.search_index{
+    width: 300px;
+    height: 40px;
 }

@@ -13,7 +13,7 @@
     <%= image_tag "/images/cart.jpeg", :size=> "50x50"%>
     </div>
     <% end %>
-     <%=form_tag cds_path, method: :get do %>
+     <%=form_tag cds_result_path, method: :get do %>
        <%=text_field_tag :search, params[:search], class: "header4_search"%>
        <%=submit_tag "検索",class: "btn btn-banger"%>
     <% end %>

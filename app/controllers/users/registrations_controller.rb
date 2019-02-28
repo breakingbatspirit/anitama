@@ -7,17 +7,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create
-    # super...親クラス（ここではdevise/users）を継承
     super
-      # devise
+      # super...親クラス（ここではdevise/users）を継承
+      # deviseではresourceをuserオブジェクトの代わりとして使っている
+      # devise がやってること
       # resource = User.new(user_params)
       # resource.save
 
-      # for myself
+      # 本来は以下と同じ
       # user = User.new(user_params)
       # user.save
 
-      # deviseではresourceをuserオブジェクトの代わりとして使っている
     if resource.save
       @address = Address.new
         @address.user_id = resource.id
@@ -41,9 +41,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
 end
 
-
-
-      # 別の記述（場合によってはエラー）
+      # 別の記述
       # current_userはuserが作られた同じcreate actionの中では使えない
       # current_user.id
       # @address.address_name = params[:user][:name]

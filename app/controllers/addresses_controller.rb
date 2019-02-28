@@ -12,8 +12,7 @@ class AddressesController < ApplicationController
         if @address.save
             redirect_to purchase_path
         else
-            @address = Address.new(address_params)
-            render 'show'
+            render 'cart_items/show'
         end
     end
 
